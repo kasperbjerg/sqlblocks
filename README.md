@@ -11,6 +11,7 @@ See the live demo at
 
 ## Credits and acknoledgements
 
-Long list of videos, tutorials, repositories that has helped me in the process of building this site
+Long list of tutorials, videos, examples, repositories that has helped me in the process of building this project
 
 - [Vite React App Deploy On GitHub | Step By Step](https://www.youtube.com/watch?v=XhoWXhyuW_I)
+- [Deploying a Static Site](https://vitejs.dev/guide/static-deploy.html)

@@ -1,3 +1,4 @@
+https://github.com/kasperbjerg/sqlblocks/actions/workflows/deploy.yml/badge.svg
 # SQLBLOCKS
 
 ## Demo

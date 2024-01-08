@@ -60,13 +60,14 @@
     }, [primaryWorkspace, toolbox, blocklyDiv, props]);
 
     return (
-    <React.Fragment>
+    <>
         <button onClick={generateCode}>Convert</button>
         <div ref={blocklyDiv} id="blocklyDiv" />
         <div style={{ display: 'none' }} ref={toolbox}>
             {props.children}
         </div>
-    </React.Fragment>);
+    </>
+    );
 }
 
 export default BlocklyComponent;

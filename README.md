@@ -20,4 +20,4 @@ List of tutorials, videos, examples, repositories, etc., that has helped me in t
 
 - [Vite React App Deploy On GitHub | Step By Step](https://www.youtube.com/watch?v=XhoWXhyuW_I)
 - [Setting up SQLite Wasm in main thread with Vite](https://github.com/sqlite/sqlite-wasm/tree/main?tab=readme-ov-file#in-the-main-thread-without-opfs)
-- [Demo off integrating Blockly in React](https://github.com/google/blockly-samples/tree/master/examples/blockly-react)
+- [Demo of integrating Blockly in React](https://github.com/google/blockly-samples/tree/master/examples/blockly-react)

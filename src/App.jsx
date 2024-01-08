@@ -6,7 +6,6 @@ import Sql from './Sql.jsx'
 import BlocklyApp from './BlocklyApp.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Sql from './Sql.jsx'
+import BlocklyApp from './BlocklyApp.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,9 +20,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <Sql />
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BlocklyApp />
     </>
   )
 }

@@ -56,7 +56,7 @@ function Sql() {
   }, []);
   
   return (
-    <div className="bg-blue-200 round">
+    <div>
       <h1>{resultRows}</h1>
     </div>
   );

@@ -7,19 +7,19 @@ function App() {
 
   return (
     <>
-      <header className="bg-blockly-blue text-3xl text-white sans-serif  min-h-24">
-        <img src={logo} className="logo react" alt="React logo" />
+      <header className="bg-gray-200 text-3xl text-white sans-serif  min-h-16">
+        <img src={logo} className="relative left-8" alt="React logo" />
       </header>
-      <div className="grid grid-cols-5 gap-4 text-center">
-        <div className="col-span-1 text-center text-2xl min-w-120">Menu</div>
+      <div className="grid grid-cols-5 gap-4 top-4 relative">
+        <div className="col-span-1 indent-8 text-2xl min-w-120 font-semibold">Menu</div>
         <div className="col-span-4">
           <p className="text-2xl">Opgavebeskrivelser</p>
           <p className="text-1xl">Her kan der stå opgaver</p>
-          <div className="grid grid-cols-2 gap-4 text-center relative top-24">
+          <div className="grid grid-cols-2 gap-4 text-center relative top-12">
             <div className="">
               <BlocklyApp />
             </div>
-            <div className="text-3xl">
+            <div className="text-3xl font-serif">
                 <Sql />
             </div>
           </div>  

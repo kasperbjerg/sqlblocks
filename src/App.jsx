@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import logo from '/logo.svg'
-import Sql from './Sql.jsx'
 import BlocklyApp from './BlocklyApp.jsx'
 
 function App() {
@@ -15,14 +14,7 @@ function App() {
         <div className="col-span-4">
           <p className="text-2xl">Opgavebeskrivelser</p>
           <p className="text-1xl">Her kan der stå opgaver</p>
-          <div className="grid grid-cols-2 gap-4 text-center relative top-12">
-            <div className="">
-              <BlocklyApp />
-            </div>
-            <div className="text-3xl font-serif">
-                <Sql />
-            </div>
-          </div>  
+          <BlocklyApp />
         </div>
       </div>
     </>

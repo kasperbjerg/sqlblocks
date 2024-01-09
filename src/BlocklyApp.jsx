@@ -1,11 +1,14 @@
 import BlocklyComponent, { Block, Value, Field, Shadow } from './Blockly';
 import './blocks/customblocks';
 import './generator/generator';
+import Sql from './Sql.jsx'
 
 function BlocklyApp() {
 
     return (
-        <BlocklyComponent readOnly={false}
+          <div className="grid grid-cols-2 gap-4 text-center relative top-12">
+            <div className="">
+            <BlocklyComponent readOnly={false}
           trashcan={false} media={'media/'}
           move={{
             scrollbars: {
@@ -44,6 +47,13 @@ function BlocklyApp() {
               </Value>
             </Block>
           </BlocklyComponent>
+          </div>
+            <div className="text-3xl font-serif">
+                <Sql />
+            </div>
+          </div>
+
+        
     )
 }
 

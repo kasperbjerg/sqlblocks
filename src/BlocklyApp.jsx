@@ -2,13 +2,15 @@ import BlocklyComponent, { Block, Value, Field, Shadow } from './Blockly';
 import './blocks/customblocks';
 import './generator/generator';
 import Sql from './Sql.jsx'
+import {useState} from 'react';
 
 function BlocklyApp() {
+    const [code,setCode] = useState("Her kommer koden")
 
     return (
           <div className="grid grid-cols-2 gap-4 text-center relative top-12">
             <div className="">
-            <BlocklyComponent readOnly={false}
+            <BlocklyComponent getCode = {(kode) => setCode(kode)} readOnly={false}
           trashcan={false} media={'media/'}
           move={{
             scrollbars: {
@@ -49,7 +51,7 @@ function BlocklyApp() {
           </BlocklyComponent>
           </div>
             <div className="text-3xl font-serif">
-                <Sql />
+                <Sql text={code}/>
             </div>
           </div>
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import sqlite3InitModule from '@sqlite.org/sqlite-wasm';
 
-function Sql() {
+function Sql({text}) {
 
   const log = (...args) => console.log(...args);
   const error = (...args) => console.error(...args);  
@@ -57,7 +57,7 @@ function Sql() {
   
   return (
     <div>
-      <h1>{resultRows}</h1>
+      <h1>{text}{resultRows}</h1>
     </div>
   );
 }

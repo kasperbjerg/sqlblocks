@@ -42,6 +42,7 @@
           primaryWorkspace.current
         );
         console.log(code);
+        return code;
     }
 
     useEffect(() => {
@@ -61,7 +62,7 @@
 
     return (
     <>
-        <button onClick={generateCode}>Convert</button>
+        <button className='bg-blue-400 rounded' onClick={() => props.getCode(generateCode)}>tryk for at "køre" kode</button>
         <div ref={blocklyDiv} id="blocklyDiv" />
         <div style={{ display: 'none' }} ref={toolbox}>
             {props.children}

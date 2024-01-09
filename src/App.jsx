@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import logo from '/logo.svg'
 import BlocklyApp from './BlocklyApp.jsx'
 

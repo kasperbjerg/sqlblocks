@@ -58,7 +58,7 @@
             if (initialXml) {
                 Blockly.Xml.domToWorkspace(Blockly.utils.xml.textToDom(initialXml), primaryWorkspace.current);
             }
-    }, [primaryWorkspace, toolbox, blocklyDiv, props]);
+    }, [primaryWorkspace, toolbox, blocklyDiv]);
 
     return (
     <>

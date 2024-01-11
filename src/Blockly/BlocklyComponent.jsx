@@ -21,54 +21,56 @@
  * @author samelh@google.com (Sam El-Husseini)
  */
 
- import React from 'react';
- import './BlocklyComponent.css';
- import {useEffect, useRef} from 'react';
+import './BlocklyComponent.css';
+import { useEffect, useRef } from 'react';
 
- import Blockly from 'blockly/core';
- import {javascriptGenerator} from 'blockly/javascript';
- import locale from 'blockly/msg/en';
- import 'blockly/blocks';
+import Blockly from 'blockly/core';
+import { javascriptGenerator } from 'blockly/javascript';
+import locale from 'blockly/msg/en';
+import 'blockly/blocks';
 
- Blockly.setLocale(locale);
+Blockly.setLocale(locale);
 
- function BlocklyComponent(props) {
-    const blocklyDiv = useRef();
-    const toolbox = useRef();
-    let primaryWorkspace = useRef();
+function BlocklyComponent(props) {
+  const blocklyDiv = useRef();
+  const toolbox = useRef();
+  let primaryWorkspace = useRef();
 
-    const generateCode = () => {
-        var code = javascriptGenerator.workspaceToCode(
-          primaryWorkspace.current
-        );
-        console.log(code);
-        return code;
+  const generateCode = () => {
+    var code = javascriptGenerator.workspaceToCode(primaryWorkspace.current);
+    console.log(code);
+    return code;
+  };
+
+  useEffect(() => {
+    const { initialXml, children, ...rest } = props;
+    primaryWorkspace.current = Blockly.inject(blocklyDiv.current, {
+      toolbox: toolbox.current,
+      ...rest,
+    });
+
+    if (initialXml) {
+      Blockly.Xml.domToWorkspace(
+        Blockly.utils.xml.textToDom(initialXml),
+        primaryWorkspace.current,
+      );
     }
+  }, [primaryWorkspace, toolbox, blocklyDiv]);
 
-    useEffect(() => {
-        const { initialXml, children, ...rest } = props;
-            primaryWorkspace.current = Blockly.inject(
-                blocklyDiv.current,
-                {
-                    toolbox: toolbox.current,
-                    ...rest
-                },
-            );
-
-            if (initialXml) {
-                Blockly.Xml.domToWorkspace(Blockly.utils.xml.textToDom(initialXml), primaryWorkspace.current);
-            }
-    }, [primaryWorkspace, toolbox, blocklyDiv]);
-
-    return (
+  return (
     <>
-        <button className='bg-blue-400 rounded' onClick={() => props.getCode(generateCode)}>tryk for at "køre" kode</button>
-        <div ref={blocklyDiv} id="blocklyDiv" />
-        <div style={{ display: 'none' }} ref={toolbox}>
-            {props.children}
-        </div>
+      <button
+        className="rounded bg-blue-400"
+        onClick={() => props.getCode(generateCode)}
+      >
+        tryk for at "køre" kode
+      </button>
+      <div ref={blocklyDiv} id="blocklyDiv" />
+      <div style={{ display: 'none' }} ref={toolbox}>
+        {props.children}
+      </div>
     </>
-    );
+  );
 }
 
 export default BlocklyComponent;

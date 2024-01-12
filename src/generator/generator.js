@@ -33,3 +33,13 @@ javascriptGenerator.forBlock['test_react_field'] = function (block) {
 javascriptGenerator.forBlock['test_react_date_field'] = function (block) {
     return 'console.log(' + block.getField('DATE').getText() + ');\n';
 };
+
+javascriptGenerator.forBlock['sql'] = function (block, generator) {
+  var code = 'Hejsa fra Blocks!';
+  return code;
+};
+
+javascriptGenerator.forBlock['sql2'] = function (block, generator) {
+  var code = 'Her kommer noget mere kode!';
+  return code;
+};

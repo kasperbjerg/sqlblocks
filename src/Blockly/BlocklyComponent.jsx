@@ -34,17 +34,18 @@ Blockly.setLocale(locale);
 function BlocklyComponent(props) {
   const blocklyDiv = useRef();
   const toolbox = useRef();
-  let primaryWorkspace = useRef();
 
+  /*
   const generateCode = () => {
     var code = javascriptGenerator.workspaceToCode(primaryWorkspace.current);
     console.log(code);
     return code;
   };
+  */
 
   useEffect(() => {
     const { initialXml, children, ...rest } = props;
-    primaryWorkspace.current = Blockly.inject(blocklyDiv.current, {
+    let workspace = Blockly.inject(blocklyDiv.current, {
       toolbox: toolbox.current,
       ...rest,
     });
@@ -52,19 +53,35 @@ function BlocklyComponent(props) {
     if (initialXml) {
       Blockly.Xml.domToWorkspace(
         Blockly.utils.xml.textToDom(initialXml),
-        primaryWorkspace.current,
+        workspace,
       );
     }
-  }, [primaryWorkspace, toolbox, blocklyDiv]);
+
+    /*
+    const supportedEvents = new Set([
+      Blockly.Events.BLOCK_CHANGE,
+      Blockly.Events.BLOCK_CREATE,
+      Blockly.Events.BLOCK_DELETE,
+      Blockly.Events.BLOCK_MOVE,
+    ]);
+    */
+
+    function updateCode(event) {
+      //if (workspace.isDragging()) return; // Don't update while changes are happening.
+      //if (!supportedEvents.has(event.type)) return; Error
+
+      const code = javascriptGenerator.workspaceToCode(
+        workspace
+      );
+      return code;
+    }
+
+    workspace.addChangeListener(() => props.getCode(updateCode));
+    
+  }, [ toolbox, blocklyDiv ]);
 
   return (
     <>
-      <button
-        className="rounded bg-blue-400"
-        onClick={() => props.getCode(generateCode)}
-      >
-        tryk for at "køre" kode
-      </button>
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: 'none' }} ref={toolbox}>
         {props.children}

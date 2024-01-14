@@ -108,7 +108,7 @@ Blockly.Blocks['sql'] = {
 
 const sql2 = {
   type: 'sql',
-  message0: 'Her er noget mere..',
+  message0: 'Her er noget andet..',
   previousStatement: null,
   colour: 230,
   tooltip: '',

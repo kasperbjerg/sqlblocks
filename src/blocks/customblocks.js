@@ -76,7 +76,7 @@ Blockly.Blocks['test_react_field'] = {
 
 const sql = {
   type: 'sql',
-  message0: 'Her er en bunke SQL kode: %1 %2 %3 %4',
+  message0: 'CREATE TABLE %1 %2 %3 %4',
   args0: [
     {
       type: 'input_dummy',
@@ -108,7 +108,7 @@ Blockly.Blocks['sql'] = {
 
 const sql2 = {
   type: 'sq2',
-  message0: 'Drop table..',
+  message0: 'INSERT INTO',
   previousStatement: null,
   colour: 230,
   tooltip: '',

@@ -40,6 +40,6 @@ javascriptGenerator.forBlock['sql'] = function (block, generator) {
 };
 
 javascriptGenerator.forBlock['sql2'] = function (block, generator) {
-  var code = 'Her kommer noget mere kode!';
+  var code = 'DROP TABLE IF EXISTS t';
   return code;
 };

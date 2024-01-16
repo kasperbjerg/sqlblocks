@@ -26,6 +26,7 @@ function BlocklyApp() {
         <Block type="sql" />
         <Block type="sql2" />
         <Block type="sql3" />
+        <Block type="sql4" />
         <Block type="test_react_field" />
         <Block type="controls_ifelse" />
         <Block type="logic_compare" />

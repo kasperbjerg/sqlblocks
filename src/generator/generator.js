@@ -39,5 +39,13 @@ javascriptGenerator.forBlock['sql'] = function (block, generator) {
 };
 
 javascriptGenerator.forBlock['sql2'] = function (block, generator) {
-  return 'INSERT INTO t(navn,antal) VALUES (42,7);';
+  return "INSERT INTO t(navn,antal) VALUES ('mælk',6);";
+};
+
+javascriptGenerator.forBlock['sql3'] = function (block, generator) {
+  return "INSERT INTO t(navn,antal) VALUES ('cola',8);";
+};
+
+javascriptGenerator.forBlock['sql4'] = function (block, generator) {
+  return 'SELECT navn,antal FROM t ORDER BY antal;';
 };

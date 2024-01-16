@@ -39,14 +39,6 @@ export default function BlocklyComponent(props) {
   let primaryWorkspace = useRef();
   const [sqlCode, setSqlCode] = useState('');
 
-  /*
-  const generateCode = () => {
-    var code = javascriptGenerator.workspaceToCode(primaryWorkspace.current);
-    console.log(code);
-    return code;
-  };
-  */
-
   useEffect(() => {
     const { initialXml, children, ...rest } = props;
     let workspace = Blockly.inject(blocklyDiv.current, {
@@ -98,6 +90,7 @@ export default function BlocklyComponent(props) {
         </div>
         <div className="">
           {sqlCode}
+          <p>Nedenfor er output</p>
           <Sql sqlCode={sqlCode} />
         </div>
       </div>
@@ -118,24 +111,9 @@ function Sql({ sqlCode }) {
       log('Created transient database', db.filename);
 
       try {
-        log('', 'Creating a table...');
-        //db.exec('DROP TABLE IF EXISTS t');
-        db.exec(sqlCode);
-        //db.exec('CREATE TABLE IF NOT EXISTS t(navn TEXT, antal INTEGER)');
-
+        setResultRows([]);
         db.exec({
-          sql: 'INSERT INTO t(navn,antal) VALUES (?,?)',
-          bind: ['Nutella', 2],
-        });
-
-        db.exec({
-          sql: 'INSERT INTO t(navn,antal) VALUES (?,?)',
-          bind: ['smør', 3],
-        });
-
-        log('Query data with exec()...');
-        db.exec({
-          sql: 'SELECT navn,antal FROM t ORDER BY antal',
+          sql: sqlCode,
           callback: (result) => {
             setResultRows((resultRows) => [
               ...resultRows,

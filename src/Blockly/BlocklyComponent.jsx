@@ -71,7 +71,7 @@ export default function BlocklyComponent(props) {
     */
 
     function updateCode(event) {
-      //if (workspace.isDragging()) return; // Don't update while changes are happening.
+      if (workspace.isDragging()) return; // Don't update while changes are happening.
       //if (!supportedEvents.has(event.type)) return; Error
 
       let code = javascriptGenerator.workspaceToCode(workspace);

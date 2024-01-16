@@ -19,7 +19,7 @@ function BlocklyApp() {
         }}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
-                <block type="sql" x="25" y="50"></block>
+                
               </xml>
           `}
       >

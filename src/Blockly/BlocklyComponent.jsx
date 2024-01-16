@@ -39,13 +39,13 @@ export default function BlocklyComponent(props) {
   let primaryWorkspace = useRef();
   const [sqlCode, setSqlCode] = useState('');
 
-  
+  /*
   const generateCode = () => {
     var code = javascriptGenerator.workspaceToCode(primaryWorkspace.current);
     console.log(code);
     return code;
   };
-  
+  */
 
   useEffect(() => {
     const { initialXml, children, ...rest } = props;
@@ -74,7 +74,13 @@ export default function BlocklyComponent(props) {
       //if (workspace.isDragging()) return; // Don't update while changes are happening.
       //if (!supportedEvents.has(event.type)) return; Error
 
-      const code = javascriptGenerator.workspaceToCode(workspace);
+      let code = javascriptGenerator.workspaceToCode(workspace);
+      // Add a preamble and a postscript to the code.
+      code = `
+
+        ${code}
+
+      `;
       return code;
     }
 
@@ -100,7 +106,7 @@ export default function BlocklyComponent(props) {
 }
 
 // The sqlite3 funcion:
-function Sql({sqlCode}) {
+function Sql({ sqlCode }) {
   const log = (...args) => console.log(...args);
   const error = (...args) => console.error(...args);
   const [resultRows, setResultRows] = useState([]);
@@ -115,8 +121,8 @@ function Sql({sqlCode}) {
         log('', 'Creating a table...');
         //db.exec('DROP TABLE IF EXISTS t');
         db.exec(sqlCode);
-        db.exec('CREATE TABLE IF NOT EXISTS t(navn TEXT, antal INTEGER)');
-        
+        //db.exec('CREATE TABLE IF NOT EXISTS t(navn TEXT, antal INTEGER)');
+
         db.exec({
           sql: 'INSERT INTO t(navn,antal) VALUES (?,?)',
           bind: ['Nutella', 2],

@@ -107,8 +107,8 @@ Blockly.Blocks['sql'] = {
 };
 
 const sql2 = {
-  type: 'sql',
-  message0: 'Her er noget mere..',
+  type: 'sq2',
+  message0: 'Drop table..',
   previousStatement: null,
   colour: 230,
   tooltip: '',
@@ -118,6 +118,22 @@ const sql2 = {
 Blockly.Blocks['sql2'] = {
   init: function () {
     this.jsonInit(sql2);
+    this.setStyle('loop_blocks');
+  },
+};
+
+const sql3 = {
+  type: 'sql3',
+  message0: 'Create table..',
+  previousStatement: null,
+  colour: 230,
+  tooltip: '',
+  helpUrl: '',
+};
+
+Blockly.Blocks['sql3'] = {
+  init: function () {
+    this.jsonInit(sql3);
     this.setStyle('loop_blocks');
   },
 };

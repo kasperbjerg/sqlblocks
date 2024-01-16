@@ -24,14 +24,14 @@
 // More on generating code:
 // https://developers.google.com/blockly/guides/create-custom-blocks/generating-code
 
-import {javascriptGenerator} from 'blockly/javascript';
+import { javascriptGenerator } from 'blockly/javascript';
 
 javascriptGenerator.forBlock['test_react_field'] = function (block) {
-    return 'console.log(\'custom block\');\n';
+  return "console.log('custom block');\n";
 };
 
 javascriptGenerator.forBlock['test_react_date_field'] = function (block) {
-    return 'console.log(' + block.getField('DATE').getText() + ');\n';
+  return 'console.log(' + block.getField('DATE').getText() + ');\n';
 };
 
 javascriptGenerator.forBlock['sql'] = function (block, generator) {
@@ -40,6 +40,6 @@ javascriptGenerator.forBlock['sql'] = function (block, generator) {
 };
 
 javascriptGenerator.forBlock['sql2'] = function (block, generator) {
-  var code = 'DROP TABLE IF EXISTS t';
+  var code = 'Her kommer noget mere kode!';
   return code;
 };

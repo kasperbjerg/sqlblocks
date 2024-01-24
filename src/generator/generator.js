@@ -27,32 +27,7 @@
 import { CodeGenerator } from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
-javascriptGenerator.forBlock['test_react_field'] = function (block) {
-  return "console.log('custom block');\n";
-};
-
-javascriptGenerator.forBlock['test_react_date_field'] = function (block) {
-  return 'console.log(' + block.getField('DATE').getText() + ');\n';
-};
-
-javascriptGenerator.forBlock['sql'] = function (block, generator) {
-  return 'CREATE TABLE IF NOT EXISTS t(navn TEXT, antal INTEGER);';
-};
-
-javascriptGenerator.forBlock['sql2'] = function (block, generator) {
-  return "INSERT INTO t(navn,antal) VALUES ('mælk',6);";
-};
-
-javascriptGenerator.forBlock['sql3'] = function (block, generator) {
-  return "INSERT INTO t(navn,antal) VALUES ('cola',8);";
-};
-
-javascriptGenerator.forBlock['sql4'] = function (block, generator) {
-  return 'SELECT navn,antal FROM t ORDER BY antal;';
-};
-
 javascriptGenerator.forBlock['run_sqlblocks'] = function (block, generator) {
-  // TODO: Assemble javascript into code variable.
   var code = '';
   return code;
 };
@@ -71,6 +46,20 @@ javascriptGenerator.forBlock['add_columns'] = function (block, generator) {
   if (block.previousConnection.targetBlock().type == 'add_columns') {
     code = ', ' + code;
   }
+  return code;
+};
 
+javascriptGenerator.forBlock['insert_into'] = function (block, generator) {
+  var text_table_name = block.getFieldValue('table_NAME');
+  var text_row_names = block.getFieldValue('row_names');
+  var code =
+    'INSERT INTO ' + text_table_name + ' VALUES (' + text_row_names + ');';
+  return code;
+};
+
+javascriptGenerator.forBlock['select'] = function (block, generator) {
+  var text_rows = block.getFieldValue('rows');
+  var text_table = block.getFieldValue('table');
+  var code = 'SELECT ' + text_rows + ' FROM ' + text_table + ';';
   return code;
 };

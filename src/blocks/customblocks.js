@@ -119,6 +119,8 @@ Blockly.Blocks['sql2'] = {
   init: function () {
     this.jsonInit(sql2);
     this.setStyle('loop_blocks');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
   },
 };
 
@@ -135,6 +137,8 @@ Blockly.Blocks['sql3'] = {
   init: function () {
     this.jsonInit(sql3);
     this.setStyle('loop_blocks');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
   },
 };
 
@@ -151,5 +155,63 @@ Blockly.Blocks['sql4'] = {
   init: function () {
     this.jsonInit(sql4);
     this.setStyle('loop_blocks');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  },
+};
+
+Blockly.Blocks['run_sqlblocks'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('RUN')
+      .appendField(
+        new Blockly.FieldImage(
+          'https://kasperbjerg.github.io/sqlblocks/logo.svg',
+          50,
+          50,
+          { alt: '*', flipRtl: 'FALSE' },
+        ),
+      );
+    this.setNextStatement(true, null);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['create_table'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('CREATE TABLE')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField('(');
+    this.appendStatementInput('NAME').setCheck(null);
+    this.appendDummyInput().appendField(');');
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(165);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['add_columns'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['INTEGER', 'INTEGER'],
+          ['TEXT', 'TEXT'],
+          ['REAL', 'REAL'],
+        ]),
+        'datatype',
+      );
+    this.setPreviousStatement(true, ['create_table', 'add_columns']);
+    this.setNextStatement(true, 'add_columns');
+    this.setColour(270);
+    this.setTooltip('');
+    this.setHelpUrl('');
   },
 };

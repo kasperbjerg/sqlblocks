@@ -19,10 +19,12 @@ function BlocklyApp() {
         }}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
-                
+                <Block type="run_sqlblocks" />
               </xml>
           `}
       >
+        <Block type="create_table" />
+        <Block type="add_columns" />
         <Block type="sql" />
         <Block type="sql2" />
         <Block type="sql3" />

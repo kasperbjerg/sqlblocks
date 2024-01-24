@@ -77,6 +77,7 @@ export default function BlocklyComponent(props) {
     }
 
     workspace.addChangeListener(() => setSqlCode(updateCode));
+    workspace.addChangeListener(Blockly.Events.disableOrphans);
   }, [toolbox, blocklyDiv]);
 
   return (

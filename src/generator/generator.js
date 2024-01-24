@@ -24,6 +24,7 @@
 // More on generating code:
 // https://developers.google.com/blockly/guides/create-custom-blocks/generating-code
 
+import { CodeGenerator } from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
 javascriptGenerator.forBlock['test_react_field'] = function (block) {
@@ -48,4 +49,28 @@ javascriptGenerator.forBlock['sql3'] = function (block, generator) {
 
 javascriptGenerator.forBlock['sql4'] = function (block, generator) {
   return 'SELECT navn,antal FROM t ORDER BY antal;';
+};
+
+javascriptGenerator.forBlock['run_sqlblocks'] = function (block, generator) {
+  // TODO: Assemble javascript into code variable.
+  var code = '';
+  return code;
+};
+
+javascriptGenerator.forBlock['create_table'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME');
+  var statements_name = generator.statementToCode(block, 'NAME');
+  var code = 'CREATE TABLE ' + text_name + ' (' + statements_name + ');';
+  return code;
+};
+
+javascriptGenerator.forBlock['add_columns'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME');
+  var dropdown_datatype = block.getFieldValue('datatype');
+  var code = text_name + ' ' + dropdown_datatype;
+  if (block.previousConnection.targetBlock().type == 'add_columns') {
+    code = ', ' + code;
+  }
+
+  return code;
 };

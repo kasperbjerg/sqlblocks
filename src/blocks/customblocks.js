@@ -31,10 +31,12 @@ Blockly.Blocks['run_sqlblocks'] = {
     this.appendDummyInput()
       .appendField('RUN')
       .appendField(
-        new Blockly.FieldImage('public/logo.svg', 50, 50, {
-          alt: '*',
-          flipRtl: 'FALSE',
-        }),
+        new Blockly.FieldImage(
+          'https://kasperbjerg.github.io/sqlblocks/logo.svg',
+          50,
+          50,
+          { alt: '*', flipRtl: 'FALSE' },
+        ),
       );
     this.setNextStatement(true, null);
     this.setColour(210);

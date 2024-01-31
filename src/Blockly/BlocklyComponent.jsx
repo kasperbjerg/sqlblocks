@@ -113,15 +113,32 @@ function Sql({ sqlCode }) {
 
       try {
         setResultRows([]);
+        let resultRows1 = [];
+
+        /*
         db.exec({
           sql: sqlCode,
-          callback: (result) => {
-            setResultRows((resultRows) => [
-              ...resultRows,
-              JSON.stringify(result),
-            ]);
+          rowMode: 'stmt',
+          callback: function (row) {
+            log('row ', 'get(0) =', row.getColumnNames());
           },
         });
+*/
+
+        db.exec({
+          sql: sqlCode,
+          rowMode: 'object',
+          resultRows: resultRows1,
+        });
+        setResultRows(resultRows1);
+        console.log('test');
+        console.log(resultRows);
+        if (resultRows.length != 0) {
+          console.log('kør');
+          Object.keys(resultRows[0]).map((key) => {
+            console.log(key);
+          });
+        }
       } finally {
         db.close();
       }
@@ -143,7 +160,7 @@ function Sql({ sqlCode }) {
 
   return (
     <div>
-      <h1>{resultRows}</h1>
+      <h1>{JSON.stringify(resultRows)}</h1>
     </div>
   );
 }

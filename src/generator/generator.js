@@ -39,11 +39,46 @@ javascriptGenerator.forBlock['create_table'] = function (block, generator) {
   return code;
 };
 
-javascriptGenerator.forBlock['add_columns'] = function (block, generator) {
+javascriptGenerator.forBlock['add_integer_column'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME');
-  var dropdown_datatype = block.getFieldValue('datatype');
-  var code = text_name + ' ' + dropdown_datatype;
-  if (block.previousConnection.targetBlock().type == 'add_columns') {
+  var code = text_name + ' INTEGER';
+  if (
+    ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
+      block.previousConnection.targetBlock().type,
+    )
+  ) {
+    code = ', ' + code;
+  }
+  return code;
+};
+
+javascriptGenerator.forBlock['add_text_column'] = function (
+  block,
+  generator,
+) {
+  var text_name = block.getFieldValue('NAME');
+  var code = text_name + ' INTEGER';
+  if (
+    ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
+      block.previousConnection.targetBlock().type,
+    )
+  ) {
+    code = ', ' + code;
+  }
+  return code;
+};
+
+javascriptGenerator.forBlock['add_real_column'] = function (
+  block,
+  generator,
+) {
+  var text_name = block.getFieldValue('NAME');
+  var code = text_name + ' INTEGER';
+  if (
+    ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
+      block.previousConnection.targetBlock().type,
+    )
+  ) {
     code = ', ' + code;
   }
   return code;
@@ -54,6 +89,13 @@ javascriptGenerator.forBlock['insert_into'] = function (block, generator) {
   var text_row_names = block.getFieldValue('row_names');
   var code =
     'INSERT INTO ' + text_table_name + ' VALUES (' + text_row_names + ');';
+  return code;
+};
+
+javascriptGenerator.forBlock['select_*'] = function (block, generator) {
+  var text_rows = block.getFieldValue('rows');
+  var text_table = block.getFieldValue('table');
+  var code = 'SELECT * FROM ' + text_table + ';';
   return code;
 };
 

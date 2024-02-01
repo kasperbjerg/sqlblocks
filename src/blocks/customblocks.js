@@ -62,20 +62,69 @@ Blockly.Blocks['create_table'] = {
   },
 };
 
-Blockly.Blocks['add_columns'] = {
+Blockly.Blocks['add_integer_column'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(new Blockly.FieldTextInput(''), 'NAME')
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['INTEGER', 'INTEGER'],
-          ['TEXT', 'TEXT'],
-          ['REAL', 'REAL'],
-        ]),
-        'datatype',
-      );
-    this.setPreviousStatement(true, ['create_table', 'add_columns']);
-    this.setNextStatement(true, 'add_columns');
+      .appendField('INTEGER');
+    this.setPreviousStatement(true, [
+      'create_table',
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    ]);
+    this.setNextStatement(
+      true,
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    );
+    this.setColour(270);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['add_text_column'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField('TEXT');
+    this.setPreviousStatement(true, [
+      'create_table',
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    ]);
+    this.setNextStatement(
+      true,
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    );
+    this.setColour(270);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['add_real_column'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField('REAL');
+    this.setPreviousStatement(true, [
+      'create_table',
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    ]);
+    this.setNextStatement(
+      true,
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    );
     this.setColour(270);
     this.setTooltip('');
     this.setHelpUrl('');
@@ -93,6 +142,19 @@ Blockly.Blocks['insert_into'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(315);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['select_*'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('SELECT * FROM')
+      .appendField(new Blockly.FieldTextInput(''), 'table')
+      .appendField(';');
+    this.setPreviousStatement(true, null);
+    this.setColour(60);
     this.setTooltip('');
     this.setHelpUrl('');
   },

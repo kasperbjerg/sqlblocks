@@ -24,8 +24,11 @@ function BlocklyApp() {
           `}
       >
         <Block type="create_table" />
-        <Block type="add_columns" />
+        <Block type="add_integer_column" />
+        <Block type="add_text_column" />
+        <Block type="add_real_column" />
         <Block type="insert_into" />
+        <Block type="select_*" />
         <Block type="select" />
       </BlocklyComponent>
     </>

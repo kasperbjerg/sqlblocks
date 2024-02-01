@@ -158,9 +158,44 @@ function Sql({ sqlCode }) {
     });
   }, [sqlCode]);
 
+  // `map` over the first object in the array
+  // and get an array of keys and add them
+  // to TH elements
+  function getHeadings(data) {
+    if (data.length == 0) {
+      return;
+    }
+    return Object.keys(data[0]).map((key) => {
+      return <th>{key}</th>;
+    });
+  }
+
+  // `map` over the data to return
+  // row data, passing in each mapped object
+  // to `getCells`
+  function getRows(data) {
+    if (data.length == 0) {
+      return;
+    }
+    return data.map((obj) => {
+      return <tr>{getCells(obj)}</tr>;
+    });
+  }
+
+  // Return an array of cell data using the
+  // values of each object
+  function getCells(obj) {
+    return Object.values(obj).map((value) => {
+      return <td>{value}</td>;
+    });
+  }
+
   return (
     <div>
-      <h1>{JSON.stringify(resultRows)}</h1>
+      <table class="border">
+        <thead class="border">{getHeadings(resultRows)}</thead>
+        <tbody>{getRows(resultRows)}</tbody>
+      </table>
     </div>
   );
 }

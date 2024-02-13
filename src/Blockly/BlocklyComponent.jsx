@@ -104,6 +104,8 @@ function Sql({ sqlCode }) {
   const log = (...args) => console.log(...args);
   const error = (...args) => console.error(...args);
   const [resultRows, setResultRows] = useState([]);
+  // array of tables in the database
+  const [dbTables, setDbTables] = useState([]);
 
   useEffect(() => {
     const start = function (sqlite3) {
@@ -112,33 +114,29 @@ function Sql({ sqlCode }) {
       log('Created transient database', db.filename);
 
       try {
-        setResultRows([]);
+        //Executes sqlCode generated from blockly
         let resultRows1 = [];
-
-        /*
-        db.exec({
-          sql: sqlCode,
-          rowMode: 'stmt',
-          callback: function (row) {
-            log('row ', 'get(0) =', row.getColumnNames());
-          },
-        });
-*/
-
         db.exec({
           sql: sqlCode,
           rowMode: 'object',
           resultRows: resultRows1,
         });
         setResultRows(resultRows1);
-        console.log('test');
-        console.log(resultRows);
-        if (resultRows.length != 0) {
-          console.log('kør');
-          Object.keys(resultRows[0]).map((key) => {
-            console.log(key);
-          });
-        }
+
+        //fills the dbTables array
+        let rows = [];
+        db.exec({
+          sql: `select name as "table" from sqlite_schema
+                where type = 'table'
+                and name not like 'sqlite_%'
+                and name not like 'sqlean_%'`,
+          rowMode: 'array',
+          resultRows: rows,
+        });
+        let tabelsArray = [];
+        tabelsArray = rows.map((row) => row[0]);
+        setDbTables(tabelsArray);
+        console.log(JSON.stringify(dbTables));
       } finally {
         db.close();
       }
@@ -158,6 +156,25 @@ function Sql({ sqlCode }) {
     });
   }, [sqlCode]);
 
+  //Functions to fill the database scema tables
+  //Creates at table for each element in the array
+  function createTables(data) {
+    if (data.length == 0) {
+      return;
+    }
+    return data.map((table) => {
+      return (
+        <table className="border">
+          <thead className="border">
+            <th>{table}</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      );
+    });
+  }
+
+  //Functions to fill the result table
   // `map` over the first object in the array
   // and get an array of keys and add them
   // to TH elements
@@ -192,6 +209,11 @@ function Sql({ sqlCode }) {
 
   return (
     <div>
+      <h1 className="text-left">Database skema</h1>
+      <div class="grid auto-cols-max grid-flow-col">
+        {createTables(dbTables)}
+      </div>
+      <h1 className="text-left">Resultat</h1>
       <table class="border">
         <thead class="border">{getHeadings(resultRows)}</thead>
         <tbody>{getRows(resultRows)}</tbody>

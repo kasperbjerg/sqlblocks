@@ -39,20 +39,7 @@ javascriptGenerator.forBlock['create_table'] = function (block, generator) {
   return code;
 };
 
-javascriptGenerator.forBlock['add_integer_column'] = function (block, generator) {
-  var text_name = block.getFieldValue('NAME');
-  var code = text_name + ' INTEGER';
-  if (
-    ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
-      block.previousConnection.targetBlock().type,
-    )
-  ) {
-    code = ', ' + code;
-  }
-  return code;
-};
-
-javascriptGenerator.forBlock['add_text_column'] = function (
+javascriptGenerator.forBlock['add_integer_column'] = function (
   block,
   generator,
 ) {
@@ -68,12 +55,22 @@ javascriptGenerator.forBlock['add_text_column'] = function (
   return code;
 };
 
-javascriptGenerator.forBlock['add_real_column'] = function (
-  block,
-  generator,
-) {
+javascriptGenerator.forBlock['add_text_column'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME');
-  var code = text_name + ' INTEGER';
+  var code = text_name + ' TEXT';
+  if (
+    ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
+      block.previousConnection.targetBlock().type,
+    )
+  ) {
+    code = ', ' + code;
+  }
+  return code;
+};
+
+javascriptGenerator.forBlock['add_real_column'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME');
+  var code = text_name + ' REAL';
   if (
     ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
       block.previousConnection.targetBlock().type,

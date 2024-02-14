@@ -124,19 +124,33 @@ function Sql({ sqlCode }) {
         setResultRows(resultRows1);
 
         //fills the dbTables array
-        let rows = [];
+        let tableRows = [];
         db.exec({
           sql: `select name as "table" from sqlite_schema
                 where type = 'table'
                 and name not like 'sqlite_%'
                 and name not like 'sqlean_%'`,
           rowMode: 'array',
-          resultRows: rows,
+          resultRows: tableRows,
         });
         let tabelsArray = [];
-        tabelsArray = rows.map((row) => row[0]);
+        tabelsArray = tableRows.map((row) => row[0]);
         setDbTables(tabelsArray);
-        console.log(JSON.stringify(dbTables));
+
+        //fills the dbTablesInfo array
+        let tableInfoRows = [];
+        dbTables.map((table) => {
+          const sql =
+            `select iif(pk=1, '✓', '') as pk, name, type, iif("notnull"=0, '✓', '') as "null?"
+          from pragma_table_info('{}')`.replace('{}', table);
+          console.log(sql);
+          db.exec({
+            sql: sql,
+            rowMode: 'object',
+            resultRows: tableInfoRows,
+          });
+        });
+        console.log(JSON.stringify(tableInfoRows));
       } finally {
         db.close();
       }
@@ -209,8 +223,8 @@ function Sql({ sqlCode }) {
 
   return (
     <div>
-      <h1 className="text-left">Database skema</h1>
-      <div class="grid auto-cols-max grid-flow-col">
+      <h1 className="text-left">Databaseskema</h1>
+      <div className="grid auto-cols-max grid-flow-col gap-4">
         {createTables(dbTables)}
       </div>
       <h1 className="text-left">Resultat</h1>

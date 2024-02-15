@@ -106,6 +106,8 @@ function Sql({ sqlCode }) {
   const [resultRows, setResultRows] = useState([]);
   // array of tables in the database
   const [dbTables, setDbTables] = useState([]);
+  // array of tables with info in the database
+  const [dbTableInfo, setDbTableInfo] = useState([]);
 
   useEffect(() => {
     const start = function (sqlite3) {
@@ -122,6 +124,7 @@ function Sql({ sqlCode }) {
           resultRows: resultRows1,
         });
         setResultRows(resultRows1);
+        console.log(JSON.stringify(resultRows));
 
         //fills the dbTables array
         let tableRows = [];
@@ -138,19 +141,32 @@ function Sql({ sqlCode }) {
         setDbTables(tabelsArray);
 
         //fills the dbTablesInfo array
+        //
         let tableInfoRows = [];
         dbTables.map((table) => {
-          const sql =
-            `select iif(pk=1, '✓', '') as pk, name, type, iif("notnull"=0, '✓', '') as "null?"
+          let rows = [];
+          rows.push(table);
+          const sql1 = `select count(*)
+          from '{}'`.replace('{}', table);
+          db.exec({
+            sql: sql1,
+            rowMode: 'array',
+            callback: function (row) {
+              rows.push(row[0]);
+            },
+          });
+
+          const sql = `select name, iif(pk=1, '(PK)', '') as pk,type
           from pragma_table_info('{}')`.replace('{}', table);
-          console.log(sql);
           db.exec({
             sql: sql,
-            rowMode: 'object',
-            resultRows: tableInfoRows,
+            rowMode: 'array',
+            resultRows: rows,
           });
+          tableInfoRows.push(rows);
         });
-        console.log(JSON.stringify(tableInfoRows));
+        setDbTableInfo(tableInfoRows);
+        console.log(JSON.stringify(dbTableInfo));
       } finally {
         db.close();
       }
@@ -180,10 +196,32 @@ function Sql({ sqlCode }) {
       return (
         <table className="border">
           <thead className="border">
-            <th>{table}</th>
+            <th>{table[0]}</th>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <tr>
+              <td>rækker: {table[1]}</td>
+            </tr>
+            {column_data(table)}
+          </tbody>
         </table>
+      );
+    });
+  }
+
+  //slices the dbTableInfoArray and maps over
+  // the column-data
+  function column_data(data) {
+    if (data.length == 0) {
+      return;
+    }
+    return data.slice(2).map((column) => {
+      return (
+        <tr>
+          <td>{column[0]}</td>
+          <td>{column[1]}</td>
+          <td>{column[2]}</td>
+        </tr>
       );
     });
   }
@@ -225,7 +263,7 @@ function Sql({ sqlCode }) {
     <div>
       <h1 className="text-left">Databaseskema</h1>
       <div className="grid auto-cols-max grid-flow-col gap-4">
-        {createTables(dbTables)}
+        {createTables(dbTableInfo)}
       </div>
       <h1 className="text-left">Resultat</h1>
       <table class="border">

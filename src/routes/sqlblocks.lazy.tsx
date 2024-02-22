@@ -11,9 +11,7 @@ function About() {
   return (
     <>
       <div className="col-span-4">
-        <p className="text-2xl">Opgavebeskrivelser</p>
-        <p className="text-1xl">Her kan der stå opgaver</p>
-        <BlocklyApp />
+        <p className="text-1xl">velkommen</p>
       </div>
     </>
   );

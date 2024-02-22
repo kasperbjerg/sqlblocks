@@ -2,4 +2,5 @@
   height: 32em;
 
   position: relative;
+  min-width: 600;
 }

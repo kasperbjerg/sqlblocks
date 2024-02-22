@@ -255,7 +255,7 @@ function Sql({ sqlCode }) {
   // values of each object
   function getCells(obj) {
     return Object.values(obj).map((value) => {
-      return <td>{value}</td>;
+      return <td key = {value}>{value}</td>;
     });
   }
 
@@ -266,8 +266,8 @@ function Sql({ sqlCode }) {
         {createTables(dbTableInfo)}
       </div>
       <h1 className="text-left">Resultat</h1>
-      <table class="border">
-        <thead class="border">{getHeadings(resultRows)}</thead>
+      <table className="border">
+        <thead className="border">{getHeadings(resultRows)}</thead>
         <tbody>{getRows(resultRows)}</tbody>
       </table>
     </div>

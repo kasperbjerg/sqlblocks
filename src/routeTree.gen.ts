@@ -16,31 +16,35 @@ import { Route as rootRoute } from './routes/__root';
 
 // Create Virtual Routes
 
-const SqlblocksLazyImport = createFileRoute('/sqlblocks')();
-const IndexLazyImport = createFileRoute('/')();
+const SqlblocksVelkommenLazyImport = createFileRoute('/sqlblocks/velkommen')();
+const SqlblocksBoglisteLazyImport = createFileRoute('/sqlblocks/bogliste')();
 
 // Create/Update Routes
 
-const SqlblocksLazyRoute = SqlblocksLazyImport.update({
-  path: '/sqlblocks',
+const SqlblocksVelkommenLazyRoute = SqlblocksVelkommenLazyImport.update({
+  path: '/sqlblocks/velkommen',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/sqlblocks.lazy').then((d) => d.Route));
+} as any).lazy(() =>
+  import('./routes/sqlblocks.velkommen.lazy').then((d) => d.Route),
+);
 
-const IndexLazyRoute = IndexLazyImport.update({
-  path: '/home',
+const SqlblocksBoglisteLazyRoute = SqlblocksBoglisteLazyImport.update({
+  path: '/sqlblocks/bogliste',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route));
+} as any).lazy(() =>
+  import('./routes/sqlblocks.bogliste.lazy').then((d) => d.Route),
+);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      preLoaderRoute: typeof IndexLazyImport;
+    '/sqlblocks/bogliste': {
+      preLoaderRoute: typeof SqlblocksBoglisteLazyImport;
       parentRoute: typeof rootRoute;
     };
-    '/sqlblocks': {
-      preLoaderRoute: typeof SqlblocksLazyImport;
+    '/sqlblocks/velkommen': {
+      preLoaderRoute: typeof SqlblocksVelkommenLazyImport;
       parentRoute: typeof rootRoute;
     };
   }
@@ -49,8 +53,8 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  IndexLazyRoute,
-  SqlblocksLazyRoute,
+  SqlblocksBoglisteLazyRoute,
+  SqlblocksVelkommenLazyRoute,
 ]);
 
 /* prettier-ignore-end */

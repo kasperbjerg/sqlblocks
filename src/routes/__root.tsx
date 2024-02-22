@@ -9,15 +9,14 @@ export const Route = createRootRoute({
       <header className="sans-serif min-h-16 bg-gray-200 text-3xl  text-white">
         <img src={logo} className="relative left-8" alt="SQLBLOCKS logo" />
       </header>
-      <div className="relative top-4 grid grid-cols-5 gap-4">
+      <div className="relative top-4 grid grid-cols-6 gap-4">
         <div className="min-w-120 col-span-1 indent-8">
           <div className="grid gap-2 p-2">
-            Menu
-            <Link to="/home" className="[&.active]:font-bold">
-              Home
-            </Link>{' '}
-            <Link to="/sqlblocks/" className="[&.active]:font-bold">
-              About
+            <Link to="/sqlblocks/velkommen/" className="[&.active]:font-bold">
+              Vekommen
+            </Link>
+            <Link to="/sqlblocks/bogliste/" className="[&.active]:font-bold">
+              Bogliste
             </Link>
           </div>
         </div>

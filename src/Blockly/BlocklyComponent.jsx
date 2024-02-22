@@ -82,8 +82,8 @@ export default function BlocklyComponent(props) {
 
   return (
     <>
-      <div className="relative top-12 grid grid-cols-2 gap-4">
-        <div>
+      <div className="relative top-12 grid grid-cols-2 gap-4 text-center">
+        <div className="">
           <div ref={blocklyDiv} id="blocklyDiv" />
           <div style={{ display: 'none' }} ref={toolbox}>
             {props.children}
@@ -255,7 +255,7 @@ function Sql({ sqlCode }) {
   // values of each object
   function getCells(obj) {
     return Object.values(obj).map((value) => {
-      return <td key={value}>{value}</td>;
+      return <td key = {value}>{value}</td>;
     });
   }
 

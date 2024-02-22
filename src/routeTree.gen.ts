@@ -21,15 +21,15 @@ const SqlblocksBoglisteLazyImport = createFileRoute('/sqlblocks/bogliste')()
 
 // Create/Update Routes
 
-const SqlblocksVelkommenLazyRoute = SqlblocksVelkommenLazyImport.update({
-  path: '/sqlblocks/velkommen',
+const SqlblocksLazyRoute = SqlblocksLazyImport.update({
+  path: '/sqlblocks',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
   import('./routes/sqlblocks.velkommen.lazy').then((d) => d.Route),
 )
 
-const SqlblocksBoglisteLazyRoute = SqlblocksBoglisteLazyImport.update({
-  path: '/sqlblocks/bogliste',
+const IndexLazyRoute = IndexLazyImport.update({
+  path: '/home',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
   import('./routes/sqlblocks.bogliste.lazy').then((d) => d.Route),

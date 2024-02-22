@@ -13,7 +13,7 @@ export const Route = createRootRoute({
         <div className="min-w-120 col-span-1 indent-8">
           <div className="grid gap-2 p-2">
             Menu
-            <Link to="/" className="[&.active]:font-bold">
+            <Link to="/home" className="[&.active]:font-bold">
               Home
             </Link>{' '}
             <Link to="/sqlblocks/" className="[&.active]:font-bold">
@@ -23,7 +23,6 @@ export const Route = createRootRoute({
         </div>
         <Outlet />
       </div>
-
       <TanStackRouterDevtools />
     </>
   ),

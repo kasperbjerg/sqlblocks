@@ -18,7 +18,7 @@ export const Route = createRootRoute({
             <Link to="/dagligvarer" className="[&.active]:font-bold">
               Lave en tabel
             </Link>
-            <Link to="/bogliste" className="[&.active]:font-bold">
+            <Link to="/sqlblocks/bogliste" className="[&.active]:font-bold">
               Lave en bogliste
             </Link>
           </div>

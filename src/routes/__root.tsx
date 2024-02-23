@@ -12,10 +12,7 @@ export const Route = createRootRoute({
       <div className="relative top-4 grid grid-cols-5 gap-4">
         <div className="min-w-120 col-span-1 indent-8">
           <div className="grid gap-2 p-2">
-            <Link to="/sqlblocks/" className="[&.active]:font-bold">
-              Velkommen
-            </Link>
-            <Link to="/dagligvarer" className="[&.active]:font-bold">
+            <Link to="/sqlblocks/dagligvarer" className="[&.active]:font-bold">
               Lave en tabel
             </Link>
             <Link to="/sqlblocks/bogliste" className="[&.active]:font-bold">

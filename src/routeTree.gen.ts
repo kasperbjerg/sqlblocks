@@ -17,8 +17,10 @@ import { Route as rootRoute } from './routes/__root'
 // Create Virtual Routes
 
 const SqlblocksLazyImport = createFileRoute('/sqlblocks')()
-const DagligvarerLazyImport = createFileRoute('/dagligvarer')()
-const IndexLazyImport = createFileRoute('/')()
+const SqlblocksIndexLazyImport = createFileRoute('/sqlblocks/')()
+const SqlblocksDagligvarerLazyImport = createFileRoute(
+  '/sqlblocks/dagligvarer',
+)()
 const SqlblocksBoglisteLazyImport = createFileRoute('/sqlblocks/bogliste')()
 
 // Create/Update Routes
@@ -28,15 +30,19 @@ const SqlblocksLazyRoute = SqlblocksLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/sqlblocks.lazy').then((d) => d.Route))
 
-const DagligvarerLazyRoute = DagligvarerLazyImport.update({
-  path: '/dagligvarer',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/dagligvarer.lazy').then((d) => d.Route))
-
-const IndexLazyRoute = IndexLazyImport.update({
+const SqlblocksIndexLazyRoute = SqlblocksIndexLazyImport.update({
   path: '/',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+  getParentRoute: () => SqlblocksLazyRoute,
+} as any).lazy(() =>
+  import('./routes/sqlblocks.index.lazy').then((d) => d.Route),
+)
+
+const SqlblocksDagligvarerLazyRoute = SqlblocksDagligvarerLazyImport.update({
+  path: '/dagligvarer',
+  getParentRoute: () => SqlblocksLazyRoute,
+} as any).lazy(() =>
+  import('./routes/sqlblocks.dagligvarer.lazy').then((d) => d.Route),
+)
 
 const SqlblocksBoglisteLazyRoute = SqlblocksBoglisteLazyImport.update({
   path: '/bogliste',
@@ -49,14 +55,6 @@ const SqlblocksBoglisteLazyRoute = SqlblocksBoglisteLazyImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/dagligvarer': {
-      preLoaderRoute: typeof DagligvarerLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/sqlblocks': {
       preLoaderRoute: typeof SqlblocksLazyImport
       parentRoute: typeof rootRoute
@@ -65,15 +63,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SqlblocksBoglisteLazyImport
       parentRoute: typeof SqlblocksLazyImport
     }
+    '/sqlblocks/dagligvarer': {
+      preLoaderRoute: typeof SqlblocksDagligvarerLazyImport
+      parentRoute: typeof SqlblocksLazyImport
+    }
+    '/sqlblocks/': {
+      preLoaderRoute: typeof SqlblocksIndexLazyImport
+      parentRoute: typeof SqlblocksLazyImport
+    }
   }
 }
 
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  IndexLazyRoute,
-  DagligvarerLazyRoute,
-  SqlblocksLazyRoute.addChildren([SqlblocksBoglisteLazyRoute]),
+  SqlblocksLazyRoute.addChildren([
+    SqlblocksBoglisteLazyRoute,
+    SqlblocksDagligvarerLazyRoute,
+    SqlblocksIndexLazyRoute,
+  ]),
 ])
 
 /* prettier-ignore-end */

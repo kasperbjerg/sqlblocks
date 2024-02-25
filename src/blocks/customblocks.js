@@ -135,7 +135,8 @@ Blockly.Blocks['insert_into'] = {
   init: function () {
     this.appendDummyInput()
       .appendField('INSERT INTO')
-      .appendField(new Blockly.FieldTextInput(''), 'table_NAME')
+      .appendField(new Blockly.FieldTextInput(''), 'table_NAME');
+    this.appendDummyInput()
       .appendField('VALUES (')
       .appendField(new Blockly.FieldTextInput(''), 'row_names')
       .appendField(');');

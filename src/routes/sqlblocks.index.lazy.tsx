@@ -10,7 +10,7 @@ export const Route = createLazyFileRoute('/sqlblocks/')({
 function About() {
   return (
     <>
-      <div className="relative top-2">
+      <div className="relative top-2 col-span-5">
         <p>
           Velkommen til SQLBLOCKS! <br />
           Klik på opgaverne til venstre for at lære SQL

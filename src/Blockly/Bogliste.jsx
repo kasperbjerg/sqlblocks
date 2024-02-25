@@ -31,10 +31,11 @@ export default function Bogliste({}) {
           Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
           alder, indsæt 42 og SELECT * til sidst
         </p>
-        <p className="text-bold absolute text-2xl font-bold text-teal-700/75">
+        {/* text-teal-700/75 */}
+        {/* text-sky-800/75 */}
+        <p className="text-bold absolute animate-bounce text-2xl font-bold text-teal-700/75">
           {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
-
         <BlocklyComponent
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}

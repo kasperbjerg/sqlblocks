@@ -9,7 +9,7 @@ export const Route = createRootRoute({
       <header className="sans-serif min-h-16 bg-gray-200 text-3xl  text-white">
         <img src={logo} className="relative left-8" alt="SQLBLOCKS logo" />
       </header>
-      <div className="relative top-4 grid grid-cols-5 gap-4">
+      <div className="relative top-4 grid grid-cols-7 gap-4">
         <div className="min-w-120 col-span-1 indent-8">
           <div className="grid gap-2 p-2">
             <Link to="/sqlblocks/dagligvarer" className="[&.active]:font-bold">
@@ -22,7 +22,6 @@ export const Route = createRootRoute({
         </div>
         <Outlet />
       </div>
-      <TanStackRouterDevtools />
     </>
   ),
 });

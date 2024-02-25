@@ -99,7 +99,7 @@ export default function Sql({
       return (
         <table className="border">
           <thead className="border">
-            <th>{table[0]}</th>
+            <th className="text-left">{table[0]}</th>
           </thead>
           <tbody>
             <tr>
@@ -165,7 +165,7 @@ export default function Sql({
   return (
     <div>
       <h1 className="text-left">Databaseskema</h1>
-      <div className="grid auto-cols-max grid-flow-col gap-4">
+      <div className="grid auto-cols-max grid-flow-col">
         {createTables(tableInfo)}
       </div>
       <h1 className="text-left">Resultat</h1>

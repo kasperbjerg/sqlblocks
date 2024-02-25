@@ -26,7 +26,7 @@ export default function Bogliste({}) {
 
   return (
     <>
-      <div className="relative top-2 col-span-4">
+      <div className="relative top-2 col-span-5">
         <p className="text-1xl">
           Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
           alder, indsæt 42 og SELECT * til sidst

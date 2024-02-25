@@ -34,23 +34,22 @@ import SQLITEComponent from './SQLITEComponent.jsx';
 
 Blockly.setLocale(locale);
 
-export default function BlocklyComponent(props) {
+export default function BlocklyComponent({
+  initialXml,
+  children,
+  result,
+  handleResultChange,
+  tableInfo,
+  handleTableInfoChange,
+}) {
   const blocklyDiv = useRef();
   const toolbox = useRef();
   let primaryWorkspace = useRef();
   const [sqlCode, setSqlCode] = useState('');
 
-  const [result, setResult] = useState([]);
-  const handleResultChange = (e) => setResult(e);
-
-  const [tableInfo, setTableInfo] = useState([]);
-  const handleTableInfoChange = (e) => setTableInfo(e);
-
   useEffect(() => {
-    const { initialXml, children, ...rest } = props;
     let workspace = Blockly.inject(blocklyDiv.current, {
       toolbox: toolbox.current,
-      ...rest,
     });
 
     if (initialXml) {
@@ -93,7 +92,7 @@ export default function BlocklyComponent(props) {
         <div className="">
           <div ref={blocklyDiv} id="blocklyDiv" />
           <div style={{ display: 'none' }} ref={toolbox}>
-            {props.children}
+            {children}
           </div>
         </div>
         <div className="">

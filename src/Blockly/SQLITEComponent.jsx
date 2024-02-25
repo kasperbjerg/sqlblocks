@@ -2,7 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 
 import sqlite3InitModule from '@sqlite.org/sqlite-wasm';
 
-export default function Sql({ sqlCode, result, handleResultChange, tableInfo, handleTableInfoChange }) {
+export default function Sql({
+  sqlCode,
+  result,
+  handleResultChange,
+  tableInfo,
+  handleTableInfoChange,
+}) {
   const log = (...args) => console.log(...args);
   const error = (...args) => console.error(...args);
   // array of tables in the database

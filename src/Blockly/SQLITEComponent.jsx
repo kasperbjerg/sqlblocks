@@ -165,7 +165,7 @@ export default function Sql({
   return (
     <div>
       <h1 className="text-left">Databaseskema</h1>
-      <div className="grid auto-cols-max grid-flow-col">
+      <div className="grid auto-cols-max grid-flow-col gap-4">
         {createTables(tableInfo)}
       </div>
       <h1 className="text-left">Resultat</h1>

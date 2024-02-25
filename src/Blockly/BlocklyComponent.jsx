@@ -43,8 +43,8 @@ export default function BlocklyComponent(props) {
   const [result, setResult] = useState([]);
   const handleResultChange = (e) => setResult(e);
 
-  const [result, setResult] = useState([]);
-  const handleResultChange = (e) => setResult(e);
+  const [tableInfo, setTableInfo] = useState([]);
+  const handleTableInfoChange = (e) => setTableInfo(e);
 
   useEffect(() => {
     const { initialXml, children, ...rest } = props;
@@ -102,7 +102,9 @@ export default function BlocklyComponent(props) {
           <SQLITEComponent
             sqlCode={sqlCode}
             result={result}
-            handler={handleResultChange}
+            handleResultChange={handleResultChange}
+            tableInfo={tableInfo}
+            handleTableInfoChange={handleTableInfoChange}
           />
         </div>
       </div>

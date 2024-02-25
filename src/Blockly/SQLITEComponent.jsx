@@ -2,13 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 
 import sqlite3InitModule from '@sqlite.org/sqlite-wasm';
 
-export default function Sql({ sqlCode, result, handler }) {
+export default function Sql({ sqlCode, result, handleResultChange, tableInfo, handleTableInfoChange }) {
   const log = (...args) => console.log(...args);
   const error = (...args) => console.error(...args);
   // array of tables in the database
   const [dbTables, setDbTables] = useState([]);
-  // array of tables with info in the database
-  const [tableInfo, setTableInfo] = useState([]);
 
   useEffect(() => {
     const start = function (sqlite3) {
@@ -24,7 +22,7 @@ export default function Sql({ sqlCode, result, handler }) {
           rowMode: 'object',
           resultRows: resultRows1,
         });
-        handler(resultRows1);
+        handleResultChange(resultRows1);
 
         //fills the dbTables array
         let tableRows = [];
@@ -65,7 +63,7 @@ export default function Sql({ sqlCode, result, handler }) {
           });
           tableInfoRows.push(rows);
         });
-        setTableInfo(tableInfoRows);
+        handleTableInfoChange(tableInfoRows);
       } finally {
         db.close();
       }

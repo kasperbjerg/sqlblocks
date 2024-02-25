@@ -14,6 +14,7 @@
     "@sqlite.org/sqlite-wasm": "^3.44.2-build1",
     "@tanstack/react-router": "^1.16.6",
     "@tanstack/router-devtools": "^1.16.6",
+    "@uidotdev/usehooks": "^2.4.1",
     "blockly": "^10.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

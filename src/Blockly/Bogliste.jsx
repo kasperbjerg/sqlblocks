@@ -4,6 +4,8 @@ import BlocklyComponent, { Block, Value, Field, Shadow } from '.';
 import '../blocks/customblocks';
 import '../generator/generator';
 
+import { useLocalStorage } from '@uidotdev/usehooks';
+
 export default function Bogliste({}) {
   const [sqlCode, setSqlCode] = useState('');
   const handleSqlCodeChange = (e) => setSqlCode(e);
@@ -13,18 +15,26 @@ export default function Bogliste({}) {
 
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
+
+  const [isComplete, setIsComplete] = useLocalStorage('Bogliste', false);
+
+  React.useEffect(() => {
+    JSON.stringify(result) == '[{"alder":42}]'
+      ? setIsComplete(true)
+      : 'Du har ikke løst opgaven endnu.. kæmp bare videre';
+  }, [result]);
+
   return (
     <>
       <div className="relative top-2 col-span-4">
         <p className="text-1xl">
           Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
-          alder, indsæt 42 og SELECT * til sidst {sqlCode}
+          alder, indsæt 42 og SELECT * til sidst
         </p>
-        <p>
-          {JSON.stringify(result) == '[{"alder":42}]'
-            ? 'Jeps.. godt arbejde!'
-            : 'Du har ikke løst opgaven endnu.. kæmp bare videre'}
+        <p className="text-bold absolute text-2xl font-bold text-teal-700/75">
+          {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
+
         <BlocklyComponent
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}
@@ -37,7 +47,7 @@ export default function Bogliste({}) {
           media={'media/'}
           move={{
             scrollbars: {
-              horizontal: false,
+              horizontal: true,
               vertical: false,
             },
             drag: true,

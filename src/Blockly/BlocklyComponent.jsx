@@ -97,8 +97,6 @@ export default function BlocklyComponent({
           </div>
         </div>
         <div className="">
-          {sqlCode}
-          <p>Nedenfor er output</p>
           <SQLITEComponent
             sqlCode={sqlCode}
             result={result}

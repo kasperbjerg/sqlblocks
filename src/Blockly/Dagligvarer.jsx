@@ -13,15 +13,18 @@ export default function Dagligvarer({}) {
 
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
+  
   return (
     <>
       <div className="relative top-2 col-span-4">
         <p className="text-1xl">
           Lav en tabel der hedder personer som har én TEXT kolonne der hedder
-          navn {tableInfo.length}
+          navn {sqlCode}
         </p>
         <p>
-          {tableInfo.length !== 0 && tableInfo[0][0] == 'personer'
+          {typeof sqlCode != 'undefined' &&
+          sqlCode.includes('CREATE TABLE personer') &&
+          sqlCode.includes('navn')
             ? 'Jeps.. godt arbejde!'
             : 'Du har ikke løst opgaven endnu.. kæmp bare videre'}
         </p>

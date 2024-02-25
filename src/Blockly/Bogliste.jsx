@@ -53,7 +53,7 @@ export default function Bogliste({}) {
           media={'media/'}
           move={{
             scrollbars: {
-              horizontal: false,
+              horizontal: true,
               vertical: true,
             },
             drag: true,

@@ -9,11 +9,6 @@ export const Route = createLazyFileRoute('/sqlblocks/bogliste')({
 });
 
 function About() {
-  const [result, setResult] = useState([]);
-  const handleResultChange = (e) => setResult(e);
-
-  const [tableInfo, setTableInfo] = useState([]);
-  const handleTableInfoChange = (e) => setTableInfo(e);
   return (
     <>
       <Bogliste />

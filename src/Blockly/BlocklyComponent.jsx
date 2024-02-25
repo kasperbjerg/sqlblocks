@@ -37,6 +37,8 @@ Blockly.setLocale(locale);
 export default function BlocklyComponent({
   initialXml,
   children,
+  sqlCode,
+  handleSqlCodeChange,
   result,
   handleResultChange,
   tableInfo,
@@ -45,7 +47,6 @@ export default function BlocklyComponent({
   const blocklyDiv = useRef();
   const toolbox = useRef();
   let primaryWorkspace = useRef();
-  const [sqlCode, setSqlCode] = useState('');
 
   useEffect(() => {
     let workspace = Blockly.inject(blocklyDiv.current, {
@@ -82,7 +83,7 @@ export default function BlocklyComponent({
       return code;
     }
 
-    workspace.addChangeListener(() => setSqlCode(updateCode));
+    workspace.addChangeListener(() => handleSqlCodeChange(updateCode));
     workspace.addChangeListener(Blockly.Events.disableOrphans);
   }, [toolbox, blocklyDiv]);
 

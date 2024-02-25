@@ -5,6 +5,9 @@ import '../blocks/customblocks';
 import '../generator/generator';
 
 export default function Bogliste({}) {
+  const [sqlCode, setSqlCode] = useState('');
+  const handleSqlCodeChange = (e) => setSqlCode(e);
+
   const [result, setResult] = useState([]);
   const handleResultChange = (e) => setResult(e);
 
@@ -15,7 +18,7 @@ export default function Bogliste({}) {
       <div className="relative top-2 col-span-4">
         <p className="text-1xl">
           Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
-          alder, indsæt 42 og SELECT * til sidst
+          alder, indsæt 42 og SELECT * til sidst {sqlCode}
         </p>
         <p>
           {JSON.stringify(result) == '[{"alder":42}]'
@@ -23,6 +26,8 @@ export default function Bogliste({}) {
             : 'Du har ikke løst opgaven endnu.. kæmp bare videre'}
         </p>
         <BlocklyComponent
+          sqlCode={sqlCode}
+          handleSqlCodeChange={handleSqlCodeChange}
           result={result}
           handleResultChange={handleResultChange}
           tableInfo={tableInfo}

@@ -37,6 +37,7 @@ Blockly.setLocale(locale);
 export default function BlocklyComponent({
   initialXml,
   children,
+  move,
   sqlCode,
   handleSqlCodeChange,
   result,
@@ -51,6 +52,7 @@ export default function BlocklyComponent({
   useEffect(() => {
     let workspace = Blockly.inject(blocklyDiv.current, {
       toolbox: toolbox.current,
+      move,
     });
 
     if (initialXml) {
@@ -92,7 +94,11 @@ export default function BlocklyComponent({
       <div className="relative top-12 grid grid-cols-2 gap-4">
         <div className="">
           <div ref={blocklyDiv} id="blocklyDiv" />
-          <div style={{ display: 'none' }} ref={toolbox}>
+          <div
+            style={{ display: 'none' }}
+            ref={toolbox}
+            
+          >
             {children}
           </div>
         </div>

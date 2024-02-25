@@ -36,7 +36,6 @@ export default function Bogliste({}) {
           alder, indsæt 42 og SELECT * til sidst
         </p>
 
-
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
         <p className="text-bold absolute animate-bounce text-2xl font-bold text-teal-700/75">
@@ -54,8 +53,8 @@ export default function Bogliste({}) {
           media={'media/'}
           move={{
             scrollbars: {
-              horizontal: true,
-              vertical: false,
+              horizontal: false,
+              vertical: true,
             },
             drag: true,
             wheel: true,

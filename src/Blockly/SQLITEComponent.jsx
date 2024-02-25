@@ -2,14 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 
 import sqlite3InitModule from '@sqlite.org/sqlite-wasm';
 
-export default function Sql({ sqlCode }) {
+export default function Sql({ sqlCode, result, handler }) {
   const log = (...args) => console.log(...args);
   const error = (...args) => console.error(...args);
-  const [resultRows, setResultRows] = useState([]);
   // array of tables in the database
   const [dbTables, setDbTables] = useState([]);
   // array of tables with info in the database
-  const [dbTableInfo, setDbTableInfo] = useState([]);
+  const [tableInfo, setTableInfo] = useState([]);
 
   useEffect(() => {
     const start = function (sqlite3) {
@@ -25,8 +24,7 @@ export default function Sql({ sqlCode }) {
           rowMode: 'object',
           resultRows: resultRows1,
         });
-        setResultRows(resultRows1);
-        console.log(JSON.stringify(resultRows));
+        handler(resultRows1);
 
         //fills the dbTables array
         let tableRows = [];
@@ -42,7 +40,7 @@ export default function Sql({ sqlCode }) {
         tabelsArray = tableRows.map((row) => row[0]);
         setDbTables(tabelsArray);
 
-        //fills the dbTablesInfo array
+        //fills the tablesInfo array
         //
         let tableInfoRows = [];
         dbTables.map((table) => {
@@ -67,8 +65,7 @@ export default function Sql({ sqlCode }) {
           });
           tableInfoRows.push(rows);
         });
-        setDbTableInfo(tableInfoRows);
-        console.log(JSON.stringify(dbTableInfo));
+        setTableInfo(tableInfoRows);
       } finally {
         db.close();
       }
@@ -111,7 +108,7 @@ export default function Sql({ sqlCode }) {
     });
   }
 
-  //slices the dbTableInfoArray and maps over
+  //slices the tableInfoArray and maps over
   // the column-data
   function column_data(data) {
     if (data.length == 0) {
@@ -165,12 +162,12 @@ export default function Sql({ sqlCode }) {
     <div>
       <h1 className="text-left">Databaseskema</h1>
       <div className="grid auto-cols-max grid-flow-col gap-4">
-        {createTables(dbTableInfo)}
+        {createTables(tableInfo)}
       </div>
       <h1 className="text-left">Resultat</h1>
       <table className="border">
-        <thead className="border">{getHeadings(resultRows)}</thead>
-        <tbody>{getRows(resultRows)}</tbody>
+        <thead className="border">{getHeadings(result)}</thead>
+        <tbody>{getRows(result)}</tbody>
       </table>
     </div>
   );

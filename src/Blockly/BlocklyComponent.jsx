@@ -40,6 +40,12 @@ export default function BlocklyComponent(props) {
   let primaryWorkspace = useRef();
   const [sqlCode, setSqlCode] = useState('');
 
+  const [result, setResult] = useState([]);
+  const handleResultChange = (e) => setResult(e);
+
+  const [result, setResult] = useState([]);
+  const handleResultChange = (e) => setResult(e);
+
   useEffect(() => {
     const { initialXml, children, ...rest } = props;
     let workspace = Blockly.inject(blocklyDiv.current, {
@@ -93,7 +99,11 @@ export default function BlocklyComponent(props) {
         <div className="">
           {sqlCode}
           <p>Nedenfor er output</p>
-          <SQLITEComponent sqlCode={sqlCode} />
+          <SQLITEComponent
+            sqlCode={sqlCode}
+            result={result}
+            handler={handleResultChange}
+          />
         </div>
       </div>
     </>

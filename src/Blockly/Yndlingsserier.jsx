@@ -6,7 +6,7 @@ import '../generator/generator';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export default function Yndlingsboeger({}) {
+export default function Yndlingsserier({}) {
   const [sqlCode, setSqlCode] = useState('');
   const handleSqlCodeChange = (e) => setSqlCode(e);
 
@@ -17,7 +17,7 @@ export default function Yndlingsboeger({}) {
   const handleTableInfoChange = (e) => setTableInfo(e);
 
   const [isComplete, setIsComplete] = useLocalStorage(
-    'yndlingsboegerComplete',
+    'yndlingsserierComplete',
     false,
   );
 
@@ -40,7 +40,7 @@ export default function Yndlingsboeger({}) {
           {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
         <BlocklyComponent
-          localStorageKey={'yndlingsboegerWorkspace'}
+          localStorageKey={'yndlingsserierWorkspace'}
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}
           result={result}

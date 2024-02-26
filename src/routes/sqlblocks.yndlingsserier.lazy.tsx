@@ -2,16 +2,16 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import logo from '/logo.svg';
 import React, { useState } from 'react';
 
-import Yndlingsboeger from '../Blockly/Yndlingsboeger.jsx';
+import Yndlingsserier from '../Blockly/Yndlingsserier.jsx';
 
-export const Route = createLazyFileRoute('/sqlblocks/yndlingsboeger')({
+export const Route = createLazyFileRoute('/sqlblocks/yndlingsserier')({
   component: About,
 });
 
 function About() {
   return (
     <>
-      <Yndlingsboeger />
+      <Yndlingsserier />
     </>
   );
 }

@@ -77,11 +77,7 @@ export default function BlocklyComponent({
 
       let code = javascriptGenerator.workspaceToCode(workspace);
       // Add a preamble and a postscript to the code.
-      code = `
-
-        ${code}
-
-      `;
+      code = `${code}`;
       return code;
     }
 

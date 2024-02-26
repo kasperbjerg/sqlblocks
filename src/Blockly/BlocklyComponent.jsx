@@ -37,6 +37,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 Blockly.setLocale(locale);
 
 export default function BlocklyComponent({
+  localStorageKey,
   initialXml,
   children,
   move,
@@ -51,7 +52,7 @@ export default function BlocklyComponent({
   const toolbox = useRef();
   //let primaryWorkspace = useRef();
 
-  const [storedXml, setStoredXml] = useLocalStorage('TEST', '');
+  const [storedXml, setStoredXml] = useLocalStorage(localStorageKey, '');
 
   useEffect(() => {
     let workspace = Blockly.inject(blocklyDiv.current, {

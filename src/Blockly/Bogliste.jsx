@@ -16,7 +16,7 @@ export default function Bogliste({}) {
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
-  const [isComplete, setIsComplete] = useLocalStorage('Bogliste', false);
+  const [isComplete, setIsComplete] = useLocalStorage('bogliste', false);
 
   React.useEffect(() => {
     JSON.stringify(result) == '[{"alder":42}]'
@@ -39,6 +39,7 @@ export default function Bogliste({}) {
           {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
         <BlocklyComponent
+          localStorageKey='boglisteKey'
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}
           result={result}

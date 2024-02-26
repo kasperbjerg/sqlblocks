@@ -168,6 +168,7 @@ export default function Sql({
       <div className="grid auto-cols-max grid-flow-col gap-4">
         {createTables(tableInfo)}
       </div>
+      <br></br>
       <h1 className="text-left">Resultat</h1>
       <table className="border">
         <thead className="border">{getHeadings(result)}</thead>

@@ -31,11 +31,8 @@ export default function Bogliste({}) {
           Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
           alder, indsæt 42 og SELECT * til sidst
         </p>
-        <p className="text-1xl">
-          Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
-          alder, indsæt 42 og SELECT * til sidst
-        </p>
-
+        <br></br>
+        <br></br>
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
         <p className="text-bold absolute animate-bounce text-2xl font-bold text-teal-700/75">

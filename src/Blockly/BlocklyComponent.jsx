@@ -94,11 +94,7 @@ export default function BlocklyComponent({
       <div className="relative top-12 grid grid-cols-2 gap-4">
         <div className="">
           <div ref={blocklyDiv} id="blocklyDiv" />
-          <div
-            style={{ display: 'none' }}
-            ref={toolbox}
-            
-          >
+          <div style={{ display: 'none' }} ref={toolbox}>
             {children}
           </div>
         </div>

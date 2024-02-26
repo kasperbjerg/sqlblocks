@@ -59,12 +59,24 @@ export default function Yndlingsserier({}) {
             wheel: true,
           }}
           initialXml={`
-              <xml xmlns="http://www.w3.org/1999/xhtml">
-                <Block type="run_sqlblocks" />
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="run_sqlblocks">
                 <next>
-                <Block type="create_table" />
+                <block type="create_table">
+                  <field name="NAME">serier</field>
+                    <statement name="NAME">
+                      <block type="add_text_column">
+                        <field name="NAME">serie</field>
+                        <next>
+                          <block type="add_integer_column">
+                            <field name="NAME">rating</field>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
                 </next>
-              </xml>
+              </block>  
+            </xml>
           `}
         >
           <Block type="create_table" />

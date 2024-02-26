@@ -32,6 +32,8 @@ import 'blockly/blocks';
 import sqlite3InitModule from '@sqlite.org/sqlite-wasm';
 import SQLITEComponent from './SQLITEComponent.jsx';
 
+import { useLocalStorage } from '@uidotdev/usehooks';
+
 Blockly.setLocale(locale);
 
 export default function BlocklyComponent({
@@ -47,7 +49,9 @@ export default function BlocklyComponent({
 }) {
   const blocklyDiv = useRef();
   const toolbox = useRef();
-  let primaryWorkspace = useRef();
+  //let primaryWorkspace = useRef();
+
+  const [storedXml, setStoredXml] = useLocalStorage('TEST', '');
 
   useEffect(() => {
     let workspace = Blockly.inject(blocklyDiv.current, {
@@ -57,7 +61,9 @@ export default function BlocklyComponent({
 
     if (initialXml) {
       Blockly.Xml.domToWorkspace(
-        Blockly.utils.xml.textToDom(initialXml),
+        Blockly.utils.xml.textToDom(
+          storedXml.length != 0 ? storedXml : initialXml,
+        ),
         workspace,
       );
     }
@@ -76,8 +82,15 @@ export default function BlocklyComponent({
       //if (!supportedEvents.has(event.type)) return; Error
 
       let code = javascriptGenerator.workspaceToCode(workspace);
+
       // Add a preamble and a postscript to the code.
       code = `${code}`;
+
+      //save current workspace to local storage
+      const xmlDom = Blockly.Xml.workspaceToDom(workspace);
+      const xmlText = Blockly.Xml.domToText(xmlDom);
+      setStoredXml(xmlText);
+
       return code;
     }
 

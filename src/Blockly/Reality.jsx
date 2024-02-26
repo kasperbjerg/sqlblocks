@@ -16,17 +16,13 @@ export default function Reality({}) {
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
-  const [isComplete, setIsComplete] = useLocalStorage(
-    'realityComplete',
-    false,
-  );
+  const [isComplete, setIsComplete] = useLocalStorage('realityComplete', false);
 
   //conditions for setting excersie to complete
   React.useEffect(() => {
     typeof sqlCode != 'undefined' &&
     sqlCode.includes('CREATE TABLE serier') &&
-    sqlCode.includes('serie TEXT, rating INTEGER') &&
-    sqlCode.includes('rating INTEGER')
+    sqlCode.includes('serie TEXT, rating INTEGER')
       ? setIsComplete(true)
       : '';
   }, [result]);
@@ -42,12 +38,10 @@ export default function Reality({}) {
           Opret en tabel der hedder <b>serier</b> tilføj to kolonner.
         </p>
         <p>
-          Den første kolonne skal have typen <b>TEXT</b> og hedde{' '}
-          <b>serie</b>.
+          Den første kolonne skal have typen <b>TEXT</b> og hedde <b>serie</b>.
         </p>
         <p>
-          Anden kolonne skal have typen <b>INGETER</b> og hedde{' '}
-          <b>rating</b>.
+          Anden kolonne skal have typen <b>INTEGER</b> og hedde <b>rating</b>.
         </p>
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
@@ -55,7 +49,7 @@ export default function Reality({}) {
           {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
         <BlocklyComponent
-          localStorageKey={'boglisteWorkspace'}
+          localStorageKey={'realityWorkspace'}
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}
           result={result}

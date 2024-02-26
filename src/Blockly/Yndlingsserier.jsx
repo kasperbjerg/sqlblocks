@@ -61,6 +61,9 @@ export default function Yndlingsserier({}) {
           initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />
+                <next>
+                <Block type="create_table" />
+                </next>
               </xml>
           `}
         >

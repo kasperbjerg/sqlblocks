@@ -39,7 +39,7 @@ export default function Bogliste({}) {
           {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
         <BlocklyComponent
-          localStorageKey='boglisteKey'
+          localStorageKey={'boglisteKey'}
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}
           result={result}

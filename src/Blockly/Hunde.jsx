@@ -6,7 +6,7 @@ import '../generator/generator';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export default function Bogliste({}) {
+export default function Hunde({}) {
   const [sqlCode, setSqlCode] = useState('');
   const handleSqlCodeChange = (e) => setSqlCode(e);
 
@@ -16,10 +16,7 @@ export default function Bogliste({}) {
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
-  const [isComplete, setIsComplete] = useLocalStorage(
-    'boglisteComplete',
-    false,
-  );
+  const [isComplete, setIsComplete] = useLocalStorage('hundeComplete', false);
 
   React.useEffect(() => {
     JSON.stringify(result) == '[{"alder":42}]' ? setIsComplete(true) : '';
@@ -40,7 +37,7 @@ export default function Bogliste({}) {
           {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
         <BlocklyComponent
-          localStorageKey={'boglisteWorkspace'}
+          localStorageKey={'hundeWorkspace'}
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}
           result={result}

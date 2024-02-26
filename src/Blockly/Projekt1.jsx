@@ -6,7 +6,7 @@ import '../generator/generator';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export default function Bogliste({}) {
+export default function Projekt1({}) {
   const [sqlCode, setSqlCode] = useState('');
   const handleSqlCodeChange = (e) => setSqlCode(e);
 
@@ -17,7 +17,7 @@ export default function Bogliste({}) {
   const handleTableInfoChange = (e) => setTableInfo(e);
 
   const [isComplete, setIsComplete] = useLocalStorage(
-    'boglisteComplete',
+    'projekt1Complete',
     false,
   );
 
@@ -40,7 +40,7 @@ export default function Bogliste({}) {
           {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
         <BlocklyComponent
-          localStorageKey={'boglisteWorkspace'}
+          localStorageKey={'projekt1Workspace'}
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}
           result={result}

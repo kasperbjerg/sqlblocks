@@ -18,9 +18,12 @@ import { Route as rootRoute } from './routes/__root'
 
 const SqlblocksLazyImport = createFileRoute('/sqlblocks')()
 const SqlblocksIndexLazyImport = createFileRoute('/sqlblocks/')()
-const SqlblocksDagligvarerLazyImport = createFileRoute(
-  '/sqlblocks/dagligvarer',
+const SqlblocksYndlingsboegerLazyImport = createFileRoute(
+  '/sqlblocks/yndlingsboeger',
 )()
+const SqlblocksProjekt1LazyImport = createFileRoute('/sqlblocks/projekt1')()
+const SqlblocksHundeLazyImport = createFileRoute('/sqlblocks/hunde')()
+const SqlblocksGaesterLazyImport = createFileRoute('/sqlblocks/gaester')()
 const SqlblocksBoglisteLazyImport = createFileRoute('/sqlblocks/bogliste')()
 
 // Create/Update Routes
@@ -37,11 +40,33 @@ const SqlblocksIndexLazyRoute = SqlblocksIndexLazyImport.update({
   import('./routes/sqlblocks.index.lazy').then((d) => d.Route),
 )
 
-const SqlblocksDagligvarerLazyRoute = SqlblocksDagligvarerLazyImport.update({
-  path: '/dagligvarer',
+const SqlblocksYndlingsboegerLazyRoute =
+  SqlblocksYndlingsboegerLazyImport.update({
+    path: '/yndlingsboeger',
+    getParentRoute: () => SqlblocksLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/sqlblocks.yndlingsboeger.lazy').then((d) => d.Route),
+  )
+
+const SqlblocksProjekt1LazyRoute = SqlblocksProjekt1LazyImport.update({
+  path: '/projekt1',
   getParentRoute: () => SqlblocksLazyRoute,
 } as any).lazy(() =>
-  import('./routes/sqlblocks.dagligvarer.lazy').then((d) => d.Route),
+  import('./routes/sqlblocks.projekt1.lazy').then((d) => d.Route),
+)
+
+const SqlblocksHundeLazyRoute = SqlblocksHundeLazyImport.update({
+  path: '/hunde',
+  getParentRoute: () => SqlblocksLazyRoute,
+} as any).lazy(() =>
+  import('./routes/sqlblocks.hunde.lazy').then((d) => d.Route),
+)
+
+const SqlblocksGaesterLazyRoute = SqlblocksGaesterLazyImport.update({
+  path: '/gaester',
+  getParentRoute: () => SqlblocksLazyRoute,
+} as any).lazy(() =>
+  import('./routes/sqlblocks.gaester.lazy').then((d) => d.Route),
 )
 
 const SqlblocksBoglisteLazyRoute = SqlblocksBoglisteLazyImport.update({
@@ -63,8 +88,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SqlblocksBoglisteLazyImport
       parentRoute: typeof SqlblocksLazyImport
     }
-    '/sqlblocks/dagligvarer': {
-      preLoaderRoute: typeof SqlblocksDagligvarerLazyImport
+    '/sqlblocks/gaester': {
+      preLoaderRoute: typeof SqlblocksGaesterLazyImport
+      parentRoute: typeof SqlblocksLazyImport
+    }
+    '/sqlblocks/hunde': {
+      preLoaderRoute: typeof SqlblocksHundeLazyImport
+      parentRoute: typeof SqlblocksLazyImport
+    }
+    '/sqlblocks/projekt1': {
+      preLoaderRoute: typeof SqlblocksProjekt1LazyImport
+      parentRoute: typeof SqlblocksLazyImport
+    }
+    '/sqlblocks/yndlingsboeger': {
+      preLoaderRoute: typeof SqlblocksYndlingsboegerLazyImport
       parentRoute: typeof SqlblocksLazyImport
     }
     '/sqlblocks/': {
@@ -79,7 +116,10 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   SqlblocksLazyRoute.addChildren([
     SqlblocksBoglisteLazyRoute,
-    SqlblocksDagligvarerLazyRoute,
+    SqlblocksGaesterLazyRoute,
+    SqlblocksHundeLazyRoute,
+    SqlblocksProjekt1LazyRoute,
+    SqlblocksYndlingsboegerLazyRoute,
     SqlblocksIndexLazyRoute,
   ]),
 ])

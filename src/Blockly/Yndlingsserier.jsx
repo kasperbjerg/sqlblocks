@@ -29,15 +29,22 @@ export default function Yndlingsserier({}) {
     <>
       <div className="relative top-2 col-span-5">
         <p className="text-1xl">
-          Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
-          alder, indsæt 42 og SELECT * til sidst
+          Tilføj nu mindst 3 reality-serier du kender til tabellen.
         </p>
-        <br></br>
-        <br></br>
+        <p>
+          Skriv navnet på serien i <b>serie</b>-kolonnen og giv også hver serie
+          en <b>rating</b> mellem 1 og 5.
+        </p>
+        <p>
+          Se din tabel med <b>SELECT *</b> til sidst.
+        </p>
+        <p className="text-orange-500">
+          Hint: Husk at sætte ' ' omkring serie-navnet.
+        </p>
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
         <p className="text-bold absolute animate-bounce text-2xl font-bold text-teal-700/75">
-          {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
+          {isComplete ? 'Wauw.. du er en champ!' : ''}
         </p>
         <BlocklyComponent
           localStorageKey={'yndlingsserierWorkspace'}

@@ -13,7 +13,7 @@ export default function Yndlingsserier({}) {
   const [result, setResult] = useState([]);
   const handleResultChange = (e) => setResult(e);
 
-  const [tableInfo, setTableInfo] = useState([]);
+  const [tableInfo, setTableInfo] = useState([[],[]]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
   const [isComplete, setIsComplete] = useLocalStorage(

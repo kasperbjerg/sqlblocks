@@ -167,17 +167,17 @@ export default function Sql({
   }
 
   return (
-    <div>
-      <h1 className="text-left">Databaseskema</h1>
-      <div className="grid auto-cols-max grid-flow-col gap-4">
-        {createTables(tableInfo)}
-      </div>
+    <div className="w-60">
+      <h1 className="text-left text-xl text-gray-500">Databaseskema</h1>
+      <div className="grid gap-4">{createTables(tableInfo)}</div>
       <br></br>
-      <h1 className="text-left">Resultat</h1>
-      <table className="border text-left">
-        <thead className="border">{getHeadings(result)}</thead>
-        <tbody className="border">{getRows(result)}</tbody>
-      </table>
+      <h1 className="text-left text-xl text-gray-500">Resultat</h1>
+      <div className="grid gap-4">
+        <table className="gap-4 border text-left">
+          <thead className="border">{getHeadings(result)}</thead>
+          <tbody className="border">{getRows(result)}</tbody>
+        </table>
+      </div>
     </div>
   );
 }

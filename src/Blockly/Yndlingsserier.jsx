@@ -35,7 +35,7 @@ export default function Yndlingsserier({}) {
     <>
       <div className="relative top-2 col-span-5">
         <p className="text-1xl">
-          Tilføj nu mindst 3 reality-serier du kender til tabellen. {sqlCode}
+          Tilføj nu mindst 3 reality-serier du kender til tabellen.
         </p>
         <p>
           Skriv navnet på serien i <b>serie</b>-kolonnen og giv også hver serie

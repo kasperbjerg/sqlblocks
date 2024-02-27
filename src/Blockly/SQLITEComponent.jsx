@@ -158,7 +158,11 @@ export default function Sql({
   // values of each object
   function getCells(obj) {
     return Object.values(obj).map((value) => {
-      return <td key={value}>{value}</td>;
+      return (
+        <td className="border-spacing-x-px" key={value}>
+          {value}
+        </td>
+      );
     });
   }
 
@@ -170,9 +174,9 @@ export default function Sql({
       </div>
       <br></br>
       <h1 className="text-left">Resultat</h1>
-      <table className="border">
+      <table className="border text-left">
         <thead className="border">{getHeadings(result)}</thead>
-        <tbody>{getRows(result)}</tbody>
+        <tbody className="border">{getRows(result)}</tbody>
       </table>
     </div>
   );

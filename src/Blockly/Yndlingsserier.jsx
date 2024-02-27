@@ -24,14 +24,19 @@ export default function Yndlingsserier({}) {
   const [reset, setReset] = useState(false);
 
   React.useEffect(() => {
-    JSON.stringify(result) == '[{"alder":42}]' ? setIsComplete(true) : '';
-  }, [result]);
+    typeof sqlCode != 'undefined' &&
+    sqlCode.includes('SELECT * FROM serier') &&
+    typeof tableInfo[0][1] != 'undefined' && //making sure that table-info is created
+    tableInfo[0][1] > 2 // number of rows in the table
+      ? setIsComplete(true)
+      : '';
+  }, [result, tableInfo]);
 
   return (
     <>
       <div className="relative top-2 col-span-5">
         <p className="text-1xl">
-          Tilføj nu mindst 3 reality-serier du kender til tabellen.
+          Tilføj nu mindst 3 reality-serier du kender til tabellen.{' '}
         </p>
         <p>
           Skriv navnet på serien i <b>serie</b>-kolonnen og giv også hver serie
@@ -41,10 +46,7 @@ export default function Yndlingsserier({}) {
           Se din tabel med <b>SELECT *</b> til sidst.
         </p>
         <p className="text-orange-500">
-          Hint: Husk at sætte ' ' omkring serie-navnet.{' '}
-          <button className="text-teal-700" onClick={() => setReset(true)}>
-            du kan resette her
-          </button>
+          Hint: Husk at sætte ' ' omkring serie-navnene når du indsætter dem.{' '}
         </p>
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}

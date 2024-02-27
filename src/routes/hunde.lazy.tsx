@@ -2,7 +2,7 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import logo from '/logo.svg';
 import React, { useState } from 'react';
 
-import Hunde from '../Blockly/Hunde.jsx';
+import Hunde from '../blockly/Hunde.jsx';
 
 export const Route = createLazyFileRoute('/hunde')({
   component: About,

@@ -15,7 +15,7 @@ export const Route = createRootRoute({
             <Link to="/reality" className="[&.active]:font-bold">
               Reality
             </Link>
-            <Link to="/yndlingsserier"className="[&.active]:font-bold">
+            <Link to="/yndlingsserier" className="[&.active]:font-bold">
               Yndlingsserier
             </Link>
             <Link to="/hunde" className="[&.active]:font-bold">

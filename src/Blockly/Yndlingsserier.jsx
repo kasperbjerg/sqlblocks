@@ -21,6 +21,8 @@ export default function Yndlingsserier({}) {
     false,
   );
 
+  const [reset, setReset] = useState(false);
+
   React.useEffect(() => {
     JSON.stringify(result) == '[{"alder":42}]' ? setIsComplete(true) : '';
   }, [result]);
@@ -39,7 +41,8 @@ export default function Yndlingsserier({}) {
           Se din tabel med <b>SELECT *</b> til sidst.
         </p>
         <p className="text-orange-500">
-          Hint: Husk at sætte ' ' omkring serie-navnet.
+          Hint: Husk at sætte ' ' omkring serie-navnet.{' '}
+          <button onClick={() => setReset(true)}>du kan resette her</button>
         </p>
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
@@ -47,6 +50,7 @@ export default function Yndlingsserier({}) {
           {isComplete ? 'Wauw.. du er en champ!' : ''}
         </p>
         <BlocklyComponent
+        reset={reset}
           localStorageKey={'yndlingsserierWorkspace'}
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}

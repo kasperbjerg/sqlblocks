@@ -37,6 +37,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 Blockly.setLocale(locale);
 
 export default function BlocklyComponent({
+  reset,
   localStorageKey,
   initialXml,
   children,
@@ -98,6 +99,10 @@ export default function BlocklyComponent({
     workspace.addChangeListener(() => handleSqlCodeChange(updateCode));
     workspace.addChangeListener(Blockly.Events.disableOrphans);
   }, [toolbox, blocklyDiv]);
+
+  if (reset) {
+    setStoredXml('');
+  }
 
   return (
     <>

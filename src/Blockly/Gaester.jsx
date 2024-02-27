@@ -16,10 +16,9 @@ export default function Gaester({}) {
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
-  const [isComplete, setIsComplete] = useLocalStorage(
-    'gaesterComplete',
-    false,
-  );
+  const [isComplete, setIsComplete] = useLocalStorage('gaesterComplete', false);
+
+  const [reset, setReset] = useState(false);
 
   React.useEffect(() => {
     JSON.stringify(result) == '[{"alder":42}]' ? setIsComplete(true) : '';
@@ -30,9 +29,12 @@ export default function Gaester({}) {
       <div className="relative top-2 col-span-5">
         <p className="text-1xl">
           Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
-          alder, indsæt 42 og SELECT * til sidst
+          alder, indsæt 42 og SELECT * til sidst{' '}
+          <button onClick={() => setReset(true)}>
+            Klik her for at resette
+          </button>
         </p>
-        <br></br>
+
         <br></br>
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
@@ -40,6 +42,7 @@ export default function Gaester({}) {
           {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
         </p>
         <BlocklyComponent
+          reset={reset}
           localStorageKey={'gaesterWorkspace'}
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}

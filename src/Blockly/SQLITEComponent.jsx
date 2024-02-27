@@ -92,7 +92,7 @@ export default function Sql({
   //Functions to fill the database scema tables
   //Creates at table for each element in the array
   function createTables(data) {
-    if (data.length == 0) {
+    if (data.length === 0) {
       return;
     }
     return data.map((table) => {

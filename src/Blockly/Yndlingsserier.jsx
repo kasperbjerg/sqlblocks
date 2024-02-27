@@ -13,7 +13,7 @@ export default function Yndlingsserier({}) {
   const [result, setResult] = useState([]);
   const handleResultChange = (e) => setResult(e);
 
-  const [tableInfo, setTableInfo] = useState([[],[]]);
+  const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
   const [isComplete, setIsComplete] = useLocalStorage(
@@ -26,8 +26,7 @@ export default function Yndlingsserier({}) {
   React.useEffect(() => {
     typeof sqlCode !== 'undefined' &&
     sqlCode.includes('SELECT * FROM serier') &&
-    typeof tableInfo[0][1] !== 'undefined' && //making sure that table-info is created
-    tableInfo[0][1] > 2 // number of rows in the table
+    sqlCode.length > 150 //minimum length possible to create three rows
       ? setIsComplete(true)
       : '';
   }, [result, tableInfo]);
@@ -36,7 +35,7 @@ export default function Yndlingsserier({}) {
     <>
       <div className="relative top-2 col-span-5">
         <p className="text-1xl">
-          Tilføj nu mindst 3 reality-serier du kender til tabellen.{' '}
+          Tilføj nu mindst 3 reality-serier du kender til tabellen. {sqlCode}
         </p>
         <p>
           Skriv navnet på serien i <b>serie</b>-kolonnen og giv også hver serie

@@ -16,97 +16,74 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const SqlblocksLazyImport = createFileRoute('/sqlblocks')()
-const SqlblocksIndexLazyImport = createFileRoute('/sqlblocks/')()
-const SqlblocksYndlingsserierLazyImport = createFileRoute(
-  '/sqlblocks/yndlingsserier',
-)()
-const SqlblocksRealityLazyImport = createFileRoute('/sqlblocks/reality')()
-const SqlblocksProjekt1LazyImport = createFileRoute('/sqlblocks/projekt1')()
-const SqlblocksHundeLazyImport = createFileRoute('/sqlblocks/hunde')()
-const SqlblocksGaesterLazyImport = createFileRoute('/sqlblocks/gaester')()
+const YndlingsserierLazyImport = createFileRoute('/yndlingsserier')()
+const RealityLazyImport = createFileRoute('/reality')()
+const Projekt1LazyImport = createFileRoute('/projekt1')()
+const HundeLazyImport = createFileRoute('/hunde')()
+const GaesterLazyImport = createFileRoute('/gaester')()
+const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
 
-const SqlblocksLazyRoute = SqlblocksLazyImport.update({
-  path: '/sqlblocks',
+const YndlingsserierLazyRoute = YndlingsserierLazyImport.update({
+  path: '/yndlingsserier',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/sqlblocks.lazy').then((d) => d.Route))
-
-const SqlblocksIndexLazyRoute = SqlblocksIndexLazyImport.update({
-  path: '/',
-  getParentRoute: () => SqlblocksLazyRoute,
 } as any).lazy(() =>
-  import('./routes/sqlblocks.index.lazy').then((d) => d.Route),
+  import('./routes/yndlingsserier.lazy').then((d) => d.Route),
 )
 
-const SqlblocksYndlingsserierLazyRoute =
-  SqlblocksYndlingsserierLazyImport.update({
-    path: '/yndlingsserier',
-    getParentRoute: () => SqlblocksLazyRoute,
-  } as any).lazy(() =>
-    import('./routes/sqlblocks.yndlingsserier.lazy').then((d) => d.Route),
-  )
-
-const SqlblocksRealityLazyRoute = SqlblocksRealityLazyImport.update({
+const RealityLazyRoute = RealityLazyImport.update({
   path: '/reality',
-  getParentRoute: () => SqlblocksLazyRoute,
-} as any).lazy(() =>
-  import('./routes/sqlblocks.reality.lazy').then((d) => d.Route),
-)
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/reality.lazy').then((d) => d.Route))
 
-const SqlblocksProjekt1LazyRoute = SqlblocksProjekt1LazyImport.update({
+const Projekt1LazyRoute = Projekt1LazyImport.update({
   path: '/projekt1',
-  getParentRoute: () => SqlblocksLazyRoute,
-} as any).lazy(() =>
-  import('./routes/sqlblocks.projekt1.lazy').then((d) => d.Route),
-)
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/projekt1.lazy').then((d) => d.Route))
 
-const SqlblocksHundeLazyRoute = SqlblocksHundeLazyImport.update({
+const HundeLazyRoute = HundeLazyImport.update({
   path: '/hunde',
-  getParentRoute: () => SqlblocksLazyRoute,
-} as any).lazy(() =>
-  import('./routes/sqlblocks.hunde.lazy').then((d) => d.Route),
-)
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/hunde.lazy').then((d) => d.Route))
 
-const SqlblocksGaesterLazyRoute = SqlblocksGaesterLazyImport.update({
+const GaesterLazyRoute = GaesterLazyImport.update({
   path: '/gaester',
-  getParentRoute: () => SqlblocksLazyRoute,
-} as any).lazy(() =>
-  import('./routes/sqlblocks.gaester.lazy').then((d) => d.Route),
-)
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/gaester.lazy').then((d) => d.Route))
+
+const IndexLazyRoute = IndexLazyImport.update({
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sqlblocks': {
-      preLoaderRoute: typeof SqlblocksLazyImport
+    '/': {
+      preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/sqlblocks/gaester': {
-      preLoaderRoute: typeof SqlblocksGaesterLazyImport
-      parentRoute: typeof SqlblocksLazyImport
+    '/gaester': {
+      preLoaderRoute: typeof GaesterLazyImport
+      parentRoute: typeof rootRoute
     }
-    '/sqlblocks/hunde': {
-      preLoaderRoute: typeof SqlblocksHundeLazyImport
-      parentRoute: typeof SqlblocksLazyImport
+    '/hunde': {
+      preLoaderRoute: typeof HundeLazyImport
+      parentRoute: typeof rootRoute
     }
-    '/sqlblocks/projekt1': {
-      preLoaderRoute: typeof SqlblocksProjekt1LazyImport
-      parentRoute: typeof SqlblocksLazyImport
+    '/projekt1': {
+      preLoaderRoute: typeof Projekt1LazyImport
+      parentRoute: typeof rootRoute
     }
-    '/sqlblocks/reality': {
-      preLoaderRoute: typeof SqlblocksRealityLazyImport
-      parentRoute: typeof SqlblocksLazyImport
+    '/reality': {
+      preLoaderRoute: typeof RealityLazyImport
+      parentRoute: typeof rootRoute
     }
-    '/sqlblocks/yndlingsserier': {
-      preLoaderRoute: typeof SqlblocksYndlingsserierLazyImport
-      parentRoute: typeof SqlblocksLazyImport
-    }
-    '/sqlblocks/': {
-      preLoaderRoute: typeof SqlblocksIndexLazyImport
-      parentRoute: typeof SqlblocksLazyImport
+    '/yndlingsserier': {
+      preLoaderRoute: typeof YndlingsserierLazyImport
+      parentRoute: typeof rootRoute
     }
   }
 }
@@ -114,14 +91,12 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  SqlblocksLazyRoute.addChildren([
-    SqlblocksGaesterLazyRoute,
-    SqlblocksHundeLazyRoute,
-    SqlblocksProjekt1LazyRoute,
-    SqlblocksRealityLazyRoute,
-    SqlblocksYndlingsserierLazyRoute,
-    SqlblocksIndexLazyRoute,
-  ]),
+  IndexLazyRoute,
+  GaesterLazyRoute,
+  HundeLazyRoute,
+  Projekt1LazyRoute,
+  RealityLazyRoute,
+  YndlingsserierLazyRoute,
 ])
 
 /* prettier-ignore-end */

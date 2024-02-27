@@ -2,16 +2,16 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import logo from '/logo.svg';
 import React, { useState } from 'react';
 
-import Projekt1 from '../Blockly/Projekt1.jsx';
+import Reality from '../Blockly/Reality.jsx';
 
-export const Route = createLazyFileRoute('/sqlblocks/projekt1')({
+export const Route = createLazyFileRoute('/reality')({
   component: About,
 });
 
 function About() {
   return (
     <>
-      <Projekt1 />
+      <Reality />
     </>
   );
 }

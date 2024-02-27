@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import Gaester from '../Blockly/Gaester.jsx';
 
-export const Route = createLazyFileRoute('/sqlblocks/gaester')({
+export const Route = createLazyFileRoute('/gaester')({
   component: About,
 });
 

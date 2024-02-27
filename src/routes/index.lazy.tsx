@@ -3,7 +3,7 @@ import BlocklyApp from '../BlocklyApp.jsx';
 import logo from '/logo.svg';
 import React from 'react';
 
-export const Route = createLazyFileRoute('/sqlblocks/')({
+export const Route = createLazyFileRoute('/')({
   component: About,
 });
 

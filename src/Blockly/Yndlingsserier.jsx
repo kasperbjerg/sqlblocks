@@ -24,9 +24,9 @@ export default function Yndlingsserier({}) {
   const [reset, setReset] = useState(false);
 
   React.useEffect(() => {
-    typeof sqlCode != 'undefined' &&
+    typeof sqlCode !== 'undefined' &&
     sqlCode.includes('SELECT * FROM serier') &&
-    typeof tableInfo[0][1] != 'undefined' && //making sure that table-info is created
+    typeof tableInfo[0][1] !== 'undefined' && //making sure that table-info is created
     tableInfo[0][1] > 2 // number of rows in the table
       ? setIsComplete(true)
       : '';

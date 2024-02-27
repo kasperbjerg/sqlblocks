@@ -115,7 +115,7 @@ export default function Sql({
   //slices the tableInfoArray and maps over
   // the column-data
   function column_data(data) {
-    if (data.length == 0) {
+    if (data.length === 0) {
       return;
     }
     return data.slice(2).map((column) => {
@@ -134,7 +134,7 @@ export default function Sql({
   // and get an array of keys and add them
   // to TH elements
   function getHeadings(data) {
-    if (data.length == 0) {
+    if (data.length === 0) {
       return;
     }
     return Object.keys(data[0]).map((key) => {
@@ -146,7 +146,7 @@ export default function Sql({
   // row data, passing in each mapped object
   // to `getCells`
   function getRows(data) {
-    if (data.length == 0) {
+    if (data.length === 0) {
       return;
     }
     return data.map((obj) => {

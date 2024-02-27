@@ -42,7 +42,9 @@ export default function Yndlingsserier({}) {
         </p>
         <p className="text-orange-500">
           Hint: Husk at sætte ' ' omkring serie-navnet.{' '}
-          <button onClick={() => setReset(true)}>du kan resette her</button>
+          <button className="text-teal-700" onClick={() => setReset(true)}>
+            du kan resette her
+          </button>
         </p>
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
@@ -50,7 +52,7 @@ export default function Yndlingsserier({}) {
           {isComplete ? 'Wauw.. du er en champ!' : ''}
         </p>
         <BlocklyComponent
-        reset={reset}
+          reset={reset}
           localStorageKey={'yndlingsserierWorkspace'}
           sqlCode={sqlCode}
           handleSqlCodeChange={handleSqlCodeChange}

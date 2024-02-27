@@ -102,6 +102,7 @@ export default function BlocklyComponent({
 
   if (reset) {
     setStoredXml('');
+    location.reload();
   }
 
   return (

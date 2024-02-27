@@ -30,7 +30,7 @@ export default function Gaester({}) {
         <p className="text-1xl">
           Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
           alder, indsæt 42 og SELECT * til sidst{' '}
-          <button onClick={() => setReset(true)}>
+          <button className='text-blue' onClick={() => setReset(true)}>
             Klik her for at resette
           </button>
         </p>

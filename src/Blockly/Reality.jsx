@@ -31,8 +31,9 @@ export default function Reality({}) {
     <>
       <div className="relative top-2 col-span-5">
         <p className="text-1xl">
-          Ser du reality-programmer? I de næste øvelser skal du lave en tabel til
-          dine yndlingsserier.
+          Ser du reality-programmer? I de næste øvelser skal du lave en tabel
+          til dine yndlingsserier.
+          
         </p>
         <p>
           Opret en tabel der hedder <b>serier</b> tilføj to kolonner.

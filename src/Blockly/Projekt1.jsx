@@ -22,7 +22,11 @@ export default function Projekt1({}) {
   );
 
   React.useEffect(() => {
-    JSON.stringify(result) == '[{"alder":42}]' ? setIsComplete(true) : '';
+    {
+      (JSON.stringify(tableInfo).charAt(
+        JSON.stringify(tableInfo).search(',') + 1
+      ) > 4) &&
+    JSON.stringify(result) == '[{"alder":42}]' ? setIsComplete(true) : ''
   }, [result]);
 
   return (

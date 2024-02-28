@@ -6,7 +6,10 @@ import logo from '/logo.svg';
 export const Route = createRootRoute({
   component: () => (
     <>
-      <header className="sans-serif min-h-16 bg-gray-200 text-3xl  text-white">
+      <header className="sans-serif min-h-16 bg-gray-200">
+        <p className="absolute end-40 top-2 text-gray-500">
+          Energypoints: {localStorage.getItem('energyPoints')}
+        </p>
         <img src={logo} className="relative left-8" alt="SQLBLOCKS logo" />
       </header>
       <div className="relative top-4 grid grid-cols-7 gap-4">

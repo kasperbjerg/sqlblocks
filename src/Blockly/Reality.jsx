@@ -33,7 +33,6 @@ export default function Reality({}) {
         <p className="text-1xl">
           Ser du reality-programmer? I de næste øvelser skal du lave en tabel
           til dine yndlingsserier.
-          
         </p>
         <p>
           Opret en tabel der hedder <b>serier</b> tilføj to kolonner.

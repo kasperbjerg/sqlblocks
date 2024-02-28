@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 
 import sqlite3InitModule from '@sqlite.org/sqlite-wasm';
 
+import { useLocalStorage } from '@uidotdev/usehooks';
+
 export default function Sql({
   sqlCode,
   result,
@@ -13,6 +15,7 @@ export default function Sql({
   const error = (...args) => console.error(...args);
   // array of tables in the database
   const [dbTables, setDbTables] = useState([]);
+  const [energyPoints, setEnergyPoints] = useLocalStorage('energyPoints', 0);
 
   useEffect(() => {
     const start = function (sqlite3) {
@@ -70,6 +73,7 @@ export default function Sql({
           tableInfoRows.push(rows);
         });
         handleTableInfoChange(tableInfoRows);
+        setEnergyPoints(energyPoints + 2);
       } finally {
         db.close();
       }

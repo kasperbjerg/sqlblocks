@@ -38,8 +38,7 @@ export default function Projekt1({}) {
         </p>
         <p>Lav din egen tabel med lige hvad du har lyst til</p>
         <p>
-          Men den skal have mindst 4 kolonner og 5 rækker hvis du vil have point
-          for opgaven.
+          Men den skal have mindst 4 kolonner og 5 rækker hvis du vil have opgaven helt rigtigt.
         </p>
         <p>Vælg også passende datatyper</p>
         <p className="text-bold absolute animate-bounce text-2xl font-bold text-teal-700/75">

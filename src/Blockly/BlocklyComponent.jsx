@@ -51,7 +51,6 @@ export default function BlocklyComponent({
 }) {
   const blocklyDiv = useRef();
   const toolbox = useRef();
-  //let primaryWorkspace = useRef();
 
   const [storedXml, setStoredXml] = useLocalStorage(localStorageKey, '');
 

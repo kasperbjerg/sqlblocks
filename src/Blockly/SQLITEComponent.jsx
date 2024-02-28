@@ -13,8 +13,6 @@ export default function Sql({
 }) {
   const log = (...args) => console.log(...args);
   const error = (...args) => console.error(...args);
-  // array of tables in the database
-  const [dbTables, setDbTables] = useState([]);
   const [energyPoints, setEnergyPoints] = useLocalStorage('energyPoints', 0);
 
   useEffect(() => {
@@ -33,7 +31,7 @@ export default function Sql({
         });
         handleResultChange(resultRows1);
 
-        //fills the dbTables array
+        //array with table-names
         let tableRows = [];
         db.exec({
           sql: `select name as "table" from sqlite_schema
@@ -45,12 +43,11 @@ export default function Sql({
         });
         let tabelsArray = [];
         tabelsArray = tableRows.map((row) => row[0]);
-        setDbTables(tabelsArray);
 
         //fills the tablesInfo array
         //
         let tableInfoRows = [];
-        dbTables.map((table) => {
+        tabelsArray.map((table) => { // maps over the tabelsArray
           let rows = [];
           rows.push(table);
           const sql1 = `select count(*)

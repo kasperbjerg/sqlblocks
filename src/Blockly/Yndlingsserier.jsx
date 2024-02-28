@@ -22,6 +22,7 @@ export default function Yndlingsserier({}) {
   );
 
   const [reset, setReset] = useState(false);
+  const [reload, setReload] = useState(false);
 
   React.useEffect(() => {
     typeof sqlCode !== 'undefined' &&
@@ -50,9 +51,14 @@ export default function Yndlingsserier({}) {
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
         <p className="text-bold absolute animate-bounce text-2xl font-bold text-sky-800/75">
-          {isComplete ? 'Wauw.. du er en champ!' : ''}
+          <button onClick={() => setReload(true)}>
+            {isComplete
+              ? 'Wauw.. du er en champ! Klik her for at opdatere dine energypoints'
+              : ''}
+          </button>
         </p>
         <BlocklyComponent
+          reload={reload}
           reset={reset}
           localStorageKey={'yndlingsserierWorkspace'}
           sqlCode={sqlCode}

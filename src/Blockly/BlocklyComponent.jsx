@@ -37,6 +37,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 Blockly.setLocale(locale);
 
 export default function BlocklyComponent({
+  reload,
   reset,
   localStorageKey,
   initialXml,
@@ -53,6 +54,17 @@ export default function BlocklyComponent({
   const toolbox = useRef();
 
   const [storedXml, setStoredXml] = useLocalStorage(localStorageKey, '');
+
+  //restores workspace to initialXml
+  if (reset) {
+    setStoredXml('');
+    location.reload();
+  }
+
+  //reload the browser from parent return-html without causing infinite loop 
+  if (reload) {
+    location.reload();
+  }
 
   useEffect(() => {
     let workspace = Blockly.inject(blocklyDiv.current, {
@@ -98,11 +110,6 @@ export default function BlocklyComponent({
     workspace.addChangeListener(() => handleSqlCodeChange(updateCode));
     workspace.addChangeListener(Blockly.Events.disableOrphans);
   }, [toolbox, blocklyDiv]);
-
-  if (reset) {
-    setStoredXml('');
-    location.reload();
-  }
 
   return (
     <>

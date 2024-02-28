@@ -23,17 +23,6 @@ export default function Projekt1({}) {
 
   //conditions for setting exercise to complete
   React.useEffect(() => {
-    typeof sqlCode != 'undefined' &&
-    sqlCode.includes('CREATE TABLE hunde') &&
-    sqlCode.includes('navn TEXT') &&
-    sqlCode.includes('alder INTEGER') &&
-    sqlCode.includes('ejer TEXT') &&
-    sqlCode.includes('Plet') &&
-    sqlCode.includes('Trofast') &&
-    sqlCode.includes('5') &&
-    sqlCode.includes('12') &&
-    sqlCode.includes('Balder') &&
-    sqlCode.includes('15') &&
     JSON.stringify(tableInfo).charAt(
       JSON.stringify(tableInfo).search(',') + 1,
     ) > 4
@@ -47,12 +36,14 @@ export default function Projekt1({}) {
         <p className="text-1xl">
           Fri leg!!
         </p>
-        <br></br>
-        <br></br>
-        {/* text-teal-700/75 */}
-        {/* text-sky-800/75 */}
+        <p>Lav din egen tabel med lige hvad du har lyst til</p>
+        <p>
+          Men den skal have mindst 4 kolonner og 5 rækker hvis du vil have point
+          for opgaven.
+        </p>
+        <p>Vælg også passende datatyper</p>
         <p className="text-bold absolute animate-bounce text-2xl font-bold text-teal-700/75">
-          {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
+          {isComplete ? 'Jeps, lige præcis :)' : ''}
         </p>
         <BlocklyComponent
           localStorageKey={'projekt1Workspace'}

@@ -18,7 +18,7 @@ export default function Reality({}) {
 
   const [isComplete, setIsComplete] = useLocalStorage('realityComplete', false);
 
-  //conditions for setting excersie to complete
+  //conditions for setting exercise to complete
   React.useEffect(() => {
     typeof sqlCode != 'undefined' &&
     sqlCode.includes('CREATE TABLE serier') &&

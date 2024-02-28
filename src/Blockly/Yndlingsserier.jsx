@@ -49,7 +49,7 @@ export default function Yndlingsserier({}) {
         </p>
         {/* text-teal-700/75 */}
         {/* text-sky-800/75 */}
-        <p className="text-bold absolute animate-bounce text-2xl font-bold text-teal-700/75">
+        <p className="text-bold absolute animate-bounce text-2xl font-bold text-sky-800/75">
           {isComplete ? 'Wauw.. du er en champ!' : ''}
         </p>
         <BlocklyComponent

@@ -21,20 +21,31 @@ export default function Projekt1({}) {
     false,
   );
 
+  //conditions for setting exercise to complete
   React.useEffect(() => {
-    {
-      (JSON.stringify(tableInfo).charAt(
-        JSON.stringify(tableInfo).search(',') + 1
-      ) > 4) &&
-    JSON.stringify(result) == '[{"alder":42}]' ? setIsComplete(true) : ''
+    typeof sqlCode != 'undefined' &&
+    sqlCode.includes('CREATE TABLE hunde') &&
+    sqlCode.includes('navn TEXT') &&
+    sqlCode.includes('alder INTEGER') &&
+    sqlCode.includes('ejer TEXT') &&
+    sqlCode.includes('Plet') &&
+    sqlCode.includes('Trofast') &&
+    sqlCode.includes('5') &&
+    sqlCode.includes('12') &&
+    sqlCode.includes('Balder') &&
+    sqlCode.includes('15') &&
+    JSON.stringify(tableInfo).charAt(
+      JSON.stringify(tableInfo).search(',') + 1,
+    ) > 4
+      ? setIsComplete(true)
+      : '';
   }, [result]);
 
   return (
     <>
       <div className="relative top-2 col-span-5">
         <p className="text-1xl">
-          Lav en tabel med navnet tabel og tilføj en INTEGER-kolonne der hedder
-          alder, indsæt 42 og SELECT * til sidst
+          Fri leg!!
         </p>
         <br></br>
         <br></br>

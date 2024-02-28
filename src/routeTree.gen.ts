@@ -19,6 +19,7 @@ import { Route as rootRoute } from './routes/__root'
 const YndlingsserierLazyImport = createFileRoute('/yndlingsserier')()
 const RealityLazyImport = createFileRoute('/reality')()
 const Projekt1LazyImport = createFileRoute('/projekt1')()
+const IndkoebLazyImport = createFileRoute('/indkoeb')()
 const HundeLazyImport = createFileRoute('/hunde')()
 const GaesterLazyImport = createFileRoute('/gaester')()
 const IndexLazyImport = createFileRoute('/')()
@@ -41,6 +42,11 @@ const Projekt1LazyRoute = Projekt1LazyImport.update({
   path: '/projekt1',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/projekt1.lazy').then((d) => d.Route))
+
+const IndkoebLazyRoute = IndkoebLazyImport.update({
+  path: '/indkoeb',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/indkoeb.lazy').then((d) => d.Route))
 
 const HundeLazyRoute = HundeLazyImport.update({
   path: '/hunde',
@@ -73,6 +79,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HundeLazyImport
       parentRoute: typeof rootRoute
     }
+    '/indkoeb': {
+      preLoaderRoute: typeof IndkoebLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/projekt1': {
       preLoaderRoute: typeof Projekt1LazyImport
       parentRoute: typeof rootRoute
@@ -94,6 +104,7 @@ export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   GaesterLazyRoute,
   HundeLazyRoute,
+  IndkoebLazyRoute,
   Projekt1LazyRoute,
   RealityLazyRoute,
   YndlingsserierLazyRoute,

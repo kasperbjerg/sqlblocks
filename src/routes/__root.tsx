@@ -12,6 +12,9 @@ export const Route = createRootRoute({
       <div className="relative top-4 grid grid-cols-7 gap-4">
         <div className="min-w-120 col-span-1 indent-8">
           <div className="grid gap-2 p-2">
+            <Link to="/indkoeb" className="[&.active]:font-bold">
+              Indkøbsliste
+            </Link>
             <Link to="/reality" className="[&.active]:font-bold">
               Reality
             </Link>

@@ -21,9 +21,22 @@ export const Route = createRootRoute({
             <Link to="/reality" className="[&.active]:font-bold">
               Reality
             </Link>
-            <Link to="/yndlingsserier" className="[&.active]:font-bold">
-              Yndlingsserier
-            </Link>
+            <div>
+              {JSON.parse(localStorage.getItem('yndlingsserierComplete')) ? (
+                <div className="text-sky-800/75">
+                  <Link to="/yndlingsserier" className=" [&.active]:font-bold">
+                    Yndlingsserier
+                  </Link>
+                </div>
+                
+              ) : (
+                <div>
+                  <Link to="/yndlingsserier" className="[&.active]:font-bold">
+                    Yndlingsserier
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link to="/hunde" className="[&.active]:font-bold">
               Hunde
             </Link>

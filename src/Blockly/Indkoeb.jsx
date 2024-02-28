@@ -27,14 +27,12 @@ export default function Indkoeb({}) {
   return (
     <>
       <div className="relative top-2 col-span-5">
-        <p className="text-1xl">Se videoen</p>
+        <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
+        <br></br>
+        <p>Jeg vil lave en tabel til at huske at købe chips og cola, se hvordan i videoen.</p>
+        <p>Husk at sætte lyd på</p>
         <br></br>
         <br></br>
-        {/* text-teal-700/75 */}
-        {/* text-sky-800/75 */}
-        <p className="text-bold absolute animate-bounce text-2xl font-bold text-teal-700/75">
-          {isComplete ? 'SÅDAN!.. godt arbejde :)' : ''}
-        </p>
         <ReactPlayer url="https://youtu.be/WeNeMjnM5gc" />
       </div>
     </>

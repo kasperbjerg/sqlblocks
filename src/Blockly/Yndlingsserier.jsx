@@ -53,7 +53,7 @@ export default function Yndlingsserier({}) {
         <p className="text-bold absolute animate-bounce text-2xl font-bold text-sky-800/75">
           <button onClick={() => setReload(true)}>
             {isComplete
-              ? 'Wauw.. du er en champ! Klik her for at opdatere dine energypoints'
+              ? 'Wauw.. du er en champ! Klik her for at få dine energypoints'
               : ''}
           </button>
         </p>

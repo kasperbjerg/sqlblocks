@@ -54,6 +54,7 @@ export default function BlocklyComponent({
   const toolbox = useRef();
 
   const [storedXml, setStoredXml] = useLocalStorage(localStorageKey, '');
+  const [energyPoints, setEnergyPoints] = useLocalStorage('energyPoints', 0);
 
   //restores workspace to initialXml
   if (reset) {
@@ -61,10 +62,13 @@ export default function BlocklyComponent({
     location.reload();
   }
 
-  //reload the browser from parent return-html without causing infinite loop 
-  if (reload) {
-    location.reload();
-  }
+  //reload the browser from parent return-html without causing infinite loop
+  useEffect(() => {
+    if (reload) {
+      setEnergyPoints(energyPoints - 2);
+      location.reload();
+    }
+  }, [reload]);
 
   useEffect(() => {
     let workspace = Blockly.inject(blocklyDiv.current, {

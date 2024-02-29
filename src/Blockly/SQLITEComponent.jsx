@@ -47,7 +47,8 @@ export default function Sql({
         //fills the tablesInfo array
         //
         let tableInfoRows = [];
-        tabelsArray.map((table) => { // maps over the tabelsArray
+        tabelsArray.map((table) => {
+          // maps over the tabelsArray
           let rows = [];
           rows.push(table);
           const sql1 = `select count(*)

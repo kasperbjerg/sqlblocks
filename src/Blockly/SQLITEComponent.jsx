@@ -86,6 +86,8 @@ export default function Sql({
       try {
         start(sqlite3);
       } catch (err) {
+        handleResultChange([]);
+        handleTableInfoChange([]);
         error(err.name, err.message);
       }
     });

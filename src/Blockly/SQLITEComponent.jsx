@@ -57,7 +57,7 @@ export default function Sql({
             sql: sql1,
             rowMode: 'array',
             callback: function (row) {
-              rows.push(row[0]);
+              rows.push('rækker: ' + row[0]);
             },
           });
 
@@ -107,7 +107,7 @@ export default function Sql({
           </thead>
           <tbody>
             <tr>
-              <td>rækker: {table[1]}</td>
+              <td>{table[1]}</td>
             </tr>
             {column_data(table)}
           </tbody>

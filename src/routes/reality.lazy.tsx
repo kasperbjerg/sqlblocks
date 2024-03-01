@@ -36,7 +36,9 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-purple-900/75">SÅDAN!.. godt arbejde :)</p>
+            <p className="text-purple-900/75">
+              SÅDAN!.. godt arbejde :) Klik her for at få dine energypoints.
+            </p>
           </>
         }
         completeConditionsSql={['serie TEXT', 'rating INTEGER']}

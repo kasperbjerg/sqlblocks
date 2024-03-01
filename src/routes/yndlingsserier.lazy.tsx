@@ -34,7 +34,7 @@ function About() {
         feedbackText={
           <>
             <p className="text-teal-700/75">
-              Wauw.. du er en champ! Klik her for at få dine energypoints
+              Wauw.. du er en champ! Klik her for at få dine energypoints.
             </p>
           </>
         }
@@ -46,7 +46,7 @@ function About() {
         completeConditionsResult={[]}
         completeConditionsTableInfo={[
           'rækker: 3',
-          'rækker; 4',
+          'rækker: 4',
           'rækker: 5',
           'rækker: 6',
         ]}

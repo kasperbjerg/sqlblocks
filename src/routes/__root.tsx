@@ -2,6 +2,7 @@ import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import React from 'react';
 import logo from '/logo.svg';
+import LinkWithColorChange from '../Blockly/LinkWithColorChange.jsx';
 
 export const Route = createRootRoute({
   component: () => (
@@ -15,37 +16,36 @@ export const Route = createRootRoute({
       <div className="relative top-4 grid grid-cols-7 gap-4">
         <div className="min-w-120 col-span-1 indent-8">
           <div className="grid gap-2 p-2">
-            <Link to="/indkoeb" className="[&.active]:font-bold">
-              Indkøbsliste
-            </Link>
-            <Link to="/reality" className="[&.active]:font-bold">
-              Reality
-            </Link>
-            <div>
-              {JSON.parse(localStorage.getItem('yndlingsserierComplete')) ? (
-                <div className="text-sky-800/75">
-                  <Link to="/yndlingsserier" className=" [&.active]:font-bold">
-                    Yndlingsserier
-                  </Link>
-                </div>
-                
-              ) : (
-                <div>
-                  <Link to="/yndlingsserier" className="[&.active]:font-bold">
-                    Yndlingsserier
-                  </Link>
-                </div>
-              )}
-            </div>
-            <Link to="/hunde" className="[&.active]:font-bold">
-              Hunde
-            </Link>
-            <Link to="/gaester" className="[&.active]:font-bold">
-              Nye gæster
-            </Link>
-            <Link to="/projekt1" className="[&.active]:font-bold">
-              Projekt
-            </Link>
+            <LinkWithColorChange
+              name="indkoeb"
+              Name="Indkøbsliste"
+              color="text-sky-800/75"
+            />
+            <LinkWithColorChange
+              name="reality"
+              Name="Reality"
+              color="text-purple-900/75"
+            />
+            <LinkWithColorChange
+              name="yndlingsserier"
+              Name="Yndlingsserier"
+              color="text-teal-700/75"
+            />
+            <LinkWithColorChange
+              name="hunde"
+              Name="Hunde"
+              color="text-pink-600/75"
+            />
+            <LinkWithColorChange
+              name="gaester"
+              Name="Nye gæster"
+              color="text-yellow-600/75"
+            />
+            <LinkWithColorChange
+              name="projekt1"
+              Name="Projekt"
+              color="text-teal-700/75"
+            />
           </div>
         </div>
         <Outlet />

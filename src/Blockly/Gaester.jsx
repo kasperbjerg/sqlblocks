@@ -59,7 +59,7 @@ export default function Gaester({}) {
           Thea, hendes veninde, har 1-årige Rasmus. Tilpas tabellen og find selv
           på hvis du mangler oplysninger.
         </p>
-        <p className="text-bold absolute animate-bounce text-2xl font-bold text-pink-800/75">
+        <p className="text-bold absolute animate-bounce text-2xl font-bold text-purple-900/75">
           {isComplete ? 'Fantastisk' : ''}
         </p>
         <BlocklyComponent

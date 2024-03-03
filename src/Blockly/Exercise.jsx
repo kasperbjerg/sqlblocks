@@ -11,6 +11,7 @@ export default function Exercise({
   workspace,
   description,
   feedbackText,
+  nextButtonColor,
   completeConditionsSql,
   completeConditionsResult,
   completeConditionsTableInfo,
@@ -80,6 +81,27 @@ export default function Exercise({
           >
             {toolBox}
           </BlocklyComponent>
+          <div className="flex flex-row">
+            <div className="basis-1/2">
+              <button
+                onClick={() => {
+                  confirm('Er du sikker på du vil starte øvelsen forfra?');
+                  setReset(true);
+                }}
+                className="relative top-16 rounded-md bg-teal-700/75 p-2 text-white"
+              >
+                Start forfra!
+              </button>
+            </div>
+            <div>
+              <button
+                onClick={() => setReload(true)}
+                className={`relative top-16 rounded-md p-2 text-white bg-${nextButtonColor}`}
+              >
+                Næste øvelse
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>

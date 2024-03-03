@@ -41,6 +41,7 @@ function About() {
             </p>
           </>
         }
+        nextButtonColor={`sky-800/75`}
         completeConditionsSql={['serie TEXT', 'rating INTEGER']}
         completeConditionsResult={['']}
         completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in 'rækker: 3', 'rækker: 4' ...

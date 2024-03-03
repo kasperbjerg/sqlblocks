@@ -38,6 +38,7 @@ function About() {
             </p>
           </>
         }
+        nextButtonColor={`teal-700/75`}
         completeConditionsSql={[
           'SELECT * FROM serier',
           'serie TEXT',

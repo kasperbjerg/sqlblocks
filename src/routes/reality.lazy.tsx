@@ -13,8 +13,9 @@ function About() {
   return (
     <>
       <Exercise
-        complete={'realityComplete'}
+        isCompleteKey={'realityComplete'}
         workspace={'relityWorkspace'}
+        nextExercise={'yndlingsserier'}
         description={
           <>
             <p>

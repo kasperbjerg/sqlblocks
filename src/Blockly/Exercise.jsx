@@ -6,12 +6,14 @@ import '../generator/generator';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
+import NextExerciseButton from './NextExerciseButton.jsx';
+
 export default function Exercise({
-  complete,
+  isCompleteKey,
   workspace,
   description,
   feedbackText,
-  nextButtonColor,
+  nextExercise,
   completeConditionsSql,
   completeConditionsResult,
   completeConditionsTableInfo,
@@ -27,7 +29,7 @@ export default function Exercise({
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
-  const [isComplete, setIsComplete] = useLocalStorage(complete, false);
+  const [isComplete, setIsComplete] = useLocalStorage(isCompleteKey, false);
 
   const [reset, setReset] = useState(false);
   const [reload, setReload] = useState(false);
@@ -94,14 +96,10 @@ export default function Exercise({
                 Start forfra
               </button>
             </div>
-            <div>
-              <button
-                onClick={() => setReload(true)}
-                className={`relative top-16 rounded-md p-2 text-white bg-${nextButtonColor}`}
-              >
-                Næste øvelse
-              </button>
-            </div>
+            <NextExerciseButton
+              isCompleteKey={isCompleteKey}
+              nextExercise={nextExercise}
+            />
           </div>
         </div>
       </div>

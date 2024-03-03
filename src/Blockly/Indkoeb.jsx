@@ -8,6 +8,8 @@ import ReactPlayer from 'react-player/youtube';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
+import { Link } from '@tanstack/react-router';
+
 export default function Indkoeb({}) {
   const [sqlCode, setSqlCode] = useState('');
   const handleSqlCodeChange = (e) => setSqlCode(e);
@@ -29,11 +31,20 @@ export default function Indkoeb({}) {
       <div className="relative top-2 col-span-5">
         <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
         <br></br>
-        <p>Jeg vil lave en tabel til at huske at købe chips og cola, se hvordan i videoen.</p>
+        <p>
+          Jeg vil lave en tabel til at huske at købe chips og cola, se hvordan i
+          videoen.
+        </p>
         <p>Husk at sætte lyd på</p>
         <br></br>
         <br></br>
         <ReactPlayer url="https://youtu.be/WeNeMjnM5gc" />
+        <div className="flex flex-row">
+          <div className="basis-1/2"></div>
+          <button className="relative top-16 rounded-md bg-sky-800/75 p-2 text-white">
+            <Link to={'/reality'}>Næste øvelse</Link>
+          </button>
+        </div>
       </div>
     </>
   );

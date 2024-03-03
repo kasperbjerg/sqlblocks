@@ -13,8 +13,9 @@ function About() {
   return (
     <>
       <Exercise
-        complete={'yndlingsserierComplete'}
+        isCompleteKey={'yndlingsserierComplete'}
         workspace={'yndlingsserierWorkspace'}
+        nextExercise={'hunde'}
         description={
           <>
             <p>Tilføj nu mindst 3 reality-serier du kender til tabellen.</p>
@@ -38,7 +39,7 @@ function About() {
             </p>
           </>
         }
-        nextButtonColor={`teal-700/75`}
+        nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           'SELECT * FROM serier',
           'serie TEXT',

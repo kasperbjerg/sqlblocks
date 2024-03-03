@@ -21,7 +21,6 @@
  * @author samelh@google.com (Sam El-Husseini)
  */
 
-import './BlocklyComponent.css';
 import { useState, useEffect, useRef } from 'react';
 
 import Blockly from 'blockly/core';
@@ -119,7 +118,7 @@ export default function BlocklyComponent({
     <>
       <div className="relative top-12 grid grid-cols-2 gap-4">
         <div className="">
-          <div ref={blocklyDiv} id="blocklyDiv" />
+          <div ref={blocklyDiv} id="blocklyDiv" className="w-88 h-96" />
           <div style={{ display: 'none' }} ref={toolbox}>
             {children}
           </div>

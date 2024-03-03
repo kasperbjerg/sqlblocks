@@ -28,19 +28,21 @@ export default function Indkoeb({}) {
 
   return (
     <>
-      <div className="relative col-span-5">
-        <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
-        <br></br>
-        <p>
-          Jeg vil lave en tabel til at huske at købe chips og cola, se hvordan i
-          videoen.
-        </p>
-        <p>Husk at sætte lyd på</p>
-        <br></br>
-        <br></br>
-        <ReactPlayer url="https://youtu.be/WeNeMjnM5gc" />
+      <div className="flex flex-col">
+        <div className="h-36">
+          <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
+          <br></br>
+          <p>
+            Jeg vil lave en tabel til at huske at købe chips og cola, se hvordan
+            i videoen.
+          </p>
+          <p>Husk at sætte lyd på</p>
+        </div>
+        <div className="h-[402px]">
+          <ReactPlayer url="https://youtu.be/WeNeMjnM5gc" />
+        </div>
         <div className="flex flex-row">
-          <div className="basis-1/2"></div>
+          <div className="w-[506px]"></div>
           <button className="relative top-16 rounded-md bg-sky-800/75 p-2 text-white">
             <Link to={'/reality'}>Næste øvelse</Link>
           </button>

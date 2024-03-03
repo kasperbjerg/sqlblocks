@@ -59,7 +59,7 @@ export default function Exercise({
             {isComplete ? feedbackText : ''}
           </button>
         </div>
-        <div>
+        <div flex flex-row>
           <BlocklyComponent
             reload={reload}
             reset={reset}
@@ -78,7 +78,7 @@ export default function Exercise({
                 horizontal: true,
                 vertical: true,
               },
-              drag: true,
+              drag: false,
               wheel: true,
             }}
             initialXml={initialXml}

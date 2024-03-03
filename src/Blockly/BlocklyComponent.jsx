@@ -117,20 +117,20 @@ export default function BlocklyComponent({
   return (
     <>
       <div className="flex flex-row">
-        <div className="basis-1/2">
-          <div ref={blocklyDiv} id="blocklyDiv" className="h-96 w-[500px]" />
+        <div className="flex h-[450px] flex-row justify-end">
+          <div ref={blocklyDiv} id="blocklyDiv" className=" w-[500px]" />
           <div style={{ display: 'none' }} ref={toolbox}>
             {children}
           </div>
-        </div>
-        <div className="basis 1/2 pl-4">
-          <SQLITEComponent
-            sqlCode={sqlCode}
-            result={result}
-            handleResultChange={handleResultChange}
-            tableInfo={tableInfo}
-            handleTableInfoChange={handleTableInfoChange}
-          />
+          <div className="pl-4 ">
+            <SQLITEComponent
+              sqlCode={sqlCode}
+              result={result}
+              handleResultChange={handleResultChange}
+              tableInfo={tableInfo}
+              handleTableInfoChange={handleTableInfoChange}
+            />
+          </div>
         </div>
       </div>
     </>

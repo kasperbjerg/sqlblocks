@@ -101,17 +101,19 @@ export default function Sql({
     }
     return data.map((table) => {
       return (
-        <table className="border">
-          <thead className="border">
-            <th className="text-left">{table[0]}</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{table[1]}</td>
-            </tr>
-            {column_data(table)}
-          </tbody>
-        </table>
+        <div className="pr-2 pt-2">
+          <table className="border">
+            <thead className="border">
+              <th className="text-left">{table[0]}</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{table[1]}</td>
+              </tr>
+              {column_data(table)}
+            </tbody>
+          </table>
+        </div>
       );
     });
   }
@@ -171,16 +173,19 @@ export default function Sql({
   }
 
   return (
-    <div className="">
-      <h1 className="text-left text-xl text-gray-500">Databaseskema</h1>
-      <div className="">{createTables(tableInfo)}</div>
-      <br></br>
-      <h1 className="text-left text-xl text-gray-500">Resultat</h1>
-      <div className="">
-        <table className="gap-4 border text-left">
-          <thead className="border">{getHeadings(result)}</thead>
-          <tbody className="border">{getRows(result)}</tbody>
-        </table>
+    <div className="flex h-[450px] w-[500px] flex-col overflow-auto">
+      <div>
+        <h1 className="text-left text-xl text-gray-500">Databaseskema</h1>
+        <div className="flex flex-row flex-wrap">{createTables(tableInfo)}</div>
+      </div>
+      <div className="pt-2">
+        <h1 className="text-left text-xl text-gray-500">Resultat</h1>
+        <div className="">
+          <table className="gap-4 border text-left">
+            <thead className="border">{getHeadings(result)}</thead>
+            <tbody className="border">{getRows(result)}</tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -173,7 +173,7 @@ export default function Sql({
   }
 
   return (
-    <div className="flex h-[450px] w-[500px] flex-col overflow-auto">
+    <div className="flex h-[450px] w-[500px] flex-col overflow-auto border pl-2">
       <div>
         <h1 className="text-left text-xl text-gray-500">Databaseskema</h1>
         <div className="flex flex-row flex-wrap">{createTables(tableInfo)}</div>

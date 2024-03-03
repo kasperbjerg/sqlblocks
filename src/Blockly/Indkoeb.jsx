@@ -42,7 +42,7 @@ export default function Indkoeb({}) {
           <ReactPlayer url="https://youtu.be/WeNeMjnM5gc" />
         </div>
         <div className="flex flex-row">
-          <div className="w-[506px]"></div>
+          <div className="w-[507px]"></div>
           <button className="relative top-16 rounded-md bg-sky-800/75 p-2 text-white">
             <Link to={'/reality'}>Næste øvelse</Link>
           </button>

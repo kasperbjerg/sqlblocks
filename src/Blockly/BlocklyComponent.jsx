@@ -122,7 +122,7 @@ export default function BlocklyComponent({
           <div style={{ display: 'none' }} ref={toolbox}>
             {children}
           </div>
-          <div className="pl-4 ">
+          <div className="pl-2 ">
             <SQLITEComponent
               sqlCode={sqlCode}
               result={result}

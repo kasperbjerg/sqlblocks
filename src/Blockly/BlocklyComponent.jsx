@@ -116,14 +116,14 @@ export default function BlocklyComponent({
 
   return (
     <>
-      <div className="relative top-12 grid grid-cols-2 gap-4">
-        <div className="">
-          <div ref={blocklyDiv} id="blocklyDiv" className="w-88 h-96" />
+      <div className="flex flex-row">
+        <div className="basis-1/2">
+          <div ref={blocklyDiv} id="blocklyDiv" className="h-96 w-[500px]" />
           <div style={{ display: 'none' }} ref={toolbox}>
             {children}
           </div>
         </div>
-        <div className="">
+        <div className="basis 1/2 pl-4">
           <SQLITEComponent
             sqlCode={sqlCode}
             result={result}

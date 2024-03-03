@@ -19,46 +19,44 @@ export const Route = createRootRoute({
             </div>
             <div className="flex flex-row justify-end">
               {/* div container for badges */}
-              {/* <img src={badge} className="h-8" alt="Badge" /> */}
-              {/* <img src={badge} className="h-8" alt="Badge" /> */}
+              <img src={badge} className="h-8" alt="Badge" />
+              <img src={badge} className="h-8" alt="Badge" />
             </div>
           </div>
         </div>
       </header>
-      <div className="relative top-4 grid grid-cols-7 gap-4">
-        <div className="min-w-120 col-span-1 indent-8">
-          <div className="grid gap-2 p-2">
-            <LinkWithColorChange
-              name="indkoeb"
-              Name="Indkøbsliste"
-              color="text-sky-800/75"
-            />
-            <LinkWithColorChange
-              name="reality"
-              Name="Reality"
-              color="text-purple-900/75"
-            />
-            <LinkWithColorChange
-              name="yndlingsserier"
-              Name="Yndlingsserier"
-              color="text-teal-700/75"
-            />
-            <LinkWithColorChange
-              name="hunde"
-              Name="Hunde"
-              color="text-pink-600/75"
-            />
-            <LinkWithColorChange
-              name="gaester"
-              Name="Nye gæster"
-              color="text-yellow-600/75"
-            />
-            <LinkWithColorChange
-              name="projekt1"
-              Name="Projekt"
-              color="text-teal-700/75"
-            />
-          </div>
+      <div className="flex flex-row flex-nowrap pt-2">
+        <div className="basis-40 pl-4">
+          <LinkWithColorChange
+            name="indkoeb"
+            Name="Indkøbsliste"
+            color="text-sky-800/75"
+          />
+          <LinkWithColorChange
+            name="reality"
+            Name="Reality"
+            color="text-purple-900/75"
+          />
+          <LinkWithColorChange
+            name="yndlingsserier"
+            Name="Yndlingsserier"
+            color="text-teal-700/75"
+          />
+          <LinkWithColorChange
+            name="hunde"
+            Name="Hunde"
+            color="text-pink-600/75"
+          />
+          <LinkWithColorChange
+            name="gaester"
+            Name="Nye gæster"
+            color="text-yellow-600/75"
+          />
+          <LinkWithColorChange
+            name="projekt1"
+            Name="Projekt"
+            color="text-teal-700/75"
+          />
         </div>
         <Outlet />
       </div>

@@ -28,7 +28,7 @@ export default function Indkoeb({}) {
 
   return (
     <>
-      <div className="relative top-2 col-span-5">
+      <div className="relative col-span-5">
         <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
         <br></br>
         <p>

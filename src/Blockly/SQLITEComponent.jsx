@@ -171,12 +171,12 @@ export default function Sql({
   }
 
   return (
-    <div className="w-60">
+    <div className="">
       <h1 className="text-left text-xl text-gray-500">Databaseskema</h1>
-      <div className="grid gap-4">{createTables(tableInfo)}</div>
+      <div className="">{createTables(tableInfo)}</div>
       <br></br>
       <h1 className="text-left text-xl text-gray-500">Resultat</h1>
-      <div className="grid gap-4">
+      <div className="">
         <table className="gap-4 border text-left">
           <thead className="border">{getHeadings(result)}</thead>
           <tbody className="border">{getRows(result)}</tbody>

@@ -49,15 +49,17 @@ export default function Exercise({
 
   return (
     <>
-      <div className="relative top-2 col-span-5">
-        {description}
-        <button
-          onClick={() => setReload(true)}
-          className="text-bold absolute animate-bounce text-2xl font-bold"
-        >
-          {isComplete ? feedbackText : ''}
-        </button>
-        <div className="">
+      <div className="flex flex-col">
+        <div className="h-36">
+          {description}
+          <button
+            onClick={() => setReload(true)}
+            className="text-bold animate-bounce text-2xl font-bold"
+          >
+            {isComplete ? feedbackText : ''}
+          </button>
+        </div>
+        <div>
           <BlocklyComponent
             reload={reload}
             reset={reset}
@@ -83,19 +85,21 @@ export default function Exercise({
           >
             {toolBox}
           </BlocklyComponent>
-          <div className="flex flex-row">
-            <div className="basis-1/2">
-              <button
-                onClick={() => {
-                  confirm('Er du sikker på du vil starte øvelsen forfra?');
-                  setIsComplete(false);
-                  setReset(true);
-                }}
-                className="relative top-16 rounded-md bg-teal-700/75 p-2 text-white"
-              >
-                Start forfra
-              </button>
-            </div>
+        </div>
+        <div className="flex flex-row pt-4">
+          <div className="w-[500px]">
+            <button
+              onClick={() => {
+                confirm('Er du sikker på du vil starte øvelsen forfra?');
+                setIsComplete(false);
+                setReset(true);
+              }}
+              className="rounded-md bg-teal-700/75 p-2 text-white"
+            >
+              Start forfra
+            </button>
+          </div>
+          <div className="pl-2">
             <NextExerciseButton
               isCompleteKey={isCompleteKey}
               nextExercise={nextExercise}

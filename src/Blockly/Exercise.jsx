@@ -86,11 +86,12 @@ export default function Exercise({
               <button
                 onClick={() => {
                   confirm('Er du sikker på du vil starte øvelsen forfra?');
+                  setIsComplete(false);
                   setReset(true);
                 }}
                 className="relative top-16 rounded-md bg-teal-700/75 p-2 text-white"
               >
-                Start forfra!
+                Start forfra
               </button>
             </div>
             <div>

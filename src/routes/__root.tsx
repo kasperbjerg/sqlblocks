@@ -22,6 +22,35 @@ export const Route = createRootRoute({
               </div>
               <div className="flex flex-row justify-end pt-1">
                 <Badge
+                  badgeName={'indkoeb.svg'}
+                  conditionsArray={[
+                    JSON.parse(localStorage.getItem('indkoebComplete')),
+                    JSON.parse(localStorage.getItem('realityComplete')),
+                    JSON.parse(localStorage.getItem('yndlingsserierComplete')),
+                    JSON.parse(localStorage.getItem('hundeComplete')),
+                    JSON.parse(localStorage.getItem('gaesterComplete')),
+                    JSON.parse(localStorage.getItem('projekt1Complete')),
+                  ]}
+                />
+                <Badge
+                  badgeName={'projekt.svg'}
+                  conditionsArray={[
+                    JSON.parse(localStorage.getItem('projekt1Complete')),
+                  ]}
+                />
+                <Badge
+                  badgeName={'tabel.svg'}
+                  conditionsArray={[
+                    JSON.parse(localStorage.getItem('hundeComplete')),
+                  ]}
+                />
+                <Badge
+                  badgeName={'video.svg'}
+                  conditionsArray={[
+                    JSON.parse(localStorage.getItem('indkoebComplete')),
+                  ]}
+                />
+                <Badge
                   badgeName={'badge5000.svg'}
                   conditionsArray={[
                     localStorage.getItem('energyPoints') > 4999,

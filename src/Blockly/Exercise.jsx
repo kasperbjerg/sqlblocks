@@ -86,7 +86,7 @@ export default function Exercise({
             {toolBox}
           </BlocklyComponent>
         </div>
-        <div className="flex flex-row pt-4">
+        <div className="flex flex-row pb-12 pt-4">
           <div className="w-[500px]">
             <button
               onClick={() => {

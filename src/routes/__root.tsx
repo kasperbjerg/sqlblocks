@@ -2,7 +2,8 @@ import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import React from 'react';
 import logo from '/logo.svg';
-import badge from '/badge-svgrepo-com.svg';
+import badgeTest from '/badges/badge-svgrepo-com.svg';
+import badgeFirstVideo from '../../public/badges/badgeFirstVideo.svg';
 import LinkWithColorChange from '../Blockly/LinkWithColorChange.jsx';
 
 export const Route = createRootRoute({
@@ -11,17 +12,21 @@ export const Route = createRootRoute({
       <div className="">
         <header className="h-20 min-w-[1180px] bg-gray-200">
           <div className="flex flex-row justify-between">
-            <img src={logo} className="pl-4" alt="SQLBLOCKS logo" />
-            <div className="flex flex-col pr-2 pt-1">
+            <img src={logo} className="pb-2 pl-4" alt="SQLBLOCKS logo" />
+            <div className="flex flex-col pr-4 pt-1">
               <div className="flex justify-end">
                 <p className=" text-gray-500 ">
                   Energypoints: {localStorage.getItem('energyPoints')}
                 </p>
               </div>
-              <div className="flex flex-row justify-end">
+              <div className="pt flex flex-row justify-end">
                 {/* div container for badges */}
-                <img src={badge} className="h-8" alt="Badge" />
-                <img src={badge} className="h-8" alt="Badge" />
+                <div>
+                  <img src={badgeTest} className="h-10" alt="Badge" />
+                </div>
+                <div className="duration-250 transition ease-out hover:scale-[2.5] hover:animate-pulse">
+                  <img src={badgeFirstVideo} className="h-10" alt="Badge" />
+                </div>
               </div>
             </div>
           </div>

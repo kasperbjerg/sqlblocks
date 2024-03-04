@@ -3,7 +3,7 @@ import logo from '/logo.svg';
 import React, { useState } from 'react';
 
 import Exercise from '../Blockly/Exercise.jsx';
-import BlocklyComponent, { Block } from '../Blockly';
+import { Block } from '../Blockly';
 
 export const Route = createLazyFileRoute('/yndlingsserier')({
   component: About,
@@ -47,6 +47,7 @@ function About() {
         ]}
         completeConditionsResult={[]}
         completeConditionsTableInfo={[
+          //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in 'rækker: 3', 'rækker: 4' ...
           'rækker: 3',
           'rækker: 4',
           'rækker: 5',

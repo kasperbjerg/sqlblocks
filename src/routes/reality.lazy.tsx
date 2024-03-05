@@ -2,8 +2,8 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import logo from '/logo.svg';
 import React, { useState } from 'react';
 
-import Exercise from '../Blockly/Exercise.jsx';
-import BlocklyComponent, { Block } from '../Blockly';
+import Exercise from '../components/Exercise.jsx';
+import BlocklyComponent, { Block } from '../components';
 
 export const Route = createLazyFileRoute('/reality')({
   component: About,

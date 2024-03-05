@@ -208,6 +208,31 @@ Blockly.Blocks['column'] = {
   },
 };
 
+
+Blockly.Blocks['aggregate'] = {
+  init: function () {
+    this.appendValueInput('NAME1')
+      .setCheck(null)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['MAX', 'MAX'],
+          ['MIN', 'MIN'],
+          ['SUM', 'SUM'],
+          ['COUNT', 'COUNT'],
+          ['AVG', 'AVG'],
+        ]),
+        'NAME2',
+      )
+      .appendField('(')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME3')
+      .appendField(')');
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 Blockly.Blocks['where'] = {
   init: function () {
     this.appendValueInput('NAME')

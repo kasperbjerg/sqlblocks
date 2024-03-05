@@ -119,11 +119,28 @@ javascriptGenerator.forBlock['column'] = function (block, generator) {
   // TODO: Assemble javascript into code variable.
 
   var code = text_name;
-  if(value_name) {
+  if (value_name) {
     code = code + ', ' + value_name;
   }
 
   // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Order.ATOMIC];
+};
+
+javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
+  var dropdown_name2 = block.getFieldValue('NAME2');
+  var text_name3 = block.getFieldValue('NAME3');
+  var value_name1 = generator.valueToCode(
+    block,
+    'NAME1',
+    Order.ATOMIC,
+  );
+  // TODO: Assemble javascript into code variable.
+  var code = dropdown_name2 + '(' + text_name3 + ')';
+  // TODO: Change ORDER_NONE to the correct strength.
+  if (value_name1) {
+    code = code + ', ' + value_name1;
+  }
   return [code, Order.ATOMIC];
 };
 

@@ -24,13 +24,14 @@ function About() {
             <p>Giv hver film en rating mellem 1 og 10</p>
             <p>Vælg nu kun film med en rating på 5 eller mere</p>
             <p>
-              Vis kun kolonnenerne <b>navn</b> og <b>rating</b> og sorter så dem med størt rating er øverst.
+              Vis kun kolonnenerne <b>navn</b> og <b>rating</b> og sorter så dem
+              med størt rating er øverst.
             </p>
           </>
         }
         feedbackText={
           <>
-            <p className="text-teal-700/75">Jeps, lige præcis :)</p>
+            <p className="text-pink-600/75">Super flot :)</p>
           </>
         }
         nextButtonColor={`purple-900/75`}

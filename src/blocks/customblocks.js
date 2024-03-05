@@ -200,7 +200,7 @@ Blockly.Blocks['column'] = {
   init: function () {
     this.appendValueInput('NAME')
       .setCheck(null)
-      .appendField(new Blockly.FieldTextInput('*'), 'NAME1');
+      .appendField(new Blockly.FieldTextInput(''), 'NAME1');
     this.setOutput(true, null);
     this.setColour(230);
     this.setTooltip('');

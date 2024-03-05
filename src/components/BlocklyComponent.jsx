@@ -116,7 +116,6 @@ export default function BlocklyComponent({
 
   return (
     <>
-      {sqlCode}
       <div className="flex flex-row">
         <div className="flex h-[450px] flex-row justify-end">
           <div ref={blocklyDiv} id="blocklyDiv" className="w-[600px]" />

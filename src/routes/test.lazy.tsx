@@ -61,6 +61,7 @@ function About() {
             <Block type="comparison" />
             <Block type="order_by" />
             <Block type="aggregate" />
+            <Block type="group_by" />
           </>
         }
       />

@@ -226,7 +226,7 @@ Blockly.Blocks['aggregate'] = {
       .appendField(new Blockly.FieldTextInput(''), 'NAME3')
       .appendField(')');
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(165);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -240,7 +240,7 @@ Blockly.Blocks['where'] = {
       .appendField('WHERE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(270);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -263,7 +263,7 @@ Blockly.Blocks['comparison'] = {
       )
       .appendField(new Blockly.FieldTextInput(''), 'NAME2');
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(270);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -284,6 +284,20 @@ Blockly.Blocks['order_by'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['group_by'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('GROUP BY (')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField(')');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(165);
     this.setTooltip('');
     this.setHelpUrl('');
   },

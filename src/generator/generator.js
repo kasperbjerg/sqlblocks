@@ -157,14 +157,21 @@ javascriptGenerator.forBlock['comparison'] = function (block, generator) {
   return code;
 };
 
-javascriptGenerator.forBlock['order_by'] = function (
-  block,
-  generator,
-) {
+javascriptGenerator.forBlock['order_by'] = function (block, generator) {
   var text_name1 = block.getFieldValue('NAME1');
   var dropdown_name2 = block.getFieldValue('NAME2');
   // TODO: Assemble javascript into code variable.
   var code = ' ORDER BY (' + text_name1 + ')' + dropdown_name2;
+  return code;
+};
+
+javascriptGenerator.forBlock['group_by'] = function (
+  block,
+  generator,
+) {
+  var text_name = block.getFieldValue('NAME');
+  // TODO: Assemble javascript into code variable.
+  var code = ' GROUP BY (' + text_name + ')';
   return code;
 };
 

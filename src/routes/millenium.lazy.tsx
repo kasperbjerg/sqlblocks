@@ -15,10 +15,11 @@ function About() {
       <Exercise
         isCompleteKey={'milleniumComplete'}
         workspace={'millemiumWorkspace'}
-        nextExercise={'test'}
+        nextExercise={'rating'}
         description={
           <>
-            <p>Vælg nu kun film der er fra 2000, og kun kolonnen <b>film</b></p>
+            <p>Vælg nu kun film der er fra 2000 eller senere og kun kolonnen <b>film</b></p>
+
           </>
         }
         feedbackText={

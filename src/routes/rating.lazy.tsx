@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 
-export const Route = createLazyFileRoute('/film')({
+export const Route = createLazyFileRoute('/rating')({
   component: About,
 });
 
@@ -13,22 +13,29 @@ function About() {
   return (
     <>
       <Exercise
-        isCompleteKey={'filmComplete'}
-        workspace={'filmWorkspace'}
-        nextExercise={'millenium'}
+        isCompleteKey={'ratingComplete'}
+        workspace={'ratingWorkspace'}
+        nextExercise={'rating'}
         description={
           <>
-            <p>Start med at vælge alle film</p>
+            <p>
+              Lav nu en ny kolonne <b>rating</b>
+            </p>
+            <p>Giv hver film en rating mellem 1 og 10</p>
+            <p>Vælg nu kun film med en rating på 5 eller mere</p>
+            <p>
+              Vis kun kolonnenerne <b>film</b> og <b>rating</b> og sorter så dem med størt rating er øverst.
+            </p>
           </>
         }
         feedbackText={
           <>
-            <p className="text-teal-700/75">Sådan!</p>
+            <p className="text-teal-700/75">Jeps, lige præcis :)</p>
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={['asdf']}
-        completeConditionsResult={['']}
+        completeConditionsSql={['dd']}
+        completeConditionsResult={['dd']}
         completeConditionsTableInfo={['']}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">

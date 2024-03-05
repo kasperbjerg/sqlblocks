@@ -23,7 +23,7 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-teal-700/75">Sådan!</p>
+            <p className="text-purple-900/75">Sådan!</p>
           </>
         }
         nextButtonColor={`purple-900/75`}

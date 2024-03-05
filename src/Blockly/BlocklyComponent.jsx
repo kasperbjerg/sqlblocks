@@ -118,7 +118,7 @@ export default function BlocklyComponent({
     <>
       <div className="flex flex-row">
         <div className="flex h-[450px] flex-row justify-end">
-          <div ref={blocklyDiv} id="blocklyDiv" className=" w-[500px]" />
+          <div ref={blocklyDiv} id="blocklyDiv" className="w-[600px]" />
           <div style={{ display: 'none' }} ref={toolbox}>
             {children}
           </div>

@@ -17,6 +17,7 @@ import { Route as rootRoute } from './routes/__root'
 // Create Virtual Routes
 
 const YndlingsserierLazyImport = createFileRoute('/yndlingsserier')()
+const TestLazyImport = createFileRoute('/test')()
 const RealityLazyImport = createFileRoute('/reality')()
 const Projekt1LazyImport = createFileRoute('/projekt1')()
 const IndkoebLazyImport = createFileRoute('/indkoeb')()
@@ -32,6 +33,11 @@ const YndlingsserierLazyRoute = YndlingsserierLazyImport.update({
 } as any).lazy(() =>
   import('./routes/yndlingsserier.lazy').then((d) => d.Route),
 )
+
+const TestLazyRoute = TestLazyImport.update({
+  path: '/test',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/test.lazy').then((d) => d.Route))
 
 const RealityLazyRoute = RealityLazyImport.update({
   path: '/reality',
@@ -91,6 +97,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RealityLazyImport
       parentRoute: typeof rootRoute
     }
+    '/test': {
+      preLoaderRoute: typeof TestLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/yndlingsserier': {
       preLoaderRoute: typeof YndlingsserierLazyImport
       parentRoute: typeof rootRoute
@@ -107,6 +117,7 @@ export const routeTree = rootRoute.addChildren([
   IndkoebLazyRoute,
   Projekt1LazyRoute,
   RealityLazyRoute,
+  TestLazyRoute,
   YndlingsserierLazyRoute,
 ])
 

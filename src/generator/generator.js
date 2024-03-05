@@ -25,7 +25,7 @@
 // https://developers.google.com/blockly/guides/create-custom-blocks/generating-code
 
 import { CodeGenerator } from 'blockly';
-import { javascriptGenerator } from 'blockly/javascript';
+import { javascriptGenerator, Order } from 'blockly/javascript';
 
 javascriptGenerator.forBlock['run_sqlblocks'] = function (block, generator) {
   var code = '';
@@ -100,5 +100,41 @@ javascriptGenerator.forBlock['select'] = function (block, generator) {
   var text_rows = block.getFieldValue('rows');
   var text_table = block.getFieldValue('table');
   var code = 'SELECT ' + text_rows + ' FROM ' + text_table + ';';
+  return code;
+};
+
+javascriptGenerator.forBlock['select_open'] = function (block, generator) {
+  var text_rows = block.getFieldValue('rows');
+  var text_table = block.getFieldValue('table');
+  var statements_filters = generator.statementToCode(block, 'filters');
+  // TODO: Assemble javascript into code variable.
+  var code =
+    'SELECT ' + text_rows + ' FROM ' + text_table + statements_filters + ';';
+  return code;
+};
+
+javascriptGenerator.forBlock['where'] = function (block, generator) {
+  var statements_name = generator.statementToCode(block, 'NAME');
+  // TODO: Assemble javascript into code variable.
+  var code = 'WHERE ' + statements_name;
+  return code;
+};
+
+javascriptGenerator.forBlock['comparison'] = function (block, generator) {
+  var text_name1 = block.getFieldValue('NAME');
+  var dropdown_name = block.getFieldValue('NAME1');
+  var text_name2 = block.getFieldValue('NAME2');
+  // TODO: Assemble javascript into code variable.
+  var code = text_name1 + ' ' + dropdown_name + ' ' + text_name2;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Order.ATOMIC];
+};
+
+javascriptGenerator.forBlock['and'] = function (block, generator) {
+  var value_name1 = generator.valueToCode(block, 'NAME1', Order.ATOMIC);
+  var value_name2 = generator.valueToCode(block, 'NAME2', Order.ATOMIC);
+  // TODO: Assemble javascript into code variable.
+  var code = value_name1 + ' AND ' + value_name2;
+  // TODO: Change ORDER_NONE to the correct strength.
   return code;
 };

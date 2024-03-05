@@ -52,7 +52,9 @@ Blockly.Blocks['create_table'] = {
       .appendField(new Blockly.FieldTextInput(''), 'NAME')
       .appendField('(');
     this.appendStatementInput('NAME').setCheck(null);
-    this.appendDummyInput().appendField(');');
+    this.appendDummyInput()
+      .setAlign(Blockly.inputs.Align.RIGHT)
+      .appendField(');');
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -171,6 +173,77 @@ Blockly.Blocks['select'] = {
       .appendField(';');
     this.setPreviousStatement(true, null);
     this.setColour(60);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['select_open'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('SELECT')
+      .appendField(new Blockly.FieldTextInput(''), 'rows');
+    this.appendDummyInput()
+      .appendField('FROM')
+      .appendField(new Blockly.FieldTextInput(''), 'table');
+    this.appendStatementInput('filters').setCheck(null);
+    this.appendDummyInput()
+      .setAlign(Blockly.inputs.Align.RIGHT)
+      .appendField(';');
+    this.setPreviousStatement(true, null);
+    this.setColour(60);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['where'] = {
+  init: function () {
+    this.appendValueInput('NAME')
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField('WHERE');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['comparison'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['=', '='],
+          ['≠', '≠'],
+          ['<', '<'],
+          ['≤', '≤'],
+          ['>', '>'],
+          ['≥', '≥'],
+          ['IN', 'IN'],
+        ]),
+        'NAME1',
+      )
+      .appendField(new Blockly.FieldTextInput(''), 'NAME2');
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['and'] = {
+  init: function () {
+    this.appendValueInput('NAME1').setCheck(null);
+    this.appendValueInput('NAME2')
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField('AND');
+    this.setOutput(true, null);
+    this.setColour(230);
     this.setTooltip('');
     this.setHelpUrl('');
   },

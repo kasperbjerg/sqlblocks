@@ -20,6 +20,7 @@ const YndlingsserierLazyImport = createFileRoute('/yndlingsserier')()
 const TestLazyImport = createFileRoute('/test')()
 const RealityLazyImport = createFileRoute('/reality')()
 const Projekt1LazyImport = createFileRoute('/projekt1')()
+const MilleniumLazyImport = createFileRoute('/millenium')()
 const IndkoebLazyImport = createFileRoute('/indkoeb')()
 const HundeLazyImport = createFileRoute('/hunde')()
 const GaesterLazyImport = createFileRoute('/gaester')()
@@ -49,6 +50,11 @@ const Projekt1LazyRoute = Projekt1LazyImport.update({
   path: '/projekt1',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/projekt1.lazy').then((d) => d.Route))
+
+const MilleniumLazyRoute = MilleniumLazyImport.update({
+  path: '/millenium',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/millenium.lazy').then((d) => d.Route))
 
 const IndkoebLazyRoute = IndkoebLazyImport.update({
   path: '/indkoeb',
@@ -99,6 +105,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndkoebLazyImport
       parentRoute: typeof rootRoute
     }
+    '/millenium': {
+      preLoaderRoute: typeof MilleniumLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/projekt1': {
       preLoaderRoute: typeof Projekt1LazyImport
       parentRoute: typeof rootRoute
@@ -126,6 +136,7 @@ export const routeTree = rootRoute.addChildren([
   GaesterLazyRoute,
   HundeLazyRoute,
   IndkoebLazyRoute,
+  MilleniumLazyRoute,
   Projekt1LazyRoute,
   RealityLazyRoute,
   TestLazyRoute,

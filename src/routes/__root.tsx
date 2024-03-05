@@ -120,6 +120,11 @@ export const Route = createRootRoute({
               Name="Film"
               color="text-purple-900/75"
             />
+            <LinkWithColorChange
+              name="millenium"
+              Name="Millenium"
+              color="text-teal-700/75"
+            />
           </div>
           <Outlet />
         </div>

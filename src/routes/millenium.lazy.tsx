@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 
-export const Route = createLazyFileRoute('/film')({
+export const Route = createLazyFileRoute('/millenium')({
   component: About,
 });
 
@@ -13,12 +13,12 @@ function About() {
   return (
     <>
       <Exercise
-        isCompleteKey={'filmComplete'}
-        workspace={'filmWorkspace'}
-        nextExercise={'millenium'}
+        isCompleteKey={'milleniumComplete'}
+        workspace={'millemiumWorkspace'}
+        nextExercise={'test'}
         description={
           <>
-            <p>Start med at vælge alle film</p>
+            <p>Vælg nu kun film der er fra 2000, og kun kolonnen <b>film</b></p>
           </>
         }
         feedbackText={
@@ -27,8 +27,8 @@ function About() {
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={['']}
-        completeConditionsResult={['']}
+        completeConditionsSql={['dd']}
+        completeConditionsResult={['dd']}
         completeConditionsTableInfo={['']}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">

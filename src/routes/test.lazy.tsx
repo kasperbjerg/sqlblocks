@@ -19,6 +19,7 @@ function About() {
         description={
           <>
             <p>Fri leg!!</p>
+            <br></br>
           </>
         }
         feedbackText={
@@ -39,7 +40,26 @@ function About() {
         ]}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
-                <Block type="run_sqlblocks" />
+
+                <block type="run_sqlblocks">
+                <next>
+                <block type="create_table">
+                  <field name="NAME">film</field>
+                    <statement name="NAME">
+                      <block type="add_text_column">
+                        <field name="NAME">navn</field>
+                        <next>
+                          <block type="add_integer_column">
+                            <field name="NAME">udgivelsesår</field>
+                          </block>
+                        </next>
+                        
+                      </block>
+                    </statement>
+                    <next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Avatar', 2009</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Titanic', 1997</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Star Wars: Episode IV - A New Hope', 1977</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Shrek 2', 2004</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'The Lion King', 1994</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Disneys Up', 2009</field></next></next></next></next></next></next>
+                </next>
+              </block>
+
               </xml>
           `}
         toolBox={
@@ -61,7 +81,9 @@ function About() {
             <Block type="comparison" />
             <Block type="order_by" />
             <Block type="aggregate" />
+            <Block type="and_or" />
             <Block type="group_by" />
+            <Block type="in" />
           </>
         }
       />

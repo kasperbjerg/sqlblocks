@@ -258,6 +258,7 @@ Blockly.Blocks['comparison'] = {
           ['≤', '<='],
           ['>', '>'],
           ['≥', '>='],
+          ['LIKE', 'LIKE'],
         ]),
         'NAME1',
       )
@@ -303,13 +304,38 @@ Blockly.Blocks['group_by'] = {
   },
 };
 
-Blockly.Blocks['and'] = {
+Blockly.Blocks['and_or'] = {
   init: function () {
     this.appendValueInput('NAME1').setCheck(null);
-    this.appendValueInput('NAME2')
+    this.appendValueInput('NAME3')
       .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField('AND');
+      .setAlign(Blockly.inputs.Align.RIGHT)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['AND', 'AND'],
+          ['OR', 'OR'],
+        ]),
+        'NAME2',
+      );
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['in'] = {
+  init: function () {
+    this.appendStatementInput('NAME')
+      .setCheck(null)
+      .appendField(new Blockly.FieldTextInput(''), 'NAME1')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['IN', 'IN'],
+          ['NOT IN', 'NOT IN'],
+        ]),
+        'NAME2',
+      );
     this.setOutput(true, null);
     this.setColour(230);
     this.setTooltip('');

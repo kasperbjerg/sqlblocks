@@ -27,16 +27,9 @@ function About() {
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={['INTEGER', 'TEXT']}
+        completeConditionsSql={['']}
         completeConditionsResult={['']}
-        completeConditionsTableInfo={[
-          'rækker: 5',
-          'rækker: 6',
-          'rækker: 7',
-          'rækker: 8',
-          'rækker: 9',
-          'rækker: 10',
-        ]}
+        completeConditionsTableInfo={['']}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <block type="run_sqlblocks">

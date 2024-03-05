@@ -57,10 +57,10 @@ function About() {
               </Value>
             </Block>
             <Block type="column" />
-            <Block type="aggregate" />
             <Block type="where" />
             <Block type="comparison" />
-            <Block type="and" />
+            <Block type="order_by" />
+            <Block type="aggregate" />
           </>
         }
       />

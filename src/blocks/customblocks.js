@@ -208,7 +208,6 @@ Blockly.Blocks['column'] = {
   },
 };
 
-
 Blockly.Blocks['aggregate'] = {
   init: function () {
     this.appendValueInput('NAME1')
@@ -254,17 +253,36 @@ Blockly.Blocks['comparison'] = {
       .appendField(
         new Blockly.FieldDropdown([
           ['=', '='],
-          ['≠', '≠'],
+          ['≠', '!='],
           ['<', '<'],
-          ['≤', '≤'],
+          ['≤', '<='],
           ['>', '>'],
-          ['≥', '≥'],
-          ['IN', 'IN'],
+          ['≥', '>='],
         ]),
         'NAME1',
       )
       .appendField(new Blockly.FieldTextInput(''), 'NAME2');
     this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['order_by'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('ORDER BY')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME1')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['ASC', 'ASC'],
+          ['DESC', 'DESC'],
+        ]),
+        'NAME2',
+      );
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(230);
     this.setTooltip('');
     this.setHelpUrl('');

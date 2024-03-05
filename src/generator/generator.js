@@ -130,11 +130,7 @@ javascriptGenerator.forBlock['column'] = function (block, generator) {
 javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
   var dropdown_name2 = block.getFieldValue('NAME2');
   var text_name3 = block.getFieldValue('NAME3');
-  var value_name1 = generator.valueToCode(
-    block,
-    'NAME1',
-    Order.ATOMIC,
-  );
+  var value_name1 = generator.valueToCode(block, 'NAME1', Order.ATOMIC);
   // TODO: Assemble javascript into code variable.
   var code = dropdown_name2 + '(' + text_name3 + ')';
   // TODO: Change ORDER_NONE to the correct strength.
@@ -145,7 +141,7 @@ javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
 };
 
 javascriptGenerator.forBlock['where'] = function (block, generator) {
-  var statements_name = generator.statementToCode(block, 'NAME');
+  var statements_name = generator.statementToCode(block, 'NAME', Order.ATOMIC);
   // TODO: Assemble javascript into code variable.
   var code = 'WHERE ' + statements_name;
   return code;
@@ -158,7 +154,18 @@ javascriptGenerator.forBlock['comparison'] = function (block, generator) {
   // TODO: Assemble javascript into code variable.
   var code = text_name1 + ' ' + dropdown_name + ' ' + text_name2;
   // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Order.ATOMIC];
+  return code;
+};
+
+javascriptGenerator.forBlock['order_by'] = function (
+  block,
+  generator,
+) {
+  var text_name1 = block.getFieldValue('NAME1');
+  var dropdown_name2 = block.getFieldValue('NAME2');
+  // TODO: Assemble javascript into code variable.
+  var code = ' ORDER BY (' + text_name1 + ')' + dropdown_name2;
+  return code;
 };
 
 javascriptGenerator.forBlock['and'] = function (block, generator) {

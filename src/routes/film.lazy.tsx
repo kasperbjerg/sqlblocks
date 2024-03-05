@@ -18,7 +18,7 @@ function About() {
         nextExercise={'test'}
         description={
           <>
-            <p>Fri leg!!</p>
+            <p>Start med at vælge alle film</p>
           </>
         }
         feedbackText={
@@ -42,19 +42,19 @@ function About() {
                 <block type="run_sqlblocks">
                 <next>
                 <block type="create_table">
-                  <field name="NAME">serier</field>
+                  <field name="NAME">film</field>
                     <statement name="NAME">
                       <block type="add_text_column">
-                        <field name="NAME">serie</field>
+                        <field name="NAME">navn</field>
                         <next>
                           <block type="add_integer_column">
-                            <field name="NAME">rating</field>
+                            <field name="NAME">udgivelsesår</field>
                           </block>
                         </next>
                         
                       </block>
                     </statement>
-                    <next><block type="insert_into" /><next><block type="insert_into" /><next><block type="insert_into" /><next><block type="insert_into" /><next><block type="insert_into" /><next><block type="insert_into" /></next></next></next></next></next></next>
+                    <next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Avatar', 2009</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Titanic', 1997</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Star Wars: Episode IV - A New Hope', 1977</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Shrek 2', 2004</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'The Lion King', 1994</field><next><block type="insert_into" /><field name="table_NAME">film</field><field name="row_names">'Disneys Up', 2009</field></next></next></next></next></next></next>
                 </next>
               </block>
               </xml>

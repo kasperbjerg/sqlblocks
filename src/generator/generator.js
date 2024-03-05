@@ -104,13 +104,27 @@ javascriptGenerator.forBlock['select'] = function (block, generator) {
 };
 
 javascriptGenerator.forBlock['select_open'] = function (block, generator) {
-  var text_rows = block.getFieldValue('rows');
+  var value_name = generator.valueToCode(block, 'NAME', Order.ATOMIC);
   var text_table = block.getFieldValue('table');
   var statements_filters = generator.statementToCode(block, 'filters');
   // TODO: Assemble javascript into code variable.
   var code =
-    'SELECT ' + text_rows + ' FROM ' + text_table + statements_filters + ';';
+    'SELECT ' + value_name + ' FROM ' + text_table + statements_filters + ';';
   return code;
+};
+
+javascriptGenerator.forBlock['column'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME1');
+  var value_name = generator.valueToCode(block, 'NAME', Order.ATOMIC);
+  // TODO: Assemble javascript into code variable.
+
+  var code = text_name;
+  if(value_name) {
+    code = code + ', ' + value_name;
+  }
+
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Order.ATOMIC];
 };
 
 javascriptGenerator.forBlock['where'] = function (block, generator) {

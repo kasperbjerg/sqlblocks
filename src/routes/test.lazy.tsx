@@ -48,8 +48,8 @@ function About() {
             <Block type="add_integer_column" />
             <Block type="add_text_column" />
             <Block type="insert_into" />
-            <Block type="select_*" />
             <Block type="select_open" />
+            <Block type="column" />
             <Block type="where" />
             <Block type="comparison" />
             <Block type="and" />

@@ -180,9 +180,8 @@ Blockly.Blocks['select'] = {
 
 Blockly.Blocks['select_open'] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField('SELECT')
-      .appendField(new Blockly.FieldTextInput(''), 'rows');
+    this.appendValueInput('NAME').setCheck(null).appendField('SELECT');
+    this.appendEndRowInput();
     this.appendDummyInput()
       .appendField('FROM')
       .appendField(new Blockly.FieldTextInput(''), 'table');
@@ -192,6 +191,18 @@ Blockly.Blocks['select_open'] = {
       .appendField(';');
     this.setPreviousStatement(true, null);
     this.setColour(60);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['column'] = {
+  init: function () {
+    this.appendValueInput('NAME')
+      .setCheck(null)
+      .appendField(new Blockly.FieldTextInput('*'), 'NAME1');
+    this.setOutput(true, null);
+    this.setColour(230);
     this.setTooltip('');
     this.setHelpUrl('');
   },

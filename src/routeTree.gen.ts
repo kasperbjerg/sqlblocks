@@ -23,6 +23,7 @@ const Projekt1LazyImport = createFileRoute('/projekt1')()
 const IndkoebLazyImport = createFileRoute('/indkoeb')()
 const HundeLazyImport = createFileRoute('/hunde')()
 const GaesterLazyImport = createFileRoute('/gaester')()
+const FilmLazyImport = createFileRoute('/film')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
@@ -64,6 +65,11 @@ const GaesterLazyRoute = GaesterLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/gaester.lazy').then((d) => d.Route))
 
+const FilmLazyRoute = FilmLazyImport.update({
+  path: '/film',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/film.lazy').then((d) => d.Route))
+
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
@@ -75,6 +81,10 @@ declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/film': {
+      preLoaderRoute: typeof FilmLazyImport
       parentRoute: typeof rootRoute
     }
     '/gaester': {
@@ -112,6 +122,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
+  FilmLazyRoute,
   GaesterLazyRoute,
   HundeLazyRoute,
   IndkoebLazyRoute,

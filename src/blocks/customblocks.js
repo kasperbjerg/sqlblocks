@@ -329,6 +329,9 @@ Blockly.Blocks['comparison'] = {
           ['>', '>'],
           ['≥', '>='],
           ['LIKE', 'LIKE'],
+          ['NOT LIKE', 'NOT LIKE'],
+          ['IS NULL', 'IS NULL'],
+          ['IS NOT NULL', 'IS NOT NULL'],
         ]),
         'NAME1',
       )

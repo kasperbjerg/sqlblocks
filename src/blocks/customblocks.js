@@ -214,7 +214,7 @@ Blockly.Blocks['value'] = {
       .setCheck(null)
       .appendField(new Blockly.FieldTextInput(''), 'NAME1');
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(210);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -354,7 +354,7 @@ Blockly.Blocks['order_by'] = {
       );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(170);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -368,7 +368,7 @@ Blockly.Blocks['group_by'] = {
       .appendField(')');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(165);
+    this.setColour(100);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -407,7 +407,7 @@ Blockly.Blocks['in'] = {
         'NAME2',
       );
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(360);
     this.setTooltip('');
     this.setHelpUrl('');
   },

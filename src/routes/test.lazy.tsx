@@ -74,6 +74,7 @@ function About() {
             <Block type="insert_into_with_columns" />
             <Block type="column" />
             <Block type="value" />
+            <Block type="select_*" />
             <Block type="select_open">
               <Field name="table"></Field>
               <Value name="NAME">
@@ -82,14 +83,15 @@ function About() {
                 </Block>
               </Value>
             </Block>
+            <Block type="column" />
+            <Block type="value" />
             <Block type="aggregate" />
             <Block type="where" />
             <Block type="comparison" />
             <Block type="and_or" />
-            <Block type="order_by" />
-
-            <Block type="group_by" />
             <Block type="in" />
+            <Block type="order_by" />
+            <Block type="group_by" />
           </>
         }
       />

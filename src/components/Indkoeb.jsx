@@ -45,9 +45,9 @@ export default function Indkoeb({}) {
           </button>
         </div>
         <div className="h-[450px]">
-          <ReactPlayer url="https://youtu.be/u4lVoVd9vVA" />
+          <ReactPlayer url="https://youtu.be/4xBcSAvUU5E" />
         </div>
-        <div className="flex flex-row pb-12 pt-4">
+        <div className="absolute flex flex-row pb-12 pt-[454px]">
           <div className="w-[657px]"></div>
           <button className=" top-16 rounded-md bg-sky-800/75 p-2 text-white">
             <Link to={'/reality'}>Næste øvelse</Link>

@@ -49,7 +49,7 @@ export default function Indkoeb({}) {
           <Player />
         </div>
         <div className="flex flex-row pb-12 pt-4">
-          <div className="w-[654px]"></div>
+          <div className="w-[662px]"></div>
           <button className=" top-16 rounded-md bg-sky-800/75 p-2 text-white">
             <Link to={'/reality'}>Næste øvelse</Link>
           </button>

@@ -49,7 +49,7 @@ function About() {
           'rating INTEGER',
         ]}
         completeConditionsResult={['']}
-        completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in 'rækker: 3', 'rækker: 4' ...
+        completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in '3 rækker', '4 rækker' ...
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />

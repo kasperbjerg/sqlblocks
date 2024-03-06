@@ -31,12 +31,12 @@ function About() {
         completeConditionsSql={['INTEGER', 'TEXT']}
         completeConditionsResult={['']}
         completeConditionsTableInfo={[
-          'rækker: 5',
-          'rækker: 6',
-          'rækker: 7',
-          'rækker: 8',
-          'rækker: 9',
-          'rækker: 10',
+          '5 rækker',
+          '6 rækker',
+          '7 rækker',
+          '8 rækker',
+          '9 rækker',
+          '10 rækker',
         ]}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">

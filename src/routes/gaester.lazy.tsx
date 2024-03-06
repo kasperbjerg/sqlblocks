@@ -47,7 +47,7 @@ function About() {
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={['dyr', 'user', 'odre', 'ea', '7', '3', '1']}
         completeConditionsResult={['asmu']} //to make sure the code is running
-        completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in 'rækker: 3', 'rækker: 4' ...
+        completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in '3 rækker', '4 rækker' ...
         initialXml={hundeXml}
         toolBox={
           <>

@@ -57,7 +57,7 @@ export default function Sql({
             sql: sql1,
             rowMode: 'array',
             callback: function (row) {
-              rows.push('rækker: ' + row[0]);
+              rows.push(row[0] + ' rækker');
             },
           });
 
@@ -102,16 +102,13 @@ export default function Sql({
     return data.map((table) => {
       return (
         <div className="pr-2 pt-2">
-          <table className="border">
-            <thead className="border">
-              <th className="text-left">{table[0]}</th>
+          <table className="rounded-lg border">
+            <thead className=" bg-gray-200">
+              <th className="">{table[0]}</th>
+              <th>({table[1]})</th>
+              <th></th>
             </thead>
-            <tbody>
-              <tr>
-                <td>{table[1]}</td>
-              </tr>
-              {column_data(table)}
-            </tbody>
+            <tbody>{column_data(table)}</tbody>
           </table>
         </div>
       );
@@ -126,7 +123,7 @@ export default function Sql({
     }
     return data.slice(2).map((column) => {
       return (
-        <tr>
+        <tr className="border">
           <td>{column[0]}</td>
           <td>{column[1]}</td>
           <td>{column[2]}</td>
@@ -144,7 +141,7 @@ export default function Sql({
       return;
     }
     return Object.keys(data[0]).map((key) => {
-      return <th>{key}</th>;
+      return <th className="bg-gray-200">{key}</th>;
     });
   }
 
@@ -156,7 +153,7 @@ export default function Sql({
       return;
     }
     return data.map((obj) => {
-      return <tr>{getCells(obj)}</tr>;
+      return <tr className="border">{getCells(obj)}</tr>;
     });
   }
 
@@ -165,7 +162,7 @@ export default function Sql({
   function getCells(obj) {
     return Object.values(obj).map((value) => {
       return (
-        <td className="border-spacing-x-px" key={value}>
+        <td className="border" key={value}>
           {value}
         </td>
       );
@@ -176,7 +173,9 @@ export default function Sql({
     <div className="flex h-[450px] w-[400px] flex-col overflow-auto border pl-2">
       <div>
         <h1 className="text-left text-xl text-gray-500">Databaseskema</h1>
-        <div className="flex flex-row flex-wrap">{createTables(tableInfo)}</div>
+        <div className="flex flex-row flex-wrap text-left">
+          {createTables(tableInfo)}
+        </div>
       </div>
       <div className="pt-2">
         <h1 className="text-left text-xl text-gray-500">Resultat</h1>

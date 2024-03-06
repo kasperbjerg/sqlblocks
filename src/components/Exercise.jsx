@@ -87,7 +87,7 @@ export default function Exercise({
           </BlocklyComponent>
         </div>
         <div className="flex flex-row pb-12 pt-4">
-          <div className="w-[600px]">
+          <div className="w-[650px]">
             <button
               onClick={() => {
                 confirm('Er du sikker på du vil starte øvelsen forfra?');

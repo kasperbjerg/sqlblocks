@@ -120,8 +120,7 @@ javascriptGenerator.forBlock['insert_into_only_values'] = function (
 ) {
   var text_table = block.getFieldValue('table_NAME');
   var values = generator.statementToCode(block, 'VALUES');
-  var code =
-    'INSERT INTO ' + text_table + ' VALUES (' + values + ');';
+  var code = 'INSERT INTO ' + text_table + ' VALUES (' + values + ');';
   return code;
 };
 
@@ -132,7 +131,19 @@ javascriptGenerator.forBlock['insert_into_with_columns'] = function (
   var text_table = block.getFieldValue('table_NAME');
   var columns = generator.statementToCode(block, 'COLUMNS');
   var values = generator.statementToCode(block, 'VALUES');
-  var code = 'INSERT INTO ' + text_table + '(' + columns +')' + ' VALUES (' + values + ');';
+  var code = 'INSERT INTO ' + text_table + ' VALUES (' + values + ');';
+  if (columns) {
+    code =
+      'INSERT INTO ' +
+      text_table +
+      '(' +
+      columns +
+      ')' +
+      ' VALUES (' +
+      values +
+      ');';
+  }
+
   return code;
 };
 

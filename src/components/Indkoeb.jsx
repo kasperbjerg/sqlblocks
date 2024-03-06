@@ -30,20 +30,26 @@ export default function Indkoeb({}) {
     <>
       <div className="flex flex-col">
         <div className="h-36">
-          <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
-          <br></br>
+          <p>Husk mælk og tandpasta!</p>
           <p>
             Jeg vil lave en tabel til at huske at købe chips og cola, se hvordan
             i videoen.
           </p>
-          <p>Husk at sætte lyd på</p>
+          <br></br>
+          <br></br>
+          <button
+            onClick={() => setReload(true)}
+            className="text-bold animate-bounce text-2xl font-bold"
+          >
+            {isComplete ? 'SÅDAN' : ''}
+          </button>
         </div>
-        <div className="h-[402px]">
-          <ReactPlayer url="https://youtu.be/WeNeMjnM5gc" />
+        <div className="h-[450px]">
+          <ReactPlayer url="https://youtu.be/u4lVoVd9vVA" />
         </div>
-        <div className="flex flex-row">
-          <div className="w-[607px]"></div>
-          <button className="relative top-16 rounded-md bg-sky-800/75 p-2 text-white">
+        <div className="flex flex-row pb-12 pt-4">
+          <div className="w-[657px]"></div>
+          <button className=" top-16 rounded-md bg-sky-800/75 p-2 text-white">
             <Link to={'/reality'}>Næste øvelse</Link>
           </button>
         </div>

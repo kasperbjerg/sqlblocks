@@ -10,29 +10,14 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 
 import { Link } from '@tanstack/react-router';
 
-export default function Video({ videoUrl = { videoUrl } }) {
-  class ResponsivePlayer extends React.Component {
-    render() {
-      return (
-        <div className="relative h-full w-full pt-[43.75%]">
-          <ReactPlayer
-            className="absolute left-0 top-0"
-            videoUrl={videoUrl}
-            width="1024px"
-            height="448px"
-          />
-        </div>
-      );
-    }
-  }
-
+export default function Video({ videoUrl }) {
   const [isComplete, setIsComplete] = useLocalStorage('indkoebComplete', false);
 
   return (
     <>
       <div className="flex flex-col">
         <div className="h-36">
-          <p>Husk mælk og tandpasta!</p>
+          <p>Husk mælk og tandpasta!!</p>
           <p>
             Jeg vil lave en tabel til at huske at købe chips og cola, se hvordan
             i videoen.
@@ -47,7 +32,14 @@ export default function Video({ videoUrl = { videoUrl } }) {
           </button>
         </div>
         <div className="h-[448px]">
-          <ResponsivePlayer videoUrl={videoUrl} />
+          <div className="relative pt-[43.75%]">
+            <ReactPlayer
+              className="absolute left-0 top-0"
+              videoUrl={videoUrl}
+              width="1024px"
+              height="448px"
+            />
+          </div>
         </div>
         <div className="flex flex-row pb-12 pt-4">
           <div className="w-[662px]"></div>

@@ -296,7 +296,7 @@ Blockly.Blocks['aggregate'] = {
       .appendField(new Blockly.FieldTextInput(''), 'NAME3')
       .appendField(')');
     this.setOutput(true, null);
-    this.setColour(165);
+    this.setColour(210);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -334,7 +334,7 @@ Blockly.Blocks['comparison'] = {
       )
       .appendField(new Blockly.FieldTextInput(''), 'NAME2');
     this.setOutput(true, null);
-    this.setColour(270);
+    this.setColour(360);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -388,7 +388,7 @@ Blockly.Blocks['and_or'] = {
         'NAME2',
       );
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(360);
     this.setTooltip('');
     this.setHelpUrl('');
   },

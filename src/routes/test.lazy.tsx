@@ -82,12 +82,12 @@ function About() {
                 </Block>
               </Value>
             </Block>
-
+            <Block type="aggregate" />
             <Block type="where" />
             <Block type="comparison" />
-            <Block type="order_by" />
-            <Block type="aggregate" />
             <Block type="and_or" />
+            <Block type="order_by" />
+
             <Block type="group_by" />
             <Block type="in" />
           </>

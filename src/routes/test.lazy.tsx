@@ -84,7 +84,6 @@ function About() {
               </Value>
             </Block>
             <Block type="column" />
-            <Block type="value" />
             <Block type="aggregate" />
             <Block type="where" />
             <Block type="comparison" />

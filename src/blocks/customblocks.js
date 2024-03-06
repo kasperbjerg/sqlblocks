@@ -296,7 +296,7 @@ Blockly.Blocks['aggregate'] = {
       .appendField(new Blockly.FieldTextInput(''), 'NAME3')
       .appendField(')');
     this.setOutput(true, null);
-    this.setColour(210);
+    this.setColour(270);
     this.setTooltip('');
     this.setHelpUrl('');
   },

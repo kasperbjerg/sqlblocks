@@ -5,6 +5,7 @@ import '../blocks/customblocks';
 import '../generator/generator';
 
 import ReactPlayer from 'react-player/youtube';
+import Player from './Player.jsx';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
@@ -44,11 +45,9 @@ export default function Indkoeb({}) {
             {isComplete ? 'SÅDAN' : ''}
           </button>
         </div>
-        <div className="h-[450px]">
-          <ReactPlayer url="https://youtu.be/Ni75V0WUavE" />
-        </div>
-        <div className="flex flex-row pb-12 pt-[454px]">
-          <div className="w-[657px]"></div>
+        <Player />
+        <div className="flex flex-row pb-12 pt-4">
+          <div className="w-[654px]"></div>
           <button className=" top-16 rounded-md bg-sky-800/75 p-2 text-white">
             <Link to={'/reality'}>Næste øvelse</Link>
           </button>

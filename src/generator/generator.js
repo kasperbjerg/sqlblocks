@@ -118,10 +118,10 @@ javascriptGenerator.forBlock['insert_into_only_values'] = function (
   block,
   generator,
 ) {
-  var text_table_name = block.getFieldValue('table_NAME');
-  var text_row_names = block.getFieldValue('row_names');
+  var text_table = block.getFieldValue('table_NAME');
+  var values = generator.statementToCode(block, 'VALUES');
   var code =
-    'INSERT INTO ' + text_table_name + ' VALUES (' + text_row_names + ');';
+    'INSERT INTO ' + text_table + ' VALUES (' + values + ');';
   return code;
 };
 
@@ -129,10 +129,10 @@ javascriptGenerator.forBlock['insert_into_with_columns'] = function (
   block,
   generator,
 ) {
-  var text_table_name = block.getFieldValue('table_NAME');
-  var text_row_names = block.getFieldValue('row_names');
-  var code =
-    'INSERT INTO ' + text_table_name + ' VALUES (' + text_row_names + ');';
+  var text_table = block.getFieldValue('table_NAME');
+  var columns = generator.statementToCode(block, 'COLUMNS');
+  var values = generator.statementToCode(block, 'VALUES');
+  var code = 'INSERT INTO ' + text_table + '(' + columns +')' + ' VALUES (' + values + ');';
   return code;
 };
 
@@ -161,6 +161,20 @@ javascriptGenerator.forBlock['select_open'] = function (block, generator) {
 };
 
 javascriptGenerator.forBlock['column'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME1');
+  var value_name = generator.statementToCode(block, 'NAME');
+  // TODO: Assemble javascript into code variable.
+
+  var code = text_name;
+  if (value_name) {
+    code = code + ', ' + value_name;
+  }
+
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+javascriptGenerator.forBlock['value'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME1');
   var value_name = generator.statementToCode(block, 'NAME');
   // TODO: Assemble javascript into code variable.

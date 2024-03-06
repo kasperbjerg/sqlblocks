@@ -17,7 +17,7 @@ export default function Video({ videoUrl }) {
     <>
       <div className="flex flex-col">
         <div className="h-36">
-          <p>Husk mælk og tandpasta!!</p>
+          <p>Husk mælk og tandpasta!</p>
           <p>
             Jeg vil lave en tabel til at huske at købe chips og cola, se hvordan
             i videoen.
@@ -32,10 +32,10 @@ export default function Video({ videoUrl }) {
           </button>
         </div>
         <div className="h-[448px]">
-          <div className="relative pt-[43.75%]">
+          <div className="relative h-full w-full pt-[43.75%]">
             <ReactPlayer
               className="absolute left-0 top-0"
-              videoUrl={videoUrl}
+              url={videoUrl}
               width="1024px"
               height="448px"
             />

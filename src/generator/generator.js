@@ -25,7 +25,7 @@
 // https://developers.google.com/blockly/guides/create-custom-blocks/generating-code
 
 import { CodeGenerator } from 'blockly';
-import { javascriptGenerator, Order } from 'blockly/javascript';
+import { javascriptGenerator } from 'blockly/javascript';
 
 javascriptGenerator.forBlock['run_sqlblocks'] = function (block, generator) {
   var code = '';
@@ -114,6 +114,28 @@ javascriptGenerator.forBlock['insert_into'] = function (block, generator) {
   return code;
 };
 
+javascriptGenerator.forBlock['insert_into_only_values'] = function (
+  block,
+  generator,
+) {
+  var text_table_name = block.getFieldValue('table_NAME');
+  var text_row_names = block.getFieldValue('row_names');
+  var code =
+    'INSERT INTO ' + text_table_name + ' VALUES (' + text_row_names + ');';
+  return code;
+};
+
+javascriptGenerator.forBlock['insert_into_with_columns'] = function (
+  block,
+  generator,
+) {
+  var text_table_name = block.getFieldValue('table_NAME');
+  var text_row_names = block.getFieldValue('row_names');
+  var code =
+    'INSERT INTO ' + text_table_name + ' VALUES (' + text_row_names + ');';
+  return code;
+};
+
 javascriptGenerator.forBlock['select_*'] = function (block, generator) {
   var text_rows = block.getFieldValue('rows');
   var text_table = block.getFieldValue('table');
@@ -129,7 +151,7 @@ javascriptGenerator.forBlock['select'] = function (block, generator) {
 };
 
 javascriptGenerator.forBlock['select_open'] = function (block, generator) {
-  var value_name = generator.valueToCode(block, 'NAME', Order.ATOMIC);
+  var value_name = generator.statementToCode(block, 'NAME');
   var text_table = block.getFieldValue('table');
   var statements_filters = generator.statementToCode(block, 'filters');
   // TODO: Assemble javascript into code variable.
@@ -140,7 +162,7 @@ javascriptGenerator.forBlock['select_open'] = function (block, generator) {
 
 javascriptGenerator.forBlock['column'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME1');
-  var value_name = generator.valueToCode(block, 'NAME', Order.ATOMIC);
+  var value_name = generator.statementToCode(block, 'NAME');
   // TODO: Assemble javascript into code variable.
 
   var code = text_name;
@@ -149,24 +171,24 @@ javascriptGenerator.forBlock['column'] = function (block, generator) {
   }
 
   // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Order.ATOMIC];
+  return code;
 };
 
 javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
   var dropdown_name2 = block.getFieldValue('NAME2');
   var text_name3 = block.getFieldValue('NAME3');
-  var value_name1 = generator.valueToCode(block, 'NAME1', Order.ATOMIC);
+  var value_name1 = generator.statementToCode(block, 'NAME1');
   // TODO: Assemble javascript into code variable.
   var code = dropdown_name2 + '(' + text_name3 + ')';
   // TODO: Change ORDER_NONE to the correct strength.
   if (value_name1) {
     code = code + ', ' + value_name1;
   }
-  return [code, Order.ATOMIC];
+  return code;
 };
 
 javascriptGenerator.forBlock['where'] = function (block, generator) {
-  var statements_name = generator.statementToCode(block, 'NAME', Order.ATOMIC);
+  var statements_name = generator.statementToCode(block, 'NAME');
   // TODO: Assemble javascript into code variable.
   var code = 'WHERE ' + statements_name;
   return code;

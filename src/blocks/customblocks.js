@@ -165,9 +165,56 @@ Blockly.Blocks['insert_into'] = {
       .appendField('VALUES (')
       .appendField(new Blockly.FieldTextInput(''), 'row_names')
       .appendField(');');
-    this.setPreviousStatement(true, null);
+    this.setPreviousStatement(true, 'not');
     this.setNextStatement(true, null);
-    this.setColour(315);
+    this.setColour(310);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['insert_into_only_values'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('INSERT INTO')
+      .appendField(new Blockly.FieldTextInput(''), 'table_NAME');
+    this.appendEndRowInput();
+    this.appendValueInput('VALUES').setCheck(null).appendField('VALUES (');
+    this.appendDummyInput().appendField(');');
+    this.setPreviousStatement(true, 'not');
+    this.setNextStatement(true, null);
+    this.setColour(310);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['insert_into_with_columns'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('INSERT INTO')
+      .appendField(new Blockly.FieldTextInput(''), 'table_NAME');
+    this.appendEndRowInput();
+    this.appendValueInput('COLUMNS').appendField('(');
+    this.appendDummyInput().appendField(')');
+    this.appendEndRowInput();
+    this.appendValueInput('VALUES').setCheck(null).appendField('VALUES (');
+    this.appendDummyInput().appendField(');');
+    this.setPreviousStatement(true, 'not');
+    this.setNextStatement(true, null);
+    this.setColour(310);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['value'] = {
+  init: function () {
+    this.appendValueInput('NAME')
+      .setCheck(null)
+      .appendField(new Blockly.FieldTextInput(''), 'NAME1');
+    this.setOutput(true, null);
+    this.setColour(230);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -225,7 +272,7 @@ Blockly.Blocks['column'] = {
       .setCheck(null)
       .appendField(new Blockly.FieldTextInput(''), 'NAME1');
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(270);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -263,7 +310,7 @@ Blockly.Blocks['where'] = {
       .appendField('WHERE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(270);
+    this.setColour(360);
     this.setTooltip('');
     this.setHelpUrl('');
   },

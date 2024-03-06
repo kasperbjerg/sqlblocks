@@ -65,11 +65,15 @@ function About() {
         toolBox={
           <>
             <Block type="create_table" />
+            <Block type="add_key_column" />
             <Block type="add_integer_column" />
             <Block type="add_text_column" />
             <Block type="add_real_column" />
-            <Block type="add_key_column" />
             <Block type="insert_into" />
+            <Block type="insert_into_only_values" />
+            <Block type="insert_into_with_columns" />
+            <Block type="column" />
+            <Block type="value" />
             <Block type="select_open">
               <Field name="table"></Field>
               <Value name="NAME">
@@ -78,7 +82,7 @@ function About() {
                 </Block>
               </Value>
             </Block>
-            <Block type="column" />
+
             <Block type="where" />
             <Block type="comparison" />
             <Block type="order_by" />

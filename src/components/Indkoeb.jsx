@@ -44,7 +44,7 @@ export default function Indkoeb({}) {
             {isComplete ? 'SÅDAN' : ''}
           </button>
         </div>
-        <div className="h-[650px]">
+        <div className="h-[450px]">
           <ReactPlayer url="https://youtu.be/Ni75V0WUavE" />
         </div>
         <div className="flex flex-row pb-12 pt-[454px]">

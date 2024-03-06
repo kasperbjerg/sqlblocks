@@ -22,15 +22,14 @@ export default function Video({
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
         <div className="h-12">
-          <button
-            className="text-bold animate-bounce text-2xl font-bold"
-          >
+          <button className="text-bold animate-bounce text-2xl font-bold">
             {isComplete ? feedbackText : ''}
           </button>
         </div>
         <div className="h-[448px]">
           <div className="relative h-full w-full pt-[43.75%]">
             <ReactPlayer
+              r
               className="absolute left-0 top-0"
               url={videoUrl}
               width="1024px"

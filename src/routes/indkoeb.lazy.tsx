@@ -29,8 +29,7 @@ function About() {
         feedbackText={
           <>
             <p className="text-sky-800/75">
-              Super, du har allerede fået dit første badge i højre hjørne.
-              Videre til første øvelse.
+              Super, så er du klar til at gå i gang :)
             </p>
           </>
         }

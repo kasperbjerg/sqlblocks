@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
 
-import BlocklyComponent, { Block, Value, Field, Shadow } from '.';
-import '../blocks/customblocks';
-import '../generator/generator';
+import BlocklyComponent, { Block, Value, Field, Shadow } from './index.js';
+import '../blocks/customblocks.js';
+import '../generator/generator.js';
 
 import ReactPlayer from 'react-player/youtube';
-import Player from './Player.jsx';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 import { Link } from '@tanstack/react-router';
 
-export default function Indkoeb({}) {
-  const [sqlCode, setSqlCode] = useState('');
-  const handleSqlCodeChange = (e) => setSqlCode(e);
-
-  const [result, setResult] = useState([]);
-  const handleResultChange = (e) => setResult(e);
-
-  const [tableInfo, setTableInfo] = useState([]);
-  const handleTableInfoChange = (e) => setTableInfo(e);
+export default function Video({ videoUrl = { videoUrl } }) {
+  class ResponsivePlayer extends React.Component {
+    render() {
+      return (
+        <div className="relative h-full w-full pt-[43.75%]">
+          <ReactPlayer
+            className="absolute left-0 top-0"
+            videoUrl={videoUrl}
+            width="1024px"
+            height="448px"
+          />
+        </div>
+      );
+    }
+  }
 
   const [isComplete, setIsComplete] = useLocalStorage('indkoebComplete', false);
-
-  React.useEffect(() => {
-    JSON.stringify(result) == '[{"alder":42}]' ? setIsComplete(true) : '';
-  }, [result]);
 
   return (
     <>
@@ -46,7 +47,7 @@ export default function Indkoeb({}) {
           </button>
         </div>
         <div className="h-[448px]">
-          <Player />
+          <ResponsivePlayer videoUrl={videoUrl} />
         </div>
         <div className="flex flex-row pb-12 pt-4">
           <div className="w-[662px]"></div>

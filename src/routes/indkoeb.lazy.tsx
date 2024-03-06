@@ -2,7 +2,7 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import logo from '/logo.svg';
 import React, { useState } from 'react';
 
-import Indkoeb from '../components/Indkoeb.jsx';
+import Video from '../components/Video.jsx';
 
 export const Route = createLazyFileRoute('/indkoeb')({
   component: About,
@@ -11,7 +11,11 @@ export const Route = createLazyFileRoute('/indkoeb')({
 function About() {
   return (
     <>
-      <Indkoeb />
+      <Video
+        isCompleteKey={'indkoebComplete'}
+        nextExercise={'reality'}
+        videoUrl={'https://youtu.be/Ni75V0WUavE'}
+      />
     </>
   );
 }

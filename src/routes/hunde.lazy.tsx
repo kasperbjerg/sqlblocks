@@ -36,7 +36,6 @@ function About() {
               Tilføj Viktors egne to hunde Plet og Trofast på 5 og 12 år, samt
               Pelles hund Balder som er 15 år.
             </p>
-            <br></br>
           </>
         }
         feedbackText={

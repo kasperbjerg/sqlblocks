@@ -50,8 +50,8 @@ export default function Exercise({
   return (
     <>
       <div className="flex flex-col">
-        <div className="h-36">
-          {description}
+        <div className="h-36">{description}</div>
+        <div className="h-12">
           <button
             onClick={() => setReload(true)}
             className="text-bold animate-bounce text-2xl font-bold"

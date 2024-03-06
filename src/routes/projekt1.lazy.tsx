@@ -25,7 +25,6 @@ function About() {
               <b>TEXT</b> og <b>INTEGER</b> hvis du vil have opgaven helt
               rigtigt.
             </p>
-            <br></br>
           </>
         }
         feedbackText={

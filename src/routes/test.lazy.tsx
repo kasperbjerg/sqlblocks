@@ -19,7 +19,6 @@ function About() {
         description={
           <>
             <p>Fri leg!!</p>
-            <br></br>
           </>
         }
         feedbackText={

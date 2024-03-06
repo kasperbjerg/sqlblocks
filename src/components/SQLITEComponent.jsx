@@ -61,7 +61,7 @@ export default function Sql({
             },
           });
 
-          const sql = `select name, iif(pk=1, '(PK)', '') as pk,type
+          const sql = `select name,type, iif(pk=1, '(PK)', '') as pk
           from pragma_table_info('{}')`.replace('{}', table);
           db.exec({
             sql: sql,

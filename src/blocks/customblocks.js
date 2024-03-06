@@ -133,6 +133,29 @@ Blockly.Blocks['add_real_column'] = {
   },
 };
 
+Blockly.Blocks['add_key_column'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField('INTEGER PRIMARY KEY');
+    this.setPreviousStatement(true, [
+      'create_table',
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    ]);
+    this.setNextStatement(
+      true,
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    );
+    this.setColour(270);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 Blockly.Blocks['insert_into'] = {
   init: function () {
     this.appendDummyInput()

@@ -46,9 +46,12 @@ javascriptGenerator.forBlock['add_integer_column'] = function (
   var text_name = block.getFieldValue('NAME');
   var code = text_name + ' INTEGER';
   if (
-    ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
-      block.previousConnection.targetBlock().type,
-    )
+    [
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+      'add_key_column',
+    ].includes(block.previousConnection.targetBlock().type)
   ) {
     code = ', ' + code;
   }
@@ -59,9 +62,12 @@ javascriptGenerator.forBlock['add_text_column'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME');
   var code = text_name + ' TEXT';
   if (
-    ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
-      block.previousConnection.targetBlock().type,
-    )
+    [
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+      'add_key_column',
+    ].includes(block.previousConnection.targetBlock().type)
   ) {
     code = ', ' + code;
   }
@@ -72,9 +78,28 @@ javascriptGenerator.forBlock['add_real_column'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME');
   var code = text_name + ' REAL';
   if (
-    ['add_integer_column', 'add_text_column', 'add_real_column'].includes(
-      block.previousConnection.targetBlock().type,
-    )
+    [
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+      'add_key_column',
+    ].includes(block.previousConnection.targetBlock().type)
+  ) {
+    code = ', ' + code;
+  }
+  return code;
+};
+
+javascriptGenerator.forBlock['add_key_column'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME');
+  var code = text_name + ' INTEGER PRIMARY KEY';
+  if (
+    [
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+      'add_key_column',
+    ].includes(block.previousConnection.targetBlock().type)
   ) {
     code = ', ' + code;
   }

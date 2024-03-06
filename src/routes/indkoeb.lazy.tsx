@@ -15,6 +15,25 @@ function About() {
         isCompleteKey={'indkoebComplete'}
         nextExercise={'reality'}
         videoUrl={'https://youtu.be/Ni75V0WUavE'}
+        description={
+          <>
+            <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
+            <br></br>
+            <p>
+              Jeg vil lave en tabel til at huske at købe chips og cola, se
+              hvordan i videoen.
+            </p>
+            <p>Husk at sætte lyd på</p>
+          </>
+        }
+        feedbackText={
+          <>
+            <p className="text-sky-800/75">
+              Super, du har allerede fået dit første badge i højre hjørne.
+              Videre til første øvelse.
+            </p>
+          </>
+        }
       />
     </>
   );

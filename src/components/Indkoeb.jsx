@@ -44,10 +44,10 @@ export default function Indkoeb({}) {
             {isComplete ? 'SÅDAN' : ''}
           </button>
         </div>
-        <div className="h-[450px]">
-          <ReactPlayer url="https://youtu.be/4xBcSAvUU5E" />
+        <div className="h-[650px]">
+          <ReactPlayer url="https://youtu.be/Ni75V0WUavE" />
         </div>
-        <div className="absolute flex flex-row pb-12 pt-[454px]">
+        <div className="flex flex-row pb-12 pt-[454px]">
           <div className="w-[657px]"></div>
           <button className=" top-16 rounded-md bg-sky-800/75 p-2 text-white">
             <Link to={'/reality'}>Næste øvelse</Link>

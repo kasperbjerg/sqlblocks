@@ -16,10 +16,10 @@ export default function Video({
   feedbackText,
 }) {
   const [isComplete, setIsComplete] = useLocalStorage(isCompleteKey, false);
-  const[progress, setProgress] = useState(0);
-  
+  const [progress, setProgress] = useState(0);
+
   useEffect(() => {
-    if(progress>0.9) {
+    if (progress > 0.9) {
       setIsComplete(true);
     }
   }, [progress]);
@@ -42,16 +42,19 @@ export default function Video({
               url={videoUrl}
               width="1024px"
               height="448px"
-              onProgress={(state)=>{setProgress(state.played)}}
+              onProgress={(state) => {
+                setProgress(state.played);
+              }}
             />
           </div>
         </div>
-        <div className="flex flex-row pb-12 pt-4">
-          <div className="w-[662px]"></div>
-          <NextExerciseButton
-            isCompleteKey={isCompleteKey}
-            nextExercise={nextExercise}
-          />
+        <div className="flex w-[1024px] flex-row pb-12 pt-4 justify-end">
+          <div className="shrink-0">
+            <NextExerciseButton
+              isCompleteKey={isCompleteKey}
+              nextExercise={nextExercise}
+            />
+          </div>
         </div>
       </div>
     </>

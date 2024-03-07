@@ -86,8 +86,8 @@ export default function Exercise({
             {toolBox}
           </BlocklyComponent>
         </div>
-        <div className="flex flex-row pb-12 pt-4">
-          <div className="w-[654px]">
+        <div className="flex w-[1024px] flex-row justify-between pb-12 pt-4">
+          <div>
             <button
               onClick={() => {
                 confirm('Er du sikker på du vil starte øvelsen forfra?');
@@ -99,7 +99,7 @@ export default function Exercise({
               Start forfra
             </button>
           </div>
-          <div className="pl-2">
+          <div className="shrink-0">
             <NextExerciseButton
               isCompleteKey={isCompleteKey}
               nextExercise={nextExercise}

@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-
 import ReactPlayer from 'react-player/youtube';
-
 import { useLocalStorage } from '@uidotdev/usehooks';
-
 import { Link } from '@tanstack/react-router';
-
 import NextExerciseButton from './NextExerciseButton.jsx';
+import ReloadDummy from './ReloadDummy.jsx';
 
 export default function Video({
   isCompleteKey,
@@ -16,6 +13,7 @@ export default function Video({
   feedbackText,
 }) {
   const [isComplete, setIsComplete] = useLocalStorage(isCompleteKey, false);
+  const [reload, setReload] = useState(false);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -27,10 +25,14 @@ export default function Video({
   console.log(progress);
   return (
     <>
+      <ReloadDummy reload={reload} />
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
         <div className="h-12">
-          <button className="text-bold animate-bounce text-2xl font-bold">
+          <button
+            onClick={() => setReload(true)}
+            className="text-bold animate-bounce text-2xl font-bold"
+          >
             {isComplete ? feedbackText : ''}
           </button>
         </div>
@@ -48,7 +50,7 @@ export default function Video({
             />
           </div>
         </div>
-        <div className="flex w-[1024px] flex-row pb-12 pt-4 justify-end">
+        <div className="flex w-[1024px] flex-row justify-end pb-12 pt-4">
           <div className="shrink-0">
             <NextExerciseButton
               isCompleteKey={isCompleteKey}

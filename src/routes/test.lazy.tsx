@@ -100,6 +100,7 @@ function About() {
             <Block type="order_by" />
             <Block type="limit" />
             <Block type="update" />
+            <Block type="update_comparison" />
           </>
         }
       />

@@ -386,3 +386,13 @@ javascriptGenerator.forBlock['update'] = function (block, generator) {
   var code = 'UPDATE ' + text_table + ' SET ' + text_column + '=' + text_new_value + ' WHERE ' + value_input + ';';
   return code;
 };
+
+javascriptGenerator.forBlock['update_comparison'] = function (block, generator) {
+  var text_name1 = block.getFieldValue('NAME');
+  var dropdown_name = block.getFieldValue('NAME1');
+  var text_name2 = block.getFieldValue('NAME2');
+  // TODO: Assemble javascript into code variable.
+  var code = text_name1 + ' ' + dropdown_name + ' ' + text_name2;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};

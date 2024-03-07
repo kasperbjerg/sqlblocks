@@ -577,3 +577,30 @@ Blockly.Blocks['update'] = {
     this.setHelpUrl('');
   },
 };
+
+Blockly.Blocks['update_comparison'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['=', '='],
+          ['≠', '!='],
+          ['<', '<'],
+          ['≤', '<='],
+          ['>', '>'],
+          ['≥', '>='],
+          ['LIKE', 'LIKE'],
+          ['NOT LIKE', 'NOT LIKE'],
+          ['IS NULL', 'IS NULL'],
+          ['IS NOT NULL', 'IS NOT NULL'],
+        ]),
+        'NAME1',
+      )
+      .appendField(new Blockly.FieldTextInput(''), 'NAME2');
+    this.setOutput(true, null);
+    this.setColour('D0664f');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};

@@ -28,7 +28,6 @@ export default function Video({
       <ReloadDummy reload={reload} />
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
-        {progress}
         <div className="h-12">
           <button
             onClick={() => setReload(true)}

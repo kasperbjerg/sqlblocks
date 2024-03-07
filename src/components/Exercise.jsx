@@ -7,6 +7,7 @@ import '../generator/generator';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 import NextExerciseButton from './NextExerciseButton.jsx';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 export default function Exercise({
   isCompleteKey,
@@ -49,10 +50,10 @@ export default function Exercise({
 
   return (
     <>
-    {sqlCode}
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
         <div className="h-12">
+          {isComplete && <ConfettiExplosion />}
           <button
             onClick={() => setReload(true)}
             className="text-bold animate-bounce text-2xl font-bold"

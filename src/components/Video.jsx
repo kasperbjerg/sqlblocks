@@ -16,7 +16,8 @@ export default function Video({
   feedbackText,
 }) {
   const [isComplete, setIsComplete] = useLocalStorage(isCompleteKey, false);
-  const progress = useRef(0);
+  const[progress, setProgress] = useState(0);
+  //const progress = useRef(0);
   
   useEffect(() => {
     
@@ -25,6 +26,7 @@ export default function Video({
   console.log(progress);
   return (
     <>
+    {progress}
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
         <div className="h-12">
@@ -40,7 +42,7 @@ export default function Video({
               url={videoUrl}
               width="1024px"
               height="448px"
-              onProgress={(state)=>{progress.current=state.played}}
+              onProgress={(state)=>{setProgress(state.playedSeconds)}}
             />
           </div>
         </div>

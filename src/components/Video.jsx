@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player/youtube';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { Link } from '@tanstack/react-router';
@@ -28,6 +28,7 @@ export default function Video({
       <ReloadDummy reload={reload} />
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
+        {progress}
         <div className="h-12">
           <button
             onClick={() => setReload(true)}

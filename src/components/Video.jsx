@@ -17,16 +17,16 @@ export default function Video({
 }) {
   const [isComplete, setIsComplete] = useLocalStorage(isCompleteKey, false);
   const[progress, setProgress] = useState(0);
-  //const progress = useRef(0);
   
   useEffect(() => {
-    
+    if(progress>0.9) {
+      setIsComplete(true);
+    }
   }, [progress]);
 
   console.log(progress);
   return (
     <>
-    {progress}
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
         <div className="h-12">
@@ -42,7 +42,7 @@ export default function Video({
               url={videoUrl}
               width="1024px"
               height="448px"
-              onProgress={(state)=>{setProgress(state.playedSeconds)}}
+              onProgress={(state)=>{setProgress(state.played)}}
             />
           </div>
         </div>

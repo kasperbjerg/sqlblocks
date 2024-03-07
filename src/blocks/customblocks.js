@@ -385,8 +385,6 @@ Blockly.Blocks['comparison'] = {
   },
 };
 
-
-
 Blockly.Blocks['group_by'] = {
   init: function () {
     this.appendDummyInput()
@@ -501,6 +499,32 @@ Blockly.Blocks['in'] = {
       );
     this.setOutput(true, null);
     this.setColour(360);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['more'] = {
+  init: function () {
+    this.appendValueInput('NAME1')
+      .setCheck(null)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['ABS', 'ABS'],
+          ['CEILING', 'CEILING'],
+          ['FLOOR', 'FLOOR'],
+          ['LENGTH', 'LENGTH'],
+          ['LOWER', 'LOWER'],
+          ['ROUND', 'ROUND'],
+          ['UPPER', 'UPPER'],
+        ]),
+        'NAME2',
+      )
+      .appendField('(')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME3')
+      .appendField(')');
+    this.setOutput(true, null);
+    this.setColour(270);
     this.setTooltip('');
     this.setHelpUrl('');
   },

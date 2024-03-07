@@ -196,20 +196,6 @@ javascriptGenerator.forBlock['select_open'] = function (block, generator) {
   return code;
 };
 
-javascriptGenerator.forBlock['value'] = function (block, generator) {
-  var text_name = block.getFieldValue('NAME1');
-  var value_name = generator.statementToCode(block, 'NAME');
-  // TODO: Assemble javascript into code variable.
-
-  var code = text_name;
-  if (value_name) {
-    code = code + ', ' + value_name;
-  }
-
-  // TODO: Change ORDER_NONE to the correct strength.
-  return code;
-};
-
 javascriptGenerator.forBlock['column'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME1');
   var next_block = generator.statementToCode(block, 'NAME');
@@ -226,7 +212,23 @@ javascriptGenerator.forBlock['column'] = function (block, generator) {
     return code + ', ' + next_block;
   }
   return code;
+}; 
+
+javascriptGenerator.forBlock['value'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME1');
+  var value_name = generator.statementToCode(block, 'NAME');
+  // TODO: Assemble javascript into code variable.
+
+  var code = text_name;
+  if (value_name) {
+    code = code + ', ' + value_name;
+  }
+
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
 };
+
+
 
 javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
   var dropdown_name2 = block.getFieldValue('NAME2');
@@ -246,6 +248,8 @@ javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
   return code;
 };
 
+
+
 javascriptGenerator.forBlock['as'] = function (block, generator) {
   var next_block = generator.statementToCode(block, 'NAME1');
   var alias = block.getFieldValue('NAME2');
@@ -253,6 +257,24 @@ javascriptGenerator.forBlock['as'] = function (block, generator) {
   var code = ' AS ' + alias;
   if (next_block) {
     code = code + ', ' + next_block;
+  }
+  return code;
+};
+
+javascriptGenerator.forBlock['more'] = function (block, generator) {
+  var dropdown_name2 = block.getFieldValue('NAME2');
+  var text_name3 = block.getFieldValue('NAME3');
+  var next_block = generator.statementToCode(block, 'NAME1');
+  // TODO: Assemble javascript into code variable.
+  var code = dropdown_name2 + '(' + text_name3 + ')';
+
+  //Check if next block is an AS-blcok
+  if (next_block && next_block.trim().slice(0, 3) == 'AS ') {
+    return code + ' ' + next_block;
+  }
+  //Checks more columns-blcoks (not AS)
+  if (next_block) {
+    return code + ', ' + next_block;
   }
   return code;
 };
@@ -307,18 +329,18 @@ javascriptGenerator.forBlock['group_by'] = function (block, generator) {
   return code;
 };
 
+javascriptGenerator.forBlock['having'] = function (block, generator) {
+  var conditions = generator.statementToCode(block, 'NAME');
+  // TODO: Assemble javascript into code variable.
+  var code = ' HAVING ' + conditions;
+  return code;
+};
+
 javascriptGenerator.forBlock['order_by'] = function (block, generator) {
   var text_name1 = block.getFieldValue('NAME1');
   var dropdown_name2 = block.getFieldValue('NAME2');
   // TODO: Assemble javascript into code variable.
   var code = ' ORDER BY ( ' + text_name1 + ' ) ' + dropdown_name2;
-  return code;
-};
-
-javascriptGenerator.forBlock['having'] = function (block, generator) {
-  var conditions = generator.statementToCode(block, 'NAME');
-  // TODO: Assemble javascript into code variable.
-  var code = ' HAVING ' + conditions;
   return code;
 };
 

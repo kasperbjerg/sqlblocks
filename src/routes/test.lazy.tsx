@@ -85,7 +85,9 @@ function About() {
             </Block>
             <Block type="column" />
             <Block type="aggregate" />
+            <Block type="more" />
             <Block type="as" />
+
             <Block type="where" />
             <Block type="comparison" />
             <Block type="and_or" />

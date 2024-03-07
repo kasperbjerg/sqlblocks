@@ -298,6 +298,32 @@ Blockly.Blocks['select_open'] = {
   },
 };
 
+Blockly.Blocks['join'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['INNER JOIN', 'INNER JOIN'],
+          ['LEFT (OUTER) JOIN', 'LEFT JOIN'],
+          ['RIGHT (OUTER) JOIN', 'RIGHT JOIN'],
+          ['FULL (OUTER) JOIN', 'FULL OUTER JOIN'],
+        ]),
+        'type',
+      )
+      .appendField(new Blockly.FieldTextInput(''), 'table2');
+    this.appendDummyInput()
+      .appendField('ON')
+      .appendField(new Blockly.FieldTextInput(''), 'column1')
+      .appendField('=')
+      .appendField(new Blockly.FieldTextInput(''), 'columns2');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(60);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 Blockly.Blocks['column'] = {
   init: function () {
     this.appendValueInput('NAME')

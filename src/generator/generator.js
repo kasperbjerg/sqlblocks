@@ -196,6 +196,16 @@ javascriptGenerator.forBlock['select_open'] = function (block, generator) {
   return code;
 };
 
+javascriptGenerator.forBlock['join'] = function (block, generator) {
+  var dropdown_type = block.getFieldValue('type');
+  var text_table2 = block.getFieldValue('table2');
+  var text_column1 = block.getFieldValue('column1');
+  var text_columns2 = block.getFieldValue('columns2');
+  // TODO: Assemble javascript into code variable.
+  var code = ' ' + dropdown_type + ' ' + text_table2 + ' ON ' + text_column1 + ' = ' + text_columns2 ;
+  return code;
+};
+
 javascriptGenerator.forBlock['column'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME1');
   var next_block = generator.statementToCode(block, 'NAME');

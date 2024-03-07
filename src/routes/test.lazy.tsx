@@ -83,6 +83,7 @@ function About() {
                 </Block>
               </Value>
             </Block>
+            <Block type="join" />
             <Block type="column" />
             <Block type="aggregate" />
             <Block type="more" />

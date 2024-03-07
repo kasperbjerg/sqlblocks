@@ -156,6 +156,38 @@ Blockly.Blocks['add_key_column'] = {
   },
 };
 
+Blockly.Blocks['add_dropdown_column'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['', ''],
+          ['INTEGER PRIMARY KEY', 'INTEGER PRIMARY KEY'],
+          ['INTEGER', 'INTEGER'],
+          ['REAL', 'REAL'],
+          ['TEXT', 'TEXT'],
+        ]),
+        'NAME2',
+      );
+    this.setPreviousStatement(true, [
+      'create_table',
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    ]);
+    this.setNextStatement(
+      true,
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+    );
+    this.setColour(270);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 Blockly.Blocks['insert_into'] = {
   init: function () {
     this.appendDummyInput()
@@ -301,6 +333,20 @@ Blockly.Blocks['aggregate'] = {
     this.setHelpUrl('');
   },
 };
+
+Blockly.Blocks['as'] = {
+  init: function () {
+    this.appendValueInput('NAME1')
+      .setCheck(null)
+      .appendField('AS')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME2');
+    this.setOutput(true, null);
+    this.setColour(270);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 
 Blockly.Blocks['where'] = {
   init: function () {

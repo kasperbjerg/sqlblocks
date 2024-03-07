@@ -51,6 +51,7 @@ javascriptGenerator.forBlock['add_integer_column'] = function (
       'add_text_column',
       'add_real_column',
       'add_key_column',
+      'add_dropdown_column',
     ].includes(block.previousConnection.targetBlock().type)
   ) {
     code = ', ' + code;
@@ -67,6 +68,7 @@ javascriptGenerator.forBlock['add_text_column'] = function (block, generator) {
       'add_text_column',
       'add_real_column',
       'add_key_column',
+      'add_dropdown_column',
     ].includes(block.previousConnection.targetBlock().type)
   ) {
     code = ', ' + code;
@@ -83,6 +85,7 @@ javascriptGenerator.forBlock['add_real_column'] = function (block, generator) {
       'add_text_column',
       'add_real_column',
       'add_key_column',
+      'add_dropdown_column',
     ].includes(block.previousConnection.targetBlock().type)
   ) {
     code = ', ' + code;
@@ -99,6 +102,28 @@ javascriptGenerator.forBlock['add_key_column'] = function (block, generator) {
       'add_text_column',
       'add_real_column',
       'add_key_column',
+      'add_dropdown_column',
+    ].includes(block.previousConnection.targetBlock().type)
+  ) {
+    code = ', ' + code;
+  }
+  return code;
+};
+
+javascriptGenerator.forBlock['add_dropdown_column'] = function (
+  block,
+  generator,
+) {
+  var column_name = block.getFieldValue('NAME');
+  var column_type = block.getFieldValue('NAME2');
+  var code = column_name + ' ' + column_type;
+  if (
+    [
+      'add_integer_column',
+      'add_text_column',
+      'add_real_column',
+      'add_key_column',
+      'add_dropdown_column',
     ].includes(block.previousConnection.targetBlock().type)
   ) {
     code = ', ' + code;
@@ -171,20 +196,6 @@ javascriptGenerator.forBlock['select_open'] = function (block, generator) {
   return code;
 };
 
-javascriptGenerator.forBlock['column'] = function (block, generator) {
-  var text_name = block.getFieldValue('NAME1');
-  var value_name = generator.statementToCode(block, 'NAME');
-  // TODO: Assemble javascript into code variable.
-
-  var code = text_name;
-  if (value_name) {
-    code = code + ', ' + value_name;
-  }
-
-  // TODO: Change ORDER_NONE to the correct strength.
-  return code;
-};
-
 javascriptGenerator.forBlock['value'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME1');
   var value_name = generator.statementToCode(block, 'NAME');
@@ -199,15 +210,49 @@ javascriptGenerator.forBlock['value'] = function (block, generator) {
   return code;
 };
 
+javascriptGenerator.forBlock['column'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME1');
+  var next_block = generator.statementToCode(block, 'NAME');
+  // TODO: Assemble javascript into code variable.
+
+  var code = text_name;
+
+  //Check if next block is as, weird that it needs to be 5 !?
+  if ((next_block && (next_block.trim().slice(0,2)=='AS' ) )) {
+    return code + ' ' + next_block;
+  }
+  //Checks more columns of type columns or aggreate
+  if (next_block) {
+    return code + ', ' + next_block;
+  }
+  return code;
+};
+
 javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
   var dropdown_name2 = block.getFieldValue('NAME2');
   var text_name3 = block.getFieldValue('NAME3');
-  var value_name1 = generator.statementToCode(block, 'NAME1');
+  var next_block = generator.statementToCode(block, 'NAME1');
   // TODO: Assemble javascript into code variable.
   var code = dropdown_name2 + '(' + text_name3 + ')';
   // TODO: Change ORDER_NONE to the correct strength.
-  if (value_name1) {
-    code = code + ', ' + value_name1;
+  //Check if next block is as, weird that it needs to be 5 !?
+  if (next_block && next_block.trim().slice(0, 2) == 'AS') {
+    return code + ' ' + next_block;
+  }
+  //Checks more columns of type columns or aggreate
+  if (next_block) {
+    return code + ', ' + next_block;
+  }
+  return code;
+};
+
+javascriptGenerator.forBlock['as'] = function (block, generator) {
+  var next_block = generator.statementToCode(block, 'NAME1');
+  var alias = block.getFieldValue('NAME2');
+  // TODO: Assemble javascript into code variable.
+  var code = ' AS ' + alias;
+  if (next_block) {
+    code = code + ', ' + next_block;
   }
   return code;
 };

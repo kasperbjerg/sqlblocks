@@ -217,11 +217,11 @@ javascriptGenerator.forBlock['column'] = function (block, generator) {
 
   var code = text_name;
 
-  //Check if next block is as, weird that it needs to be 5 !?
-  if ((next_block && (next_block.trim().slice(0,2)=='AS' ) )) {
+  //Check if next block is an AS-blcok
+  if (next_block && next_block.trim().slice(0, 3) == 'AS ') {
     return code + ' ' + next_block;
   }
-  //Checks more columns of type columns or aggreate
+  //Checks more columns-blcoks (not AS)
   if (next_block) {
     return code + ', ' + next_block;
   }
@@ -234,12 +234,12 @@ javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
   var next_block = generator.statementToCode(block, 'NAME1');
   // TODO: Assemble javascript into code variable.
   var code = dropdown_name2 + '(' + text_name3 + ')';
-  // TODO: Change ORDER_NONE to the correct strength.
-  //Check if next block is as, weird that it needs to be 5 !?
-  if (next_block && next_block.trim().slice(0, 2) == 'AS') {
+
+  //Check if next block is an AS-blcok
+  if (next_block && next_block.trim().slice(0, 3) == 'AS ') {
     return code + ' ' + next_block;
   }
-  //Checks more columns of type columns or aggreate
+  //Checks more columns-blcoks (not AS)
   if (next_block) {
     return code + ', ' + next_block;
   }

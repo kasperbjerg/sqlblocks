@@ -41,6 +41,7 @@ export default function Video({
             <ReactPlayer
               className="absolute left-0 top-0"
               controls={true}
+              light={true}
               url={videoUrl}
               width="1024px"
               height="448px"

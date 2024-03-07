@@ -285,7 +285,27 @@ javascriptGenerator.forBlock['order_by'] = function (block, generator) {
 javascriptGenerator.forBlock['group_by'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME');
   // TODO: Assemble javascript into code variable.
-  var code = ' GROUP BY (' + text_name + ')';
+  var code = ' GROUP BY ' + text_name;
+  return code;
+};
+
+javascriptGenerator.forBlock['having'] = function (block, generator) {
+  var conditions = generator.statementToCode(block, 'NAME');
+  // TODO: Assemble javascript into code variable.
+  var code = ' HAVING ' + conditions;
+  return code;
+};
+
+javascriptGenerator.forBlock['having_comparison'] = function (
+  block,
+  generator,
+) {
+  var text_name1 = block.getFieldValue('NAME');
+  var dropdown_name = block.getFieldValue('NAME1');
+  var text_name2 = block.getFieldValue('NAME2');
+  // TODO: Assemble javascript into code variable.
+  var code = text_name1 + ' ' + dropdown_name + ' ' + text_name2;
+  // TODO: Change ORDER_NONE to the correct strength.
   return code;
 };
 

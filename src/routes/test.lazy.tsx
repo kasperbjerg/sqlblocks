@@ -90,8 +90,11 @@ function About() {
             <Block type="comparison" />
             <Block type="and_or" />
             <Block type="in" />
-            <Block type="order_by" />
+
             <Block type="group_by" />
+            <Block type="having" />
+            <Block type="having_comparison" />
+            <Block type="order_by" />
           </>
         }
       />

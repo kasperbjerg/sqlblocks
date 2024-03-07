@@ -347,12 +347,10 @@ Blockly.Blocks['as'] = {
   },
 };
 
-
 Blockly.Blocks['where'] = {
   init: function () {
     this.appendValueInput('NAME')
       .setCheck(null)
-      .setAlign(Blockly.ALIGN_CENTRE)
       .appendField('WHERE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -412,11 +410,45 @@ Blockly.Blocks['order_by'] = {
 Blockly.Blocks['group_by'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField('GROUP BY (')
-      .appendField(new Blockly.FieldTextInput(''), 'NAME')
-      .appendField(')');
+      .appendField('GROUP BY ')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
+    this.setColour(100);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['having'] = {
+  init: function () {
+    this.appendValueInput('NAME').setCheck(null)
+      .appendField('HAVNING ')
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(100);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['having_comparison'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['=', '='],
+          ['≠', '!='],
+          ['<', '<'],
+          ['≤', '<='],
+          ['>', '>'],
+          ['≥', '>='],
+        ]),
+        'NAME1',
+      )
+      .appendField(new Blockly.FieldTextInput(''), 'NAME2');
+    this.setOutput(true, null);
     this.setColour(100);
     this.setTooltip('');
     this.setHelpUrl('');

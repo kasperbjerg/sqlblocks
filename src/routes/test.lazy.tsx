@@ -99,6 +99,7 @@ function About() {
             <Block type="having_comparison" />
             <Block type="order_by" />
             <Block type="limit" />
+            <Block type="update" />
           </>
         }
       />

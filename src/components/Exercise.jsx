@@ -49,7 +49,6 @@ export default function Exercise({
 
   return (
     <>
-      {sqlCode}
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
         <div className="h-12">

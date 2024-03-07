@@ -555,3 +555,25 @@ Blockly.Blocks['more'] = {
     this.setHelpUrl('');
   },
 };
+
+Blockly.Blocks['update'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('UPDATE')
+      .appendField(new Blockly.FieldTextInput(''), 'table');
+    this.appendEndRowInput();
+    this.appendDummyInput()
+      .appendField('SET')
+      .appendField(new Blockly.FieldTextInput(''), 'column')
+      .appendField('=')
+      .appendField(new Blockly.FieldTextInput(''), 'new_value');
+    this.appendEndRowInput();
+    this.appendValueInput('input').setCheck(null).appendField('WHERE');
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour('D0664f');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};

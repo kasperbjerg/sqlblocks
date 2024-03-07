@@ -373,3 +373,16 @@ javascriptGenerator.forBlock['limit'] = function (block, generator) {
   var code = ' LIMIT ' + text_name;
   return code;
 };
+
+javascriptGenerator.forBlock['update'] = function (block, generator) {
+  var text_table = block.getFieldValue('table');
+  var text_column = block.getFieldValue('column');
+  var text_new_value = block.getFieldValue('new_value');
+  var value_input = generator.statementToCode(
+    block,
+    'input',
+  )
+  // TODO: Assemble javascript into code variable.
+  var code = 'UPDATE ' + text_table + ' SET ' + text_column + '=' + text_new_value + ' WHERE ' + value_input + ';';
+  return code;
+};

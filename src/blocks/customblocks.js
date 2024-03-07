@@ -349,9 +349,7 @@ Blockly.Blocks['as'] = {
 
 Blockly.Blocks['where'] = {
   init: function () {
-    this.appendValueInput('NAME')
-      .setCheck(null)
-      .appendField('WHERE');
+    this.appendValueInput('NAME').setCheck(null).appendField('WHERE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(360);
@@ -387,25 +385,7 @@ Blockly.Blocks['comparison'] = {
   },
 };
 
-Blockly.Blocks['order_by'] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField('ORDER BY')
-      .appendField(new Blockly.FieldTextInput(''), 'NAME1')
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['ASC', 'ASC'],
-          ['DESC', 'DESC'],
-        ]),
-        'NAME2',
-      );
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(170);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
+
 
 Blockly.Blocks['group_by'] = {
   init: function () {
@@ -422,8 +402,7 @@ Blockly.Blocks['group_by'] = {
 
 Blockly.Blocks['having'] = {
   init: function () {
-    this.appendValueInput('NAME').setCheck(null)
-      .appendField('HAVNING ')
+    this.appendValueInput('NAME').setCheck(null).appendField('HAVNING ');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(100);
@@ -450,6 +429,39 @@ Blockly.Blocks['having_comparison'] = {
       .appendField(new Blockly.FieldTextInput(''), 'NAME2');
     this.setOutput(true, null);
     this.setColour(100);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['order_by'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('ORDER BY')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME1')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['ASC', 'ASC'],
+          ['DESC', 'DESC'],
+        ]),
+        'NAME2',
+      );
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(170);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['limit'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('LIMIT ')
+      .appendField(new Blockly.FieldTextInput(''), 'NAME');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(170);
     this.setTooltip('');
     this.setHelpUrl('');
   },

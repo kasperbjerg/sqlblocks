@@ -95,6 +95,7 @@ function About() {
             <Block type="having" />
             <Block type="having_comparison" />
             <Block type="order_by" />
+            <Block type="limit" />
           </>
         }
       />

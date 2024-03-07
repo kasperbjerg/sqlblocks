@@ -274,41 +274,6 @@ javascriptGenerator.forBlock['comparison'] = function (block, generator) {
   return code;
 };
 
-javascriptGenerator.forBlock['order_by'] = function (block, generator) {
-  var text_name1 = block.getFieldValue('NAME1');
-  var dropdown_name2 = block.getFieldValue('NAME2');
-  // TODO: Assemble javascript into code variable.
-  var code = ' ORDER BY ( ' + text_name1 + ' ) ' + dropdown_name2;
-  return code;
-};
-
-javascriptGenerator.forBlock['group_by'] = function (block, generator) {
-  var text_name = block.getFieldValue('NAME');
-  // TODO: Assemble javascript into code variable.
-  var code = ' GROUP BY ' + text_name;
-  return code;
-};
-
-javascriptGenerator.forBlock['having'] = function (block, generator) {
-  var conditions = generator.statementToCode(block, 'NAME');
-  // TODO: Assemble javascript into code variable.
-  var code = ' HAVING ' + conditions;
-  return code;
-};
-
-javascriptGenerator.forBlock['having_comparison'] = function (
-  block,
-  generator,
-) {
-  var text_name1 = block.getFieldValue('NAME');
-  var dropdown_name = block.getFieldValue('NAME1');
-  var text_name2 = block.getFieldValue('NAME2');
-  // TODO: Assemble javascript into code variable.
-  var code = text_name1 + ' ' + dropdown_name + ' ' + text_name2;
-  // TODO: Change ORDER_NONE to the correct strength.
-  return code;
-};
-
 javascriptGenerator.forBlock['and_or'] = function (block, generator) {
   var value_name1 = generator.statementToCode(block, 'NAME1');
   var dropdown_name3 = block.getFieldValue('NAME2');
@@ -332,5 +297,47 @@ javascriptGenerator.forBlock['in'] = function (block, generator) {
     statements_name.slice(0, -1) +
     ' ) '; //slice to remove the ; from subquery
   // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+javascriptGenerator.forBlock['group_by'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME');
+  // TODO: Assemble javascript into code variable.
+  var code = 'GROUP BY ' + text_name;
+  return code;
+};
+
+javascriptGenerator.forBlock['order_by'] = function (block, generator) {
+  var text_name1 = block.getFieldValue('NAME1');
+  var dropdown_name2 = block.getFieldValue('NAME2');
+  // TODO: Assemble javascript into code variable.
+  var code = ' ORDER BY ( ' + text_name1 + ' ) ' + dropdown_name2;
+  return code;
+};
+
+javascriptGenerator.forBlock['having'] = function (block, generator) {
+  var conditions = generator.statementToCode(block, 'NAME');
+  // TODO: Assemble javascript into code variable.
+  var code = ' HAVING ' + conditions;
+  return code;
+};
+
+javascriptGenerator.forBlock['having_comparison'] = function (
+  block,
+  generator,
+) {
+  var text_name1 = block.getFieldValue('NAME');
+  var dropdown_name = block.getFieldValue('NAME1');
+  var text_name2 = block.getFieldValue('NAME2');
+  // TODO: Assemble javascript into code variable.
+  var code = text_name1 + ' ' + dropdown_name + ' ' + text_name2 + ' ';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+javascriptGenerator.forBlock['limit'] = function (block, generator) {
+  var text_name = block.getFieldValue('NAME');
+  // TODO: Assemble javascript into code variable.
+  var code = ' LIMIT ' + text_name;
   return code;
 };

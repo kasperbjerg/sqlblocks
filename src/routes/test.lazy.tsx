@@ -96,11 +96,10 @@ function About() {
 
             <Block type="group_by" />
             <Block type="having" />
-            <Block type="having_comparison" />
             <Block type="order_by" />
             <Block type="limit" />
             <Block type="update" />
-            <Block type="update_comparison" />
+            <Block type="delete" />
           </>
         }
       />

@@ -466,17 +466,7 @@ Blockly.Blocks['group_by'] = {
 
 Blockly.Blocks['having'] = {
   init: function () {
-    this.appendValueInput('NAME').setCheck(null).appendField('HAVING ');
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(100);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['having_comparison'] = {
-  init: function () {
+    this.appendDummyInput().appendField('HAVING ');
     this.appendDummyInput()
       .appendField(new Blockly.FieldTextInput(''), 'NAME')
       .appendField(
@@ -491,7 +481,8 @@ Blockly.Blocks['having_comparison'] = {
         'NAME1',
       )
       .appendField(new Blockly.FieldTextInput(''), 'NAME2');
-    this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(100);
     this.setTooltip('');
     this.setHelpUrl('');
@@ -503,7 +494,7 @@ Blockly.Blocks['order_by'] = {
     this.appendDummyInput()
       .appendField('ORDER BY')
       .appendField(new Blockly.FieldTextInput(''), 'NAME1')
-      .appendField(
+      this.appendDummyInput().appendField(
         new Blockly.FieldDropdown([
           ['ASC', 'ASC'],
           ['DESC', 'DESC'],
@@ -569,20 +560,9 @@ Blockly.Blocks['update'] = {
       .appendField('=')
       .appendField(new Blockly.FieldTextInput(''), 'new_value');
     this.appendEndRowInput();
-    this.appendValueInput('input').setCheck(null).appendField('WHERE');
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour('D0664f');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['update_comparison'] = {
-  init: function () {
+    this.appendDummyInput().appendField('WHERE');
     this.appendDummyInput()
-      .appendField(new Blockly.FieldTextInput(''), 'NAME')
+      .appendField(new Blockly.FieldTextInput(''), 'compare_column')
       .appendField(
         new Blockly.FieldDropdown([
           ['=', '='],
@@ -596,10 +576,46 @@ Blockly.Blocks['update_comparison'] = {
           ['IS NULL', 'IS NULL'],
           ['IS NOT NULL', 'IS NOT NULL'],
         ]),
-        'NAME1',
+        'comparator',
       )
-      .appendField(new Blockly.FieldTextInput(''), 'NAME2');
-    this.setOutput(true, null);
+      .appendField(new Blockly.FieldTextInput(''), 'compare_value');
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour('D0664f');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['delete'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('DELETE FROM')
+      .appendField(new Blockly.FieldTextInput(''), 'table');
+    this.appendEndRowInput();
+    this.appendDummyInput().appendField('WHERE');
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput(''), 'compare_column')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['=', '='],
+          ['≠', '!='],
+          ['<', '<'],
+          ['≤', '<='],
+          ['>', '>'],
+          ['≥', '>='],
+          ['LIKE', 'LIKE'],
+          ['NOT LIKE', 'NOT LIKE'],
+          ['IS NULL', 'IS NULL'],
+          ['IS NOT NULL', 'IS NOT NULL'],
+        ]),
+        'comparator',
+      )
+      .appendField(new Blockly.FieldTextInput(''), 'compare_value');
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour('D0664f');
     this.setTooltip('');
     this.setHelpUrl('');

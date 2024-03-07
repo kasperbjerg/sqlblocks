@@ -202,7 +202,15 @@ javascriptGenerator.forBlock['join'] = function (block, generator) {
   var text_column1 = block.getFieldValue('column1');
   var text_columns2 = block.getFieldValue('columns2');
   // TODO: Assemble javascript into code variable.
-  var code = ' ' + dropdown_type + ' ' + text_table2 + ' ON ' + text_column1 + ' = ' + text_columns2 ;
+  var code =
+    ' ' +
+    dropdown_type +
+    ' ' +
+    text_table2 +
+    ' ON ' +
+    text_column1 +
+    ' = ' +
+    text_columns2;
   return code;
 };
 
@@ -222,7 +230,7 @@ javascriptGenerator.forBlock['column'] = function (block, generator) {
     return code + ', ' + next_block;
   }
   return code;
-}; 
+};
 
 javascriptGenerator.forBlock['value'] = function (block, generator) {
   var text_name = block.getFieldValue('NAME1');
@@ -237,8 +245,6 @@ javascriptGenerator.forBlock['value'] = function (block, generator) {
   // TODO: Change ORDER_NONE to the correct strength.
   return code;
 };
-
-
 
 javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
   var dropdown_name2 = block.getFieldValue('NAME2');
@@ -257,8 +263,6 @@ javascriptGenerator.forBlock['aggregate'] = function (block, generator) {
   }
   return code;
 };
-
-
 
 javascriptGenerator.forBlock['as'] = function (block, generator) {
   var next_block = generator.statementToCode(block, 'NAME1');
@@ -340,9 +344,10 @@ javascriptGenerator.forBlock['group_by'] = function (block, generator) {
 };
 
 javascriptGenerator.forBlock['having'] = function (block, generator) {
-  var conditions = generator.statementToCode(block, 'NAME');
-  // TODO: Assemble javascript into code variable.
-  var code = ' HAVING ' + conditions;
+  var text_name = block.getFieldValue('NAME');
+  var dropdown_name1 = block.getFieldValue('NAME1');
+  var text_name2 = block.getFieldValue('NAME2');
+  var code = ' HAVING ' + text_name + dropdown_name1 + text_name2;
   return code;
 };
 
@@ -351,19 +356,6 @@ javascriptGenerator.forBlock['order_by'] = function (block, generator) {
   var dropdown_name2 = block.getFieldValue('NAME2');
   // TODO: Assemble javascript into code variable.
   var code = ' ORDER BY ( ' + text_name1 + ' ) ' + dropdown_name2;
-  return code;
-};
-
-javascriptGenerator.forBlock['having_comparison'] = function (
-  block,
-  generator,
-) {
-  var text_name1 = block.getFieldValue('NAME');
-  var dropdown_name = block.getFieldValue('NAME1');
-  var text_name2 = block.getFieldValue('NAME2');
-  // TODO: Assemble javascript into code variable.
-  var code = text_name1 + ' ' + dropdown_name + ' ' + text_name2 + ' ';
-  // TODO: Change ORDER_NONE to the correct strength.
   return code;
 };
 
@@ -378,21 +370,40 @@ javascriptGenerator.forBlock['update'] = function (block, generator) {
   var text_table = block.getFieldValue('table');
   var text_column = block.getFieldValue('column');
   var text_new_value = block.getFieldValue('new_value');
-  var value_input = generator.statementToCode(
-    block,
-    'input',
-  )
+  var compare_column = block.getFieldValue('compare_column');
+  var comparator = block.getFieldValue('comparator');
+  var compare_value = block.getFieldValue('compare_value');
+
   // TODO: Assemble javascript into code variable.
-  var code = 'UPDATE ' + text_table + ' SET ' + text_column + '=' + text_new_value + ' WHERE ' + value_input + ';';
+  var code =
+    'UPDATE ' +
+    text_table +
+    ' SET ' +
+    text_column +
+    '=' +
+    text_new_value +
+    ' WHERE ' +
+    compare_column +
+    comparator +
+    compare_value +
+    ';';
   return code;
 };
 
-javascriptGenerator.forBlock['update_comparison'] = function (block, generator) {
-  var text_name1 = block.getFieldValue('NAME');
-  var dropdown_name = block.getFieldValue('NAME1');
-  var text_name2 = block.getFieldValue('NAME2');
+javascriptGenerator.forBlock['delete'] = function (block, generator) {
+  var text_table = block.getFieldValue('table');
+  var compare_column = block.getFieldValue('compare_column');
+  var comparator = block.getFieldValue('comparator');
+  var compare_value = block.getFieldValue('compare_value');
+
   // TODO: Assemble javascript into code variable.
-  var code = text_name1 + ' ' + dropdown_name + ' ' + text_name2;
-  // TODO: Change ORDER_NONE to the correct strength.
+  var code =
+    'DELETE FROM ' +
+    text_table +
+    ' WHERE ' +
+    compare_column +
+    comparator +
+    compare_value +
+    ';';
   return code;
 };

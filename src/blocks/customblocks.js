@@ -49,8 +49,9 @@ Blockly.Blocks['create_table'] = {
   init: function () {
     this.appendDummyInput()
       .appendField('CREATE TABLE')
-      .appendField(new Blockly.FieldTextInput(''), 'NAME')
-      .appendField('(');
+      .appendField(new Blockly.FieldTextInput(''), 'NAME');
+
+    this.appendDummyInput().appendField('(');
     this.appendStatementInput('NAME').setCheck(null);
     this.appendDummyInput()
       .setAlign(Blockly.inputs.Align.RIGHT)
@@ -378,7 +379,7 @@ Blockly.Blocks['where'] = {
     this.appendValueInput('NAME').setCheck(null).appendField('WHERE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(360);
+    this.setColour(345);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -405,7 +406,46 @@ Blockly.Blocks['comparison'] = {
       )
       .appendField(new Blockly.FieldTextInput(''), 'NAME2');
     this.setOutput(true, null);
-    this.setColour(360);
+    this.setColour(345);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['and_or'] = {
+  init: function () {
+    this.appendValueInput('NAME1').setCheck(null);
+    this.appendValueInput('NAME3')
+      .setCheck(null)
+      .setAlign(Blockly.inputs.Align.RIGHT)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['AND', 'AND'],
+          ['OR', 'OR'],
+        ]),
+        'NAME2',
+      );
+    this.setOutput(true, null);
+    this.setColour(345);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['in'] = {
+  init: function () {
+    this.appendStatementInput('NAME')
+      .setCheck(null)
+      .appendField(new Blockly.FieldTextInput(''), 'NAME1')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['IN', 'IN'],
+          ['NOT IN', 'NOT IN'],
+        ]),
+        'NAME2',
+      );
+    this.setOutput(true, null);
+    this.setColour(345);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -426,7 +466,7 @@ Blockly.Blocks['group_by'] = {
 
 Blockly.Blocks['having'] = {
   init: function () {
-    this.appendValueInput('NAME').setCheck(null).appendField('HAVNING ');
+    this.appendValueInput('NAME').setCheck(null).appendField('HAVING ');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(100);
@@ -486,45 +526,6 @@ Blockly.Blocks['limit'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(170);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['and_or'] = {
-  init: function () {
-    this.appendValueInput('NAME1').setCheck(null);
-    this.appendValueInput('NAME3')
-      .setCheck(null)
-      .setAlign(Blockly.inputs.Align.RIGHT)
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['AND', 'AND'],
-          ['OR', 'OR'],
-        ]),
-        'NAME2',
-      );
-    this.setOutput(true, null);
-    this.setColour(360);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['in'] = {
-  init: function () {
-    this.appendStatementInput('NAME')
-      .setCheck(null)
-      .appendField(new Blockly.FieldTextInput(''), 'NAME1')
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['IN', 'IN'],
-          ['NOT IN', 'NOT IN'],
-        ]),
-        'NAME2',
-      );
-    this.setOutput(true, null);
-    this.setColour(360);
     this.setTooltip('');
     this.setHelpUrl('');
   },

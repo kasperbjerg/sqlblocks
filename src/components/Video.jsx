@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import ReactPlayer from 'react-player/youtube';
 
@@ -16,7 +16,13 @@ export default function Video({
   feedbackText,
 }) {
   const [isComplete, setIsComplete] = useLocalStorage(isCompleteKey, false);
+  const progress = useRef(0);
+  
+  useEffect(() => {
+    
+  }, [progress]);
 
+  console.log(progress);
   return (
     <>
       <div className="flex flex-col">
@@ -29,12 +35,12 @@ export default function Video({
         <div className="h-[448px]">
           <div className="relative h-full w-full pt-[43.75%]">
             <ReactPlayer
-              r
               className="absolute left-0 top-0"
+              controls={true}
               url={videoUrl}
               width="1024px"
               height="448px"
-              onEnded={setIsComplete(true)}
+              onProgress={(state)=>{progress.current=state.played}}
             />
           </div>
         </div>

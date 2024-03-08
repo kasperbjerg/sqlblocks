@@ -4,6 +4,7 @@ import React from 'react';
 import logo from '/logo.svg';
 import LinkWithColorChange from '../components/LinkWithColorChange.jsx';
 import Badge from '../components/Badge.jsx';
+import Energypoints  from '../components/Energypoints.jsx';
 
 export const Route = createRootRoute({
   component: () => (
@@ -16,7 +17,7 @@ export const Route = createRootRoute({
               <div className="flex justify-end ">
                 <div className="pr-2">
                   <p className=" pr-2 text-yellow-600/75 ">
-                    Energypoints: {localStorage.getItem('energyPoints')}
+                    <Energypoints />
                   </p>
                 </div>
               </div>

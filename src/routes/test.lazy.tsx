@@ -75,7 +75,13 @@ function About() {
                 </Block>
               </Value>
             </Block>
-            <Block type="insert_into_with_columns" />
+            <Block type="insert_into_with_columns">
+              <Value name="VALUES">
+                <Block type="value">
+                  <Field name="NAME1"></Field>
+                </Block>
+              </Value>
+            </Block>
             <Block type="column" />
             <Block type="value" />
             <Block type="select_*" />

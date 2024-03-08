@@ -17,7 +17,10 @@ function About() {
         nextExercise={'film'}
         description={
           <>
-            <p>Fri leg!!</p>
+            <br />
+            <br />
+            <br />
+            <p>Nedenfor er SQLBLOCKS med alle tilgængelige blokke</p>
           </>
         }
         feedbackText={
@@ -27,7 +30,7 @@ function About() {
         }
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={['INTEGER', 'TEXT']}
-        completeConditionsResult={['']}
+        completeConditionsResult={['asdf']}
         completeConditionsTableInfo={[
           '5 rækker',
           '6 rækker',

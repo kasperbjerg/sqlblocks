@@ -70,7 +70,8 @@ function About() {
             <Block type="create_table" />
             <Block type="add_integer_column" />
             <Block type="add_text_column" />
-            <Block type="insert_into" />
+            <Block type="insert_into_only_values" />
+            <Block type="value" />
             <Block type="select_*" />
           </>
         }

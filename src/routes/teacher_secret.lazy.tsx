@@ -53,10 +53,11 @@ function About() {
               {' '}
               https://kasperbjerg.github.io/sqlblocks/#/reality_complete
             </Link>
-          </u>.
+          </u>
+          .
           <br />
-          Load siden og klik herefter på "Start igen"-knappen nederst og acceptér at
-          starte øvelsen forfra. <br />
+          Load siden og klik herefter på "Start igen"-knappen nederst og
+          acceptér at starte øvelsen forfra. <br />
           Gå til sidst tilbage til den originale øvelsesside, hvor der er lagt
           en besvarelse ind som du kan vise til eleverne.
         </p>

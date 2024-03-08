@@ -23,7 +23,7 @@ function About() {
               Jeg vil lave en tabel til at huske at købe chips og cola, se
               hvordan i videoen.
             </p>
-            <p>Husk at sætte lyd på</p>
+            <p>Du skal se videoen med lyd på for at kunne lave alle øvelser.</p>
           </>
         }
         feedbackText={

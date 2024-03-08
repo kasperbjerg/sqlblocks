@@ -17,8 +17,6 @@ function About() {
     <>
       <Exercise
         exercise={'gaester'}
-        workspace={'gaesterWorkspace'}
-        nextExercise={'projekt1'}
         description={
           <>
             <p className="text-1xl">

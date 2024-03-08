@@ -11,7 +11,6 @@ import ConfettiExplosion from 'react-confetti-explosion';
 
 export default function Exercise({
   exercise,
-  workspace,
   description,
   feedbackText,
   nextExercise,
@@ -65,7 +64,7 @@ export default function Exercise({
           <BlocklyComponent
             reload={reload}
             reset={reset}
-            localStorageKey={workspace}
+            exercise={exercise}
             sqlCode={sqlCode}
             handleSqlCodeChange={handleSqlCodeChange}
             result={result}

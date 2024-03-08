@@ -36,9 +36,9 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 Blockly.setLocale(locale);
 
 export default function BlocklyComponent({
+  exercise,
   reload,
   reset,
-  localStorageKey,
   initialXml,
   children,
   move,
@@ -52,7 +52,7 @@ export default function BlocklyComponent({
   const blocklyDiv = useRef();
   const toolbox = useRef();
 
-  const [storedXml, setStoredXml] = useLocalStorage(localStorageKey, '');
+  const [storedXml, setStoredXml] = useLocalStorage(exercise+'Workspace', '');
   const [energyPoints, setEnergyPoints] = useLocalStorage('energyPoints', 0);
 
   //restores workspace to initialXml

@@ -14,7 +14,6 @@ function About() {
     <>
       <Exercise
         exercise={'test'}
-        workspace={'testWorkspace'}
         nextExercise={'film'}
         description={
           <>

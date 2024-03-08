@@ -1,6 +1,10 @@
 import React from 'react';
+import { useLocalStorage } from '@uidotdev/usehooks';
 
 export default function Badge({ badgeName, conditionsArray }) {
+
+  const [complete, setComplete] = useLocalStorage(name + 'Complete', false);
+
   return (
     <>
       {conditionsArray.every((key) => key) ? (

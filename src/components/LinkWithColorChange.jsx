@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from '@tanstack/react-router';
+import { useLocalStorage } from '@uidotdev/usehooks';
+
+
 
 export default function LinkWithColorChange({ name, Name, color }) {
+
+  const [complete, setComplete] = useLocalStorage(name + 'Complete', false);
+
   return (
     <>
       <div>
-        {JSON.parse(localStorage.getItem(name+'Complete')) ? (
+        {complete ? (
           <div className={color}>
             <Link to={'/' + name} className=" [&.active]:font-bold">
               {Name}

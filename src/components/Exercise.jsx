@@ -29,7 +29,7 @@ export default function Exercise({
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
-  const [complete, setComplete] = useLocalStorage(exercise+'Complete', false);
+  const [complete, setComplete] = useLocalStorage(exercise + 'Complete', false);
 
   const [reset, setReset] = useState(false);
   const [reload, setReload] = useState(false);
@@ -52,7 +52,22 @@ export default function Exercise({
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
         <div className="h-12">
-          {complete && <ConfettiExplosion />}
+          <div className="pl-72">
+            {complete && (
+              <ConfettiExplosion
+                colors={[
+                  '#5b80a6', //Run SQLblocks
+                  '#5ba699', //Create table
+                  '#805ba6', //column and type
+                  '#a65b99', //Insert into
+                  '#a6a65b', //Select
+                  '#a65b6e', //Where
+                  '#74a65b', //Group by having
+                  '#D0664f', //Update delete
+                ]}
+              />
+            )}
+          </div>
           <button
             onClick={() => setReload(true)}
             className="text-bold animate-bounce text-2xl font-bold"

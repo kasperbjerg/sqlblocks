@@ -59,7 +59,7 @@ Blockly.Blocks['create_table'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(165);
+    this.setColour(170);
     this.setTooltip('');
     this.setHelpUrl('');
   },

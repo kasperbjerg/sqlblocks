@@ -4,7 +4,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 export default function Energypoints({}) {
   const [energypoints, setEnergypoints] = useLocalStorage('energyPoints', 0);
 
-  const [printPoints, setPrintPoints]=useState(0)
+  const [printPoints, setPrintPoints]=useState(energypoints);
   
   useEffect(()=>{
     if (energypoints % 10 === 0) {

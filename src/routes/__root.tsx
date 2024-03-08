@@ -4,7 +4,7 @@ import React from 'react';
 import logo from '/logo.svg';
 import LinkWithColorChange from '../components/LinkWithColorChange.jsx';
 import Badge from '../components/Badge.jsx';
-import Energypoints  from '../components/Energypoints.jsx';
+import Energypoints from '../components/Energypoints.jsx';
 
 export const Route = createRootRoute({
   component: () => (
@@ -13,26 +13,8 @@ export const Route = createRootRoute({
         <header className="h-20 min-w-[1220px] bg-gray-200">
           <div className="flex flex-row justify-between">
             <img src={logo} className="pb-2 pl-4" alt="SQLBLOCKS logo" />
-            <div className="flex flex-col pt-1">
-              <div className="flex justify-end ">
-                <div className="pr-2">
-                  <p className=" pr-2 text-yellow-600/75 ">
-                    <Energypoints />
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-row justify-end pt-1">
-                <Badge
-                  badgeName={'indkoeb.svg'}
-                  conditionsArray={[
-                    JSON.parse(localStorage.getItem('indkoebComplete')),
-                    JSON.parse(localStorage.getItem('realityComplete')),
-                    JSON.parse(localStorage.getItem('yndlingsserierComplete')),
-                    JSON.parse(localStorage.getItem('hundeComplete')),
-                    JSON.parse(localStorage.getItem('gaesterComplete')),
-                    JSON.parse(localStorage.getItem('projekt1Complete')),
-                  ]}
-                />
+            <div className="flex flex-row pt-4">
+              <div className="flex flex-row justify-end">
                 <Badge
                   badgeName={'projekt.svg'}
                   conditionsArray={[
@@ -80,6 +62,13 @@ export const Route = createRootRoute({
                   badgeName="badge100.svg"
                   conditionsArray={[localStorage.getItem('energyPoints') > 99]}
                 />
+              </div>
+              <div className="flex justify-end pt-1">
+                <div className="pr-2">
+                  <p className="pr-2 text-lg text-yellow-600/75 ">
+                    <Energypoints />
+                  </p>
+                </div>
               </div>
             </div>
           </div>

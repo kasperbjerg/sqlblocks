@@ -3,7 +3,7 @@ import logo from '/logo.svg';
 import React, { useState } from 'react';
 
 import Exercise from '../components/Exercise.jsx';
-import { Block } from '../components';
+import { Block, Field, Value } from '../components/index.js';
 
 export const Route = createLazyFileRoute('/projekt1')({
   component: About,
@@ -52,7 +52,13 @@ function About() {
             <Block type="create_table" />
             <Block type="add_integer_column" />
             <Block type="add_text_column" />
-            <Block type="insert_into_only_values" />
+            <Block type="insert_into_only_values">
+              <Value name="VALUES">
+                <Block type="value">
+                  <Field name="NAME1"></Field>
+                </Block>
+              </Value>
+            </Block>
             <Block type="value" />
             <Block type="select_*" />
           </>

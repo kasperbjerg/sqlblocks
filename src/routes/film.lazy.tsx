@@ -56,7 +56,13 @@ function About() {
             <Block type="create_table" />
             <Block type="add_integer_column" />
             <Block type="add_text_column" />
-            <Block type="insert_into_only_values" />
+            <Block type="insert_into_only_values">
+              <Value name="VALUES">
+                <Block type="value">
+                  <Field name="NAME1"></Field>
+                </Block>
+              </Value>
+            </Block>
             <Block type="value" />
             <Block type="select_open">
               <Field name="table"></Field>

@@ -3,7 +3,7 @@ import logo from '/logo.svg';
 import React, { useState } from 'react';
 
 import Exercise from '../components/Exercise.jsx';
-import BlocklyComponent, { Block } from '../components/index.js';
+import { Block, Field, Value } from '../components/index.js';
 
 export const Route = createLazyFileRoute('/reality_complete')({
   component: About,

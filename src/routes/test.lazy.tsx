@@ -13,9 +13,9 @@ function About() {
   return (
     <>
       <Exercise
-        isCompleteKey={'testComplete'}
+        exercise={'test'}
         workspace={'testWorkspace'}
-        nextExercise={'test'}
+        nextExercise={'film'}
         description={
           <>
             <p>Fri leg!!</p>

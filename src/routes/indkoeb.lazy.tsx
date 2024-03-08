@@ -12,7 +12,7 @@ function About() {
   return (
     <>
       <Video
-        isCompleteKey={'indkoebComplete'}
+        exercise={'indkoeb'}
         nextExercise={'reality'}
         videoUrl={'https://youtu.be/Ni75V0WUavE'}
         description={

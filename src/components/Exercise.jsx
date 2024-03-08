@@ -11,7 +11,6 @@ import ConfettiExplosion from 'react-confetti-explosion';
 
 export default function Exercise({
   exercise,
-  isCompleteKey,
   workspace,
   description,
   feedbackText,
@@ -31,7 +30,7 @@ export default function Exercise({
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
 
-  const [isComplete, setIsComplete] = useLocalStorage(isCompleteKey, false);
+  const [complete, setComplete] = useLocalStorage(exercise+'Complete', false);
 
   const [reset, setReset] = useState(false);
   const [reload, setReload] = useState(false);
@@ -45,7 +44,7 @@ export default function Exercise({
     completeConditionsTableInfo.some(
       (key) => JSON.stringify(tableInfo).includes(key) === true,
     )
-      ? setIsComplete(true)
+      ? setComplete(true)
       : '';
   }, [sqlCode, result, tableInfo]);
 
@@ -54,12 +53,12 @@ export default function Exercise({
       <div className="flex flex-col">
         <div className="h-28">{description}</div>
         <div className="h-12">
-          {isComplete && <ConfettiExplosion />}
+          {complete && <ConfettiExplosion />}
           <button
             onClick={() => setReload(true)}
             className="text-bold animate-bounce text-2xl font-bold"
           >
-            {isComplete ? feedbackText : ''}
+            {complete ? feedbackText : ''}
           </button>
         </div>
         <div flex flex-row>
@@ -94,7 +93,7 @@ export default function Exercise({
             <button
               onClick={() => {
                 confirm('Er du sikker på du vil starte øvelsen forfra?');
-                setIsComplete(false);
+                setComplete(false);
                 setReset(true);
               }}
               className="rounded-md bg-teal-700/75 p-2 text-white"
@@ -104,7 +103,7 @@ export default function Exercise({
           </div>
           <div className="shrink-0">
             <NextExerciseButton
-              isCompleteKey={isCompleteKey}
+              exercise={exercise}
               nextExercise={nextExercise}
             />
           </div>

@@ -13,7 +13,7 @@ function About() {
   return (
     <>
       <Exercise
-        isCompleteKey={'hundeComplete'}
+        exercise={'hunde'}
         workspace={'hundeWorkspace'}
         nextExercise={'gaester'}
         description={

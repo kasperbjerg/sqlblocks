@@ -13,7 +13,7 @@ function About() {
   return (
     <>
       <Exercise
-        isCompleteKey={'ratingComplete'}
+        exercise={'rating'}
         workspace={'ratingWorkspace'}
         nextExercise={'rating'}
         description={

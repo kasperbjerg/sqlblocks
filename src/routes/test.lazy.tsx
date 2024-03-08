@@ -69,7 +69,6 @@ function About() {
             <Block type="add_text_column" />
             <Block type="add_real_column" />
             <Block type="add_dropdown_column" />
-            <Block type="insert_into" />
             <Block type="insert_into_only_values" />
             <Block type="insert_into_with_columns" />
             <Block type="column" />

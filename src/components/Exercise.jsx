@@ -10,6 +10,7 @@ import NextExerciseButton from './NextExerciseButton.jsx';
 import ConfettiExplosion from 'react-confetti-explosion';
 
 export default function Exercise({
+  exercise
   isCompleteKey,
   workspace,
   description,

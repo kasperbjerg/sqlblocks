@@ -13,6 +13,7 @@ function About() {
   return (
     <>
       <Exercise
+        exercise={'reality'}
         isCompleteKey={'realityComplete'}
         workspace={'relityWorkspace'}
         nextExercise={'yndlingsserier'}

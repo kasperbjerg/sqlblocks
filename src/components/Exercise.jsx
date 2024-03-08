@@ -12,6 +12,7 @@ import ConfettiExplosion from 'react-confetti-explosion';
 export default function Exercise({
   exercise,
   description,
+  hint,
   feedbackText,
   nextExercise,
   completeConditionsSql,
@@ -50,7 +51,8 @@ export default function Exercise({
   return (
     <>
       <div className="flex flex-col">
-        <div className="h-28">{description}</div>
+        <div className="h-20">{description}</div>
+        <div className="h-8 text-[#D0664f]">{hint}</div>
         <div className="h-12">
           <div className="pl-72">
             {complete && (
@@ -63,7 +65,8 @@ export default function Exercise({
                   '#a6a65b', //Select
                   '#a65b6e', //Where
                   '#74a65b', //Group by having
-                  '#D0664f', //Update delete
+                  '#D0664f', //Order by limit
+                  '#b04a4a', //Update delete
                 ]}
               />
             )}

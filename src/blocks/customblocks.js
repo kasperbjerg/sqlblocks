@@ -379,7 +379,7 @@ Blockly.Blocks['where'] = {
     this.appendValueInput('NAME').setCheck(null).appendField('WHERE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(345);
+    this.setColour('#bf49a4');
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -406,7 +406,7 @@ Blockly.Blocks['comparison'] = {
       )
       .appendField(new Blockly.FieldTextInput(''), 'NAME2');
     this.setOutput(true, null);
-    this.setColour(345);
+    this.setColour('#bf49a4');
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -426,7 +426,7 @@ Blockly.Blocks['and_or'] = {
         'NAME2',
       );
     this.setOutput(true, null);
-    this.setColour(345);
+    this.setColour('#bf49a4');
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -445,7 +445,7 @@ Blockly.Blocks['in'] = {
         'NAME2',
       );
     this.setOutput(true, null);
-    this.setColour(345);
+    this.setColour('#bf49a4');
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -493,17 +493,17 @@ Blockly.Blocks['order_by'] = {
   init: function () {
     this.appendDummyInput()
       .appendField('ORDER BY')
-      .appendField(new Blockly.FieldTextInput(''), 'NAME1')
-      this.appendDummyInput().appendField(
-        new Blockly.FieldDropdown([
-          ['ASC', 'ASC'],
-          ['DESC', 'DESC'],
-        ]),
-        'NAME2',
-      );
+      .appendField(new Blockly.FieldTextInput(''), 'NAME1');
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ['ASC', 'ASC'],
+        ['DESC', 'DESC'],
+      ]),
+      'NAME2',
+    );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(170);
+    this.setColour('D0664f');
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -516,7 +516,7 @@ Blockly.Blocks['limit'] = {
       .appendField(new Blockly.FieldTextInput(''), 'NAME');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(170);
+    this.setColour('D0664f');
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -582,7 +582,7 @@ Blockly.Blocks['update'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour('D0664f');
+    this.setColour('#b04a4a');
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -616,7 +616,7 @@ Blockly.Blocks['delete'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour('D0664f');
+    this.setColour('#b04a4a');
     this.setTooltip('');
     this.setHelpUrl('');
   },

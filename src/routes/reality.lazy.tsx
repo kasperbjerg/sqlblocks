@@ -19,20 +19,21 @@ function About() {
           <>
             <p>
               Ser du reality-programmer? I de næste øvelser skal du lave en
-              tabel til dine yndlingsserier.
-            </p>
-            <p>
-              Opret en tabel der hedder <b>serier</b> tilføj to kolonner.
+              tabel til dine yndlingsserier. Opret en tabel der hedder{' '}
+              <b>serier</b> tilføj to kolonner.
             </p>
             <p>
               Den første kolonne skal have typen <b>TEXT</b> og hedde{' '}
-              <b>serie</b>.
-            </p>
-            <p>
-              Anden kolonne skal have typen <b>INTEGER</b> og hedde{' '}
-              <b>rating</b>.
+              <b>serie</b>. Anden kolonne skal have typen <b>INTEGER</b> og
+              hedde <b>rating</b>.
             </p>
           </>
+        }
+        hint={
+          <p>
+            Hint: Hvis navne er skrevet med <b>fed skrift</b>  skal
+            du skrive og stave dem på helt samme måde når du løser øvelsen.
+          </p>
         }
         feedbackText={
           <>

@@ -19,7 +19,7 @@ function About() {
         exercise={'gaester'}
         description={
           <>
-            <p className="text-1xl">
+            <p>
               Din sql-kode fra sidste opgave er nedenfor. (Hvis ikke så skal du
               lige klikke her på start forfra-knappen i bunden).
             </p>
@@ -39,7 +39,7 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-yellow-600/75  ">Fantastisk</p>
+            <p>Fantastisk</p>
           </>
         }
         nextButtonColor={`purple-900/75`}

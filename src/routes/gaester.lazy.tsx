@@ -39,7 +39,9 @@ function About() {
         }
         feedbackText={
           <>
-            <p>Fantastisk</p>
+            <p className="text-purple-900/75">
+              Fantastisk
+            </p>
           </>
         }
         nextButtonColor={`purple-900/75`}

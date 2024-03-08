@@ -38,7 +38,7 @@ function About() {
         feedbackText={
           <>
             <p className="text-purple-900/75">
-              SÅDAN!.. godt arbejde :) Klik her for at få dine energypoints.
+              SÅDAN!.. godt arbejde :)
             </p>
           </>
         }

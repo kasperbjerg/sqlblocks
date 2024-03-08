@@ -18,6 +18,7 @@ import { Route as rootRoute } from './routes/__root'
 
 const YndlingsserierLazyImport = createFileRoute('/yndlingsserier')()
 const TestLazyImport = createFileRoute('/test')()
+const TeachersecretLazyImport = createFileRoute('/teacher_secret')()
 const RealitycompleteLazyImport = createFileRoute('/reality_complete')()
 const RealityLazyImport = createFileRoute('/reality')()
 const RatingLazyImport = createFileRoute('/rating')()
@@ -42,6 +43,13 @@ const TestLazyRoute = TestLazyImport.update({
   path: '/test',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/test.lazy').then((d) => d.Route))
+
+const TeachersecretLazyRoute = TeachersecretLazyImport.update({
+  path: '/teacher_secret',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/teacher_secret.lazy').then((d) => d.Route),
+)
 
 const RealitycompleteLazyRoute = RealitycompleteLazyImport.update({
   path: '/reality_complete',
@@ -139,6 +147,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RealitycompleteLazyImport
       parentRoute: typeof rootRoute
     }
+    '/teacher_secret': {
+      preLoaderRoute: typeof TeachersecretLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/test': {
       preLoaderRoute: typeof TestLazyImport
       parentRoute: typeof rootRoute
@@ -163,6 +175,7 @@ export const routeTree = rootRoute.addChildren([
   RatingLazyRoute,
   RealityLazyRoute,
   RealitycompleteLazyRoute,
+  TeachersecretLazyRoute,
   TestLazyRoute,
   YndlingsserierLazyRoute,
 ])

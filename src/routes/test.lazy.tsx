@@ -65,6 +65,7 @@ function About() {
           `}
         toolBox={
           <>
+            <Block type="run_sqlblocks" />
             <Block type="create_table" />
             <Block type="add_key_column" />
             <Block type="add_integer_column" />

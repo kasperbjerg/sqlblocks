@@ -25,17 +25,16 @@ function About() {
             <p>
               Se din tabel med <b>SELECT *</b> til sidst.
             </p>
-            <p className="text-orange-500">
-              Hint: Husk at sætte ' ' omkring serie-navnene når du indsætter
-              dem.{' '}
-            </p>
           </>
+        }
+        hint={
+          <p>
+            Hint: Husk at sætte ' ' omkring serie-navnene når du indsætter dem.{' '}
+          </p>
         }
         feedbackText={
           <>
-            <p className="text-teal-700/75">
-              Wauw.. du er en champ!
-            </p>
+            <p className="text-teal-700/75">Wauw.. du er en champ!</p>
           </>
         }
         nextButtonColor={`purple-900/75`}

@@ -31,15 +31,13 @@ function About() {
         }
         hint={
           <p>
-            Hint: Hvis navne er skrevet med <b>fed skrift</b>  skal
-            du skrive og stave dem på helt samme måde når du løser øvelsen.
+            Hint: Hvis ting er skrevet med <b>fed skrift</b> skal du skrive og
+            stave dem på helt samme måde når du løser øvelsen.
           </p>
         }
         feedbackText={
           <>
-            <p className="text-purple-900/75">
-              SÅDAN!.. godt arbejde :)
-            </p>
+            <p className="text-purple-900/75">SÅDAN!.. godt arbejde :)</p>
           </>
         }
         nextButtonColor={`sky-800/75`}

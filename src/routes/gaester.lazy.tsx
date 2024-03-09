@@ -17,6 +17,7 @@ function About() {
     <>
       <Exercise
         exercise={'gaester'}
+        nextExercise={'projekt1'}
         description={
           <>
             <p>
@@ -39,9 +40,7 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-purple-900/75">
-              Fantastisk
-            </p>
+            <p className="text-purple-900/75">Fantastisk</p>
           </>
         }
         nextButtonColor={`purple-900/75`}

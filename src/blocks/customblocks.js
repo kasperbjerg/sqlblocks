@@ -343,10 +343,10 @@ Blockly.Blocks['aggregate'] = {
       .setCheck(null)
       .appendField(
         new Blockly.FieldDropdown([
+          ['COUNT', 'COUNT'],
           ['MAX', 'MAX'],
           ['MIN', 'MIN'],
           ['SUM', 'SUM'],
-          ['COUNT', 'COUNT'],
           ['AVG', 'AVG'],
         ]),
         'NAME2',
@@ -578,7 +578,8 @@ Blockly.Blocks['update'] = {
         ]),
         'comparator',
       )
-      .appendField(new Blockly.FieldTextInput(''), 'compare_value');
+      .appendField(new Blockly.FieldTextInput(''), 'compare_value')
+      .appendField(';');
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -612,7 +613,8 @@ Blockly.Blocks['delete'] = {
         ]),
         'comparator',
       )
-      .appendField(new Blockly.FieldTextInput(''), 'compare_value');
+      .appendField(new Blockly.FieldTextInput(''), 'compare_value')
+      .appendField(';');;
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

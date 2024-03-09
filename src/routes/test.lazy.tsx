@@ -69,8 +69,8 @@ function About() {
             <Block type="create_table" />
             <Block type="add_key_column" />
             <Block type="add_integer_column" />
-            <Block type="add_text_column" />
             <Block type="add_real_column" />
+            <Block type="add_text_column" />
             <Block type="add_dropdown_column" />
             <Block type="insert_into_only_values">
               <Value name="VALUES">

@@ -6,19 +6,20 @@ import NextExerciseButton from './NextExerciseButton.jsx';
 import ReloadDummy from './ReloadDummy.jsx';
 
 export default function Video({
-  isCompleteKey,
+  exercise,
   nextExercise,
   videoUrl,
   description,
   feedbackText,
 }) {
-  const [isComplete, setIsComplete] = useLocalStorage(isCompleteKey, false);
+  const [complete, setComplete] = useLocalStorage(exercise + 'Complete', false);
+
   const [reload, setReload] = useState(false);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (progress > 0.8) {
-      setIsComplete(true);
+      setComplete(true);
     }
   }, [progress]);
 
@@ -33,7 +34,7 @@ export default function Video({
             onClick={() => setReload(true)}
             className="text-bold animate-bounce text-2xl font-bold"
           >
-            {isComplete ? feedbackText : ''}
+            {complete ? feedbackText : ''}
           </button>
         </div>
         <div className="h-[448px]">
@@ -53,7 +54,7 @@ export default function Video({
         <div className="flex w-[1024px] flex-row justify-end pb-12 pt-4">
           <div className="shrink-0">
             <NextExerciseButton
-              isCompleteKey={isCompleteKey}
+              exercise={exercise}
               nextExercise={nextExercise}
             />
           </div>

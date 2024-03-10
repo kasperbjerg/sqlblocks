@@ -14,7 +14,7 @@ function About() {
       <Video
         exercise={'indkoeb'}
         nextExercise={'reality'}
-        videoUrl={'https://youtu.be/Ni75V0WUavE'}
+        videoUrl={'https://youtu.be/WeNeMjnM5gc'}
         description={
           <>
             <p className="text-1xl">"Husk mælk og tandpasta!!"</p>

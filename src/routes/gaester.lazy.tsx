@@ -12,7 +12,14 @@ export const Route = createLazyFileRoute('/gaester')({
 });
 
 function About() {
-  const [hundeXml, sethundeXml] = useLocalStorage('hundeWorkspace', false);
+  const [hundeXml, sethundeXml] = useLocalStorage(
+    'hundeWorkspace',
+    `
+              <xml xmlns="http://www.w3.org/1999/xhtml">
+                <Block type="run_sqlblocks" />
+              </xml>
+          `,
+  );
   return (
     <>
       <Exercise

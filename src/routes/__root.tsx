@@ -120,6 +120,16 @@ export const Route = createRootRoute({
               Name="Rating"
               color="text-pink-600/75"
             />
+            <LinkWithColorChange
+              name="pigefilm"
+              Name="Pigefilm"
+              color="text-[#5ba699]"
+            />
+            <LinkWithColorChange
+              name="projekt2"
+              Name="Projekt"
+              color="text-[#805ba6]"
+            />
           </div>
           <Outlet />
         </div>

@@ -37,12 +37,12 @@ export default function Exercise({
 
   React.useEffect(() => {
     typeof sqlCode !== 'undefined' &&
-    completeConditionsSql.every((key) => sqlCode.includes(key) === true) &&
+    completeConditionsSql.every((key) => sqlCode.includes(key) == true) &&
     completeConditionsResult.every(
-      (key) => JSON.stringify(result).includes(key) === true,
+      (key) => JSON.stringify(result).includes(key) == true,
     ) &&
     completeConditionsTableInfo.some(
-      (key) => JSON.stringify(tableInfo).includes(key) === true,
+      (key) => JSON.stringify(tableInfo).includes(key) == true,
     )
       ? setComplete(true)
       : '';
@@ -126,6 +126,8 @@ export default function Exercise({
           </div>
         </div>
       </div>
+      {JSON.stringify(result)}
+      {sqlCode}
     </>
   );
 }

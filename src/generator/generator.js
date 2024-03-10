@@ -182,7 +182,7 @@ javascriptGenerator.forBlock['select_*'] = function (block, generator) {
 javascriptGenerator.forBlock['select'] = function (block, generator) {
   var text_rows = block.getFieldValue('rows');
   var text_table = block.getFieldValue('table');
-  var code = 'SELECT ' + text_rows + ' FROM ' + text_table + ';';
+  var code = 'SELECT' + text_rows + ' FROM ' + text_table + ';';
   return code;
 };
 
@@ -192,7 +192,7 @@ javascriptGenerator.forBlock['select_open'] = function (block, generator) {
   var statements_filters = generator.statementToCode(block, 'filters');
   // TODO: Assemble javascript into code variable.
   var code =
-    'SELECT ' + value_name + ' FROM ' + text_table + statements_filters + ';';
+    'SELECT' + value_name + ' FROM ' + text_table + statements_filters + ';';
   return code;
 };
 
@@ -227,7 +227,7 @@ javascriptGenerator.forBlock['column'] = function (block, generator) {
   }
   //Checks more columns-blcoks (not AS)
   if (next_block) {
-    return code + ', ' + next_block;
+    return code + ',' + next_block;
   }
   return code;
 };

@@ -22,7 +22,9 @@ const TeachersecretLazyImport = createFileRoute('/teacher_secret')()
 const RealitycompleteLazyImport = createFileRoute('/reality_complete')()
 const RealityLazyImport = createFileRoute('/reality')()
 const RatingLazyImport = createFileRoute('/rating')()
+const Projekt2LazyImport = createFileRoute('/projekt2')()
 const Projekt1LazyImport = createFileRoute('/projekt1')()
+const PigefilmLazyImport = createFileRoute('/pigefilm')()
 const MilleniumLazyImport = createFileRoute('/millenium')()
 const IndkoebLazyImport = createFileRoute('/indkoeb')()
 const HundeLazyImport = createFileRoute('/hunde')()
@@ -68,10 +70,20 @@ const RatingLazyRoute = RatingLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/rating.lazy').then((d) => d.Route))
 
+const Projekt2LazyRoute = Projekt2LazyImport.update({
+  path: '/projekt2',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/projekt2.lazy').then((d) => d.Route))
+
 const Projekt1LazyRoute = Projekt1LazyImport.update({
   path: '/projekt1',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/projekt1.lazy').then((d) => d.Route))
+
+const PigefilmLazyRoute = PigefilmLazyImport.update({
+  path: '/pigefilm',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/pigefilm.lazy').then((d) => d.Route))
 
 const MilleniumLazyRoute = MilleniumLazyImport.update({
   path: '/millenium',
@@ -131,8 +143,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MilleniumLazyImport
       parentRoute: typeof rootRoute
     }
+    '/pigefilm': {
+      preLoaderRoute: typeof PigefilmLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/projekt1': {
       preLoaderRoute: typeof Projekt1LazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/projekt2': {
+      preLoaderRoute: typeof Projekt2LazyImport
       parentRoute: typeof rootRoute
     }
     '/rating': {
@@ -171,7 +191,9 @@ export const routeTree = rootRoute.addChildren([
   HundeLazyRoute,
   IndkoebLazyRoute,
   MilleniumLazyRoute,
+  PigefilmLazyRoute,
   Projekt1LazyRoute,
+  Projekt2LazyRoute,
   RatingLazyRoute,
   RealityLazyRoute,
   RealitycompleteLazyRoute,

@@ -52,7 +52,7 @@ export default function BlocklyComponent({
   const blocklyDiv = useRef();
   const toolbox = useRef();
 
-  const [storedXml, setStoredXml] = useLocalStorage(exercise+'Workspace', '');
+  const [storedXml, setStoredXml] = useLocalStorage(exercise + 'Workspace', '');
   const [energyPoints, setEnergyPoints] = useLocalStorage('energyPoints', 0);
 
   //restores workspace to initialXml
@@ -133,6 +133,7 @@ export default function BlocklyComponent({
           </div>
         </div>
       </div>
+      {sqlCode}
     </>
   );
 }

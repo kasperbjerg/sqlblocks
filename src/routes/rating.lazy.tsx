@@ -22,12 +22,13 @@ function About() {
               mellem 1 og 10
             </p>
             <p>
-              Vælg nu kun film med en rating på 5 eller mere. Vis kun
-              kolonnenerne <b>navn</b> og <b>rating</b> og sorter listen så
-              filmen med størt rating er øverst.
+              Vælg nu kun film med en rating på mere end 5. Vis kun kolonnenerne{' '}
+              <b>navn</b> og <b>rating</b> og sorter listen så filmen med størt
+              rating er øverst.
             </p>
           </>
         }
+        hint={'Hint: Der er forskel på > og  ≥.'}
         feedbackText={
           <>
             <p className="text-pink-600/75">Super flot :)</p>
@@ -36,7 +37,7 @@ function About() {
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           'rating INTEGER',
-          ' 5 ORDER BY ( rating ) DESC',
+          ' > 5 ORDER BY ( rating ) DESC',
           'rating FROM',
           'SELECT  navn,  rating',
         ]}

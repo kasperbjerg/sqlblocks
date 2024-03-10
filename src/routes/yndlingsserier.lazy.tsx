@@ -17,7 +17,7 @@ function About() {
         nextExercise={'hunde'}
         description={
           <>
-            <p>Tilføj nu mindst 3 reality-serier du kender til tabellen.</p>
+            <p>Tilføj nu mindst 3 reality-serier til tabellen.</p>
             <p>
               Skriv navnet på serien i <b>serie</b>-kolonnen og giv også hver
               serie en <b>rating</b> mellem 1 og 5.

@@ -51,22 +51,22 @@ export default function Exercise({
   return (
     <>
       <div className="flex flex-col">
-        <div className="h-20">{description}</div>
+        <div className="h-20 w-[1024px]">{description}</div>
         <div className="h-8 text-[#D0664f]">{hint}</div>
         <div className="h-12">
           <div className="pl-72">
             {complete && (
               <ConfettiExplosion
                 colors={[
-                  '#5b80a6', //Run SQLblocks
-                  '#5ba699', //Create table
-                  '#805ba6', //column and type
-                  '#a65b99', //Insert into
-                  '#a6a65b', //Select
-                  '#a65b6e', //Where
-                  '#74a65b', //Group by having
-                  '#D0664f', //Order by limit
-                  '#b04a4a', //Update delete
+                  '#5b80a6', //Blue (Run SQLblocks)
+                  '#5ba699', //Green (Create table)
+                  '#805ba6', //Violet (column and type)
+                  '#a65b99', //Purple (Insert into)
+                  '#a6a65b', //Mustard (Select)
+                  '#a65b6e', //Pinkk (Where)
+                  '#74a65b', //Green (Group by having)
+                  '#D0664f', //Orange (Order by limit)
+                  '#b04a4a', //Red (Update delete)
                 ]}
               />
             )}

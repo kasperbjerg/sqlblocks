@@ -37,6 +37,7 @@ function About() {
             </p>
           </>
         }
+        hint={<p>Hint: Vælg også de rigtige datatyper til dine kolonner.</p>}
         feedbackText={
           <>
             <p className="text-pink-600/75">'Du er jo en database-wiz'</p>

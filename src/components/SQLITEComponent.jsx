@@ -82,13 +82,13 @@ export default function Sql({
       print: log,
       printErr: error,
     }).then((sqlite3) => {
-      log('Done initializing. Running demo...');
+      //log('Done initializing. Running demo...');
       try {
         start(sqlite3);
       } catch (err) {
         handleResultChange([]);
         handleTableInfoChange([]);
-        error(err.name, err.message);
+        //error(err.name, err.message);
       }
     });
   }, [sqlCode]);
@@ -102,8 +102,8 @@ export default function Sql({
     return data.map((table) => {
       return (
         <div className="pr-2 pt-2">
-          <table className="rounded-lg border">
-            <thead className=" bg-gray-200">
+          <table className="rounded-lg border border-[0.5px] border-[#bbbbbb]">
+            <thead className=" border-[0.5px] border-[#bbbbbb] bg-[#e4e4e4]">
               <th className="">{table[0]}</th>
               <th>({table[1]})</th>
               <th></th>
@@ -123,7 +123,7 @@ export default function Sql({
     }
     return data.slice(2).map((column) => {
       return (
-        <tr className="border">
+        <tr className="border border-[0.5px] border-[#bbbbbb]">
           <td>{column[0]}</td>
           <td>{column[1]}</td>
           <td>{column[2]}</td>
@@ -141,7 +141,11 @@ export default function Sql({
       return;
     }
     return Object.keys(data[0]).map((key) => {
-      return <th className="bg-gray-200">{key}</th>;
+      return (
+        <th className="border border-[0.5px] border-[#bbbbbb] bg-[#e4e4e4]">
+          {key}
+        </th>
+      );
     });
   }
 
@@ -153,7 +157,11 @@ export default function Sql({
       return;
     }
     return data.map((obj) => {
-      return <tr className="border">{getCells(obj)}</tr>;
+      return (
+        <tr className="border border-[0.5px] border-[#bbbbbb]">
+          {getCells(obj)}
+        </tr>
+      );
     });
   }
 
@@ -162,7 +170,7 @@ export default function Sql({
   function getCells(obj) {
     return Object.values(obj).map((value) => {
       return (
-        <td className="border" key={value}>
+        <td className="border border-[0.5px] border-[#bbbbbb]" key={value}>
           {value}
         </td>
       );
@@ -170,19 +178,23 @@ export default function Sql({
   }
 
   return (
-    <div className="flex h-[448px] w-[362px] flex-col overflow-auto border pl-2 pr-2">
+    <div className="flex h-[448px] w-[362px] flex-col overflow-auto border-[0.5px] border-[#bbbbbb] pl-2 pr-2">
       <div>
-        <h1 className="text-left text-xl text-gray-500">Databaseskema</h1>
+        <h1 className="text-left text-xl text-zinc-400">Databaseskema</h1>
         <div className="flex flex-row flex-wrap text-left">
           {createTables(tableInfo)}
         </div>
       </div>
       <div className="pt-2">
-        <h1 className="text-left text-xl text-gray-500">Resultat</h1>
+        <h1 className="text-left text-xl text-zinc-400">Resultat</h1>
         <div className="">
-          <table className="gap-4 border text-left">
-            <thead className="border">{getHeadings(result)}</thead>
-            <tbody className="border">{getRows(result)}</tbody>
+          <table className="gap-4 border border-[0.5px] border-[#bbbbbb] text-left">
+            <thead className="border border-[0.5px] border-[#bbbbbb]">
+              {getHeadings(result)}
+            </thead>
+            <tbody className="border border-[0.5px] border-[#bbbbbb]">
+              {getRows(result)}
+            </tbody>
           </table>
         </div>
       </div>

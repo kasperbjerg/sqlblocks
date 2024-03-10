@@ -18,19 +18,23 @@ function About() {
         description={
           <>
             <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
-            <br></br>
             <p>
-              Jeg vil lave en tabel til at huske at købe chips og cola, se
-              hvordan i videoen.
+              Det er let at lave indkøbsliste, så man husker at købe chips og
+              cola. Se hvordan i videoen nedenfor.
             </p>
-            <p>Du skal se videoen med lyd på for at kunne lave alle øvelser.</p>
+            <p></p>
           </>
+        }
+        hint={
+          <p>
+            Hint: Du skal se videoen med lyd på for at kunne lave øvelserne
+            bagefter.
+          </p>
         }
         feedbackText={
           <>
-            <p className="text-sky-800/75">
-              Super, så er du klar til at gå i gang :) Klik her for dit første
-              badge!
+            <p className="text-[#5b80a6]">
+              Super, så er du ved at klar til at gå i gang :)
             </p>
           </>
         }

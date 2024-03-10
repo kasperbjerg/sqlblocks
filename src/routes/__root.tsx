@@ -10,7 +10,7 @@ export const Route = createRootRoute({
   component: () => (
     <>
       <div className="">
-        <header className="h-20 min-w-[1220px] bg-gray-200">
+        <header className="h-20 min-w-[1220px] bg-[#e4e4e4]">
           <div className="flex flex-row justify-between">
             <img src={logo} className="pb-2 pl-4" alt="SQLBLOCKS logo" />
             <div className="flex flex-row pt-4">

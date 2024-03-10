@@ -10,6 +10,7 @@ export default function Video({
   nextExercise,
   videoUrl,
   description,
+  hint,
   feedbackText,
 }) {
   const [complete, setComplete] = useLocalStorage(exercise + 'Complete', false);
@@ -28,7 +29,8 @@ export default function Video({
     <>
       <ReloadDummy reload={reload} />
       <div className="flex flex-col">
-        <div className="h-28">{description}</div>
+        <div className="h-20">{description}</div>
+        <div className="h-8 text-[#D0664f]">{hint}</div>
         <div className="h-12">
           <button
             onClick={() => setReload(true)}

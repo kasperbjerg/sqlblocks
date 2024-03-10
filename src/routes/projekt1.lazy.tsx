@@ -18,13 +18,18 @@ function About() {
         description={
           <>
             <p>Fri leg!!</p>
-            <p>Lav din egen tabel med lige hvad du har lyst til</p>
+            <p>Lav din egen tabel med lige hvad du har lyst til.</p>
             <p>
               Men den skal have mindst 5 rækker og du skal bruge både{' '}
-              <b>TEXT</b> og <b>INTEGER</b> hvis du vil have opgaven helt
+              <b>TEXT</b> og <b>INTEGER</b> hvis du vil have øvelsen helt
               rigtigt.
             </p>
           </>
+        }
+        hint={
+          <p>
+            Hint: Husk at der ikke må være mellemrum i tabel- og kolonnenavne.{' '}
+          </p>
         }
         feedbackText={
           <>
@@ -33,7 +38,7 @@ function About() {
         }
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={['INTEGER', 'TEXT']}
-        completeConditionsResult={['']}
+        completeConditionsResult={['[{']} //Making shure that the code is running
         completeConditionsTableInfo={[
           '5 rækker',
           '6 rækker',

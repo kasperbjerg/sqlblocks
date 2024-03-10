@@ -21,22 +21,22 @@ function About() {
         description={
           <>
             <p>
-              Din sql-kode fra sidste opgave er nedenfor. (Hvis ikke så skal du
-              lige klikke her på start forfra-knappen i bunden).
+              Din sql-kode fra sidste opgave er nedenfor. (Ellers så klik på
+              "Start forfra" i bunden).
             </p>
             <p>
-              Anne har hørt om projektet og vil være med, men hun er mere til
-              katte så foreslår at tabellen skal hedde <b>kæledyr</b>.{' '}
-            </p>
-            <p>
-              Hun også have med hvor mange gange dyrene skal fodres og har selv
-              Nuser på 7 år som skal fodres 3 gange.
-            </p>
-            <p>
-              Thea, hendes veninde, har 1-årige Rasmus. Tilpas tabellen og find
-              selv på hvis du mangler oplysninger.
+              Anne har hørt om projektet og vil være med, men foreslår at
+              tabellen skal hedde <b>kæledyr</b>. Hun siger også at tabellen
+              skal indholde hvor ofte dyrene skal <b>fodres</b> og har selv
+              Nuser på 7 år som skal fodres 3 gange. Thea, hendes veninde, har
+              1-årige Samson. Tilpas tabellen!
             </p>
           </>
+        }
+        hint={
+          <p>
+            Hint: Find selv på oplysninger hvis de ikke står i opgaveteksten.
+          </p>
         }
         feedbackText={
           <>
@@ -44,8 +44,8 @@ function About() {
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={['dyr', 'user', 'odre', 'ea', '7', '3', '1']}
-        completeConditionsResult={['asmu']} //to make sure the code is running
+        completeConditionsSql={['dyr', 'user', 'odr', 'ea', '7', '3', '1']}
+        completeConditionsResult={['amso']} //to make sure the code is running
         completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in '3 rækker', '4 rækker' ...
         initialXml={hundeXml}
         toolBox={

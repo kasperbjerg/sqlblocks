@@ -12,14 +12,14 @@ export const Route = createLazyFileRoute('/projekt2')({
 
 function About() {
   const [projetk1Xml, setProjekt1Xml] = useLocalStorage(
-    'ratingWorkspace',
+    'projekt1Workspace',
     false,
   );
   return (
     <>
       <Exercise
         exercise={'projekt2'}
-        nextExercise={'film'}
+        nextExercise={'projekt2'}
         description={
           <>
             <p>

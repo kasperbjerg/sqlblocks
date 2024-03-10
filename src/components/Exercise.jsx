@@ -126,8 +126,6 @@ export default function Exercise({
           </div>
         </div>
       </div>
-      {JSON.stringify(result)}
-      {sqlCode}
     </>
   );
 }

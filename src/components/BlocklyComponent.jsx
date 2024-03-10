@@ -133,8 +133,6 @@ export default function BlocklyComponent({
           </div>
         </div>
       </div>
-      {JSON.stringify(result)}
-      {JSON.stringify(sqlCode)}
     </>
   );
 }

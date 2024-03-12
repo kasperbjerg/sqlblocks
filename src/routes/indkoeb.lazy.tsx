@@ -17,7 +17,7 @@ function About() {
         videoUrl={'https://youtu.be/WeNeMjnM5gc'}
         description={
           <>
-            <p className="text-1xl">"Husk mælk og tandpasta!!"</p>
+            <p>"Husk mælk og tandpasta!!"</p>
             <p>
               Det er let at lave indkøbsliste, så man husker at købe chips og
               cola. Se hvordan i videoen nedenfor.

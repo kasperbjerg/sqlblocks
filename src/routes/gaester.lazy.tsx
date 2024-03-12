@@ -51,9 +51,19 @@ function About() {
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={['dyr', 'user', 'odr', 'ea', '7', '3', '1']}
-        completeConditionsResult={['amso']} //to make sure the code is running
-        completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in '3 rækker', '4 rækker' ...
+        completeConditionsSql={[
+          ['kæledyr'],
+          ['Nuser', 'nuser'],
+          ['Fodre', 'fodre', 'Fodring', 'fodring'],
+          ['Thea', 'thea'],
+          ['Anne', 'anne'],
+          ['7'],
+          ['3'],
+          ['1'],
+          ['Samson', 'samson'],
+        ]}
+        completeConditionsResult={[['[{']]} //to make sure the code is running
+        completeConditionsTableInfo={[['']]}
         initialXml={hundeXml}
         toolBox={
           <>

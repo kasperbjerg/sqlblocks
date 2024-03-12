@@ -45,22 +45,22 @@ function About() {
         }
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
-          'CREATE TABLE hund',
-          'SELECT * FROM',
-          'navn TEXT',
-          'alder INTEGER',
-          'ejer TEXT',
-          'ikto',
-          'let',
-          'rofas',
-          '5',
-          '12',
-          '15',
-          'elle',
-          'alde',
+          ['CREATETABLEhund'],
+          ['SELECT*FROM'],
+          ['navnTEXT'],
+          ['alderINTEGER'],
+          ['ejerTEXT'],
+          ['Viktor','viktor'],
+          ['Plet','plet'],
+          ['Trofast', 'trofast'],
+          ['5'],
+          ['12'],
+          ['15'],
+          ['Pelle', 'pelle','Pelles','pelles'],
+          ['Balder', 'balder']
         ]}
-        completeConditionsResult={['navn']} //to make sure the code is running
-        completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in '3 rækker', '4 rækker' ...
+        completeConditionsResult={[['[{']]} //to make sure the code is running
+        completeConditionsTableInfo={[['']]}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />

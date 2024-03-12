@@ -16,34 +16,38 @@ export default function Exercise({
   feedbackText,
   nextExercise,
   completeConditionsSql,
-  completeConditionsResult,
   completeConditionsTableInfo,
+  completeConditionsResult,
   initialXml,
   toolBox,
 }) {
   const [sqlCode, setSqlCode] = useState('');
   const handleSqlCodeChange = (e) => setSqlCode(e);
 
-  const [result, setResult] = useState([]);
-  const handleResultChange = (e) => setResult(e);
-
   const [tableInfo, setTableInfo] = useState([]);
   const handleTableInfoChange = (e) => setTableInfo(e);
+
+  const [result, setResult] = useState([]);
+  const handleResultChange = (e) => setResult(e);
 
   const [complete, setComplete] = useLocalStorage(exercise + 'Complete', false);
 
   const [reset, setReset] = useState(false);
   const [reload, setReload] = useState(false);
 
+  //Will check conditions for exercise complete
+  //One of the strings in every sub-array needs to be in the codeString
+  function checkConditions(conditionsArray, codeString) {
+    return conditionsArray.every((subArray) =>
+      subArray.some((textString) => codeString.includes(textString) === true),
+    );
+  }
+
   React.useEffect(() => {
     typeof sqlCode !== 'undefined' &&
-    completeConditionsSql.every((key) => sqlCode.includes(key) == true) &&
-    completeConditionsResult.every(
-      (key) => JSON.stringify(result).includes(key) == true,
-    ) &&
-    completeConditionsTableInfo.some(
-      (key) => JSON.stringify(tableInfo).includes(key) == true,
-    )
+    checkConditions(completeConditionsSql, sqlCode.replace(/\s+/g, '')) && // it checks against sqlcode trimmed for whitespaces
+    checkConditions(completeConditionsTableInfo, JSON.stringify(tableInfo)) &&
+    checkConditions(completeConditionsResult, JSON.stringify(result))
       ? setComplete(true)
       : '';
   }, [sqlCode, result, tableInfo]);

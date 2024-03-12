@@ -41,13 +41,14 @@ function About() {
           </>
         }
         nextButtonColor={`sky-800/75`}
+        //completeConditionsSQL needs to be trimmed for whitespaces
         completeConditionsSql={[
-          'CREATE TABLE serier',
-          'serie TEXT',
-          'rating INTEGER',
+          ['CREATETABLEserier'],
+          ['serieTEXT',],
+          ['ratingINTEGER', 'ratingTEXT'],
         ]}
-        completeConditionsResult={['']}
-        completeConditionsTableInfo={['']} //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in '3 rækker', '4 rækker' ...
+        completeConditionsResult={[['']]}
+        completeConditionsTableInfo={[['']]}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />

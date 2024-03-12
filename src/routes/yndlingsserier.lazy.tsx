@@ -17,7 +17,10 @@ function About() {
         nextExercise={'hunde'}
         description={
           <>
-            <p>Tilføj nu mindst 3 reality-serier til tabellen.</p>
+            <p>
+              Tilføj nu nogle reality-serier til tabellen, så den har mellem 3
+              og 5 rækker i alt.
+            </p>
             <p>
               Skriv navnet på serien i <b>serie</b>-kolonnen og giv også hver
               serie en <b>rating</b> mellem 1 og 5.
@@ -39,17 +42,17 @@ function About() {
         }
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
-          'SELECT * FROM serier',
-          'serie TEXT',
-          'rating INTEGER',
+          ['SELECT*FROMserier'],
+          ['serieTEXT'],
+          ['ratingINTEGER'],
         ]}
-        completeConditionsResult={[]}
+        completeConditionsResult={[['']]}
         completeConditionsTableInfo={[
-          //Bruteforce-like-method for checking that the amount of rows is meet, ugly but it works so far, put in '3 rækker', '4 rækker' ...
-          '3 rækker',
-          '4 rækker',
-          '5 rækker',
-          '6 rækker',
+          [
+            '3 rækker',
+            '4 rækker',
+            '5 rækker',
+          ],
         ]}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">

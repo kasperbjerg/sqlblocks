@@ -140,6 +140,31 @@ export const Route = createRootRoute({
               Name="Priser"
               color="text-[#a65b99]"
             />
+            <LinkWithColorChange
+              name="sommerfest"
+              Name="Sommerfest"
+              color="text-[#a6a65b]"
+            />
+            <LinkWithColorChange
+              name="pengenoed"
+              Name="Pengenød"
+              color="text-[#bf49a4]"
+            />
+            <LinkWithColorChange
+              name="sygdom"
+              Name="Sygdom"
+              color="text-[#74a65b]"
+            />
+            <LinkWithColorChange
+              name="afbud"
+              Name="Afbud"
+              color="text-[#D0664f]"
+            />
+            <LinkWithColorChange
+              name="projekt3"
+              Name="Projekt"
+              color="text-[#b04a4a]"
+            />
           </div>
           <Outlet />
         </div>

@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 
-export const Route = createLazyFileRoute('/sommerfest')({
+export const Route = createLazyFileRoute('/pengenoed')({
   component: About,
 });
 
@@ -13,8 +13,8 @@ function About() {
   return (
     <>
       <Exercise
-        exercise={'sommerfest'}
-        nextExercise={'pengenoed'}
+        exercise={'pengenoed'}
+        nextExercise={'sygdom'}
         description={
           <>
             <p>
@@ -25,7 +25,7 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-[#a6a65b]">Jeps, ret nemt ikke?</p>
+            <p className="text-[#bf49a4]">Jeps, ret nemt ikke?</p>
           </>
         }
         nextButtonColor={`purple-900/75`}

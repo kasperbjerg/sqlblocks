@@ -68,7 +68,7 @@ export default function Exercise({
                   '#805ba6', //Violet (column and type)
                   '#a65b99', //Purple (Insert into)
                   '#a6a65b', //Mustard (Select)
-                  '#a65b6e', //Pinkk (Where)
+                  '#bf49a4', //Pink (Where)
                   '#74a65b', //Green (Group by having)
                   '#D0664f', //Orange (Order by limit)
                   '#b04a4a', //Red (Update delete)

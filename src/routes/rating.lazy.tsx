@@ -37,8 +37,13 @@ function About() {
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['ratingINTEGER'],
-          ['SELECTnavn,ratingFROMfilm'],
-          ['WHERErating>5', 'WHERErating>=6','WHERE5<rating','WHERE6<=rating',],
+          ['SELECTnavn,ratingFROMfilm', 'SELECTrating,navnFROMfilm'],
+          [
+            'WHERErating>5',
+            'WHERErating>=6',
+            'WHERE5<rating',
+            'WHERE6<=rating',
+          ],
           ['ORDERBY(rating)DESC'],
         ]}
         completeConditionsTableInfo={[['']]}

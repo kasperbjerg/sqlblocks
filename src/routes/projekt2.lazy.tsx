@@ -28,6 +28,8 @@ function About() {
           <>
             <p>
               Prøv nogle af de ting af du har lært på dit eget projekt.<br></br>
+              Hvis dit projekt fra tidligere ikke er loadet ind, så klik "Start
+              forfra" i bunden.
             </p>
           </>
         }

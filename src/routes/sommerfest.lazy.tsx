@@ -38,22 +38,19 @@ function About() {
         }
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
-          //UPDATEsommerfestSETansvarlig='LarsK'WHEREansvarlig='LilleLars'
           ['UPDATEsommerfestSETansvarlig='],
           ['WHEREansvarlig='],
           ['SELECT*FROMsommerfest'],
         ]}
         completeConditionsTableInfo={[['']]}
         completeConditionsResult={[
-          [
-            '{"opgave":"Book vildmarksbad","ansvarlig":"Lars K","budget":899.95}',
-          ],
+          ['{"opgave":"Book vildmarksbad","ansvarlig":"Lars K","budget":899.95}'],
           ['{"opgave":"Køb chips","ansvarlig":"Store Lars","budget":200}'],
           ['{"opgave":"Bestil DJ","ansvarlig":"Jesper","budget":0}'],
           ['{"opgave":"Drikkevarer","ansvarlig":"Store Lars","budget":300}'],
           ['{"opgave":"Bestil telt","ansvarlig":"Lars K","budget":1199.95}'],
           ['{"opgave":"Lav invitationer","ansvarlig":"Lars K","budget":0}'],
-        ]} //to make sure the code is running
+        ]}
         initialXml={`
               <xml xmlns="https://developers.google.com/blockly/xml">
               <block type="run_sqlblocks" id="CQ_Ij!((EM*kFht8op" x="10" y="10"><next>

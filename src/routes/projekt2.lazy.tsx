@@ -13,13 +13,17 @@ export const Route = createLazyFileRoute('/projekt2')({
 function About() {
   const [projetk1Xml, setProjekt1Xml] = useLocalStorage(
     'projekt1Workspace',
-    false,
+    `
+              <xml xmlns="http://www.w3.org/1999/xhtml">
+                <Block type="run_sqlblocks" />
+              </xml>
+          `,
   );
   return (
     <>
       <Exercise
         exercise={'projekt2'}
-        nextExercise={'projekt2'}
+        nextExercise={'priser'}
         description={
           <>
             <p>
@@ -42,9 +46,9 @@ function About() {
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={['ORDER BY', 'WHERE']}
-        completeConditionsResult={['[{']} //Making shure that the code is running
-        completeConditionsTableInfo={['']}
+        completeConditionsSql={[['ORDERBY'], ['WHERE']]}
+        completeConditionsTableInfo={[['']]}
+        completeConditionsResult={[['[{']]} //to make sure the code is running
         initialXml={projetk1Xml}
         toolBox={
           <>

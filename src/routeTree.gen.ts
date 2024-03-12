@@ -17,13 +17,16 @@ import { Route as rootRoute } from './routes/__root'
 // Create Virtual Routes
 
 const YndlingsserierLazyImport = createFileRoute('/yndlingsserier')()
+const VarerLazyImport = createFileRoute('/varer')()
 const TestLazyImport = createFileRoute('/test')()
 const TeachersecretLazyImport = createFileRoute('/teacher_secret')()
+const SommerfestLazyImport = createFileRoute('/sommerfest')()
 const RealitycompleteLazyImport = createFileRoute('/reality_complete')()
 const RealityLazyImport = createFileRoute('/reality')()
 const RatingLazyImport = createFileRoute('/rating')()
 const Projekt2LazyImport = createFileRoute('/projekt2')()
 const Projekt1LazyImport = createFileRoute('/projekt1')()
+const PriserLazyImport = createFileRoute('/priser')()
 const PigefilmLazyImport = createFileRoute('/pigefilm')()
 const MilleniumLazyImport = createFileRoute('/millenium')()
 const IndkoebLazyImport = createFileRoute('/indkoeb')()
@@ -41,6 +44,11 @@ const YndlingsserierLazyRoute = YndlingsserierLazyImport.update({
   import('./routes/yndlingsserier.lazy').then((d) => d.Route),
 )
 
+const VarerLazyRoute = VarerLazyImport.update({
+  path: '/varer',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/varer.lazy').then((d) => d.Route))
+
 const TestLazyRoute = TestLazyImport.update({
   path: '/test',
   getParentRoute: () => rootRoute,
@@ -52,6 +60,11 @@ const TeachersecretLazyRoute = TeachersecretLazyImport.update({
 } as any).lazy(() =>
   import('./routes/teacher_secret.lazy').then((d) => d.Route),
 )
+
+const SommerfestLazyRoute = SommerfestLazyImport.update({
+  path: '/sommerfest',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/sommerfest.lazy').then((d) => d.Route))
 
 const RealitycompleteLazyRoute = RealitycompleteLazyImport.update({
   path: '/reality_complete',
@@ -79,6 +92,11 @@ const Projekt1LazyRoute = Projekt1LazyImport.update({
   path: '/projekt1',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/projekt1.lazy').then((d) => d.Route))
+
+const PriserLazyRoute = PriserLazyImport.update({
+  path: '/priser',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/priser.lazy').then((d) => d.Route))
 
 const PigefilmLazyRoute = PigefilmLazyImport.update({
   path: '/pigefilm',
@@ -147,6 +165,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PigefilmLazyImport
       parentRoute: typeof rootRoute
     }
+    '/priser': {
+      preLoaderRoute: typeof PriserLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/projekt1': {
       preLoaderRoute: typeof Projekt1LazyImport
       parentRoute: typeof rootRoute
@@ -167,12 +189,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RealitycompleteLazyImport
       parentRoute: typeof rootRoute
     }
+    '/sommerfest': {
+      preLoaderRoute: typeof SommerfestLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/teacher_secret': {
       preLoaderRoute: typeof TeachersecretLazyImport
       parentRoute: typeof rootRoute
     }
     '/test': {
       preLoaderRoute: typeof TestLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/varer': {
+      preLoaderRoute: typeof VarerLazyImport
       parentRoute: typeof rootRoute
     }
     '/yndlingsserier': {
@@ -192,13 +222,16 @@ export const routeTree = rootRoute.addChildren([
   IndkoebLazyRoute,
   MilleniumLazyRoute,
   PigefilmLazyRoute,
+  PriserLazyRoute,
   Projekt1LazyRoute,
   Projekt2LazyRoute,
   RatingLazyRoute,
   RealityLazyRoute,
   RealitycompleteLazyRoute,
+  SommerfestLazyRoute,
   TeachersecretLazyRoute,
   TestLazyRoute,
+  VarerLazyRoute,
   YndlingsserierLazyRoute,
 ])
 

@@ -14,13 +14,13 @@ function About() {
     <>
       <Exercise
         exercise={'projekt1'}
-        nextExercise={'film'}
+        nextExercise={'varer'}
         description={
           <>
             <p>Fri leg!!</p>
             <p>Lav din egen tabel med lige hvad du har lyst til.</p>
             <p>
-              Men den skal have mindst 5 rækker og du skal bruge både{' '}
+              Men den skal have mellem 5 og 10 rækker og du skal bruge både{' '}
               <b>TEXT</b> og <b>INTEGER</b> hvis du vil have øvelsen helt
               rigtigt.
             </p>
@@ -33,19 +33,24 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-teal-700/75">Jeps, lige præcis :)</p>
+            <p className="text-teal-700/75">
+              Jeps, lige præcis :) Du må da gerne arbejde videre hvis du har
+              lyst.
+            </p>
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={['INTEGER', 'TEXT']}
-        completeConditionsResult={['[{']} //Making shure that the code is running
+        completeConditionsSql={[['INTEGER'], ['TEXT']]}
+        completeConditionsResult={[['[{']]} //to make sure the code is running
         completeConditionsTableInfo={[
-          '5 rækker',
-          '6 rækker',
-          '7 rækker',
-          '8 rækker',
-          '9 rækker',
-          '10 rækker',
+          [
+            '5 rækker',
+            '6 rækker',
+            '7 rækker',
+            '8 rækker',
+            '9 rækker',
+            '10 rækker',
+          ],
         ]}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">

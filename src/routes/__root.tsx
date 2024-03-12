@@ -106,6 +106,11 @@ export const Route = createRootRoute({
               color="text-sky-800/75"
             />
             <LinkWithColorChange
+              name="varer"
+              Name="Nye varer"
+              color="text-[#74a65b]"
+            />
+            <LinkWithColorChange
               name="film"
               Name="Film"
               color="text-purple-900/75"
@@ -129,6 +134,11 @@ export const Route = createRootRoute({
               name="projekt2"
               Name="Projekt"
               color="text-[#805ba6]"
+            />
+            <LinkWithColorChange
+              name="priser"
+              Name="Priser"
+              color="text-[#a65b99]"
             />
           </div>
           <Outlet />

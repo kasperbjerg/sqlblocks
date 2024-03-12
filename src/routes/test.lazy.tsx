@@ -29,16 +29,16 @@ function About() {
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={['INTEGER', 'TEXT']}
-        completeConditionsResult={['asdf']}
-        completeConditionsTableInfo={[
+        completeConditionsSql={[['INTEGER', 'TEXT']]}
+        completeConditionsResult={[['asdf']]}
+        completeConditionsTableInfo={[[
           '5 rækker',
           '6 rækker',
           '7 rækker',
           '8 rækker',
           '9 rækker',
           '10 rækker',
-        ]}
+        ]]}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
 

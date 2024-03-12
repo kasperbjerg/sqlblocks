@@ -43,9 +43,13 @@ function About() {
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={[' ORDER BY ( navn ) ASC', '!=', 'SELECT  *']} // weird space between select and * to make it work?
-        completeConditionsResult={['']}
-        completeConditionsTableInfo={['']}
+        completeConditionsSql={[
+          ['SELECT*FROM'],
+          ['WHEREnavn!='],
+          ['ORDERBY(navn)ASC'],
+        ]}
+        completeConditionsTableInfo={[['']]}
+        completeConditionsResult={[['[{']]} //to make sure the code is running
         initialXml={ratingXml}
         toolBox={
           <>

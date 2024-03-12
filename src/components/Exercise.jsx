@@ -8,6 +8,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 
 import NextExerciseButton from './NextExerciseButton.jsx';
 import ConfettiExplosion from 'react-confetti-explosion';
+import { json } from '@tanstack/react-router';
 
 export default function Exercise({
   exercise,

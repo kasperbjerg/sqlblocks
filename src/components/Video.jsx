@@ -19,7 +19,7 @@ export default function Video({
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (progress > 0.9) {
+    if (progress > 0.95) {
       setComplete(true);
     }
   }, [progress]);

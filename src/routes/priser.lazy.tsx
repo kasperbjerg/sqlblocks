@@ -14,7 +14,7 @@ function About() {
       <Video
         exercise={'priser'}
         nextExercise={'sommerfest'}
-        videoUrl={'https://youtu.be/WeNeMjnM5gc'}
+        videoUrl={'https://youtu.be/L6vWHdl9JE4'}
         description={
           <>
             <p>

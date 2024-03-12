@@ -55,6 +55,8 @@ export default function Exercise({
 
   return (
     <>
+      {/*typeof sqlCode != 'undefined' &&
+        JSON.stringify(sqlCode.replace(/\s+/g, ''))*/}
       <div className="flex flex-col">
         <div className="h-20 w-[1024px]">{description}</div>
         <div className="h-8 text-[#D0664f]">{hint}</div>

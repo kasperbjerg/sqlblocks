@@ -46,7 +46,6 @@ function About() {
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['UPDATEsommerfestSETansvarlig='],
-          ['WHEREansvarlig='],
           ['SELECT*FROMsommerfest'],
           ['DELETEFROMsommerfestWHERE'],
         ]}

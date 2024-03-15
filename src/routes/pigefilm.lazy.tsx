@@ -46,7 +46,12 @@ function About() {
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['SELECT*FROM'],
-          ["WHEREnavn!='Titanic'", "WHERE'Titanic'!=navn"],
+          [
+            "WHEREnavn!='Titanic'",
+            "WHERE'Titanic'!=navn",
+            "WHEREnavnNOTLIKE'Titanic'",
+            "WHERE'Titanic'NOTLIKEnavn",
+          ],
           ['ORDERBY(navn)ASC'],
         ]}
         completeConditionsTableInfo={[['']]}

@@ -24,7 +24,7 @@ function About() {
               Lars K er bare ret træt af at blive kaldt Lille Lars, så tabellen
               skal opdateres så hans navn står som <b>Lars K</b> i stedet.
               <br></br>
-              Slut med en SELECT-kommando for at se resultatet.
+              Slut med en SELECT*-kommando for at se resultatet.
             </p>
           </>
         }
@@ -39,12 +39,13 @@ function About() {
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['UPDATEsommerfestSETansvarlig='],
-          ['WHEREansvarlig='],
           ['SELECT*FROMsommerfest'],
         ]}
         completeConditionsTableInfo={[['']]}
         completeConditionsResult={[
-          ['{"opgave":"Book vildmarksbad","ansvarlig":"Lars K","budget":899.95}'],
+          [
+            '{"opgave":"Book vildmarksbad","ansvarlig":"Lars K","budget":899.95}',
+          ],
           ['{"opgave":"Køb chips","ansvarlig":"Store Lars","budget":200}'],
           ['{"opgave":"Bestil DJ","ansvarlig":"Jesper","budget":0}'],
           ['{"opgave":"Drikkevarer","ansvarlig":"Store Lars","budget":300}'],

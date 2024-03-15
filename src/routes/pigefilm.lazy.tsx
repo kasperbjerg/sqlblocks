@@ -30,7 +30,8 @@ function About() {
               Viktor gider ikke pigefilm, så han vil have en liste hvor Titanic
               ikke er med. <br></br>
               Vælg alle film undtagen Titanic og denne gang skal du medtage alle
-              kolonner og sortere tabellen alfabetisk efter filmnavn.
+              kolonner og sortere tabellen alfabetisk fra a til å efter
+              filmnavn.
             </p>
           </>
         }
@@ -45,7 +46,7 @@ function About() {
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['SELECT*FROM'],
-          ['WHEREnavn!='],
+          ["WHEREnavn!='Titanic'", "WHERE'Titanic'!=navn"],
           ['ORDERBY(navn)ASC'],
         ]}
         completeConditionsTableInfo={[['']]}

@@ -29,7 +29,7 @@ function About() {
             <p>
               Lars K er blevet syg, så Lars M skal lave invitationerne.{' '}
               <br></br>
-              Opdater tabellen og sorter den alfabetisk efter hvem der er
+              Opdater tabellen og sorter den alfabetisk fra a til å efter hvem der er
               ansvarlig.
             </p>
           </>

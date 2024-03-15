@@ -31,9 +31,9 @@ function About() {
               Selvom Jespers fætter jo har sagt ja til at være gratis DJ, har
               drengene fundet ud af at det er for dyrt med vildmarksbad og telt,
               så de to rækker skal væk igen. Store Lars vil også hellere stå som{' '}
-              <b>Lars M</b>.<br></br>
-              Lav ændringerne til tabellen ved at tilføje to DELETE-blokke og
-              UPDATE-blok (ud over den der allerede står fra sidste opgave).
+              <b>Lars M</b>. Lav ændringerne til tabellen ved at tilføje to
+              DELETE-blokke og én UPDATE-blok (ud over den der allerede står fra
+              sidste opgave) og vis alle kolonner til sidst.
             </p>
           </>
         }
@@ -48,7 +48,7 @@ function About() {
           ['UPDATEsommerfestSETansvarlig='],
           ['WHEREansvarlig='],
           ['SELECT*FROMsommerfest'],
-          ['DELETEFROMsommerfestWHEREopgave'],
+          ['DELETEFROMsommerfestWHERE'],
         ]}
         completeConditionsTableInfo={[['']]}
         completeConditionsResult={[

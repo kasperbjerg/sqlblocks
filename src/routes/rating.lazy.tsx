@@ -23,12 +23,14 @@ function About() {
             </p>
             <p>
               Vælg nu kun film med en rating på mere end 5. Vis kun kolonnenerne{' '}
-              <b>navn</b> og <b>rating</b> og sorter listen så filmen med størt
+              <b>navn</b> og <b>rating</b> og sorter listen så filmen med størst
               rating er øverst.
             </p>
           </>
         }
-        hint={'Hint: Der er forskel på > og  ≥.'}
+        hint={
+          'Hint: Der er forskel på > og  ≥, og koden skal stadig gøre det ønskede selvom der ændres på filmenes ratings.'
+        }
         feedbackText={
           <>
             <p className="text-pink-600/75">Super flot :)</p>

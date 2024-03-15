@@ -45,7 +45,7 @@ function About() {
         completeConditionsSql={[
           ['CREATETABLEserier'],
           ['serieTEXT',],
-          ['ratingINTEGER', 'ratingTEXT'],
+          ['ratingINTEGER',],
         ]}
         completeConditionsResult={[['']]}
         completeConditionsTableInfo={[['']]}

@@ -383,8 +383,8 @@ javascriptGenerator.forBlock['update'] = function (block, generator) {
     '=' +
     text_new_value +
     ' WHERE ' +
-    compare_column +
-    comparator +
+    compare_column + ' ' +
+    comparator + ' ' +
     compare_value +
     ';';
   return code;

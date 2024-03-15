@@ -402,7 +402,9 @@ javascriptGenerator.forBlock['delete'] = function (block, generator) {
     text_table +
     ' WHERE ' +
     compare_column +
+    ' ' +
     comparator +
+    ' ' +
     compare_value +
     ';';
   return code;

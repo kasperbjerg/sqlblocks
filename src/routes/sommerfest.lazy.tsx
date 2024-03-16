@@ -29,7 +29,10 @@ function About() {
           </>
         }
         hint={
-          'Du må ikke bare ændre i INSERT kommandoerne, øvelsen skal løses med UPDATE.'
+          <p>
+            Hint: Du må ikke bare ændre i INSERT kommandoerne, øvelsen skal
+            løses med UPDATE.
+          </p>
         }
         feedbackText={
           <>

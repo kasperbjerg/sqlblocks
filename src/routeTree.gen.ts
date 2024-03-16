@@ -22,7 +22,6 @@ const TestLazyImport = createFileRoute('/test')()
 const TeachersecretLazyImport = createFileRoute('/teacher_secret')()
 const SygdomLazyImport = createFileRoute('/sygdom')()
 const SommerfestLazyImport = createFileRoute('/sommerfest')()
-const RealitycompleteLazyImport = createFileRoute('/reality_complete')()
 const RealityLazyImport = createFileRoute('/reality')()
 const RatingLazyImport = createFileRoute('/rating')()
 const Projekt3LazyImport = createFileRoute('/projekt3')()
@@ -74,13 +73,6 @@ const SommerfestLazyRoute = SommerfestLazyImport.update({
   path: '/sommerfest',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/sommerfest.lazy').then((d) => d.Route))
-
-const RealitycompleteLazyRoute = RealitycompleteLazyImport.update({
-  path: '/reality_complete',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/reality_complete.lazy').then((d) => d.Route),
-)
 
 const RealityLazyRoute = RealityLazyImport.update({
   path: '/reality',
@@ -221,10 +213,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RealityLazyImport
       parentRoute: typeof rootRoute
     }
-    '/reality_complete': {
-      preLoaderRoute: typeof RealitycompleteLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/sommerfest': {
       preLoaderRoute: typeof SommerfestLazyImport
       parentRoute: typeof rootRoute
@@ -270,7 +258,6 @@ export const routeTree = rootRoute.addChildren([
   Projekt3LazyRoute,
   RatingLazyRoute,
   RealityLazyRoute,
-  RealitycompleteLazyRoute,
   SommerfestLazyRoute,
   SygdomLazyRoute,
   TeachersecretLazyRoute,

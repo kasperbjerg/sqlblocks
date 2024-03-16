@@ -29,7 +29,7 @@ function About() {
           </>
         }
         hint={
-          'Hint: Der er forskel på > og  ≥, og koden skal stadig gøre det ønskede selvom der ændres på filmenes ratings.'
+          <p>Hint: Der er forskel på {'>'} og  ≥, og koden skal stadig gøre det ønskede selvom der ændres på filmenes ratings.</p>
         }
         feedbackText={
           <>

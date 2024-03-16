@@ -29,12 +29,12 @@ function About() {
             <p>
               Lars K er blevet syg, så Lars M skal lave invitationerne.{' '}
               <br></br>
-              Opdater tabellen og sorter den alfabetisk fra a til å efter hvem der er
-              ansvarlig.
+              Opdater tabellen og sorter den alfabetisk fra a til å efter hvem
+              der er ansvarlig.
             </p>
           </>
         }
-        hint={'Hint: Og stadig uden at lave ændringer i INSERT INTO.'}
+        hint={<p>Hint: Og stadig uden at lave ændringer i INSERT INTO.</p>}
         feedbackText={
           <>
             <p className="text-[#74a65b]">Jeps, ret nemt ikke?</p>

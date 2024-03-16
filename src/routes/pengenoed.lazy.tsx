@@ -37,7 +37,7 @@ function About() {
             </p>
           </>
         }
-        hint={'Ingen ændringer i INSERT INTO!!'}
+        hint={<p>Hint: Ingen ændringer i INSERT INTO!!</p>}
         feedbackText={
           <>
             <p className="text-[#bf49a4]">Jeps, ret nemt ikke?</p>

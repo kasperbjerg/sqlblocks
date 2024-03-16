@@ -35,7 +35,7 @@ function About() {
             </p>
           </>
         }
-        hint={<>Hint: Brug SELECT * til at vælge alle kolonner</>}
+        hint={'Hint: Brug SELECT * til at vælge alle kolonner'}
         feedbackText={
           <>
             <p className="text-[#5ba699]">

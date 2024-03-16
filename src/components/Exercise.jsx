@@ -32,6 +32,7 @@ export default function Exercise({
   const handleResultChange = (e) => setResult(e);
 
   const [complete, setComplete] = useLocalStorage(exercise + 'Complete', false);
+  const [exploded, setExploded] = useLocalStorage(exercise + 'Exploded', false);
 
   const [reset, setReset] = useState(false);
   const [reload, setReload] = useState(false);
@@ -45,13 +46,21 @@ export default function Exercise({
   }
 
   React.useEffect(() => {
-    typeof sqlCode !== 'undefined' &&
-    checkConditions(completeConditionsSql, sqlCode.replace(/\s+/g, '')) && // it checks against sqlcode trimmed for whitespaces
-    checkConditions(completeConditionsTableInfo, JSON.stringify(tableInfo)) &&
-    checkConditions(completeConditionsResult, JSON.stringify(result))
-      ? setComplete(true)
-      : '';
+    if (
+      typeof sqlCode !== 'undefined' &&
+      checkConditions(completeConditionsSql, sqlCode.replace(/\s+/g, '')) && // it checks against sqlcode trimmed for whitespaces
+      checkConditions(completeConditionsTableInfo, JSON.stringify(tableInfo)) &&
+      checkConditions(completeConditionsResult, JSON.stringify(result))
+    ) {
+      setComplete(true);
+    }
   }, [sqlCode, result, tableInfo]);
+
+  React.useEffect(() => {
+    if (complete) {
+      setExploded(true);
+    }
+  }, []);
 
   return (
     <>
@@ -61,7 +70,7 @@ export default function Exercise({
         <div className="h-8 text-[#D0664f]">{hint}</div>
         <div className="h-12">
           <div className="pl-72">
-            {complete && (
+            {complete && !exploded && (
               <ConfettiExplosion
                 colors={[
                   '#5b80a6', //Blue (Run SQLblocks)

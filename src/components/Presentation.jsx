@@ -95,18 +95,19 @@ export default function Presentation({
           </BlocklyComponentPresentation>
         </div>
         <div className="flex w-[1280px] flex-row justify-between pb-12 pt-4">
-          {/*<div>
+          <div>
             <button
               onClick={() => {
-                confirm('Er du sikker på du vil starte øvelsen forfra?');
+                confirm('Er du sikker på du indlæse eksempel?');
                 setComplete(false);
                 setReset(true);
               }}
               className="rounded-md bg-teal-700/75 p-2 text-white"
             >
-              Start forfra
+              Load eksempeldatabase
             </button>
           </div>
+          {/*
           <div className="shrink-0">
             <NextExerciseButton
               exercise={exercise}

@@ -13,13 +13,14 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as PresentationImport } from './routes/presentation'
 import { Route as LearnImport } from './routes/learn'
 
 // Create Virtual Routes
 
-const TestLazyImport = createFileRoute('/test')()
 const TeachersecretLazyImport = createFileRoute('/teacher_secret')()
 const IndexLazyImport = createFileRoute('/')()
+const Presentation1LazyImport = createFileRoute('/presentation/1')()
 const LearnYndlingsserierLazyImport = createFileRoute('/learn/yndlingsserier')()
 const LearnVarerLazyImport = createFileRoute('/learn/varer')()
 const LearnSygdomLazyImport = createFileRoute('/learn/sygdom')()
@@ -41,17 +42,17 @@ const LearnAfbudLazyImport = createFileRoute('/learn/afbud')()
 
 // Create/Update Routes
 
-const TestLazyRoute = TestLazyImport.update({
-  path: '/test',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/test.lazy').then((d) => d.Route))
-
 const TeachersecretLazyRoute = TeachersecretLazyImport.update({
   path: '/teacher_secret',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
   import('./routes/teacher_secret.lazy').then((d) => d.Route),
 )
+
+const PresentationRoute = PresentationImport.update({
+  path: '/presentation',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const LearnRoute = LearnImport.update({
   path: '/learn',
@@ -62,6 +63,13 @@ const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const Presentation1LazyRoute = Presentation1LazyImport.update({
+  path: '/1',
+  getParentRoute: () => PresentationRoute,
+} as any).lazy(() =>
+  import('./routes/presentation.1.lazy').then((d) => d.Route),
+)
 
 const LearnYndlingsserierLazyRoute = LearnYndlingsserierLazyImport.update({
   path: '/yndlingsserier',
@@ -181,12 +189,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnImport
       parentRoute: typeof rootRoute
     }
-    '/teacher_secret': {
-      preLoaderRoute: typeof TeachersecretLazyImport
+    '/presentation': {
+      preLoaderRoute: typeof PresentationImport
       parentRoute: typeof rootRoute
     }
-    '/test': {
-      preLoaderRoute: typeof TestLazyImport
+    '/teacher_secret': {
+      preLoaderRoute: typeof TeachersecretLazyImport
       parentRoute: typeof rootRoute
     }
     '/learn/afbud': {
@@ -261,6 +269,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnYndlingsserierLazyImport
       parentRoute: typeof LearnImport
     }
+    '/presentation/1': {
+      preLoaderRoute: typeof Presentation1LazyImport
+      parentRoute: typeof PresentationImport
+    }
   }
 }
 
@@ -288,8 +300,8 @@ export const routeTree = rootRoute.addChildren([
     LearnVarerLazyRoute,
     LearnYndlingsserierLazyRoute,
   ]),
+  PresentationRoute.addChildren([Presentation1LazyRoute]),
   TeachersecretLazyRoute,
-  TestLazyRoute,
 ])
 
 /* prettier-ignore-end */

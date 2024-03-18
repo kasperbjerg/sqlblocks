@@ -42,7 +42,7 @@ function About() {
               kaste dig direkte ud i at lave din egen database med SQLBLOCKS.
               <br />
               <button className="rounded-md bg-[#805ba6] p-2 text-white">
-                <Link to={'/learn/reality'}>Ny SQLBLOCKS database</Link>
+                <Link to={'/presentation/1'}>Ny SQLBLOCKS database</Link>
               </button>
             </p>
           </div>

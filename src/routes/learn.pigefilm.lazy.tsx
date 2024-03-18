@@ -6,13 +6,13 @@ import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export const Route = createLazyFileRoute('/afbud')({
+export const Route = createLazyFileRoute('/learn/pigefilm')({
   component: About,
 });
 
 function About() {
-  const [sygdomXml, setSygdomXml] = useLocalStorage(
-    'sygdomWorkspace',
+  const [ratingXml, setRatingXml] = useLocalStorage(
+    'ratingWorkspace',
     `
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />
@@ -22,39 +22,46 @@ function About() {
   return (
     <>
       <Exercise
-        exercise={'afbud'}
-        nextExercise={'projekt3'}
+        exercise={'pigefilm'}
+        nextExercise={'projekt2'}
         description={
           <>
             <p>
-              Nu har Jespers fætter fået et andet fedt DJ job i Horsens og
-              Jesper har besluttet at tage med, så de kommer ikke til
-              sommerfesten desværre.
-              <br></br>
-              Slet rækken med DJ og sorter tabellen efter opgave.
+              Viktor gider ikke pigefilm, så han vil have en liste hvor Titanic
+              ikke er med. <br></br>
+              Vælg alle film undtagen Titanic og denne gang skal du medtage alle
+              kolonner og sortere tabellen alfabetisk fra a til å efter
+              filmnavn.
             </p>
           </>
         }
+        hint={'Hint: Brug SELECT * til at vælge alle kolonner'}
         feedbackText={
           <>
-            <p className="text-[#D0664f]">Jeps, ret nemt ikke?</p>
+            <p className="text-[#5ba699]">
+              Det er nemt at arbejde med databaser ikke ;)
+            </p>
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={[['']]}
-        completeConditionsTableInfo={[['']]}
-        completeConditionsResult={[
+        completeConditionsSql={[
+          ['SELECT*FROM'],
           [
-            '[{"opgave":"Drikkevarer","ansvarlig":"Lars M","budget":300},{"opgave":"Køb chips","ansvarlig":"Lars M","budget":200},{"opgave":"Lav invitationer","ansvarlig":"Lars M","budget":0}]',
+            "WHEREnavn!='Titanic'",
+            "WHERE'Titanic'!=navn",
+            "WHEREnavnNOTLIKE'Titanic'",
+            "WHERE'Titanic'NOTLIKEnavn",
           ],
-        ]} //to make sure the code is running
-        initialXml={sygdomXml}
+          ['ORDERBY(navn)ASC'],
+        ]}
+        completeConditionsTableInfo={[['']]}
+        completeConditionsResult={[['[{']]} //to make sure the code is running
+        initialXml={ratingXml}
         toolBox={
           <>
             <Block type="create_table" />
             <Block type="add_integer_column" />
             <Block type="add_text_column" />
-            <Block type="add_real_column" />
             <Block type="insert_into_only_values">
               <Value name="VALUES">
                 <Block type="value">
@@ -75,8 +82,6 @@ function About() {
             <Block type="where" />
             <Block type="comparison" />
             <Block type="order_by" />
-            <Block type="update" />
-            <Block type="delete" />
           </>
         }
       />

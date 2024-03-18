@@ -6,57 +6,56 @@ import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export const Route = createLazyFileRoute('/projekt3')({
+export const Route = createLazyFileRoute('/learn/pengenoed')({
   component: About,
 });
 
 function About() {
-  const [projetk2Xml, setProjekt1Xml] = useLocalStorage(
-    'projekt2Workspace',
+  const [sommerfestXml, setSommerfestXml] = useLocalStorage(
+    'sommerfestWorkspace',
     `
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />
               </xml>
           `,
   );
+
   return (
     <>
       <Exercise
-        exercise={'projekt3'}
-        nextExercise={'projekt3'}
+        exercise={'pengenoed'}
+        nextExercise={'sygdom'}
         description={
           <>
             <p>
-              Prøv nogle af de ting af du har lært på dit eget projekt.<br></br>
-              Hvis dit projekt fra tidligere ikke er loadet ind, så klik "Start
-              forfra" i bunden.
+              Selvom Jespers fætter jo har sagt ja til at være gratis DJ, har
+              drengene fundet ud af at det er for dyrt med vildmarksbad og telt,
+              så de to rækker skal væk igen. Store Lars vil også hellere stå som{' '}
+              <b>Lars M</b>. Lav ændringerne til tabellen ved at tilføje to
+              DELETE-blokke og én UPDATE-blok (ud over den der allerede står fra
+              sidste opgave) og vis alle kolonner til sidst.
             </p>
           </>
         }
-        hint={
-          <p>
-            Hint: Du skal både bruge UPDATE og DELETE samt tilføje en ny kolonne
-            med datatypen REAL for at få øvelsen godkendt.
-          </p>
-        }
+        hint={<p>Hint: Ingen ændringer i INSERT INTO!!</p>}
         feedbackText={
           <>
-            <p className="text-[#b04a4a]">
-              Hurra... Du må gerne prøve flere ting af mens du har momentum.
-            </p>
+            <p className="text-[#bf49a4]">Jeps, ret nemt ikke?</p>
           </>
         }
         nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
-          ['UPDATE'],
-          ['DELETE'],
-          ['INTEGER'],
-          ['TEXT'],
-          ['REAL'],
+          ['UPDATEsommerfestSETansvarlig='],
+          ['SELECT*FROMsommerfest'],
+          ['DELETEFROMsommerfestWHERE'],
         ]}
         completeConditionsTableInfo={[['']]}
-        completeConditionsResult={[['[{']]} //to make sure the code is running
-        initialXml={projetk2Xml}
+        completeConditionsResult={[
+          [
+            '[{"opgave":"Køb chips","ansvarlig":"Lars M","budget":200},{"opgave":"Bestil DJ","ansvarlig":"Jesper","budget":0},{"opgave":"Drikkevarer","ansvarlig":"Lars M","budget":300},{"opgave":"Lav invitationer","ansvarlig":"Lars K","budget":0}]',
+          ],
+        ]}
+        initialXml={sommerfestXml}
         toolBox={
           <>
             <Block type="create_table" />

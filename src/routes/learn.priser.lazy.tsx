@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import Video from '../components/Video.jsx';
 
-export const Route = createLazyFileRoute('/priser')({
+export const Route = createLazyFileRoute('/learn/priser')({
   component: About,
 });
 

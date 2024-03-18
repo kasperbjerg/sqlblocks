@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 
-export const Route = createLazyFileRoute('/reality')({
+export const Route = createLazyFileRoute('/learn/reality')({
   component: About,
 });
 
@@ -44,8 +44,8 @@ function About() {
         //completeConditionsSQL needs to be trimmed for whitespaces
         completeConditionsSql={[
           ['CREATETABLEserier'],
-          ['serieTEXT',],
-          ['ratingINTEGER',],
+          ['serieTEXT'],
+          ['ratingINTEGER'],
         ]}
         completeConditionsResult={[['']]}
         completeConditionsTableInfo={[['']]}

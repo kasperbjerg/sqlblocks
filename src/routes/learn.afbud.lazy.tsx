@@ -6,13 +6,13 @@ import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export const Route = createLazyFileRoute('/projekt2')({
+export const Route = createLazyFileRoute('/learn/afbud')({
   component: About,
 });
 
 function About() {
-  const [projetk1Xml, setProjekt1Xml] = useLocalStorage(
-    'projekt1Workspace',
+  const [sygdomXml, setSygdomXml] = useLocalStorage(
+    'sygdomWorkspace',
     `
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />
@@ -22,41 +22,39 @@ function About() {
   return (
     <>
       <Exercise
-        exercise={'projekt2'}
-        nextExercise={'priser'}
+        exercise={'afbud'}
+        nextExercise={'projekt3'}
         description={
           <>
             <p>
-              Prøv nogle af de ting af du har lært på dit eget projekt.<br></br>
-              Hvis dit projekt fra tidligere ikke er loadet ind, så klik "Start
-              forfra" i bunden.
+              Nu har Jespers fætter fået et andet fedt DJ job i Horsens og
+              Jesper har besluttet at tage med, så de kommer ikke til
+              sommerfesten desværre.
+              <br></br>
+              Slet rækken med DJ og sorter tabellen efter opgave.
             </p>
           </>
-        }
-        hint={
-          <p>
-            Hint: Du skal både bruge WHERE og ORDER BY for at få øvelsen
-            godkendt.
-          </p>
         }
         feedbackText={
           <>
-            <p className="text-[#805ba6]">
-              Sådan, allerede godkendt! Du må gerne eksperimentere mere hvis du
-              har lyst.
-            </p>
+            <p className="text-[#D0664f]">Jeps, ret nemt ikke?</p>
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={[['ORDERBY'], ['WHERE']]}
+        completeConditionsSql={[['']]}
         completeConditionsTableInfo={[['']]}
-        completeConditionsResult={[['[{']]} //to make sure the code is running
-        initialXml={projetk1Xml}
+        completeConditionsResult={[
+          [
+            '[{"opgave":"Drikkevarer","ansvarlig":"Lars M","budget":300},{"opgave":"Køb chips","ansvarlig":"Lars M","budget":200},{"opgave":"Lav invitationer","ansvarlig":"Lars M","budget":0}]',
+          ],
+        ]} //to make sure the code is running
+        initialXml={sygdomXml}
         toolBox={
           <>
             <Block type="create_table" />
             <Block type="add_integer_column" />
             <Block type="add_text_column" />
+            <Block type="add_real_column" />
             <Block type="insert_into_only_values">
               <Value name="VALUES">
                 <Block type="value">
@@ -77,6 +75,8 @@ function About() {
             <Block type="where" />
             <Block type="comparison" />
             <Block type="order_by" />
+            <Block type="update" />
+            <Block type="delete" />
           </>
         }
       />

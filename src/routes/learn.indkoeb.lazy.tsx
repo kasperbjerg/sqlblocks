@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import Video from '../components/Video.jsx';
 
-export const Route = createLazyFileRoute('/varer')({
+export const Route = createLazyFileRoute('/learn/indkoeb')({
   component: About,
 });
 
@@ -12,19 +12,17 @@ function About() {
   return (
     <>
       <Video
-        exercise={'varer'}
-        nextExercise={'film'}
-        videoUrl={'https://youtu.be/jXSKdvC9D0I'}
+        exercise={'indkoeb'}
+        nextExercise={'reality'}
+        videoUrl={'https://youtu.be/jg0vAf-Zm4Q'}
         description={
           <>
+            <p>"Husk mælk og tandpasta!!"</p>
             <p>
-              Vi skal se på hvordan man kan udvælge enkelte kolonner og sortere
-              alfabetisk eller efter tal.
+              Det er let at lave indkøbsliste, så man husker at købe chips og
+              cola. Se hvordan i videoen nedenfor.
             </p>
-            <p>
-              Man også filtrere tabellerne på andre måder hvilket vi også
-              begynder på at arbejde med her.
-            </p>
+            <p></p>
           </>
         }
         hint={
@@ -35,8 +33,8 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-[#74a65b]">
-              Så er du ved at klar til at gå i gang :)
+            <p className="text-[#5b80a6]">
+              Super, så er du ved at klar til at gå i gang :)
             </p>
           </>
         }

@@ -6,7 +6,7 @@ import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export const Route = createLazyFileRoute('/sygdom')({
+export const Route = createLazyFileRoute('/learn/sygdom')({
   component: About,
 });
 

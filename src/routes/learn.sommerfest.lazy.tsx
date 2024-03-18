@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 
-export const Route = createLazyFileRoute('/sommerfest')({
+export const Route = createLazyFileRoute('/learn/sommerfest')({
   component: About,
 });
 

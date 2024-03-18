@@ -4,16 +4,15 @@ import React, { useState } from 'react';
 
 import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
-
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export const Route = createLazyFileRoute('/gaester')({
+export const Route = createLazyFileRoute('/learn/projekt2')({
   component: About,
 });
 
 function About() {
-  const [hundeXml, sethundeXml] = useLocalStorage(
-    'hundeWorkspace',
+  const [projetk1Xml, setProjekt1Xml] = useLocalStorage(
+    'projekt1Workspace',
     `
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />
@@ -23,48 +22,36 @@ function About() {
   return (
     <>
       <Exercise
-        exercise={'gaester'}
-        nextExercise={'projekt1'}
+        exercise={'projekt2'}
+        nextExercise={'priser'}
         description={
           <>
             <p>
-              Din sql-kode fra sidste opgave er nedenfor. (Ellers så klik på
-              "Start forfra" i bunden).
-            </p>
-            <p>
-              Anne har hørt om projektet og vil være med, men foreslår at
-              tabellen skal hedde <b>kæledyr</b>. Hun siger også at tabellen
-              skal indholde hvor ofte dyrene skal <b>fodres</b> og har selv
-              Nuser på 7 år som skal fodres 3 gange. Thea, hendes veninde, har
-              1-årige Samson. Tilpas tabellen!
+              Prøv nogle af de ting af du har lært på dit eget projekt.<br></br>
+              Hvis dit projekt fra tidligere ikke er loadet ind, så klik "Start
+              forfra" i bunden.
             </p>
           </>
         }
         hint={
           <p>
-            Hint: Find selv på oplysninger hvis de ikke står i opgaveteksten.
+            Hint: Du skal både bruge WHERE og ORDER BY for at få øvelsen
+            godkendt.
           </p>
         }
         feedbackText={
           <>
-            <p className="text-purple-900/75">Fantastisk</p>
+            <p className="text-[#805ba6]">
+              Sådan, allerede godkendt! Du må gerne eksperimentere mere hvis du
+              har lyst.
+            </p>
           </>
         }
         nextButtonColor={`purple-900/75`}
-        completeConditionsSql={[
-          ['kæledyr'],
-          ['Nuser', 'nuser'],
-          ['Fodre', 'fodre', 'Fodring', 'fodring'],
-          ['Thea', 'thea'],
-          ['Anne', 'anne'],
-          ['7'],
-          ['3'],
-          ['1'],
-          ['Samson', 'samson'],
-        ]}
-        completeConditionsResult={[['[{']]} //to make sure the code is running
+        completeConditionsSql={[['ORDERBY'], ['WHERE']]}
         completeConditionsTableInfo={[['']]}
-        initialXml={hundeXml}
+        completeConditionsResult={[['[{']]} //to make sure the code is running
+        initialXml={projetk1Xml}
         toolBox={
           <>
             <Block type="create_table" />
@@ -78,7 +65,18 @@ function About() {
               </Value>
             </Block>
             <Block type="value" />
-            <Block type="select_*" />
+            <Block type="select_open">
+              <Field name="table"></Field>
+              <Value name="NAME">
+                <Block type="column">
+                  <Field name="NAME1">*</Field>
+                </Block>
+              </Value>
+            </Block>
+            <Block type="column" />
+            <Block type="where" />
+            <Block type="comparison" />
+            <Block type="order_by" />
           </>
         }
       />

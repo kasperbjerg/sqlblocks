@@ -13,44 +13,33 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as LearnImport } from './routes/learn'
 
 // Create Virtual Routes
 
-const YndlingsserierLazyImport = createFileRoute('/yndlingsserier')()
-const VarerLazyImport = createFileRoute('/varer')()
 const TestLazyImport = createFileRoute('/test')()
 const TeachersecretLazyImport = createFileRoute('/teacher_secret')()
-const SygdomLazyImport = createFileRoute('/sygdom')()
-const SommerfestLazyImport = createFileRoute('/sommerfest')()
-const RealityLazyImport = createFileRoute('/reality')()
-const RatingLazyImport = createFileRoute('/rating')()
-const Projekt3LazyImport = createFileRoute('/projekt3')()
-const Projekt2LazyImport = createFileRoute('/projekt2')()
-const Projekt1LazyImport = createFileRoute('/projekt1')()
-const PriserLazyImport = createFileRoute('/priser')()
-const PigefilmLazyImport = createFileRoute('/pigefilm')()
-const PengenoedLazyImport = createFileRoute('/pengenoed')()
-const MilleniumLazyImport = createFileRoute('/millenium')()
-const IndkoebLazyImport = createFileRoute('/indkoeb')()
-const HundeLazyImport = createFileRoute('/hunde')()
-const GaesterLazyImport = createFileRoute('/gaester')()
-const FilmLazyImport = createFileRoute('/film')()
-const AfbudLazyImport = createFileRoute('/afbud')()
 const IndexLazyImport = createFileRoute('/')()
+const LearnYndlingsserierLazyImport = createFileRoute('/learn/yndlingsserier')()
+const LearnVarerLazyImport = createFileRoute('/learn/varer')()
+const LearnSygdomLazyImport = createFileRoute('/learn/sygdom')()
+const LearnSommerfestLazyImport = createFileRoute('/learn/sommerfest')()
+const LearnRealityLazyImport = createFileRoute('/learn/reality')()
+const LearnRatingLazyImport = createFileRoute('/learn/rating')()
+const LearnProjekt3LazyImport = createFileRoute('/learn/projekt3')()
+const LearnProjekt2LazyImport = createFileRoute('/learn/projekt2')()
+const LearnProjekt1LazyImport = createFileRoute('/learn/projekt1')()
+const LearnPriserLazyImport = createFileRoute('/learn/priser')()
+const LearnPigefilmLazyImport = createFileRoute('/learn/pigefilm')()
+const LearnPengenoedLazyImport = createFileRoute('/learn/pengenoed')()
+const LearnMilleniumLazyImport = createFileRoute('/learn/millenium')()
+const LearnIndkoebLazyImport = createFileRoute('/learn/indkoeb')()
+const LearnHundeLazyImport = createFileRoute('/learn/hunde')()
+const LearnGaesterLazyImport = createFileRoute('/learn/gaester')()
+const LearnFilmLazyImport = createFileRoute('/learn/film')()
+const LearnAfbudLazyImport = createFileRoute('/learn/afbud')()
 
 // Create/Update Routes
-
-const YndlingsserierLazyRoute = YndlingsserierLazyImport.update({
-  path: '/yndlingsserier',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/yndlingsserier.lazy').then((d) => d.Route),
-)
-
-const VarerLazyRoute = VarerLazyImport.update({
-  path: '/varer',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/varer.lazy').then((d) => d.Route))
 
 const TestLazyRoute = TestLazyImport.update({
   path: '/test',
@@ -64,90 +53,121 @@ const TeachersecretLazyRoute = TeachersecretLazyImport.update({
   import('./routes/teacher_secret.lazy').then((d) => d.Route),
 )
 
-const SygdomLazyRoute = SygdomLazyImport.update({
-  path: '/sygdom',
+const LearnRoute = LearnImport.update({
+  path: '/learn',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/sygdom.lazy').then((d) => d.Route))
-
-const SommerfestLazyRoute = SommerfestLazyImport.update({
-  path: '/sommerfest',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/sommerfest.lazy').then((d) => d.Route))
-
-const RealityLazyRoute = RealityLazyImport.update({
-  path: '/reality',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/reality.lazy').then((d) => d.Route))
-
-const RatingLazyRoute = RatingLazyImport.update({
-  path: '/rating',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/rating.lazy').then((d) => d.Route))
-
-const Projekt3LazyRoute = Projekt3LazyImport.update({
-  path: '/projekt3',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/projekt3.lazy').then((d) => d.Route))
-
-const Projekt2LazyRoute = Projekt2LazyImport.update({
-  path: '/projekt2',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/projekt2.lazy').then((d) => d.Route))
-
-const Projekt1LazyRoute = Projekt1LazyImport.update({
-  path: '/projekt1',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/projekt1.lazy').then((d) => d.Route))
-
-const PriserLazyRoute = PriserLazyImport.update({
-  path: '/priser',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/priser.lazy').then((d) => d.Route))
-
-const PigefilmLazyRoute = PigefilmLazyImport.update({
-  path: '/pigefilm',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/pigefilm.lazy').then((d) => d.Route))
-
-const PengenoedLazyRoute = PengenoedLazyImport.update({
-  path: '/pengenoed',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/pengenoed.lazy').then((d) => d.Route))
-
-const MilleniumLazyRoute = MilleniumLazyImport.update({
-  path: '/millenium',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/millenium.lazy').then((d) => d.Route))
-
-const IndkoebLazyRoute = IndkoebLazyImport.update({
-  path: '/indkoeb',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/indkoeb.lazy').then((d) => d.Route))
-
-const HundeLazyRoute = HundeLazyImport.update({
-  path: '/hunde',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/hunde.lazy').then((d) => d.Route))
-
-const GaesterLazyRoute = GaesterLazyImport.update({
-  path: '/gaester',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/gaester.lazy').then((d) => d.Route))
-
-const FilmLazyRoute = FilmLazyImport.update({
-  path: '/film',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/film.lazy').then((d) => d.Route))
-
-const AfbudLazyRoute = AfbudLazyImport.update({
-  path: '/afbud',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/afbud.lazy').then((d) => d.Route))
+} as any)
 
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const LearnYndlingsserierLazyRoute = LearnYndlingsserierLazyImport.update({
+  path: '/yndlingsserier',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.yndlingsserier.lazy').then((d) => d.Route),
+)
+
+const LearnVarerLazyRoute = LearnVarerLazyImport.update({
+  path: '/varer',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.varer.lazy').then((d) => d.Route))
+
+const LearnSygdomLazyRoute = LearnSygdomLazyImport.update({
+  path: '/sygdom',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.sygdom.lazy').then((d) => d.Route))
+
+const LearnSommerfestLazyRoute = LearnSommerfestLazyImport.update({
+  path: '/sommerfest',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.sommerfest.lazy').then((d) => d.Route),
+)
+
+const LearnRealityLazyRoute = LearnRealityLazyImport.update({
+  path: '/reality',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.reality.lazy').then((d) => d.Route))
+
+const LearnRatingLazyRoute = LearnRatingLazyImport.update({
+  path: '/rating',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.rating.lazy').then((d) => d.Route))
+
+const LearnProjekt3LazyRoute = LearnProjekt3LazyImport.update({
+  path: '/projekt3',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.projekt3.lazy').then((d) => d.Route),
+)
+
+const LearnProjekt2LazyRoute = LearnProjekt2LazyImport.update({
+  path: '/projekt2',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.projekt2.lazy').then((d) => d.Route),
+)
+
+const LearnProjekt1LazyRoute = LearnProjekt1LazyImport.update({
+  path: '/projekt1',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.projekt1.lazy').then((d) => d.Route),
+)
+
+const LearnPriserLazyRoute = LearnPriserLazyImport.update({
+  path: '/priser',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.priser.lazy').then((d) => d.Route))
+
+const LearnPigefilmLazyRoute = LearnPigefilmLazyImport.update({
+  path: '/pigefilm',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.pigefilm.lazy').then((d) => d.Route),
+)
+
+const LearnPengenoedLazyRoute = LearnPengenoedLazyImport.update({
+  path: '/pengenoed',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.pengenoed.lazy').then((d) => d.Route),
+)
+
+const LearnMilleniumLazyRoute = LearnMilleniumLazyImport.update({
+  path: '/millenium',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.millenium.lazy').then((d) => d.Route),
+)
+
+const LearnIndkoebLazyRoute = LearnIndkoebLazyImport.update({
+  path: '/indkoeb',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.indkoeb.lazy').then((d) => d.Route))
+
+const LearnHundeLazyRoute = LearnHundeLazyImport.update({
+  path: '/hunde',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.hunde.lazy').then((d) => d.Route))
+
+const LearnGaesterLazyRoute = LearnGaesterLazyImport.update({
+  path: '/gaester',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.gaester.lazy').then((d) => d.Route))
+
+const LearnFilmLazyRoute = LearnFilmLazyImport.update({
+  path: '/film',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.film.lazy').then((d) => d.Route))
+
+const LearnAfbudLazyRoute = LearnAfbudLazyImport.update({
+  path: '/afbud',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.afbud.lazy').then((d) => d.Route))
 
 // Populate the FileRoutesByPath interface
 
@@ -157,68 +177,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/afbud': {
-      preLoaderRoute: typeof AfbudLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/film': {
-      preLoaderRoute: typeof FilmLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/gaester': {
-      preLoaderRoute: typeof GaesterLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/hunde': {
-      preLoaderRoute: typeof HundeLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/indkoeb': {
-      preLoaderRoute: typeof IndkoebLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/millenium': {
-      preLoaderRoute: typeof MilleniumLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/pengenoed': {
-      preLoaderRoute: typeof PengenoedLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/pigefilm': {
-      preLoaderRoute: typeof PigefilmLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/priser': {
-      preLoaderRoute: typeof PriserLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/projekt1': {
-      preLoaderRoute: typeof Projekt1LazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/projekt2': {
-      preLoaderRoute: typeof Projekt2LazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/projekt3': {
-      preLoaderRoute: typeof Projekt3LazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/rating': {
-      preLoaderRoute: typeof RatingLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/reality': {
-      preLoaderRoute: typeof RealityLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/sommerfest': {
-      preLoaderRoute: typeof SommerfestLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/sygdom': {
-      preLoaderRoute: typeof SygdomLazyImport
+    '/learn': {
+      preLoaderRoute: typeof LearnImport
       parentRoute: typeof rootRoute
     }
     '/teacher_secret': {
@@ -229,13 +189,77 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TestLazyImport
       parentRoute: typeof rootRoute
     }
-    '/varer': {
-      preLoaderRoute: typeof VarerLazyImport
-      parentRoute: typeof rootRoute
+    '/learn/afbud': {
+      preLoaderRoute: typeof LearnAfbudLazyImport
+      parentRoute: typeof LearnImport
     }
-    '/yndlingsserier': {
-      preLoaderRoute: typeof YndlingsserierLazyImport
-      parentRoute: typeof rootRoute
+    '/learn/film': {
+      preLoaderRoute: typeof LearnFilmLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/gaester': {
+      preLoaderRoute: typeof LearnGaesterLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/hunde': {
+      preLoaderRoute: typeof LearnHundeLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/indkoeb': {
+      preLoaderRoute: typeof LearnIndkoebLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/millenium': {
+      preLoaderRoute: typeof LearnMilleniumLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/pengenoed': {
+      preLoaderRoute: typeof LearnPengenoedLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/pigefilm': {
+      preLoaderRoute: typeof LearnPigefilmLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/priser': {
+      preLoaderRoute: typeof LearnPriserLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/projekt1': {
+      preLoaderRoute: typeof LearnProjekt1LazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/projekt2': {
+      preLoaderRoute: typeof LearnProjekt2LazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/projekt3': {
+      preLoaderRoute: typeof LearnProjekt3LazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/rating': {
+      preLoaderRoute: typeof LearnRatingLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/reality': {
+      preLoaderRoute: typeof LearnRealityLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/sommerfest': {
+      preLoaderRoute: typeof LearnSommerfestLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/sygdom': {
+      preLoaderRoute: typeof LearnSygdomLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/varer': {
+      preLoaderRoute: typeof LearnVarerLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/yndlingsserier': {
+      preLoaderRoute: typeof LearnYndlingsserierLazyImport
+      parentRoute: typeof LearnImport
     }
   }
 }
@@ -244,26 +268,28 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
-  AfbudLazyRoute,
-  FilmLazyRoute,
-  GaesterLazyRoute,
-  HundeLazyRoute,
-  IndkoebLazyRoute,
-  MilleniumLazyRoute,
-  PengenoedLazyRoute,
-  PigefilmLazyRoute,
-  PriserLazyRoute,
-  Projekt1LazyRoute,
-  Projekt2LazyRoute,
-  Projekt3LazyRoute,
-  RatingLazyRoute,
-  RealityLazyRoute,
-  SommerfestLazyRoute,
-  SygdomLazyRoute,
+  LearnRoute.addChildren([
+    LearnAfbudLazyRoute,
+    LearnFilmLazyRoute,
+    LearnGaesterLazyRoute,
+    LearnHundeLazyRoute,
+    LearnIndkoebLazyRoute,
+    LearnMilleniumLazyRoute,
+    LearnPengenoedLazyRoute,
+    LearnPigefilmLazyRoute,
+    LearnPriserLazyRoute,
+    LearnProjekt1LazyRoute,
+    LearnProjekt2LazyRoute,
+    LearnProjekt3LazyRoute,
+    LearnRatingLazyRoute,
+    LearnRealityLazyRoute,
+    LearnSommerfestLazyRoute,
+    LearnSygdomLazyRoute,
+    LearnVarerLazyRoute,
+    LearnYndlingsserierLazyRoute,
+  ]),
   TeachersecretLazyRoute,
   TestLazyRoute,
-  VarerLazyRoute,
-  YndlingsserierLazyRoute,
 ])
 
 /* prettier-ignore-end */

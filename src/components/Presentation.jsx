@@ -104,7 +104,7 @@ export default function Presentation({
               }}
               className="rounded-md bg-teal-700/75 p-2 text-white"
             >
-              Load eksempeldatabase
+              Indlæs eksempel
             </button>
           </div>
           {/*

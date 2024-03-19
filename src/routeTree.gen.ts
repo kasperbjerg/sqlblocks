@@ -18,6 +18,7 @@ import { Route as LearnImport } from './routes/learn'
 
 // Create Virtual Routes
 
+const TeachersecretoldLazyImport = createFileRoute('/teacher_secret_old')()
 const TeachersecretLazyImport = createFileRoute('/teacher_secret')()
 const IndexLazyImport = createFileRoute('/')()
 const Presentation1LazyImport = createFileRoute('/presentation/1')()
@@ -41,6 +42,13 @@ const LearnFilmLazyImport = createFileRoute('/learn/film')()
 const LearnAfbudLazyImport = createFileRoute('/learn/afbud')()
 
 // Create/Update Routes
+
+const TeachersecretoldLazyRoute = TeachersecretoldLazyImport.update({
+  path: '/teacher_secret_old',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/teacher_secret_old.lazy').then((d) => d.Route),
+)
 
 const TeachersecretLazyRoute = TeachersecretLazyImport.update({
   path: '/teacher_secret',
@@ -197,6 +205,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeachersecretLazyImport
       parentRoute: typeof rootRoute
     }
+    '/teacher_secret_old': {
+      preLoaderRoute: typeof TeachersecretoldLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/learn/afbud': {
       preLoaderRoute: typeof LearnAfbudLazyImport
       parentRoute: typeof LearnImport
@@ -302,6 +314,7 @@ export const routeTree = rootRoute.addChildren([
   ]),
   PresentationRoute.addChildren([Presentation1LazyRoute]),
   TeachersecretLazyRoute,
+  TeachersecretoldLazyRoute,
 ])
 
 /* prettier-ignore-end */

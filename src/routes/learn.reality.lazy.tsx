@@ -20,7 +20,7 @@ function About() {
             <p>
               Ser du reality-programmer? I de næste øvelser skal du lave en
               tabel til dine yndlingsserier. Opret en tabel der hedder{' '}
-              <b>serier</b> tilføj to kolonner.
+              <b>serier</b> og tilføj to kolonner.
             </p>
             <p>
               Den første kolonne skal have typen <b>TEXT</b> og hedde{' '}

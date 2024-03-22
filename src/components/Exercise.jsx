@@ -124,9 +124,14 @@ export default function Exercise({
           <div>
             <button
               onClick={() => {
-                confirm('Er du sikker på du vil starte øvelsen forfra?');
-                setComplete(false);
-                setReset(true);
+                if (
+                  confirm(
+                    'Er du sikker på at du vil starte øvelsen forfra?\nDine nuværende blokke bliver erstattet.',
+                  ) === true
+                ) {
+                  setComplete(false);
+                  setReset(true);
+                }
               }}
               className="rounded-md bg-teal-700/75 p-2 text-white"
             >

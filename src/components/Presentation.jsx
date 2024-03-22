@@ -98,9 +98,14 @@ export default function Presentation({
           <div>
             <button
               onClick={() => {
-                confirm('Er du sikker på du indlæse eksempel?');
-                setComplete(false);
-                setReset(true);
+                if (
+                  confirm(
+                    'Er du sikker på at du vil indlæse et eksempel?\nDine nuværende blokke bliver erstattet.',
+                  ) === true
+                ) {
+                  setComplete(false);
+                  setReset(true);
+                }
               }}
               className="rounded-md bg-teal-700/75 p-2 text-white"
             >

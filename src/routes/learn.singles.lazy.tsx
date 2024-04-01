@@ -26,7 +26,7 @@ function About() {
               Du skal <b>joine</b> tracks med albums og vælge de tracks som ikke
               er på et album (dvs. med værdien <b>NULL</b>).
               <br></br>
-              Slut af med sortere de tre sange alfabetisk.
+              Slut af med <b>sortere</b> de tre <b>Singles</b> alfabetisk.
             </p>
           </>
         }

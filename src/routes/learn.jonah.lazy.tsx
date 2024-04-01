@@ -21,10 +21,10 @@ function About() {
             <p>
               Kan du huske Lars M og den næsten aflyste sommerfest? Der kommer
               vist ikke så mange gæster, så der skal laves stille og rolig
-              playliste med udelukkende Jonah Blacksmith sange.
+              playliste med udelukkende <b>Jonah Blacksmith</b> sange.
               <br></br>
               Tabellen skal have tre kolonner, <b>Sang</b>, <b>Album</b> og{' '}
-              <b>Kunstner</b>, og sorteres efter <b>Album</b>.
+              <b>Kunstner</b>, og <b>sorteres</b> efter <b>Album</b>.
             </p>
           </>
         }

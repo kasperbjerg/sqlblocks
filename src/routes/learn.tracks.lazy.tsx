@@ -20,7 +20,7 @@ function About() {
           <>
             <p>
               Du skal lave en tabel med de 8 tracks og kunstnernavnene ved siden
-              af sorteret efter kunstnernavne.
+              af <b>sorteret</b> efter kunstnernavne.
               <br></br>
               Brug <b>AS</b>-blokken til at lave kolonner der hedder <b>Sang</b>{' '}
               og <b>Kunstner</b>.<br></br>

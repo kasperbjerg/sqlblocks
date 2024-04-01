@@ -17,27 +17,31 @@ function About() {
         nextExercise={'projekt4'}
         description={
           <>
-            <p>Fri leg!!</p>
-            <p>Lav din egen tabel med lige hvad du har lyst til.</p>
             <p>
-              Men den skal have mellem 5 og 10 rækker og du skal bruge både{' '}
-              <b>TEXT</b> og <b>INTEGER</b> hvis du vil have øvelsen helt
-              rigtigt.
+              Det er vist på tide at starte forfra på et nyt projekt. Det må
+              gerne handle om det samme, men det kan også være du har lyst til
+              at arbejde med noget nyt. Du skal sørge for at have mindst to
+              tabeller og tilføje en <b>INTEGER PRIMARY KEY</b> til begge.
+              Tabellerne skal være relateret så brug den enes primær nøgle i den
+              anden. Den tabel skal have mindst 5 rækker, men den anden må gerne
+              være kortere.
             </p>
           </>
         }
         hint={
           <p>
-            Hint: Husk at der ikke må være mellemrum i tabel- og kolonnenavne.{' '}
+            Hint: Brug en <b>JOIN</b>-blok til at vise noget information fra
+            databasen som er en kombination fra de to tabeller.{' '}
           </p>
         }
         feedbackText={
           <>
-            <p className="text-[#bf49a4]">Super flot :)</p>
+            <p className="text-[#bf49a4]">
+              Kanon, det er tilladt at arbejde videre hvis du vil :)
+            </p>
           </>
         }
-        nextButtonColor={`purple-900/75`}
-        completeConditionsSql={[['INTEGER'], ['TEXT']]}
+        completeConditionsSql={[['INTEGERPRIMARYKEY'], ['JOIN']]}
         completeConditionsResult={[['[{']]} //to make sure the code is running
         completeConditionsTableInfo={[
           [
@@ -57,17 +61,33 @@ function About() {
         toolBox={
           <>
             <Block type="create_table" />
-            <Block type="add_integer_column" />
-            <Block type="add_text_column" />
-            <Block type="insert_into_only_values">
+            <Block type="add_dropdown_column" />
+            <Block type="insert_into_with_columns">
               <Value name="VALUES">
                 <Block type="value">
                   <Field name="NAME1"></Field>
                 </Block>
               </Value>
             </Block>
+            <Block type="column" />
             <Block type="value" />
-            <Block type="select_*" />
+            <Block type="select_open">
+              <Field name="table"></Field>
+              <Value name="NAME">
+                <Block type="column">
+                  <Field name="NAME1">*</Field>
+                </Block>
+              </Value>
+            </Block>
+            <Block type="column" />
+            <Block type="as" />
+            <Block type="join" />
+            <Block type="where" />
+            <Block type="comparison" />
+            <Block type="order_by" />
+            <Block type="limit" />
+            <Block type="update" />
+            <Block type="delete" />
           </>
         }
       />

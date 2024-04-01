@@ -210,7 +210,8 @@ javascriptGenerator.forBlock['join'] = function (block, generator) {
     ' ON ' +
     text_column1 +
     ' = ' +
-    text_columns2;
+    text_columns2 +
+    ' ';
   return code;
 };
 

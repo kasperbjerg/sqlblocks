@@ -304,10 +304,10 @@ Blockly.Blocks['join'] = {
     this.appendDummyInput()
       .appendField(
         new Blockly.FieldDropdown([
-          ['INNER JOIN', 'INNER JOIN'],
-          ['LEFT (OUTER) JOIN', 'LEFT JOIN'],
-          ['RIGHT (OUTER) JOIN', 'RIGHT JOIN'],
-          ['FULL (OUTER) JOIN', 'FULL OUTER JOIN'],
+          ['INNER JOIN', ' INNER JOIN '],
+          ['LEFT (OUTER) JOIN', ' LEFT JOIN '],
+          ['RIGHT (OUTER) JOIN', ' RIGHT JOIN '],
+          ['FULL (OUTER) JOIN', ' FULL OUTER JOIN '],
         ]),
         'type',
       )

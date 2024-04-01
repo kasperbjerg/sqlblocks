@@ -23,7 +23,7 @@ function About() {
     <>
       <Exercise
         exercise={'projekt3'}
-        nextExercise={'projekt3'}
+        nextExercise={'tabeller'}
         description={
           <>
             <p>

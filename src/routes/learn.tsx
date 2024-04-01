@@ -76,7 +76,7 @@ export const Route = createRootRoute({
           </div>
         </header>
         <div className="flex flex-row flex-nowrap pt-2">
-          <div className="min-w-40 basis-1/6 space-y-1 pl-4 text-lg">
+          <div className="max-h-[666px] min-w-40 basis-1/6 space-y-1 overflow-scroll pl-4 text-lg">
             <LinkWithColorChange
               name="indkoeb"
               Name="Indkøbsliste"
@@ -166,6 +166,36 @@ export const Route = createRootRoute({
               name="projekt3"
               Name="Projekt"
               color="text-[#b04a4a]"
+            />
+            <LinkWithColorChange
+              name="tabeller"
+              Name="Flere tabeller"
+              color="text-[#5b80a6]"
+            />
+            <LinkWithColorChange
+              name="playlist"
+              Name="Playlist"
+              color="text-[#5ba699]"
+            />
+            <LinkWithColorChange
+              name="tracks"
+              Name="Tracks"
+              color="text-[#805ba6]"
+            />
+            <LinkWithColorChange
+              name="singles"
+              Name="Singles"
+              color="text-[#a65b99]"
+            />
+            <LinkWithColorChange
+              name="jonah"
+              Name="Jonah"
+              color="text-[#a6a65b]"
+            />
+            <LinkWithColorChange
+              name="projekt4"
+              Name="Projekt"
+              color="text-[#bf49a4]"
             />
           </div>
           <Outlet />

@@ -14,14 +14,17 @@ function About() {
       <Video
         exercise={'tabeller'}
         nextExercise={'playlist'}
-        videoUrl={'https://youtu.be/L6vWHdl9JE4'}
+        videoUrl={'https://youtu.be/sqqNhxkIH-I'}
         description={
           <>
+            <p>Nu bliver det lidt sværere!</p>
             <p>
-              I nedenstående video kommer du til at lære hvordan man kan ændre
-              og slette i tabeller.
+              Vi skal se på hvordan man kan gemme data på en smart måde i flere
+              tabeller der hænger sammen og få brugbare tabeller ud af
+              databasen igen. <br></br>
+              Du kommer til at høre om blokkene <b>INTEGER PRIMARY KEY</b>,{' '}
+              <b>LIMIT</b>, <b>AS</b>, <b>INNER JOIN</b> og <b>LEFT JOIN</b>
             </p>
-            <p></p>
           </>
         }
         hint={

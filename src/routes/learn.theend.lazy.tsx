@@ -6,7 +6,7 @@ import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export const Route = createLazyFileRoute('/learn/traening')({
+export const Route = createLazyFileRoute('/learn/theend')({
   component: About,
 });
 
@@ -14,11 +14,11 @@ function About() {
   return (
     <>
       <Exercise
-        exercise={'traening'}
-        nextExercise={'interesser'}
+        exercise={'theend'}
+        nextExercise={'theend'}
         description={
           <>
-            <p></p>
+            <p>The end!</p>
           </>
         }
         hint={<p>Hint:</p>}

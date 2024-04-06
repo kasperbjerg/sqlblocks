@@ -26,12 +26,15 @@ const LearnYndlingsserierLazyImport = createFileRoute('/learn/yndlingsserier')()
 const LearnVarerLazyImport = createFileRoute('/learn/varer')()
 const LearnTraeningLazyImport = createFileRoute('/learn/traening')()
 const LearnTracksLazyImport = createFileRoute('/learn/tracks')()
+const LearnTilmeldteLazyImport = createFileRoute('/learn/tilmeldte')()
+const LearnTheendLazyImport = createFileRoute('/learn/theend')()
 const LearnTabellerLazyImport = createFileRoute('/learn/tabeller')()
 const LearnSygdomLazyImport = createFileRoute('/learn/sygdom')()
 const LearnSommerfestLazyImport = createFileRoute('/learn/sommerfest')()
 const LearnSinglesLazyImport = createFileRoute('/learn/singles')()
 const LearnRealityLazyImport = createFileRoute('/learn/reality')()
 const LearnRatingLazyImport = createFileRoute('/learn/rating')()
+const LearnProjekt5LazyImport = createFileRoute('/learn/projekt5')()
 const LearnProjekt4LazyImport = createFileRoute('/learn/projekt4')()
 const LearnProjekt3LazyImport = createFileRoute('/learn/projekt3')()
 const LearnProjekt2LazyImport = createFileRoute('/learn/projekt2')()
@@ -41,7 +44,10 @@ const LearnPlaylistLazyImport = createFileRoute('/learn/playlist')()
 const LearnPigefilmLazyImport = createFileRoute('/learn/pigefilm')()
 const LearnPengenoedLazyImport = createFileRoute('/learn/pengenoed')()
 const LearnMilleniumLazyImport = createFileRoute('/learn/millenium')()
+const LearnMedlemmerLazyImport = createFileRoute('/learn/medlemmer')()
+const LearnLowcarbLazyImport = createFileRoute('/learn/lowcarb')()
 const LearnJonahLazyImport = createFileRoute('/learn/jonah')()
+const LearnInteresserLazyImport = createFileRoute('/learn/interesser')()
 const LearnIndkoebLazyImport = createFileRoute('/learn/indkoeb')()
 const LearnHundeLazyImport = createFileRoute('/learn/hunde')()
 const LearnGaesterLazyImport = createFileRoute('/learn/gaester')()
@@ -110,6 +116,18 @@ const LearnTracksLazyRoute = LearnTracksLazyImport.update({
   getParentRoute: () => LearnRoute,
 } as any).lazy(() => import('./routes/learn.tracks.lazy').then((d) => d.Route))
 
+const LearnTilmeldteLazyRoute = LearnTilmeldteLazyImport.update({
+  path: '/tilmeldte',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.tilmeldte.lazy').then((d) => d.Route),
+)
+
+const LearnTheendLazyRoute = LearnTheendLazyImport.update({
+  path: '/theend',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.theend.lazy').then((d) => d.Route))
+
 const LearnTabellerLazyRoute = LearnTabellerLazyImport.update({
   path: '/tabeller',
   getParentRoute: () => LearnRoute,
@@ -143,6 +161,13 @@ const LearnRatingLazyRoute = LearnRatingLazyImport.update({
   path: '/rating',
   getParentRoute: () => LearnRoute,
 } as any).lazy(() => import('./routes/learn.rating.lazy').then((d) => d.Route))
+
+const LearnProjekt5LazyRoute = LearnProjekt5LazyImport.update({
+  path: '/projekt5',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.projekt5.lazy').then((d) => d.Route),
+)
 
 const LearnProjekt4LazyRoute = LearnProjekt4LazyImport.update({
   path: '/projekt4',
@@ -205,10 +230,29 @@ const LearnMilleniumLazyRoute = LearnMilleniumLazyImport.update({
   import('./routes/learn.millenium.lazy').then((d) => d.Route),
 )
 
+const LearnMedlemmerLazyRoute = LearnMedlemmerLazyImport.update({
+  path: '/medlemmer',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.medlemmer.lazy').then((d) => d.Route),
+)
+
+const LearnLowcarbLazyRoute = LearnLowcarbLazyImport.update({
+  path: '/lowcarb',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.lowcarb.lazy').then((d) => d.Route))
+
 const LearnJonahLazyRoute = LearnJonahLazyImport.update({
   path: '/jonah',
   getParentRoute: () => LearnRoute,
 } as any).lazy(() => import('./routes/learn.jonah.lazy').then((d) => d.Route))
+
+const LearnInteresserLazyRoute = LearnInteresserLazyImport.update({
+  path: '/interesser',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.interesser.lazy').then((d) => d.Route),
+)
 
 const LearnIndkoebLazyRoute = LearnIndkoebLazyImport.update({
   path: '/indkoeb',
@@ -279,8 +323,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnIndkoebLazyImport
       parentRoute: typeof LearnImport
     }
+    '/learn/interesser': {
+      preLoaderRoute: typeof LearnInteresserLazyImport
+      parentRoute: typeof LearnImport
+    }
     '/learn/jonah': {
       preLoaderRoute: typeof LearnJonahLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/lowcarb': {
+      preLoaderRoute: typeof LearnLowcarbLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/medlemmer': {
+      preLoaderRoute: typeof LearnMedlemmerLazyImport
       parentRoute: typeof LearnImport
     }
     '/learn/millenium': {
@@ -319,6 +375,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnProjekt4LazyImport
       parentRoute: typeof LearnImport
     }
+    '/learn/projekt5': {
+      preLoaderRoute: typeof LearnProjekt5LazyImport
+      parentRoute: typeof LearnImport
+    }
     '/learn/rating': {
       preLoaderRoute: typeof LearnRatingLazyImport
       parentRoute: typeof LearnImport
@@ -341,6 +401,14 @@ declare module '@tanstack/react-router' {
     }
     '/learn/tabeller': {
       preLoaderRoute: typeof LearnTabellerLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/theend': {
+      preLoaderRoute: typeof LearnTheendLazyImport
+      parentRoute: typeof LearnImport
+    }
+    '/learn/tilmeldte': {
+      preLoaderRoute: typeof LearnTilmeldteLazyImport
       parentRoute: typeof LearnImport
     }
     '/learn/tracks': {
@@ -376,7 +444,10 @@ export const routeTree = rootRoute.addChildren([
     LearnGaesterLazyRoute,
     LearnHundeLazyRoute,
     LearnIndkoebLazyRoute,
+    LearnInteresserLazyRoute,
     LearnJonahLazyRoute,
+    LearnLowcarbLazyRoute,
+    LearnMedlemmerLazyRoute,
     LearnMilleniumLazyRoute,
     LearnPengenoedLazyRoute,
     LearnPigefilmLazyRoute,
@@ -386,12 +457,15 @@ export const routeTree = rootRoute.addChildren([
     LearnProjekt2LazyRoute,
     LearnProjekt3LazyRoute,
     LearnProjekt4LazyRoute,
+    LearnProjekt5LazyRoute,
     LearnRatingLazyRoute,
     LearnRealityLazyRoute,
     LearnSinglesLazyRoute,
     LearnSommerfestLazyRoute,
     LearnSygdomLazyRoute,
     LearnTabellerLazyRoute,
+    LearnTheendLazyRoute,
+    LearnTilmeldteLazyRoute,
     LearnTracksLazyRoute,
     LearnTraeningLazyRoute,
     LearnVarerLazyRoute,

@@ -14,7 +14,7 @@ function About() {
     <>
       <Exercise
         exercise={'projekt4'}
-        nextExercise={'projekt4'}
+        nextExercise={'lowcarb'}
         description={
           <>
             <p>

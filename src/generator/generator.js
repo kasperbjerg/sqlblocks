@@ -333,7 +333,16 @@ javascriptGenerator.forBlock['in'] = function (block, generator) {
     ' ( ' +
     statements_name.slice(0, -1) +
     ' ) '; //slice to remove the ; from subquery
-  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+javascriptGenerator.forBlock['list_item'] = function (
+  block,
+  generator,
+) {
+  var text_item_name = block.getFieldValue('item_name');
+  // TODO: Assemble javascript into code variable.
+  var code = text_item_name + ',';
   return code;
 };
 

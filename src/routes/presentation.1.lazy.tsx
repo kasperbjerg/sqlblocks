@@ -35,13 +35,6 @@ function About() {
             <Block type="run_sqlblocks" />
             <Block type="create_table" />
             <Block type="add_dropdown_column" />
-            <Block type="insert_into_only_values">
-              <Value name="VALUES">
-                <Block type="value">
-                  <Field name="NAME1"></Field>
-                </Block>
-              </Value>
-            </Block>
             <Block type="insert_into_with_columns">
               <Value name="VALUES">
                 <Block type="value">
@@ -68,8 +61,16 @@ function About() {
             <Block type="where" />
             <Block type="comparison" />
             <Block type="and_or" />
-            <Block type="in" />
-
+            <Block type="in">
+              <Value name="NAME">
+                <Block type="list_item">
+                  <next>
+                    <Block type="list_item"></Block>
+                  </next>
+                </Block>
+              </Value>
+            </Block>
+            <Block type="list_item" />
             <Block type="group_by" />
             <Block type="having" />
             <Block type="order_by" />

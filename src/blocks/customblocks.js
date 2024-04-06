@@ -451,6 +451,20 @@ Blockly.Blocks['in'] = {
   },
 };
 
+Blockly.Blocks['list_item'] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput(''),
+      'item_name',
+    );
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(60);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 Blockly.Blocks['group_by'] = {
   init: function () {
     this.appendDummyInput()
@@ -618,7 +632,7 @@ Blockly.Blocks['delete'] = {
         'comparator',
       )
       .appendField(new Blockly.FieldTextInput(''), 'compare_value')
-      .appendField(';');;
+      .appendField(';');
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

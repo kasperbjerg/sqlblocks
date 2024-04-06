@@ -24,6 +24,7 @@ const IndexLazyImport = createFileRoute('/')()
 const Presentation1LazyImport = createFileRoute('/presentation/1')()
 const LearnYndlingsserierLazyImport = createFileRoute('/learn/yndlingsserier')()
 const LearnVarerLazyImport = createFileRoute('/learn/varer')()
+const LearnTraeningLazyImport = createFileRoute('/learn/traening')()
 const LearnTracksLazyImport = createFileRoute('/learn/tracks')()
 const LearnTabellerLazyImport = createFileRoute('/learn/tabeller')()
 const LearnSygdomLazyImport = createFileRoute('/learn/sygdom')()
@@ -96,6 +97,13 @@ const LearnVarerLazyRoute = LearnVarerLazyImport.update({
   path: '/varer',
   getParentRoute: () => LearnRoute,
 } as any).lazy(() => import('./routes/learn.varer.lazy').then((d) => d.Route))
+
+const LearnTraeningLazyRoute = LearnTraeningLazyImport.update({
+  path: '/traening',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() =>
+  import('./routes/learn.traening.lazy').then((d) => d.Route),
+)
 
 const LearnTracksLazyRoute = LearnTracksLazyImport.update({
   path: '/tracks',
@@ -339,6 +347,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnTracksLazyImport
       parentRoute: typeof LearnImport
     }
+    '/learn/traening': {
+      preLoaderRoute: typeof LearnTraeningLazyImport
+      parentRoute: typeof LearnImport
+    }
     '/learn/varer': {
       preLoaderRoute: typeof LearnVarerLazyImport
       parentRoute: typeof LearnImport
@@ -381,6 +393,7 @@ export const routeTree = rootRoute.addChildren([
     LearnSygdomLazyRoute,
     LearnTabellerLazyRoute,
     LearnTracksLazyRoute,
+    LearnTraeningLazyRoute,
     LearnVarerLazyRoute,
     LearnYndlingsserierLazyRoute,
   ]),

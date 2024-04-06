@@ -17,7 +17,7 @@ function About() {
         videoUrl={'https://youtu.be/sqqNhxkIH-I'}
         description={
           <>
-            <p>Nu bliver det lidt sværere!</p>
+            <p>De sidste blokke er kommet frem</p>
             <p>
               Vi skal se på hvordan man kan gemme data på en smart måde i flere
               tabeller der hænger sammen og få brugbare tabeller ud af

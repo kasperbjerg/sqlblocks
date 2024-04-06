@@ -76,7 +76,7 @@ export const Route = createRootRoute({
           </div>
         </header>
         <div className="flex flex-row flex-nowrap pt-2">
-          <div className="max-h-[666px] min-w-40 basis-1/6 space-y-1 overflow-scroll pl-4 text-lg">
+          <div className="max-h-[666px] min-w-40 basis-1/6 space-y-[3px] overflow-scroll pl-4 text-lg">
             <LinkWithColorChange
               name="indkoeb"
               Name="Indkøbsliste"

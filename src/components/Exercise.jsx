@@ -86,12 +86,11 @@ export default function Exercise({
               />
             )}
           </div>
-          <button
-            onClick={() => setReload(true)}
+          <div
             className="text-bold animate-bounce text-2xl font-bold"
           >
             {complete ? feedbackText : ''}
-          </button>
+          </div>
         </div>
         <div flex flex-row>
           <BlocklyComponent

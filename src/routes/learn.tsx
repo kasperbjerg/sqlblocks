@@ -80,32 +80,32 @@ export const Route = createRootRoute({
             <LinkWithColorChange
               name="indkoeb"
               Name="Indkøbsliste"
-              color="text-sky-800/75"
+              color="text-[#5b80a6]"
             />
             <LinkWithColorChange
               name="reality"
               Name="Reality"
-              color="text-purple-900/75"
+              color="text-[#5ba699]"
             />
             <LinkWithColorChange
               name="yndlingsserier"
               Name="Yndlingsserier"
-              color="text-teal-700/75"
+              color="text-[#805ba6]"
             />
             <LinkWithColorChange
               name="hunde"
               Name="Hunde"
-              color="text-pink-600/75"
+              color="text-[#a65b99]"
             />
             <LinkWithColorChange
               name="gaester"
               Name="Nye gæster"
-              color="text-yellow-600/75"
+              color="text-[#a6a65b]"
             />
             <LinkWithColorChange
               name="projekt1"
               Name="Projekt"
-              color="text-sky-800/75"
+              color="text-[#bf49a4]"
             />
             <LinkWithColorChange
               name="varer"
@@ -115,17 +115,17 @@ export const Route = createRootRoute({
             <LinkWithColorChange
               name="film"
               Name="Film"
-              color="text-purple-900/75"
+              color="text-[#D0664f]"
             />
             <LinkWithColorChange
               name="millenium"
               Name="Millenium"
-              color="text-teal-700/75"
+              color="text-[#b04a4a]"
             />
             <LinkWithColorChange
               name="rating"
               Name="Rating"
-              color="text-pink-600/75"
+              color="text-[#5b80a6]"
             />
             <LinkWithColorChange
               name="pigefilm"
@@ -195,6 +195,41 @@ export const Route = createRootRoute({
             <LinkWithColorChange
               name="projekt4"
               Name="Projekt"
+              color="text-[#bf49a4]"
+            />
+            <LinkWithColorChange
+              name="lowcarb"
+              Name="Low carb"
+              color="text-[#74a65b]"
+            />
+            <LinkWithColorChange
+              name="traening"
+              Name="Træning"
+              color="text-[#D0664f]"
+            />
+            <LinkWithColorChange
+              name="interesser"
+              Name="Interesser"
+              color="text-[#b04a4a]"
+            />
+            <LinkWithColorChange
+              name="medlemmer"
+              Name="Medlemmer"
+              color="text-[#5b80a6]"
+            />
+            <LinkWithColorChange
+              name="tilmeldte"
+              Name="Tilmeldte"
+              color="text-[#5ba699]"
+            />
+            <LinkWithColorChange
+              name="projekt5"
+              Name="Projekt"
+              color="text-[#805ba6]"
+            />
+            <LinkWithColorChange
+              name="theend"
+              Name="The end"
               color="text-[#bf49a4]"
             />
           </div>

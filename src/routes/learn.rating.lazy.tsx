@@ -29,14 +29,16 @@ function About() {
           </>
         }
         hint={
-          <p>Hint: Der er forskel på {'>'} og  ≥, og koden skal stadig gøre det ønskede selvom der ændres på filmenes ratings.</p>
+          <p>
+            Hint: Der er forskel på {'>'} og ≥, og koden skal stadig gøre det
+            ønskede selvom der ændres på filmenes ratings.
+          </p>
         }
         feedbackText={
           <>
-            <p className="text-pink-600/75">Super flot :)</p>
+            <p className="text-[#5b80a6]">Super flot :)</p>
           </>
         }
-        nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['ratingINTEGER'],
           ['SELECTnavn,ratingFROMfilm', 'SELECTrating,navnFROMfilm'],

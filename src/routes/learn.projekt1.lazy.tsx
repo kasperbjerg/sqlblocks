@@ -33,13 +33,12 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-teal-700/75">
+            <p className="text-[#bf49a4]">
               Jeps, lige præcis :) Du må da gerne arbejde videre hvis du har
               lyst.
             </p>
           </>
         }
-        nextButtonColor={`purple-900/75`}
         completeConditionsSql={[['INTEGER'], ['TEXT']]}
         completeConditionsResult={[['[{']]} //to make sure the code is running
         completeConditionsTableInfo={[

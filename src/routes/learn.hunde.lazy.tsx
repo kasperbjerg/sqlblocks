@@ -40,24 +40,23 @@ function About() {
         hint={<p>Hint: Vælg også de rigtige datatyper til dine kolonner.</p>}
         feedbackText={
           <>
-            <p className="text-pink-600/75">'Du er jo en database-wiz'</p>
+            <p className="text-[#a65b99]">'Du er jo en database-wiz'</p>
           </>
         }
-        nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['CREATETABLEhund'],
           ['SELECT*FROM'],
           ['navnTEXT'],
           ['alderINTEGER'],
           ['ejerTEXT'],
-          ['Viktor','viktor'],
-          ['Plet','plet'],
+          ['Viktor', 'viktor'],
+          ['Plet', 'plet'],
           ['Trofast', 'trofast'],
           ['5'],
           ['12'],
           ['15'],
-          ['Pelle', 'pelle','Pelles','pelles'],
-          ['Balder', 'balder']
+          ['Pelle', 'pelle', 'Pelles', 'pelles'],
+          ['Balder', 'balder'],
         ]}
         completeConditionsResult={[['[{']]} //to make sure the code is running
         completeConditionsTableInfo={[['']]}

@@ -37,10 +37,9 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-purple-900/75">SÅDAN!.. godt arbejde :)</p>
+            <p className="text-[#5ba699]">SÅDAN!.. godt arbejde :)</p>
           </>
         }
-        nextButtonColor={`sky-800/75`}
         //completeConditionsSQL needs to be trimmed for whitespaces
         completeConditionsSql={[
           ['CREATETABLEserier'],

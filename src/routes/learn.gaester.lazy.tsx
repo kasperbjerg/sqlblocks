@@ -47,10 +47,9 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-purple-900/75">Fantastisk</p>
+            <p className="text-[#a6a65b]">Fantastisk</p>
           </>
         }
-        nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['kæledyr'],
           ['Nuser', 'nuser'],

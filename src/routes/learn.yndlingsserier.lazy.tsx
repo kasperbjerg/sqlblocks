@@ -37,23 +37,16 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-teal-700/75">Wauw.. du er en champ!</p>
+            <p className="text-[#805ba6]">Wauw.. du er en champ!</p>
           </>
         }
-        nextButtonColor={`purple-900/75`}
         completeConditionsSql={[
           ['SELECT*FROMserier'],
           ['serieTEXT'],
           ['ratingINTEGER'],
         ]}
         completeConditionsResult={[['']]}
-        completeConditionsTableInfo={[
-          [
-            '3 rækker',
-            '4 rækker',
-            '5 rækker',
-          ],
-        ]}
+        completeConditionsTableInfo={[['3 rækker', '4 rækker', '5 rækker']]}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="run_sqlblocks">

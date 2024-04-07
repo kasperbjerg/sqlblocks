@@ -26,10 +26,9 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-teal-700/75">Jeps, lige præcis :)</p>
+            <p className="text-[#b04a4a]">Jeps, lige præcis :)</p>
           </>
         }
-        nextButtonColor={`purple-900/75`}
         completeConditionsSql={[['']]}
         completeConditionsTableInfo={[['']]}
         completeConditionsResult={[

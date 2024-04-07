@@ -29,10 +29,9 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-purple-900/75">Jeps, ret nemt ikke?</p>
+            <p className="text-[#D0664f]">Jeps, ret nemt ikke?</p>
           </>
         }
-        nextButtonColor={`purple-900/75`}
         completeConditionsSql={[['SELECT*FROMfilm']]}
         completeConditionsResult={[['[{']]} //to make sure the code is running
         completeConditionsTableInfo={[['']]}

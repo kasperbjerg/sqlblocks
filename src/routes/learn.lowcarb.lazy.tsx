@@ -14,16 +14,14 @@ function About() {
       <Video
         exercise={'lowcarb'}
         nextExercise={'traening'}
-        videoUrl={'https://youtu.be/sqqNhxkIH-I'}
+        videoUrl={'https://youtu.be/8HQrVEGIfSo'}
         description={
           <>
-            <p>De sidste blokke er kommet frem</p>
-            <p>
-              Vi skal se på hvordan man kan gemme data på en smart måde i flere
-              tabeller der hænger sammen og få brugbare tabeller ud af databasen
-              igen. <br></br>
-              Du kommer til at høre om blokkene <b>INTEGER PRIMARY KEY</b>,{' '}
-              <b>LIMIT</b>, <b>AS</b>, <b>INNER JOIN</b> og <b>LEFT JOIN</b>
+            <p>Der er kommet endnu flere blokke frem nu.
+              Denne video handler om mere kompliceret filtrering med <b>AND</b>{' '}
+              og <b>OR</b>. <br/>
+              Vi ser også på blokken <b>IN</b> der kan tjekke om værdier er i en liste eller i indlejrede <b>SELECT</b>
+              -underforespørgsler. <br/>Til sidst introduceres også blokkene <b>GROUP BY</b> og <b>HAVING</b> samt aggregerinsfunktioner som <b>SUM</b>, <b>MAX</b>, <b>MIN</b> og <b>AVG</b>.
             </p>
           </>
         }

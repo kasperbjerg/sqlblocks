@@ -19,7 +19,7 @@ function About() {
         description={
           <>
             <p>
-              Kasper vil også træne, men det må ikke tage for lang tid, så han
+              Kasper vil også træne, men han er lidt doven, så han
               vil vælge at fokusere på en kategori hvor aktiviterne ikke tager
               for lang tid.
               <br />

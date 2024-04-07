@@ -179,8 +179,6 @@ export default function Sql({
 
   return (
     <div className="flex h-[448px] w-[362px] flex-col overflow-auto border-[0.5px] border-[#bbbbbb] pl-2 pr-2">
-      {JSON.stringify(result)}
-      {sqlCode}
       <div>
         <h1 className="text-left text-xl text-zinc-400">Databaseskema</h1>
         <div className="flex flex-row flex-wrap text-left">

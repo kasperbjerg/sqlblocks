@@ -218,8 +218,8 @@ export const Route = createRootRoute({
               color="text-[#5b80a6]"
             />
             <LinkWithColorChange
-              name="tilmeldte"
-              Name="Tilmeldte"
+              name="lazyboy"
+              Name="Lazyboy"
               color="text-[#5ba699]"
             />
             <LinkWithColorChange

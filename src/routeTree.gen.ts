@@ -26,7 +26,6 @@ const LearnYndlingsserierLazyImport = createFileRoute('/learn/yndlingsserier')()
 const LearnVarerLazyImport = createFileRoute('/learn/varer')()
 const LearnTraeningLazyImport = createFileRoute('/learn/traening')()
 const LearnTracksLazyImport = createFileRoute('/learn/tracks')()
-const LearnTilmeldteLazyImport = createFileRoute('/learn/tilmeldte')()
 const LearnTheendLazyImport = createFileRoute('/learn/theend')()
 const LearnTabellerLazyImport = createFileRoute('/learn/tabeller')()
 const LearnSygdomLazyImport = createFileRoute('/learn/sygdom')()
@@ -46,6 +45,7 @@ const LearnPengenoedLazyImport = createFileRoute('/learn/pengenoed')()
 const LearnMilleniumLazyImport = createFileRoute('/learn/millenium')()
 const LearnMedlemmerLazyImport = createFileRoute('/learn/medlemmer')()
 const LearnLowcarbLazyImport = createFileRoute('/learn/lowcarb')()
+const LearnLazyboyLazyImport = createFileRoute('/learn/lazyboy')()
 const LearnJonahLazyImport = createFileRoute('/learn/jonah')()
 const LearnInteresserLazyImport = createFileRoute('/learn/interesser')()
 const LearnIndkoebLazyImport = createFileRoute('/learn/indkoeb')()
@@ -115,13 +115,6 @@ const LearnTracksLazyRoute = LearnTracksLazyImport.update({
   path: '/tracks',
   getParentRoute: () => LearnRoute,
 } as any).lazy(() => import('./routes/learn.tracks.lazy').then((d) => d.Route))
-
-const LearnTilmeldteLazyRoute = LearnTilmeldteLazyImport.update({
-  path: '/tilmeldte',
-  getParentRoute: () => LearnRoute,
-} as any).lazy(() =>
-  import('./routes/learn.tilmeldte.lazy').then((d) => d.Route),
-)
 
 const LearnTheendLazyRoute = LearnTheendLazyImport.update({
   path: '/theend',
@@ -242,6 +235,11 @@ const LearnLowcarbLazyRoute = LearnLowcarbLazyImport.update({
   getParentRoute: () => LearnRoute,
 } as any).lazy(() => import('./routes/learn.lowcarb.lazy').then((d) => d.Route))
 
+const LearnLazyboyLazyRoute = LearnLazyboyLazyImport.update({
+  path: '/lazyboy',
+  getParentRoute: () => LearnRoute,
+} as any).lazy(() => import('./routes/learn.lazyboy.lazy').then((d) => d.Route))
+
 const LearnJonahLazyRoute = LearnJonahLazyImport.update({
   path: '/jonah',
   getParentRoute: () => LearnRoute,
@@ -331,6 +329,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnJonahLazyImport
       parentRoute: typeof LearnImport
     }
+    '/learn/lazyboy': {
+      preLoaderRoute: typeof LearnLazyboyLazyImport
+      parentRoute: typeof LearnImport
+    }
     '/learn/lowcarb': {
       preLoaderRoute: typeof LearnLowcarbLazyImport
       parentRoute: typeof LearnImport
@@ -407,10 +409,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnTheendLazyImport
       parentRoute: typeof LearnImport
     }
-    '/learn/tilmeldte': {
-      preLoaderRoute: typeof LearnTilmeldteLazyImport
-      parentRoute: typeof LearnImport
-    }
     '/learn/tracks': {
       preLoaderRoute: typeof LearnTracksLazyImport
       parentRoute: typeof LearnImport
@@ -446,6 +444,7 @@ export const routeTree = rootRoute.addChildren([
     LearnIndkoebLazyRoute,
     LearnInteresserLazyRoute,
     LearnJonahLazyRoute,
+    LearnLazyboyLazyRoute,
     LearnLowcarbLazyRoute,
     LearnMedlemmerLazyRoute,
     LearnMilleniumLazyRoute,
@@ -465,7 +464,6 @@ export const routeTree = rootRoute.addChildren([
     LearnSygdomLazyRoute,
     LearnTabellerLazyRoute,
     LearnTheendLazyRoute,
-    LearnTilmeldteLazyRoute,
     LearnTracksLazyRoute,
     LearnTraeningLazyRoute,
     LearnVarerLazyRoute,

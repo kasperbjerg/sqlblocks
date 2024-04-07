@@ -297,7 +297,7 @@ javascriptGenerator.forBlock['more'] = function (block, generator) {
 javascriptGenerator.forBlock['where'] = function (block, generator) {
   var statements_name = generator.statementToCode(block, 'NAME');
   // TODO: Assemble javascript into code variable.
-  var code = 'WHERE ' + statements_name;
+  var code = 'WHERE ' + statements_name + ' ';
   return code;
 };
 

@@ -229,7 +229,7 @@ export const Route = createRootRoute({
             />
             <LinkWithColorChange
               name="theend"
-              Name="The end"
+              Name="The End"
               color="text-[#bf49a4]"
             />
           </div>

@@ -20,8 +20,8 @@ function About() {
             <p>De sidste blokke er kommet frem</p>
             <p>
               Vi skal se på hvordan man kan gemme data på en smart måde i flere
-              tabeller der hænger sammen og få brugbare tabeller ud af
-              databasen igen. <br></br>
+              tabeller der hænger sammen og få brugbare tabeller ud af databasen
+              igen. <br></br>
               Du kommer til at høre om blokkene <b>INTEGER PRIMARY KEY</b>,{' '}
               <b>LIMIT</b>, <b>AS</b>, <b>INNER JOIN</b> og <b>LEFT JOIN</b>
             </p>
@@ -35,7 +35,7 @@ function About() {
         }
         feedbackText={
           <>
-            <p className="text-[#5b80a6]">
+            <p className="text-[#74a65b]">
               Super, så er du ved at klar til at gå i gang :)
             </p>
           </>

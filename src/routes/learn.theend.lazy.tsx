@@ -18,13 +18,13 @@ function About() {
         nextExercise={'theend'}
         description={
           <>
-            <p>The end!</p>
+            <p>The End!</p>
           </>
         }
         hint={<p>Hint:</p>}
         feedbackText={
           <>
-            <p className="text-[#805ba6]">Så er du igang igen.. fedt!</p>
+            <p className="text-[#a65b99]">Så er du igang igen.. fedt!</p>
           </>
         }
         completeConditionsSql={[['']]}

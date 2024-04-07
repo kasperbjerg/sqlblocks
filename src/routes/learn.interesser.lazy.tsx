@@ -24,7 +24,7 @@ function About() {
         hint={<p>Hint:</p>}
         feedbackText={
           <>
-            <p className="text-[#805ba6]">Så er du igang igen.. fedt!</p>
+            <p className="text-[#b04a4a]">Så er du igang igen.. fedt!</p>
           </>
         }
         completeConditionsSql={[['']]}

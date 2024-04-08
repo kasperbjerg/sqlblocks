@@ -65,7 +65,7 @@ export default function Exercise({
   return (
     <>
       {/*typeof sqlCode != 'undefined' && JSON.stringify(result)*/}
-      <div className="flex flex-col">
+      <div className="flex flex-col pl-6">
         <div className="h-20 w-[1024px]">{description}</div>
         <div className="h-8 text-[#D0664f]">{hint}</div>
         <div className="h-12">
@@ -86,9 +86,7 @@ export default function Exercise({
               />
             )}
           </div>
-          <div
-            className="text-bold animate-bounce text-2xl font-bold"
-          >
+          <div className="text-bold animate-bounce text-2xl font-bold">
             {complete ? feedbackText : ''}
           </div>
         </div>

@@ -28,7 +28,7 @@ export default function Video({
   return (
     <>
       <ReloadDummy reload={reload} />
-      <div className="flex flex-col">
+      <div className="flex flex-col pl-6">
         <div className="h-20">{description}</div>
         <div className="h-8 text-[#D0664f]">{hint}</div>
         <div className="h-12">

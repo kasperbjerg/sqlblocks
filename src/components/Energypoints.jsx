@@ -16,7 +16,7 @@ export default function Energypoints({}) {
 
   return (
     <>
-      <p>Energypoints: {printPoints}</p>
+      {printPoints}
     </>
   );
 }

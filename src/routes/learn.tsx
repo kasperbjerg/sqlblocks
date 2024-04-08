@@ -68,7 +68,7 @@ export const Route = createRootRoute({
               <div className="flex justify-end pt-1">
                 <div className="pr-2">
                   <p className="pr-2 text-lg text-[#D0664f] ">
-                    <Energypoints />
+                    Energypoints: <Energypoints />
                   </p>
                 </div>
               </div>

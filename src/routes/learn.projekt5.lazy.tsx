@@ -28,20 +28,28 @@ function About() {
           <>
             <p>
               Sidste projekt! <br />
-              Prøv de nye blokke af på din database fra sidste projekt.
+              Prøv de nye blokke af på din database fra sidste projekt. Hvis
+              blokkene ikke er loaded ind, så tryk på "Start forfra". <br />
             </p>
           </>
         }
-        hint={<p>Hint:</p>}
+        hint={
+          <p>
+            Hint: Der skal ikke så meget til at få opgaven godkendt, men sørg
+            selv for at få prøvet de forskellige nye blokke af alligevel.
+          </p>
+        }
         feedbackText={
           <>
             <p className="text-[#805ba6]">
-              Slut prut finale! Hop lige videre og læs "The End" siden når du
-              ikke giver at lege mere.
+              Slut prut finale! Men hop lige videre og læs "The End" når
+              du ikke gider at lege mere.
             </p>
           </>
         }
-        completeConditionsSql={[['']]}
+        completeConditionsSql={[
+          ['AND', 'OR', 'IN', 'GROUPBY', 'SUM', 'MAX', 'MIN', 'AVG'],
+        ]}
         completeConditionsTableInfo={[['']]}
         completeConditionsResult={[['[{']]} //to make sure the code is running
         initialXml={projetk4Xml}

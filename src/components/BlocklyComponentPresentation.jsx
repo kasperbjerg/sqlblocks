@@ -36,9 +36,10 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 Blockly.setLocale(locale);
 
 export default function BlocklyComponentPresentation({
-  exercise,
-  reload,
+  presentation,
   reset,
+  copy,
+  paste,
   initialXml,
   children,
   move,
@@ -52,8 +53,11 @@ export default function BlocklyComponentPresentation({
   const blocklyDiv = useRef();
   const toolbox = useRef();
 
-  const [storedXml, setStoredXml] = useLocalStorage(exercise + 'Workspace', '');
-  const [energyPoints, setEnergyPoints] = useLocalStorage('energyPoints', 0);
+  const [storedXml, setStoredXml] = useLocalStorage(
+    presentation + 'Workspace',
+    '',
+  );
+  const [tempXml, setTempXml] = useLocalStorage('tempWorkspace', '');
 
   //restores workspace to initialXml
   if (reset) {
@@ -61,13 +65,17 @@ export default function BlocklyComponentPresentation({
     location.reload();
   }
 
-  //reload the browser from parent return-html without causing infinite loop
-  useEffect(() => {
-    if (reload) {
-      setEnergyPoints(energyPoints - 2);
-      location.reload();
-    }
-  }, [reload]);
+  // saves workspace in tempXml if copy is called from parent
+  if (copy) {
+    setTempXml(storedXml);
+    location.reload();
+  }
+
+  //if paste is called it sets storedXml as temp
+  if (paste) {
+    setStoredXml(tempXml);
+    location.reload();
+  }
 
   useEffect(() => {
     let workspace = Blockly.inject(blocklyDiv.current, {

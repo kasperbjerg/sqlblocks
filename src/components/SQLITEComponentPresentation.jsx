@@ -101,7 +101,7 @@ export default function Sql({
     }
     return data.map((table) => {
       return (
-        <div className="pr-2 pt-2">
+        <div className="pr-2 pb-2">
           <table className="rounded-lg border border-[0.5px] border-[#bbbbbb]">
             <thead className=" border-[0.5px] border-[#bbbbbb] bg-[#e4e4e4]">
               <th className="">{table[0]}</th>
@@ -178,14 +178,14 @@ export default function Sql({
   }
 
   return (
-    <div className="flex h-[560px] w-[426px] flex-col overflow-auto border-[0.5px] border-[#bbbbbb] pl-2 pr-2">
+    <div className="flex h-[560px] w-[426px] flex-col overflow-auto border-[0.5px] border-[#bbbbbb] pb-2 pl-2 pr-2">
       <div>
         <h1 className="text-left text-xl text-zinc-400">Databaseskema</h1>
         <div className="flex flex-row flex-wrap text-left">
           {createTables(tableInfo)}
         </div>
       </div>
-      <div className="pt-2">
+      <div className="">
         <h1 className="text-left text-xl text-zinc-400">Resultat</h1>
         <div className="">
           <table className="gap-4 border border-[0.5px] border-[#bbbbbb] text-left">

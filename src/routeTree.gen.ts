@@ -21,6 +21,13 @@ import { Route as LearnImport } from './routes/learn'
 const TeachersecretoldLazyImport = createFileRoute('/teacher_secret_old')()
 const TeachersecretLazyImport = createFileRoute('/teacher_secret')()
 const IndexLazyImport = createFileRoute('/')()
+const Presentation9LazyImport = createFileRoute('/presentation/9')()
+const Presentation8LazyImport = createFileRoute('/presentation/8')()
+const Presentation7LazyImport = createFileRoute('/presentation/7')()
+const Presentation6LazyImport = createFileRoute('/presentation/6')()
+const Presentation5LazyImport = createFileRoute('/presentation/5')()
+const Presentation4LazyImport = createFileRoute('/presentation/4')()
+const Presentation3LazyImport = createFileRoute('/presentation/3')()
 const Presentation2LazyImport = createFileRoute('/presentation/2')()
 const Presentation1LazyImport = createFileRoute('/presentation/1')()
 const LearnYndlingsserierLazyImport = createFileRoute('/learn/yndlingsserier')()
@@ -85,6 +92,55 @@ const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const Presentation9LazyRoute = Presentation9LazyImport.update({
+  path: '/9',
+  getParentRoute: () => PresentationRoute,
+} as any).lazy(() =>
+  import('./routes/presentation.9.lazy').then((d) => d.Route),
+)
+
+const Presentation8LazyRoute = Presentation8LazyImport.update({
+  path: '/8',
+  getParentRoute: () => PresentationRoute,
+} as any).lazy(() =>
+  import('./routes/presentation.8.lazy').then((d) => d.Route),
+)
+
+const Presentation7LazyRoute = Presentation7LazyImport.update({
+  path: '/7',
+  getParentRoute: () => PresentationRoute,
+} as any).lazy(() =>
+  import('./routes/presentation.7.lazy').then((d) => d.Route),
+)
+
+const Presentation6LazyRoute = Presentation6LazyImport.update({
+  path: '/6',
+  getParentRoute: () => PresentationRoute,
+} as any).lazy(() =>
+  import('./routes/presentation.6.lazy').then((d) => d.Route),
+)
+
+const Presentation5LazyRoute = Presentation5LazyImport.update({
+  path: '/5',
+  getParentRoute: () => PresentationRoute,
+} as any).lazy(() =>
+  import('./routes/presentation.5.lazy').then((d) => d.Route),
+)
+
+const Presentation4LazyRoute = Presentation4LazyImport.update({
+  path: '/4',
+  getParentRoute: () => PresentationRoute,
+} as any).lazy(() =>
+  import('./routes/presentation.4.lazy').then((d) => d.Route),
+)
+
+const Presentation3LazyRoute = Presentation3LazyImport.update({
+  path: '/3',
+  getParentRoute: () => PresentationRoute,
+} as any).lazy(() =>
+  import('./routes/presentation.3.lazy').then((d) => d.Route),
+)
 
 const Presentation2LazyRoute = Presentation2LazyImport.update({
   path: '/2',
@@ -441,6 +497,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Presentation2LazyImport
       parentRoute: typeof PresentationImport
     }
+    '/presentation/3': {
+      preLoaderRoute: typeof Presentation3LazyImport
+      parentRoute: typeof PresentationImport
+    }
+    '/presentation/4': {
+      preLoaderRoute: typeof Presentation4LazyImport
+      parentRoute: typeof PresentationImport
+    }
+    '/presentation/5': {
+      preLoaderRoute: typeof Presentation5LazyImport
+      parentRoute: typeof PresentationImport
+    }
+    '/presentation/6': {
+      preLoaderRoute: typeof Presentation6LazyImport
+      parentRoute: typeof PresentationImport
+    }
+    '/presentation/7': {
+      preLoaderRoute: typeof Presentation7LazyImport
+      parentRoute: typeof PresentationImport
+    }
+    '/presentation/8': {
+      preLoaderRoute: typeof Presentation8LazyImport
+      parentRoute: typeof PresentationImport
+    }
+    '/presentation/9': {
+      preLoaderRoute: typeof Presentation9LazyImport
+      parentRoute: typeof PresentationImport
+    }
   }
 }
 
@@ -484,6 +568,13 @@ export const routeTree = rootRoute.addChildren([
   PresentationRoute.addChildren([
     Presentation1LazyRoute,
     Presentation2LazyRoute,
+    Presentation3LazyRoute,
+    Presentation4LazyRoute,
+    Presentation5LazyRoute,
+    Presentation6LazyRoute,
+    Presentation7LazyRoute,
+    Presentation8LazyRoute,
+    Presentation9LazyRoute,
   ]),
   TeachersecretLazyRoute,
   TeachersecretoldLazyRoute,

@@ -101,7 +101,7 @@ export default function Sql({
     }
     return data.map((table) => {
       return (
-        <div className="pr-2 pb-2">
+        <div className="pb-2 pr-2">
           <table className="rounded-lg border border-[0.5px] border-[#bbbbbb]">
             <thead className=" border-[0.5px] border-[#bbbbbb] bg-[#e4e4e4]">
               <th className="">{table[0]}</th>

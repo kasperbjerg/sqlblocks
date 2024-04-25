@@ -14,8 +14,8 @@ function About() {
     <>
       <Presentation
         presentation={'presentation2'}
-        previousPresentation={'presentation1'}
-        nextPresentation={'presentation3'}
+        previousPresentation={'1'}
+        nextPresentation={'3'}
         initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
                 <Block type="run_sqlblocks" />

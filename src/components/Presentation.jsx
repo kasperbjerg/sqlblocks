@@ -7,7 +7,7 @@ import '../generator/generator.js';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-import NextExerciseButton from './NextExerciseButton.jsx';
+import { Link } from '@tanstack/react-router';
 import ConfettiExplosion from 'react-confetti-explosion';
 import { json } from '@tanstack/react-router';
 
@@ -64,30 +64,10 @@ export default function Presentation({
           </BlocklyComponentPresentation>
         </div>
         <div className="flex w-[1280px] flex-row justify-between pb-12 pt-4">
-          <div>
+          <div className="space-x-2">
             <button
               onClick={() => {
-                if (
-                  confirm(
-                    'Er du sikker på at du vil indlæse et eksempel?\nDine nuværende blokke bliver erstattet.',
-                  ) === true
-                ) {
-                  setReset(true);
-                }
-              }}
-              className="rounded-md bg-teal-700/75 p-2 text-white"
-            >
-              Indlæs eksempel
-            </button>
-            <button
-              onClick={() => {
-                if (
-                  confirm(
-                    'Er du sikker på at du vil indlæse et eksempel?\nDine nuværende blokke bliver erstattet.',
-                  ) === true
-                ) {
-                  setCopy(true);
-                }
+                setCopy(true);
               }}
               className="rounded-md bg-teal-700/75 p-2 text-white"
             >
@@ -97,7 +77,7 @@ export default function Presentation({
               onClick={() => {
                 if (
                   confirm(
-                    'Er du sikker på at du vil indlæse et eksempel?\nDine nuværende blokke bliver erstattet.',
+                    'Er du sikker på at du vil indsætte?\nDine nuværende blokke bliver erstattet.',
                   ) === true
                 ) {
                   setPaste(true);
@@ -107,14 +87,34 @@ export default function Presentation({
             >
               Paste
             </button>
+            {presentation == 'presentation1' && ( //pretty need way of only showing example on slide 1
+              <button
+                onClick={() => {
+                  if (
+                    confirm(
+                      'Er du sikker på at du vil indlæse et eksempel?\nDine nuværende blokke bliver erstattet.',
+                    ) === true
+                  ) {
+                    setReset(true);
+                  }
+                }}
+                className="rounded-md bg-teal-700/75 p-2 text-white"
+              >
+                Indlæs eksempel
+              </button>
+            )}
           </div>
-          {/*
-          <div className="shrink-0">
-            <NextExerciseButton
-              exercise={exercise}
-              nextExercise={nextExercise}
-            />
-            </div> */}
+
+          <div className="shrink-0 space-x-2">
+            <button className="rounded-md bg-[#5b80a6] p-2 text-white">
+              <Link to={'/presentation/' + previousPresentation}>
+                Forrige slide
+              </Link>
+            </button>
+            <button className="rounded-md bg-[#5b80a6] p-2 text-white">
+              <Link to={'/presentation/' + nextPresentation}>Næste slide</Link>
+            </button>
+          </div>
         </div>
       </div>
     </>

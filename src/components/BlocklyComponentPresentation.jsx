@@ -68,7 +68,6 @@ export default function BlocklyComponentPresentation({
   // saves workspace in tempXml if copy is called from parent
   if (copy) {
     setTempXml(storedXml);
-    location.reload();
   }
 
   //if paste is called it sets storedXml as temp

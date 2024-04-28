@@ -7,19 +7,14 @@ import '../generator/generator.js';
 
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-import NextExerciseButton from './NextExerciseButton.jsx';
+import { Link } from '@tanstack/react-router';
 import ConfettiExplosion from 'react-confetti-explosion';
 import { json } from '@tanstack/react-router';
 
 export default function Presentation({
-  exercise,
-  description,
-  hint,
-  feedbackText,
-  nextExercise,
-  completeConditionsSql,
-  completeConditionsTableInfo,
-  completeConditionsResult,
+  presentation,
+  previousPresentation,
+  nextPresentation,
   initialXml,
   toolBox,
 }) {
@@ -32,36 +27,9 @@ export default function Presentation({
   const [result, setResult] = useState([]);
   const handleResultChange = (e) => setResult(e);
 
-  const [complete, setComplete] = useLocalStorage(exercise + 'Complete', false);
-  const [exploded, setExploded] = useLocalStorage(exercise + 'Exploded', false);
-
   const [reset, setReset] = useState(false);
-  const [reload, setReload] = useState(false);
-
-  //Will check conditions for exercise complete
-  //One of the strings in every sub-array needs to be in the codeString
-  function checkConditions(conditionsArray, codeString) {
-    return conditionsArray.every((subArray) =>
-      subArray.some((textString) => codeString.includes(textString) === true),
-    );
-  }
-
-  React.useEffect(() => {
-    if (
-      typeof sqlCode !== 'undefined' &&
-      checkConditions(completeConditionsSql, sqlCode.replace(/\s+/g, '')) && // it checks against sqlcode trimmed for whitespaces
-      checkConditions(completeConditionsTableInfo, JSON.stringify(tableInfo)) &&
-      checkConditions(completeConditionsResult, JSON.stringify(result))
-    ) {
-      setComplete(true);
-    }
-  }, [sqlCode, result, tableInfo]);
-
-  React.useEffect(() => {
-    if (complete) {
-      setExploded(true);
-    }
-  }, []);
+  const [copy, setCopy] = useState(false);
+  const [paste, setPaste] = useState(false);
 
   return (
     <>
@@ -69,9 +37,10 @@ export default function Presentation({
       <div className="flex flex-col">
         <div flex flex-row>
           <BlocklyComponentPresentation
-            reload={reload}
             reset={reset}
-            exercise={exercise}
+            copy={copy}
+            paste={paste}
+            presentation={presentation}
             sqlCode={sqlCode}
             handleSqlCodeChange={handleSqlCodeChange}
             result={result}
@@ -95,30 +64,57 @@ export default function Presentation({
           </BlocklyComponentPresentation>
         </div>
         <div className="flex w-[1280px] flex-row justify-between pb-12 pt-4">
-          <div>
+          <div className="space-x-2">
+            <button
+              onClick={() => {
+                setCopy(true);
+              }}
+              className="rounded-md bg-teal-700/75 p-2 text-white"
+            >
+              Copy
+            </button>
             <button
               onClick={() => {
                 if (
                   confirm(
-                    'Er du sikker på at du vil indlæse et eksempel?\nDine nuværende blokke bliver erstattet.',
+                    'Er du sikker på at du vil indsætte?\nDine nuværende blokke bliver erstattet.',
                   ) === true
                 ) {
-                  setComplete(false);
-                  setReset(true);
+                  setPaste(true);
                 }
               }}
               className="rounded-md bg-teal-700/75 p-2 text-white"
             >
-              Indlæs eksempel
+              Paste
+            </button>
+            {presentation == 'presentation1' && ( //pretty need way of only showing example on slide 1
+              <button
+                onClick={() => {
+                  if (
+                    confirm(
+                      'Er du sikker på at du vil indlæse et eksempel?\nDine nuværende blokke bliver erstattet.',
+                    ) === true
+                  ) {
+                    setReset(true);
+                  }
+                }}
+                className="rounded-md bg-teal-700/75 p-2 text-white"
+              >
+                Indlæs eksempel
+              </button>
+            )}
+          </div>
+
+          <div className="shrink-0 space-x-2">
+            <button className="rounded-md bg-[#5b80a6] p-2 text-white">
+              <Link to={'/presentation/' + previousPresentation}>
+                Forrige slide
+              </Link>
+            </button>
+            <button className="rounded-md bg-[#5b80a6] p-2 text-white">
+              <Link to={'/presentation/' + nextPresentation}>Næste slide</Link>
             </button>
           </div>
-          {/*
-          <div className="shrink-0">
-            <NextExerciseButton
-              exercise={exercise}
-              nextExercise={nextExercise}
-            />
-            </div> */}
         </div>
       </div>
     </>

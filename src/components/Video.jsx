@@ -32,12 +32,9 @@ export default function Video({
         <div className="h-20">{description}</div>
         <div className="h-8 text-[#D0664f]">{hint}</div>
         <div className="h-12">
-          <button
-            onClick={() => setReload(true)}
-            className="text-bold animate-bounce text-2xl font-bold"
-          >
+          <div className="text-bold animate-bounce text-2xl font-bold">
             {complete ? feedbackText : ''}
-          </button>
+          </div>
         </div>
         <div className="h-[448px]">
           <div className="relative h-full w-full pt-[43.75%]">

@@ -6,10 +6,10 @@ import Exercise from '../components/Exercise.jsx';
 import { Block, Field, Value } from '../components/index.js';
 
 export const Route = createLazyFileRoute('/learn/reality')({
-  component: About,
+  component: Reality,
 });
 
-function About() {
+function Reality() {
   return (
     <>
       <Exercise

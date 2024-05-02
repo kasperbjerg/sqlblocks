@@ -1,14 +1,13 @@
-import { Outlet, createLazyFileRoute } from '@tanstack/react-router';
 import BlocklyApp from '../BlocklyApp.jsx';
 import logo from '/logo.svg';
 import React from 'react';
-import { Link } from '@tanstack/react-router';
+import { createLazyFileRoute, Link, Outlet } from '@tanstack/react-router';
 
 export const Route = createLazyFileRoute('/')({
-  component: About,
+  component: Home,
 });
 
-function About() {
+function Home() {
   return (
     <>
       <div className="">

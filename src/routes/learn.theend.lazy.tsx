@@ -25,11 +25,13 @@ function About() {
             godt arbejde!
             <br />
             <br />I alt har du optjent{' '}
-            <p className=" text-[#D0664f] ">
+            <span className=" text-[#D0664f] ">
               {' '}
               <Energypoints /> energypoints
-            </p>{' '}
-            og fået alle nedenstående badges:
+            </span>{' '}
+            <br />
+            og fået nedenstående badges
+            <br />
             <br />
             <div className="flex flex-row">
               <Badge
@@ -77,16 +79,25 @@ function About() {
               />
             </div>
             <br />
-            Det kan være der stadig er flere point eller badges at finde..<br/>
-            Du kan se om du mangler nogle af opgaverne ved at tjekke om de er blevet farvede i i menuen til venstre
+            Det kan være der stadig er flere point eller badges at finde..
             <br />
-            Hvis du skal til eksamen kan du få brug for at lave en ny SQLBLOCKS database fra bunden og præsentere den<br/>
-            hvilket du kan gøre på nedenstående link:
+            Du kan se om du mangler nogle af opgaverne ved at tjekke om de er
+            blevet farvede i i menuen til venstre
+            <br />
+            <br />
+            Hvis du skal til eksamen kan du få brug for at lave en ny SQLBLOCKS
+            database fra bunden og præsentere den
+            <br />
+            hvilket du kan gøre på nedenstående link
+            <br />
             <br />
             <button className="rounded-md bg-[#805ba6] p-2 text-white">
               <Link to={'/presentation/1'}>Ny SQLBLOCKS database</Link>
             </button>
             <br />
+            <br />
+            Happy Coding!
+            
           </p>
         </div>
       </div>

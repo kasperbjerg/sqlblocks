@@ -14,7 +14,23 @@ The project is part of my master's thesis.
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Prettier](https://prettier.io/)
   
-## Installation
+## How to run locally
+If you want to run a copy of this project locally follow the instructions below.
+
+### Install Node.js and npm if you haven't already done this
+Node.js actually includes npm, so just [follow these instrucions](https://nodejs.org/en/download).
+
+### Install Git of you haven't already done this
+[Download Git](https://git-scm.com/downloads).
+
+### Clone the repository
+Open a terminal, navigate to the directory where you want to copy the repository an run
+
+```git clone https://github.com/kasperbjerg/sqlblocks.git```
+
+### Install dependencies
+You need to download some extra stuff (for instance the Blockly library and the SQLite package).
+
 
 ## Credits and acknoledgements
 

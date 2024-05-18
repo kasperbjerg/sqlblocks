@@ -58,3 +58,9 @@ List of tutorials, videos, examples, repositories, etc., that has helped me in t
 - [Demo of integrating Blockly in React](https://github.com/google/blockly-samples/tree/master/examples/blockly-react)
 - [Install Tailwind CSS with Vite](https://tailwindcss.com/docs/guides/vite)
 - [Setting up Prettier with Vite React App and VS Code](https://www.youtube.com/watch?v=SMbqi1HPprc)
+
+## Contributing
+Any contributions are greatly appreciated, whether it's pointing out a bug or suggesting a new feature by [creating a new issue](https://github.com/kasperbjerg/sqlblocks/issues/new/choose) or if you feel like helping out by working on some of the [open issues](https://github.com/kasperbjerg/sqlblocks/issues) already created
+
+If you want to contribute by working on the existing issues you should [fork the repository and make a pull request](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
+

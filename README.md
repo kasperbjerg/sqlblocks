@@ -1,8 +1,8 @@
 [![Deploy to Pages](https://github.com/kasperbjerg/sqlblocks/actions/workflows/deploy.yml/badge.svg)](https://github.com/kasperbjerg/sqlblocks/actions/workflows/deploy.yml)
 # SQLBLOCKS
-An enviroment for learning the basics of SQL by using block-based coding.
+An enviroment for learning the basics of SQL by using block-based coding
 
-The project is part of my master's thesis.
+The project is part of my master's thesis
 
 ## Live-demo
 - [SQLBLOCKS](https://kasperbjerg.github.io/sqlblocks/)
@@ -15,22 +15,34 @@ The project is part of my master's thesis.
 - [Prettier](https://prettier.io/)
   
 ## How to run locally
-If you want to run a copy of this project locally follow the instructions below.
+If you want to run a copy of this project locally follow the instructions below
 
 ### Install Node.js and npm if you haven't already done this
-Node.js actually includes npm, so just [follow these instrucions](https://nodejs.org/en/download).
+Node.js actually includes npm, so just [follow these instrucions](https://nodejs.org/en/download)
 
 ### Install Git of you haven't already done this
-[Download Git](https://git-scm.com/downloads).
+[Follow these instructions](https://git-scm.com/downloads)
 
 ### Clone the repository
 Open a terminal, navigate to the directory where you want to copy the repository an run
-
-```git clone https://github.com/kasperbjerg/sqlblocks.git```
-
+```
+git clone https://github.com/kasperbjerg/sqlblocks.git
+```
 ### Install dependencies
 You need to download some extra stuff (for instance the Blockly library and the SQLite package).
+In a terminal make sure that you navigate to the newly created directory `sqlblocks` and then run
+```
+npm install
+```
+### Start the development server
+In a terminal and in the same directory `sqlblocks` run
+```
+npm run dev
+```
+Then, copy the localhost address, open a browser and paste the address
 
+### Hello, World!
+In the file `/src/routes/index.lazy.tsx` replace `Velkommen til SQLBLOCKS!` with `Hello, World!` and see the change in the browser
 
 ## Credits and acknoledgements
 

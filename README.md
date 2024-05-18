@@ -8,11 +8,16 @@ The project is part of my master's thesis
 - [SQLBLOCKS](https://kasperbjerg.github.io/sqlblocks/)
 
 ## Technologies/frameworks/packages used
+- [React](https://react.dev/)
 - [Vite](https://vitejs.dev/guide/) (with react+javascript template)
 - [SQLite Wasm](https://www.npmjs.com/package/@sqlite.org/sqlite-wasm)
 - [Blockly](https://www.npmjs.com/package/blockly)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Prettier](https://prettier.io/)
+- [TanStack Router](https://tanstack.com/router/latest)
+- [useLocalStorage](https://usehooks.com/uselocalstorage)
+- [React Confetti Explosion](https://www.npmjs.com/package/react-confetti-explosion)
+- [ReactPlayer](https://www.npmjs.com/package/react-player)
   
 ## How to run locally
 If you want to run a copy of this project locally follow the instructions below

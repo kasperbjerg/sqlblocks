@@ -56,13 +56,14 @@ In the file `/src/routes/index.lazy.tsx` replace `Velkommen til SQLBLOCKS!` with
 
 ## Credits and acknoledgements
 
-List of tutorials, videos, examples, repositories, etc., that has helped me in the process of building this project
+List of tutorials, videos, examples, repositories, etc., that has helped or inspired me in the process of building this project
 
 - [Vite React App Deploy On GitHub | Step By Step](https://www.youtube.com/watch?v=XhoWXhyuW_I)
 - [Setting up SQLite Wasm in main thread with Vite](https://github.com/sqlite/sqlite-wasm/tree/main?tab=readme-ov-file#in-the-main-thread-without-opfs)
 - [Demo of integrating Blockly in React](https://github.com/google/blockly-samples/tree/master/examples/blockly-react)
-- [Install Tailwind CSS with Vite](https://tailwindcss.com/docs/guides/vite)
-- [Setting up Prettier with Vite React App and VS Code](https://www.youtube.com/watch?v=SMbqi1HPprc)
+- [BlocklySQL](https://github.com/nicolaipoehner/blocklysql)
+- [Sqlime](https://github.com/nalgeon/sqlime)
+- [SQL on Khan Academy](https://brianbondy.com/blog/168/sql-on-khan-academy-enabled-by-sqlite-sqljs-asmjs-and-emscripten)
 
 ## Contributing
 Any contributions are greatly appreciated, whether it's pointing out a bug or suggesting a new feature by [creating a new issue](https://github.com/kasperbjerg/sqlblocks/issues/new) or if you feel like helping out by working on some of the [open issues](https://github.com/kasperbjerg/sqlblocks/issues) already created

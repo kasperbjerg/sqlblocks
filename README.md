@@ -30,7 +30,12 @@ git clone https://github.com/kasperbjerg/sqlblocks.git
 ```
 ### Install dependencies
 You need to download some extra stuff (for instance the Blockly library and the SQLite package).
-In a terminal make sure that you navigate to the newly created directory `sqlblocks` and then run
+First navigate to the newly created directory
+```
+cd sqlblocks
+```
+
+and then run
 ```
 npm install
 ```
@@ -39,7 +44,7 @@ In a terminal and in the same directory `sqlblocks` run
 ```
 npm run dev
 ```
-Then, copy the localhost address, open a browser and paste the address
+Then, copy the localhost address, open a browser and go the address
 
 ### Hello, World!
 In the file `/src/routes/index.lazy.tsx` replace `Velkommen til SQLBLOCKS!` with `Hello, World!` and see the change in the browser
